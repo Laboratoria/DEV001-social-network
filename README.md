@@ -479,7 +479,7 @@ profundizar y/o ejercitar más sobre los objetivos de aprendizaje del proyecto.
 
 El proyecto será _entregado_ subiendo tu código a GitHub (`commit`/`push`) y la
 interfaz será desplegada usando GitHub pages u otro servicio de hosting que
-puedas haber encontrado en el camino.
+puedas haber encontrado en el camino. (ej. Firebase Hosting, [Netlify](https://www.netlify.com/), [Heroku](https://www.heroku.com/), [Vercel](https://vercel.com/)).
 
 ***
 
@@ -536,5 +536,5 @@ Otras:
  * [ ] El proyecto será entregado incluyendo pruebas unitarias que cubren un mínimo del 70% de statements, functions, lines y branches.
  * [ ] El proyecto será entregado libre de errores de eslint (los warnings están ok).
  * [ ] El proyecto será entregado subiendo tu código a GitHub.
- * [ ] La interfaz será "desplegada" (usando servicio tipo Firebase, Netlify, Heroku, GitHub Pages)
+ * [ ] La interfaz será "desplegada" usando un servicio de hosting o Github Pages.
  * [ ] El README contiene una definición del producto e Historias de Usuario.
