@@ -10,6 +10,7 @@
 * [6. Hacker edition](#6-hacker-edition)
 * [7. Entrega](#7-entrega)
 * [8. Pistas, tips y lecturas complementarias](#8-pistas-tips-y-lecturas-complementarias)
+* [9. Para considerar Project Feedback](#9-para-considerar-project-feedback)
 
 ## 1. Preámbulo
 
@@ -478,7 +479,7 @@ profundizar y/o ejercitar más sobre los objetivos de aprendizaje del proyecto.
 
 El proyecto será _entregado_ subiendo tu código a GitHub (`commit`/`push`) y la
 interfaz será desplegada usando GitHub pages u otro servicio de hosting que
-puedas haber encontrado en el camino.
+puedas haber encontrado en el camino. (ej. Firebase Hosting, [Netlify](https://www.netlify.com/), [Heroku](https://www.heroku.com/), [Vercel](https://vercel.com/)).
 
 ***
 
@@ -528,3 +529,12 @@ Otras:
 * [Mobile First: el enfoque actual del diseño web móvil - 1and1](https://www.1and1.es/digitalguide/paginas-web/diseno-web/mobile-first-la-nueva-tendencia-del-diseno-web/)
 * [Mobile First - desarrolloweb.com](https://desarrolloweb.com/articulos/mobile-first-responsive.html)
 * [Mobile First Is NOT Mobile Only - Nielsen Norman Group](https://www.nngroup.com/articles/mobile-first-not-mobile-only/)
+
+## 9. Para considerar Project Feedback
+
+ * [ ] Tiene una interfaz que cumple los criterios mínimos con al menos 3 Historias de Usuario.
+ * [ ] El proyecto será entregado incluyendo pruebas unitarias que cubren un mínimo del 70% de statements, functions, lines y branches.
+ * [ ] El proyecto será entregado libre de errores de eslint (los warnings están ok).
+ * [ ] El proyecto será entregado subiendo tu código a GitHub.
+ * [ ] La interfaz será "desplegada" usando un servicio de hosting o Github Pages.
+ * [ ] El README contiene una definición del producto e Historias de Usuario.
