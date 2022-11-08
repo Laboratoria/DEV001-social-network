@@ -5,10 +5,13 @@
 }
 
  :root{
- 
+   --fondo_de_pagina: #000000;
+  --sombra_formulario :  0 5px 30px #7b2cbf,
+  0 -5px 30px #7b2cbf;
     
  }
 
 body{
     font-family: 'Montserrat', sans-serif;
+    
 }
