@@ -1,0 +1,139 @@
+#root{
+    width: 100%;
+    height: 100vh;
+    background-color: var(--fondo_de_pagina);
+}
+
+.divPadre2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   
+}
+
+.mensajeBienvenida2 h2{
+  margin-top: 25px;  
+  font-weight: 900;
+  font-size: 50px;
+  color: white;
+  -webkit-text-stroke: 1px #081c15;
+  text-shadow: #95d5b2 0px 0px 5px,
+     #FFF 0px 0px 10px, #FFF 0px 0px 15px, #affc41 0px 0px 20px, 
+     #affc41 0px 0px 30px, #affc41 0px 0px 40px, #affc41 0px 0px 50px, 
+     #74d3ae 0px 0px 75px;
+     animation-name: moverTitulo;
+     animation-duration: 10s;
+     animation-iteration-count: infinite;
+     animation-timing-function: ease-in-out;   
+}
+@keyframes moverTitulo{
+    0%{
+        transform: scale(0.9)
+    }
+    100%{
+        transform: scale(1.1)
+    }
+}
+
+
+
+
+.formulariologin{
+    margin-top: 50px;
+    padding: 15px 0px;
+    align-items: center;
+    width: 350px;
+    height: 400px;
+    border-radius:10px;
+    text-align: center;
+    box-shadow:var(--sombra_formulario);
+}
+.formulariologin h1{
+    color: white;
+    font-weight: 700;
+}
+.grupos{
+    display: flex;
+    flex-direction: column;
+    margin: 15px 10px;
+    padding: 20px;
+
+}
+
+.grupos input{
+    width: 300px;
+    padding: 5px;
+}
+
+.grupos label{
+    width: 250px;
+    text-align: left;
+    margin-bottom: 5px;
+    color: white;
+}
+
+/*.formularioRegistro button{
+   width: 150px; 
+   height: 40px;
+   text-transform: uppercase;
+}*/
+.botonRegreso2{
+    margin-top: 40px;
+}
+
+.botonRegreso2 button{
+   width: 150px;
+   height: 40px;
+}
+
+
+.formulariologin button{
+    cursor: pointer;
+    width: 200px;
+    height: 40px;
+    font-size: 17px;
+    border: none;
+    border-radius: 10px;
+    background: #7cb518;
+    color: #f7ffdd;
+    box-shadow: 0 9px 14px rgba(255, 254, 254, 0.3);
+   
+    margin-top: 0px;
+  }
+  
+  .formulariologin button:active {
+    background-color: #7cb518;
+    box-shadow: rgba(255, 255, 255, 0.5);
+    transform: translateY(4px);
+  }
+  
+  .formulariologin button:hover {
+    color: #0e0f0e;
+    background-color: #affc41;
+  }
+
+  .botonRegreso2 button{
+    cursor: pointer;
+    width: 200px;
+    height: 40px;
+    font-size: 17px;
+    border: none;
+    border-radius: 10px;
+    background: #ff0a54;
+    color: #fae0e4;
+    box-shadow: 0 9px 14px rgba(255, 254, 254, 0.3);
+   
+    margin-top: 0px;
+  }
+  
+  .botonRegreso2 button:active {
+    background-color: #ff0a54;
+    box-shadow: rgba(255, 255, 255, 0.5);
+    transform: translateY(4px);
+  }
+  
+  .botonRegreso2 button:hover {
+    color: #ff99ac;
+    background-color: #ff5c8a;
+  }
