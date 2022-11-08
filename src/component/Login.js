@@ -4,19 +4,19 @@ import { formulariologin } from '../lib/index.js';
 
 export const Login = () => {
   const HomeDiv = document.createElement('div');
-  HomeDiv.className = 'divpadre2';
+  HomeDiv.className = 'divPadre2';
   const divBienvenida2 = document.createElement('div');
   HomeDiv.appendChild(divBienvenida2);
   const mensajeBienvenida2 = document.createElement('h2');
   mensajeBienvenida2.textContent = 'Welcome to lymusic';
-  divBienvenida2.appendChild('mensajeBienvenida2');
+  divBienvenida2.appendChild(mensajeBienvenida2);
   divBienvenida2.className = 'mensajeBienvenida2';
   const form = document.createElement('form');
   const divForm = document.createElement('div');
   HomeDiv.appendChild(form);
   form.appendChild(divForm);
   const tituloForm = document.createElement('h1');
-  tituloForm.textContent = 'Inicia sesión';
+  tituloForm.textContent = 'Sign In';
   divForm.appendChild(tituloForm);
   divForm.className = 'formulariologin';
   const grupo1 = document.createElement('div');
@@ -33,15 +33,15 @@ export const Login = () => {
   labelPass.textContent = 'Password';
   const buttonSubmit = document.createElement('button');
   buttonSubmit.textContent = 'Login';
-  grupo1.appendChild(email);
-  grupo2.appendChild(pass);
   grupo1.appendChild(labelEmail);
   grupo2.appendChild(labelPass);
+  grupo1.appendChild(email);
+  grupo2.appendChild(pass);
   divForm.appendChild(grupo1);
   divForm.appendChild(grupo2);
   divForm.appendChild(buttonSubmit);
-  grupo2.className = 'grupos';
-  grupo1.className = 'grupos';
+  grupo2.className = 'grupos2';
+  grupo1.className = 'grupos2';
   buttonSubmit.type = 'submit';
   form.addEventListener('submit', (e) => {
     e.preventDefault();
