@@ -43,15 +43,18 @@ export function formularioregistro(email, password) {
 export function formulariologin(email, password) {
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      // Signed in 
+      // Signed in
       const user = userCredential.user;
+      // eslint-disable-next-line no-console
       console.log(user);
       // ...
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
+      // eslint-disable-next-line no-console
       console.log(errorCode);
+      // eslint-disable-next-line no-console
       console.log(errorMessage);
     });
 }

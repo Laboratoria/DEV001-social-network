@@ -11,7 +11,7 @@ export const Register = () => {
   buttonHome.addEventListener('click', () => onNavigate('/'));
 
   HomeDiv.appendChild(buttonHome);
-  
+
   const form = document.createElement('form');
   const divForm = document.createElement('div');
   HomeDiv.appendChild(form);
