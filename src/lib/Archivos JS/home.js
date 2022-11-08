@@ -1,3 +1,6 @@
+// eslint-disable-next-line import/no-cycle
+import { onNavigate } from '../../main';
+
 export const home = () => {
   const homeDiv = document.createElement('div');
   const buttonRegister = document.createElement('button');
@@ -5,6 +8,8 @@ export const home = () => {
 
   buttonRegister.textContent = 'Registrarme';
   buttonLogin.textContent = 'Iniciar sesión';
+
+  buttonRegister.addEventListener('click', () => onNavigate('/register'));
 
   homeDiv.appendChild(buttonRegister);
   homeDiv.appendChild(buttonLogin);
