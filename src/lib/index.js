@@ -1,4 +1,5 @@
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+
 import { initializeApp } from 'firebase/app';
 // ESTO SE BAJO DE FIREBASE POR MIENTRAS , NO SABEMOS PARA QUE ES.
 // Import the functions you need from the SDKs you need
@@ -27,6 +28,7 @@ export function formularioregistro(email, password) {
       const user = userCredential.user;
       // eslint-disable-next-line no-console
       console.log(user);
+      alert('correo creado');
     // ...
     })
     .catch((error) => {
@@ -36,6 +38,7 @@ export function formularioregistro(email, password) {
       console.log(errorCode);
       // eslint-disable-next-line no-console
       console.log(errorMessage);
+      alert('correo NO creado');
     // ..
     });
 }
@@ -44,9 +47,11 @@ export function formulariologin(email, password) {
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       // Signed in
+
       const user = userCredential.user;
       // eslint-disable-next-line no-console
       console.log(user);
+      alert('sesion iniciada');
       // ...
     })
     .catch((error) => {
@@ -56,5 +61,6 @@ export function formulariologin(email, password) {
       console.log(errorCode);
       // eslint-disable-next-line no-console
       console.log(errorMessage);
+      alert('sesion no iniciada');
     });
 }
