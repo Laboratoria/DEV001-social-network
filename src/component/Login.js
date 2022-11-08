@@ -15,7 +15,7 @@ export const Login = () => {
   HomeDiv.appendChild(form);
   form.appendChild(divForm);
   const tituloForm = document.createElement('h1');
-  tituloForm.textContent = 'Registro';
+  tituloForm.textContent = 'Inicia sesión';
   divForm.appendChild(tituloForm);
   const grupo1 = document.createElement('div');
   const grupo2 = document.createElement('div');
@@ -28,7 +28,7 @@ export const Login = () => {
   const labelPass = document.createElement('label');
   labelPass.textContent = 'Password';
   const buttonSubmit = document.createElement('button');
-  buttonSubmit.textContent = 'Registrate';
+  buttonSubmit.textContent = 'Login';
   grupo1.appendChild(email);
   grupo2.appendChild(pass);
   grupo1.appendChild(labelEmail);
