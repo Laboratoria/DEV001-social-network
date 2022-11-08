@@ -1,4 +1,6 @@
+// eslint-disable-next-line import/no-unresolved
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+// eslint-disable-next-line import/no-unresolved
 import { initializeApp } from 'firebase/app';
 // ESTO SE BAJO DE FIREBASE POR MIENTRAS , NO SABEMOS PARA QUE ES.
 // Import the functions you need from the SDKs you need
