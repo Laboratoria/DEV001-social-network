@@ -1,6 +1,5 @@
-// eslint-disable-next-line import/no-unresolved
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
-// eslint-disable-next-line import/no-unresolved
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+
 import { initializeApp } from 'firebase/app';
 // ESTO SE BAJO DE FIREBASE POR MIENTRAS , NO SABEMOS PARA QUE ES.
 // Import the functions you need from the SDKs you need
@@ -39,5 +38,20 @@ export function formularioregistro(email, password) {
       // eslint-disable-next-line no-console
       console.log(errorMessage);
     // ..
+    });
+}
+
+export function formulariologin(email, password) {
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      const user = userCredential.user;
+      console.log(user);
+      // ...
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorCode);
+      console.log(errorMessage);
     });
 }
