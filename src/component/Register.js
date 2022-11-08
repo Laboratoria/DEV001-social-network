@@ -1,5 +1,6 @@
 // eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
+import { formularioregistro } from '../lib/index.js';
 
 export const Register = () => {
   const HomeDiv = document.createElement('div');
@@ -39,7 +40,7 @@ export const Register = () => {
   buttonSubmit.type = 'submit';
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    alert(email.value, pass.value);
+    formularioregistro(email.value, pass.value);
   });
   return HomeDiv;
 };
