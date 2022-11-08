@@ -1,4 +1,5 @@
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+
 import { initializeApp } from 'firebase/app';
 // ESTO SE BAJO DE FIREBASE POR MIENTRAS , NO SABEMOS PARA QUE ES.
 // Import the functions you need from the SDKs you need
@@ -43,7 +44,6 @@ export function formularioregistro(email, password) {
 export function formulariologin(email, password) {
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      // Signed in 
       const user = userCredential.user;
       console.log(user);
       // ...
