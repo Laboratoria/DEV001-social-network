@@ -24,42 +24,30 @@ const auth = getAuth(app);
 export function formularioregistro(email, password) {
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-    // Signed in
       const user = userCredential.user;
-      // eslint-disable-next-line no-console
       console.log(user);
       alert('correo creado');
-    // ...
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-      // eslint-disable-next-line no-console
       console.log(errorCode);
-      // eslint-disable-next-line no-console
       console.log(errorMessage);
       alert('correo NO creado');
-    // ..
     });
 }
 
 export function formulariologin(email, password) {
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      // Signed in
-
       const user = userCredential.user;
-      // eslint-disable-next-line no-console
       console.log(user);
       alert('sesion iniciada');
-      // ...
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-      // eslint-disable-next-line no-console
       console.log(errorCode);
-      // eslint-disable-next-line no-console
       console.log(errorMessage);
       alert('sesion no iniciada');
     });
