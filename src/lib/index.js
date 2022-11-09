@@ -1,6 +1,8 @@
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 
 import { initializeApp } from 'firebase/app';
+
+import { respuesta } from './respuesta.js';
 // ESTO SE BAJO DE FIREBASE POR MIENTRAS , NO SABEMOS PARA QUE ES.
 // Import the functions you need from the SDKs you need
 // TODO: Add SDKs for Firebase products that you want to use
@@ -26,14 +28,15 @@ export function formularioregistro(email, password) {
     .then((userCredential) => {
       const user = userCredential.user;
       console.log(user);
-      alert('correo creado');
+      console.log('usuariocreado');
+      respuesta('true');
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
       console.log(errorCode);
       console.log(errorMessage);
-      alert('correo NO creado');
+      respuesta('false');
     });
 }
 

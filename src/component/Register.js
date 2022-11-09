@@ -1,4 +1,4 @@
-import { formularioregistro } from '../lib/index.js';
+import { validar } from '../lib/validar.js';
 
 export const Register = (onNavigate) => {
   const HomeDiv = document.createElement('div');
@@ -43,7 +43,7 @@ export const Register = (onNavigate) => {
   buttonSubmit.type = 'submit';
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    formularioregistro(email.value, pass.value);
+    validar(email.value, pass.value);
   });
   const divBoton = document.createElement('div');
   divBoton.className = 'botonRegreso';
