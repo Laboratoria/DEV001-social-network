@@ -17,6 +17,12 @@
     position: relative;
 }
 
+.container-landing{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .img-bottom{
     position: absolute;
     width: 70%;
