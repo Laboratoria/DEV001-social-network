@@ -13,7 +13,11 @@ import { onNavigate } from '../../main';
 //   return homeDiv;
 // };
 
+const rootDiv = document.getElementById('root');
+
 export const register = () => {
+  rootDiv.innerHTML = " ";
+
   const homeDiv = document.createElement('div');
   const buttonHome = document.createElement('button');
 
@@ -31,7 +35,7 @@ export const register = () => {
   const inputName = document.createElement('input');
   inputName.type = "text"
   inputName.id = "inputName"
-  inputName.placeholder= 'INGRESA TU NOMBRE'
+  inputName.placeholder = 'INGRESA TU NOMBRE'
 
   homeDiv2.appendChild(p);
   homeDiv2.appendChild(inputName);
@@ -43,7 +47,7 @@ export const register = () => {
   const inputEmail = document.createElement('input');
   inputEmail.type = "email"
   inputEmail.id = "inputEmail"
-  inputEmail.placeholder= 'INGRESA TU EMAIL'
+  inputEmail.placeholder = 'INGRESA TU EMAIL'
 
   homeDiv3.appendChild(p2);
   homeDiv3.appendChild(inputEmail);
@@ -54,8 +58,8 @@ export const register = () => {
   p3.textContent = 'Contraseña';
   const inputPassword = document.createElement('input');
   inputPassword.type = "password"
-  inputName.id = "inputPassword"
-  inputPassword.placeholder= 'INGRESA TU CONTRASEÑA'
+  inputPassword.id = "inputPassword"
+  inputPassword.placeholder = 'INGRESA TU CONTRASEÑA'
 
   homeDiv4.appendChild(p3);
   homeDiv4.appendChild(inputPassword);
@@ -63,7 +67,8 @@ export const register = () => {
 
   const homeDiv5 = document.createElement('div');
   const buttonSend = document.createElement('button');
-  buttonSend.id = "sendRegister"
+  const regresar = document.createElement('p');
+  regresar.innerHTML = '¿Ya tienes cuenta? <a href> Iniciar sesión </a>'
 
   buttonSend.textContent = 'Registrarme';
 
@@ -75,7 +80,10 @@ export const register = () => {
     console.log(name, email, password);
   });
 
+  regresar.addEventListener('click', () => onNavigate('/login'));
+
   homeDiv5.appendChild(buttonSend);
+  homeDiv5.appendChild(regresar);
   homeDiv.appendChild(homeDiv5);
 
   // const signupForm = document.querySelector('#sendRegister')
@@ -88,7 +96,7 @@ export const register = () => {
 
   //   console.log(name, email, password);
   // }) ;
-  
+
   // // function enviar() {
   // //   const name = buttonSend['inputName'].value
   // //   const email = buttonSend['inputEmail'].value
