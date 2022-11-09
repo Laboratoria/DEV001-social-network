@@ -1,4 +1,12 @@
 import { onNavigate } from '../../main';
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from './firebase.js'
+
+
+onAuthStateChanged(auth, async (user) => {
+  console.log(user)
+});
 
 // export const register = () => {
 //   const homeDiv = document.createElement('div');
@@ -35,6 +43,7 @@ export const register = () => {
   const inputName = document.createElement('input');
   inputName.type = "text"
   inputName.id = "inputName"
+  inputName.required = 'true';
   inputName.placeholder = 'INGRESA TU NOMBRE'
 
   homeDiv2.appendChild(p);
@@ -47,6 +56,7 @@ export const register = () => {
   const inputEmail = document.createElement('input');
   inputEmail.type = "email"
   inputEmail.id = "inputEmail"
+  inputEmail.required = 'true';
   inputEmail.placeholder = 'INGRESA TU EMAIL'
 
   homeDiv3.appendChild(p2);
@@ -59,6 +69,7 @@ export const register = () => {
   const inputPassword = document.createElement('input');
   inputPassword.type = "password"
   inputPassword.id = "inputPassword"
+  inputPassword.required = 'true';
   inputPassword.placeholder = 'INGRESA TU CONTRASEÑA'
 
   homeDiv4.appendChild(p3);
@@ -72,12 +83,34 @@ export const register = () => {
 
   buttonSend.textContent = 'Registrarme';
 
-  buttonSend.addEventListener('click', () => {
+  buttonSend.addEventListener('click', async () => {
     const name = inputName.value
     const email = inputEmail.value
     const password = inputPassword.value
 
     console.log(name, email, password);
+
+  try {
+    const userCredentials = await createUserWithEmailAndPassword(auth, email, password)
+ console.log(userCredentials)
+
+  onNavigate('/profile');
+ 
+  } catch(error) {
+
+    console.log(error)
+    if (error.code === 'auth/email-already-in-use') {
+      alert ('El correo ya está registrado')
+    } else if (error.code === 'auth/invalid-email') {
+      alert ('Debes ingresar un correo válido')
+    }  else if (error.code === 'auth/weak-password') {
+      alert ('La contraseña debe tener al menos 6 carácteres')
+    } else if (error.code) {
+      alert('Algo está mal en tu registro')
+    }
+    // const errorCode = error.code;
+    // const errorMessage = error.message;
+    }
   });
 
   regresar.addEventListener('click', () => onNavigate('/login'));
