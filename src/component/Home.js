@@ -12,14 +12,17 @@ export const Home = () => {
   letraLogo.className = 'letraLogo';
   letraLogo.textContent = 'Lymusic';
   divLogo.appendChild(letraLogo);
-  buttonRegister.textContent = 'Registrate';
+  const divBotones = document.createElement('div');
+  divBotones.className = 'divBotones';
+  buttonRegister.textContent = 'Register';
   buttonRegister.className = 'botonregistro';
-  buttonLogin.textContent = 'Iniciasesión';
+  buttonLogin.textContent = 'Sign in';
   buttonLogin.className = 'botoniniciosesion';
   buttonRegister.addEventListener('click', () => onNavigate('/register'));
   buttonLogin.addEventListener('click', () => onNavigate('/login'));
 
-  HomeDiv.appendChild(buttonRegister);
-  HomeDiv.appendChild(buttonLogin);
+  divBotones.appendChild(buttonRegister);
+  divBotones.appendChild(buttonLogin);
+  HomeDiv.appendChild(divBotones);
   return HomeDiv;
 };
