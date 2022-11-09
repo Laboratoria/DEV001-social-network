@@ -1,8 +1,5 @@
-// eslint-disable-next-line import/no-cycle
-// import { onNavigate } from '../main.js';
 import { formularioregistro } from '../lib/index.js';
 
-// export const Register = () => {
 export const Register = (onNavigate) => {
   const HomeDiv = document.createElement('div');
   HomeDiv.className = 'divPadre';
