@@ -6,9 +6,9 @@
 
 import './lib/Archivos JS/firebase.js';
 // eslint-disable-next-line import/no-cycle
-import { home } from './lib/Archivos JS/home.js';
+import {home} from './lib/Archivos JS/home.js';
 import { register } from './lib/Archivos JS/register.js';
-import { login } from './lib/Archivos JS/login.js';
+import { login } from './lib/Archivos JS/login.js'; 
 
 const rootDiv = document.getElementById('root');
 
@@ -33,4 +33,14 @@ export const onNavigate = (pathname) => {
 };
 
 const component = routes[window.location.pathname];
+rootDiv.appendChild(component());
+
+
+window.onpopstate = () => {
+  while (rootDiv.firstChild) {
+    rootDiv.removeChild(rootDiv.firstChild);
+  }
+  rootDiv.appendChild(routes[window.location.pathname]());
+};
+
 rootDiv.appendChild(component());
