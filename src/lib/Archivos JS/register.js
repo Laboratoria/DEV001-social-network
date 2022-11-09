@@ -68,9 +68,9 @@ export const register = () => {
   buttonSend.textContent = 'Registrarme';
 
   buttonSend.addEventListener('click', () => {
-    const name = buttonSend['inputName'].value
-    const email = buttonSend['inputEmail'].value
-    const password = buttonSend['inputPassword'].value
+    const name = inputName.value
+    const email = inputEmail.value
+    const password = inputPassword.value
 
     console.log(name, email, password);
   });
