@@ -9,6 +9,7 @@ import './lib/Archivos JS/firebase.js';
 import {home} from './lib/Archivos JS/home.js';
 import { register } from './lib/Archivos JS/register.js';
 import { login } from './lib/Archivos JS/login.js'; 
+import { profile } from './lib/Archivos JS/profile.js'; 
 
 const rootDiv = document.getElementById('root');
 
@@ -16,6 +17,7 @@ const routes = {
   '/': home,
   '/register': register,
   '/login': login,
+  '/profile': profile,
 };
 
 export const onNavigate = (pathname) => {
