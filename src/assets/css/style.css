@@ -6,9 +6,26 @@
 
  :root{
    --fondo_de_pagina: #000000;
-  --sombra_formulario :  0 5px 30px #7b2cbf,
-  0 -5px 30px #7b2cbf;
-    
+   --color_sombra_form_registro: #7b2cbf;
+   --sombra_formulario_registro :  0 5px 30px var(--color_sombra_form_registro),
+  0 -5px 30px var(--color_sombra_form_registro);
+  --color_claro_bienvenida_registro: #FFF;
+  --color_medio_bienvenida_registro: #95d5b2;
+  --color_oscuro_bienvenida_registro:#affc41;
+  --sombra_texto_bienvenida : var(--color_medio_bienvenida_registro) 0px 0px 5px,
+  var(--color_claro_bienvenida_registro) 0px 0px 10px, var(--color_claro_bienvenida_registro) 0px 0px 15px, var(--color_oscuro_bienvenida_registro) 0px 0px 20px, 
+  var(--color_oscuro_bienvenida_registro) 0px 0px 30px, var(--color_oscuro_bienvenida_registro) 0px 0px 40px, var(--color_oscuro_bienvenida_registro) 0px 0px 50px, 
+  var(--color_medio_bienvenida_registro) 0px 0px 75px;
+  --color_borde_bienvenida:  #081c15;
+  --color_oscuro_boton_formulario: #7cb518;
+  --color_claro_boton_formulario: #f7ffdd;
+  --color_boton_form_hover: #affc41;
+  --color_boton_oscuro_regreso: #ff0a54;
+  --color_boton_claro_regreso: #fae0e4;
+  --color_boton_oscuro_regreso_hover: #ff5c8a;
+  --color_boton_claro_regreso_hover: #ff99ac;
+  --sombra_boton:0 9px 14px rgba(255, 254, 254, 0.3);
+  --sombra_boton_active: rgba(255, 255, 255, 0.5);
  }
 
 body{

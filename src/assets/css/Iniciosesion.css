@@ -45,7 +45,7 @@
     height: 400px;
     border-radius:10px;
     text-align: center;
-    box-shadow:var(--sombra_formulario);
+    box-shadow:var(--sombra_formulario_registro);
 }
 .formulariologin h1{
     color: white;
