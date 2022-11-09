@@ -7,6 +7,9 @@ export const home = () => {
   rootDiv.innerHTML = " ";
 
   const homeDiv = document.createElement("div");
+  const containerLanding = document.createElement("div");
+  const containerImg = document.createElement("section");
+  const imgwelcome = document.createElement("img");
   const containerElements = document.createElement("section");
   const imgLogo = document.createElement("img");
   const description = document.createElement("p");
@@ -16,13 +19,17 @@ export const home = () => {
   const imgBottom = document.createElement("img");
 
   homeDiv.className = "container"
+  containerLanding.className = "container-landing"
   buttonRegister.textContent = "Regístrate";
   buttonRegister.className = "buttonRegister";
   buttonLogin.textContent = "Iniciar sesión";
   buttonLogin.className = "buttonLogin";
   containerElements.className = "container-home"
+  containerImg.className = "container-img"
   imgLogo.src = "./lib/img/logo-24-7.png";
   imgLogo.className = "logo-24-7"
+  imgwelcome.src = "./lib/img/flowers2.png";
+  imgwelcome.className = "img-welcome";
   imgTop.src = "./lib/img/collage-1.png"
   imgTop.className = "img-top"
   imgBottom.src = "./lib/img/collage-5.png"
@@ -34,7 +41,11 @@ export const home = () => {
   buttonRegister.addEventListener("click", () => onNavigate("/register"));
   buttonLogin.addEventListener("click", () => onNavigate("/login"));
 
-  homeDiv.appendChild(containerElements);
+  
+  homeDiv.appendChild(containerLanding);
+  containerLanding.appendChild(containerElements);
+  containerLanding.appendChild(containerImg);
+  containerImg.appendChild(imgwelcome);
   containerElements.appendChild(imgLogo);
   containerElements.appendChild(description);
   containerElements.appendChild(buttonRegister);
