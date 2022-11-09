@@ -82,3 +82,36 @@
     box-shadow: 1px 1px 1px 1px rgba(255, 206, 206, 0.805);
 }
 
+.container-img{
+    display: none;
+}
+
+
+@media screen and (min-width:1024px){
+    .container-landing{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 70%;
+    }
+    .container-home{
+        width: 50%;
+    }
+
+    .container-img{
+        display: flex;
+        justify-content: center;
+        width: 50%;
+    }
+    .img-welcome{
+        width: 60%;
+    }
+    .img-top{
+        width: 10%;
+    }
+    .img-bottom{
+        width: 10%;
+    }
+    
+}
