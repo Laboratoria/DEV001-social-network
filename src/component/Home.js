@@ -13,8 +13,9 @@ export const Home = () => {
   letraLogo.textContent = 'Lymusic';
   divLogo.appendChild(letraLogo);
   buttonRegister.textContent = 'Registrate';
-  buttonLogin.textContent = 'Inicia sesión';
-
+  buttonRegister.className = 'botonregistro';
+  buttonLogin.textContent = 'Iniciasesión';
+  buttonLogin.className = 'botoniniciosesion';
   buttonRegister.addEventListener('click', () => onNavigate('/register'));
   buttonLogin.addEventListener('click', () => onNavigate('/login'));
 
