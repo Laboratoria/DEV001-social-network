@@ -1,17 +1,28 @@
-// eslint-disable-next-line import/no-cycle
-import { onNavigate } from '../../main.js';
+import { onNavigate } from '../../main';
+
+// export const login = () => {
+//   const homeDiv = document.createElement('div');
+//   const buttonHome = document.createElement('button');
+//   buttonHome.textContent = 'Regresar al Inicio';
+//   homeDiv.textContent = 'Bienvenida al inicio de sesión';
+
+//   buttonHome.addEventListener('click', () => onNavigate('/'));
+
+//   homeDiv.appendChild(buttonHome);
+
+//   return homeDiv;
+// };
 
 export const login = () => {
-  const HomeDiv = document.createElement('div');
-  HomeDiv.textContent = 'Iniciar Sesión';
+  const homeDiv = document.createElement('div');
   const buttonHome = document.createElement('button');
 
-  buttonHome.textContent = 'Regresar al Home';
-
+  homeDiv.textContent = 'Bienvenida al inicio de sesión';
+  buttonHome.textContent = 'Regresar';
 
   buttonHome.addEventListener('click', () => onNavigate('/'));
 
-  HomeDiv.appendChild(buttonHome);
+  homeDiv.appendChild(buttonHome);
 
-  return HomeDiv;
+  return homeDiv;
 };
