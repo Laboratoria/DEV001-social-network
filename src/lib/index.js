@@ -28,6 +28,7 @@ export function formularioregistro(email, password) {
       const user = userCredential.user;
       // eslint-disable-next-line no-console
       console.log(user);
+      // eslint-disable-next-line no-alert
       alert('correo creado');
     // ...
     })
@@ -38,6 +39,7 @@ export function formularioregistro(email, password) {
       console.log(errorCode);
       // eslint-disable-next-line no-console
       console.log(errorMessage);
+      // eslint-disable-next-line no-alert
       alert('correo NO creado');
     // ..
     });
@@ -51,6 +53,7 @@ export function formulariologin(email, password) {
       const user = userCredential.user;
       // eslint-disable-next-line no-console
       console.log(user);
+      // eslint-disable-next-line no-alert
       alert('sesion iniciada');
       // ...
     })
@@ -61,6 +64,7 @@ export function formulariologin(email, password) {
       console.log(errorCode);
       // eslint-disable-next-line no-console
       console.log(errorMessage);
+      // eslint-disable-next-line no-alert
       alert('sesion no iniciada');
     });
 }
