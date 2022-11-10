@@ -22,5 +22,3 @@ export const validar = (name, email, password) => {
 
   // }
 };
-
-
