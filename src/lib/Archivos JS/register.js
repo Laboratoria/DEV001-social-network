@@ -14,55 +14,114 @@ export const register = () => {
   rootDiv.innerHTML = " ";
 
   const homeDiv = document.createElement("div");
-
-  homeDiv.textContent = "Regístrate";
-  homeDiv.className = "container"
-
+  const container = document.createElement("section")
+  const containerRegister = document.createElement("div");
+  const containerImg = document.createElement("section")
+  const imgwelcome = document.createElement("img");
+  const imgTop = document.createElement("img");
+  const imgBottom = document.createElement("img");
+  const title = document.createElement("h2")
+  const titleImg = document.createElement("img");
   const homeDiv2 = document.createElement("div");
   const p = document.createElement("p");
-  p.textContent = "Nombre completo";
   const inputName = document.createElement("input");
-  inputName.type = "text";
-  inputName.id = "inputName";
-  inputName.required = "true";
-  inputName.placeholder = "INGRESA TU NOMBRE";
-
-  homeDiv2.appendChild(p);
-  homeDiv2.appendChild(inputName);
-  homeDiv.appendChild(homeDiv2);
-
   const homeDiv3 = document.createElement("div");
   const p2 = document.createElement("p");
-  p2.textContent = "Correo electrónico";
   const inputEmail = document.createElement("input");
-  inputEmail.type = "email";
-  inputEmail.id = "inputEmail";
-  inputEmail.required = "true";
-  inputEmail.placeholder = "INGRESA TU EMAIL";
-
-  homeDiv3.appendChild(p2);
-  homeDiv3.appendChild(inputEmail);
-  homeDiv.appendChild(homeDiv3);
-
   const homeDiv4 = document.createElement("div");
   const p3 = document.createElement("p");
-  p3.textContent = "Contraseña";
   const inputPassword = document.createElement("input");
+  const homeDiv5 = document.createElement("div");
+  const buttonGoogle = document.createElement("button");
+  const buttonSend = document.createElement("button");
+  const imgFlower = document.createElement("img");
+  const imgFlower2 = document.createElement("img");
+  const imgFlower3 = document.createElement("img");
+  const regresar = document.createElement("p");
+
+
+  
+  homeDiv.className = "container";
+  container.className = "container-im-and-register"
+  containerImg.className = "container-img";
+  titleImg.src = "./lib/img/flowers1.png";
+  titleImg.className = "img-title";
+  title.textContent = "Regístrate";
+  title.className = "title-register";
+  imgwelcome.src = "./lib/img/img-women.png";
+  imgwelcome.className = "img-welcome";
+  imgTop.src = "./lib/img/collage-3.png";
+  imgTop.className = "img-top-2";
+  imgBottom.src = "./lib/img/collage-5.png"
+  imgBottom.className = "img-bottom-2"
+  containerRegister.className = "container-register"
+  p.textContent = "Nombre completo";
+  p.className = "text-subtitle";
+  inputName.type = "text";
+  inputName.id = "inputName";
+  inputName.className = "input-register";
+  inputName.required = "true";
+  inputName.placeholder = "Ingresa tu nombre:";
+  p2.textContent = "Correo electrónico";
+  p2.className = "text-subtitle";
+  inputEmail.type = "email";
+  inputEmail.id = "inputEmail";
+  inputEmail.className = "input-register";
+  inputEmail.required = "true";
+  inputEmail.placeholder = "Ingresa tu email:";
+  p3.textContent = "Contraseña";
+  p3.className = "text-subtitle";
   inputPassword.type = "password";
   inputPassword.id = "inputPassword";
+  inputPassword.className = "input-register";
   inputPassword.required = "true";
-  inputPassword.placeholder = "INGRESA TU CONTRASEÑA";
+  inputPassword.placeholder = "Ingresa tu contraseña:";
+  regresar.innerHTML = "¿Ya tienes cuenta? <a href> Iniciar sesión </a>";
+  regresar.className = "link-login";
+  buttonGoogle.innerHTML = `<img class="img-google" src="https://icones.pro/wp-content/uploads/2021/02/google-icone-symbole-logo-png-150x150.png" /> Regístrarme con google`;
+  buttonGoogle.className = "button-google";
+  buttonSend.textContent = "Registrarme";
+  buttonSend.className = "buttonRegister";
+  imgFlower.src = "./lib/img/flowers2.png";
+  imgFlower.className = "icon-img-flower";
+  imgFlower2.src = "./lib/img/flowers2.png";
+  imgFlower2.className = "icon-img-flower";
+  imgFlower3.src = "./lib/img/flowers2.png";
+  imgFlower3.className = "icon-img-flower";
+  homeDiv2.className = "container-div";
+  homeDiv3.className = "container-div";
+  homeDiv4.className = "container-div";
+  homeDiv5.className = "container-div";
 
+  
+  homeDiv.appendChild(container);
+  container.appendChild(containerImg);
+  container.appendChild(containerRegister);
+  homeDiv.appendChild(imgTop);
+  homeDiv.appendChild(imgBottom);
+  containerImg.appendChild(imgwelcome);
+  containerRegister.appendChild(titleImg);
+  containerRegister.appendChild(title);
+  homeDiv3.appendChild(imgFlower);
+  homeDiv3.appendChild(p2);
+  homeDiv3.appendChild(inputEmail);
+  containerRegister.appendChild(homeDiv3);
+  homeDiv2.appendChild(imgFlower2);
+  homeDiv2.appendChild(p);
+  homeDiv2.appendChild(inputName);
+  containerRegister.appendChild(homeDiv2);
+  homeDiv4.appendChild(imgFlower3);
   homeDiv4.appendChild(p3);
   homeDiv4.appendChild(inputPassword);
-  homeDiv.appendChild(homeDiv4);
-
-  const homeDiv5 = document.createElement("div");
-  const buttonSend = document.createElement("button");
-  const regresar = document.createElement("p");
-  regresar.innerHTML = "¿Ya tienes cuenta? <a href> Iniciar sesión </a>";
-
-  buttonSend.textContent = "Registrarme";
+  containerRegister.appendChild(homeDiv4);
+  homeDiv5.appendChild(buttonSend);
+  homeDiv5.appendChild(buttonGoogle);
+  homeDiv5.appendChild(regresar);
+  containerRegister.appendChild(homeDiv5);
+  
+  
+  regresar.addEventListener("click", () => onNavigate("/login"));
+  
 
   buttonSend.addEventListener("click", async () => {
     const name = inputName.value;
@@ -95,12 +154,6 @@ export const register = () => {
       // const errorMessage = error.message;
     }
   });
-
-  regresar.addEventListener("click", () => onNavigate("/login"));
-
-  homeDiv5.appendChild(buttonSend);
-  homeDiv5.appendChild(regresar);
-  homeDiv.appendChild(homeDiv5);
 
   return homeDiv;
 };
