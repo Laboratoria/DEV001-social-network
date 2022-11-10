@@ -28,7 +28,7 @@ export const home = () => {
   containerImg.className = "container-img"
   imgLogo.src = "./lib/img/logo-24-7.png";
   imgLogo.className = "logo-24-7"
-  imgwelcome.src = "./lib/img/flowers2.png";
+  imgwelcome.src = "./lib/img/img-welcome.png";
   imgwelcome.className = "img-welcome";
   imgTop.src = "./lib/img/collage-1.png"
   imgTop.className = "img-top"
