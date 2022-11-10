@@ -4,7 +4,11 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase.js";
 
 onAuthStateChanged(auth, async (user) => {
-  console.log(user);
+  if (user) {
+
+  } else {
+
+  }
 });
 
 
