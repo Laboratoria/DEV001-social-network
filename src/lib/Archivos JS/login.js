@@ -1,4 +1,6 @@
 import { onNavigate } from '../../main';
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "./firebase.js";
 
 // export const login = () => {
 //   const homeDiv = document.createElement('div');
@@ -54,12 +56,30 @@ export const login = () => {
   buttonInicio.textContent = 'Iniciar Sesión';
   buttonGoogle.textContent = 'Iniciar con Google';
 
-  buttonInicio.addEventListener('click', () => {
+  buttonInicio.addEventListener('click', async () => {
 
     const email = inputEmail.value
     const password = inputPassword.value
 
     console.log(email, password);
+
+    try {
+      const credentials = await signInWithEmailAndPassword( auth, email, password);
+      console.log(credentials);
+
+      onNavigate("/profile");
+    } catch (error) {
+      console.log(error);
+      if (error.code === "auth/wrong-password") {
+        alert("Contraseña incorrecta");
+      } else if (error.code === "auth/user-not-found") {
+        alert("Dirección Email no encontrada, por favor regístrese");
+      } else if (error.code) {
+        alert("Error en inicio de sesión, intente nuevamente");
+      }
+      // const errorCode = error.code;
+      // const errorMessage = error.message;
+    }
   });
 
   // buttonGoogle.addEventListener('click', () => {
