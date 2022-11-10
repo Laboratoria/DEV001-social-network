@@ -26,7 +26,10 @@
   --color_boton_claro_regreso_hover: #ff99ac;
   --sombra_boton:0 9px 14px rgba(255, 254, 254, 0.3);
   --sombra_boton_active: rgba(255, 255, 255, 0.5);
+  
  }
+
+
 
 body{
     font-family: 'Montserrat', sans-serif;

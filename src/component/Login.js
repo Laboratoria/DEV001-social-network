@@ -1,4 +1,5 @@
-import { formulariologin } from '../lib/index.js';
+// import { formulariologin } from '../lib/index.js';
+import { validar } from '../lib/validar.js';
 
 export const Login = (onNavigate) => {
   const HomeDiv = document.createElement('div');
@@ -27,6 +28,9 @@ export const Login = (onNavigate) => {
   const pass = document.createElement('input');
   pass.type = 'password';
   pass.placeholder = 'Password';
+  const spanPass = document.createElement('span');
+  spanPass.textContent = '👀';
+  spanPass.className = 'ojito';
   const labelPass = document.createElement('label');
   labelPass.textContent = 'Password';
   const buttonSubmit = document.createElement('button');
@@ -35,6 +39,7 @@ export const Login = (onNavigate) => {
   grupo2.appendChild(labelPass);
   grupo1.appendChild(email);
   grupo2.appendChild(pass);
+  grupo2.appendChild(spanPass);
   divForm.appendChild(grupo1);
   divForm.appendChild(grupo2);
   divForm.appendChild(buttonSubmit);
@@ -43,7 +48,9 @@ export const Login = (onNavigate) => {
   buttonSubmit.type = 'submit';
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    formulariologin(email.value, pass.value);
+    const valido = validar(email.value, pass.value);
+    console.log(valido);
+    // formulariologin(email.value, pass.value);
   });
   const divBoton = document.createElement('div');
   divBoton.className = 'botonRegreso2';
