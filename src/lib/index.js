@@ -23,8 +23,8 @@ const app = initializeApp(firebaseConfig);
 
 // GETUTH
 const auth = getAuth(app);
-export function formularioregistro(email, password) {
-  createUserWithEmailAndPassword(auth, email, password)
+export function formularioregistro(name, email, password) {
+  createUserWithEmailAndPassword(auth, name, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
       console.log(user);
@@ -40,8 +40,8 @@ export function formularioregistro(email, password) {
     });
 }
 
-export function formulariologin(email, password) {
-  signInWithEmailAndPassword(auth, email, password)
+export function formulariologin(name, email, password) {
+  signInWithEmailAndPassword(auth, name, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
       console.log(user);
