@@ -66,26 +66,28 @@
   border-style: none;
   font-family: "Poppins", sans-serif;
   border-radius: 10px;
-  padding: 15px 25px;
+  padding: 13px 20px;
   background-color: #5c55ad;
   font-size: 1rem;
   color: #fde1ca;
   font-weight: 500;
   width: 100%;
   box-shadow: 1px 1px 1px 1px rgba(255, 206, 206, 0.805);
+  cursor: pointer;
 }
 
 .buttonLogin {
   border-style: none;
   font-family: "Poppins", sans-serif;
   border-radius: 10px;
-  padding: 15px 25px;
+  padding: 13px 20px;
   background-color: #5c55ad;
   font-size: 1rem;
   color: #f9b4c7;
   font-weight: 500;
   width: 100%;
   box-shadow: 1px 1px 1px 1px rgba(255, 206, 206, 0.805);
+  cursor: pointer;
 }
 
 .container-img {

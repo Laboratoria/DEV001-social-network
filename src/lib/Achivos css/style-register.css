@@ -1,0 +1,222 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container-img {
+  display: none;
+}
+
+.container-im-and-register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.title-register {
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  font-size: 1.9rem;
+  color: #ffffff;
+  font-weight: 600;
+  margin-top: -20px;
+}
+
+.text-subtitle {
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #453d9d;
+  font-weight: 600;
+}
+
+.img-bottom-2 {
+  position: absolute;
+  width: 70%;
+  top: 68%;
+  left: -15px;
+}
+
+.img-top-2 {
+  position: absolute;
+  width: 100%;
+  top: 0px;
+  right: 0px;
+}
+
+.img-title {
+  width: 30%;
+  top: 0px;
+  right: 0px;
+}
+
+.container-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  color: #fff;
+  width: 80%;
+  z-index: 2;
+}
+
+.icon-img-flower {
+  width: 9%;
+}
+
+.link-login {
+  margin-top: 8px;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.1rem;
+}
+
+.input-register {
+  border-style: none;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  border-radius: 10px;
+  padding: 10px 10px;
+  font-size: 1rem;
+  color: #434343;
+  font-weight: 500;
+  width: 100%;
+  box-shadow: 1px 1px 1px 1px rgba(255, 206, 206, 0.805);
+}
+
+.button-google{
+  border-style: none;
+  font-family: "Poppins", sans-serif;
+  border-radius: 10px;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  font-size: 1rem;
+  color: #414141;
+  font-weight: 500;
+  width: 100%;
+  box-shadow: 1px 1px 1px 1px rgba(142, 142, 142, 0.805);
+  position: relative;
+  padding-right: 15px;
+  cursor: pointer;
+}
+
+.img-google{
+  position: absolute;
+  top: 8px;
+  left: 20px;
+  width: 10%;
+}
+
+@media screen and (min-width: 1024px) {
+  .container-im-and-register {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .container-register {
+    width: 70%;
+    padding: 35px;
+    gap: 10px;
+  }
+
+  .container-img {
+    display: flex;
+    justify-content: right;
+    width: 40%;
+    animation-name: women;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes women {
+    0% {
+      transform: scale(1);
+    }
+
+    50% {
+      transform: scale(1.1);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  .img-welcome {
+    width: 90%;
+    margin-right: -40px;
+  }
+
+  .title-register {
+    font-size: 1.5rem;
+    margin-top: -20px;
+  }
+
+  .text-subtitle {
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  .img-bottom-2 {
+    width: 20%;
+    top: 380px;
+    left: 0px;
+  }
+
+  .img-top-2 {
+    transform: rotateY(180deg);
+    width: 30%;
+    top: -5px;
+    right: 0px;
+  }
+
+  .img-title {
+    width: 15%;
+    top: 0px;
+    right: 0px;
+  }
+
+  .container-div {
+    width: 55%;
+    z-index: 2;
+  }
+
+  .icon-img-flower {
+    width: 7%;
+  }
+
+  .link-login {
+    font-size: 0.9rem;
+  }
+
+  .input-register {
+    border-radius: 10px;
+    padding: 10px 10px;
+    font-size: 0.9rem;
+    color: #434343;
+    font-weight: 500;
+    width: 100%;
+  }
+  .buttonLogin {
+    padding: 10px 20px;
+  }
+  .img-google{
+    position: absolute;
+    top: 6px;
+    left: 40px;
+    width: 8%;
+  }
+}
