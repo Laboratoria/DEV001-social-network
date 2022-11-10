@@ -1,4 +1,5 @@
 import { validar } from '../lib/validar.js';
+// import { formularioregistro } from '../lib/index.js';
 
 export const Register = (onNavigate) => {
   const HomeDiv = document.createElement('div');
@@ -17,12 +18,8 @@ export const Register = (onNavigate) => {
   tituloForm.textContent = 'Registration';
   divForm.appendChild(tituloForm);
   divForm.className = 'formularioRegistro';
-  const grupo3 = document.createElement('div');
   const grupo1 = document.createElement('div');
   const grupo2 = document.createElement('div');
-  const name = document.createElement('input');
-  name.type = 'text';
-  name.placeholder = 'Name';
   const labelName = document.createElement('label');
   labelName.textContent = 'Name';
   const email = document.createElement('input');
@@ -37,23 +34,26 @@ export const Register = (onNavigate) => {
   labelPass.textContent = 'Password';
   const buttonSubmit = document.createElement('button');
   buttonSubmit.textContent = 'sign up';
-  grupo3.appendChild(labelName);
   grupo1.appendChild(labelEmail);
   grupo2.appendChild(labelPass);
-  grupo3.appendChild(name);
   grupo1.appendChild(email);
   grupo2.appendChild(pass);
-  divForm.appendChild(grupo3);
   divForm.appendChild(grupo1);
   divForm.appendChild(grupo2);
   divForm.appendChild(buttonSubmit);
-  grupo3.className = 'grupos';
   grupo2.className = 'grupos';
   grupo1.className = 'grupos';
   buttonSubmit.type = 'submit';
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    validar(name.value, email.value, pass.value);
+    const valido = validar(email.value, pass.value);
+    console.log(valido);
+
+    // if (!validar()) {
+    //   formularioregistro(email.value, pass.value).then((respuesta) => {
+    //     console.log(respuesta);
+    //   });
+    // }
   });
   const divBoton = document.createElement('div');
   divBoton.className = 'botonRegreso';
