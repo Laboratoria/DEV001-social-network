@@ -1,7 +1,9 @@
-// eslint-disable-next-line consistent-return
+import { modalMensaje } from './modal.js';
+
 export const validar = (email, password) => {
   let entrar = true;
-  // let mensaje = '';
+  let mensaje = '';
+  let mensaje2 = '';
   const regexEmail = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,4})+$/;
   console.log(password.length);
   console.log(email, password);
@@ -9,20 +11,20 @@ export const validar = (email, password) => {
 
   if (!regexEmail.test(email)) {
     entrar = false;
-    alert('El email no es válido');
+    mensaje += 'El email no es válido';
   }
-
-  //   // console.log(password.length);
-  // if (password.length < 6) {
-  //   // eslint-disable-next-line no-unused-vars
-  //   mensaje += 'La constraseña no es válida';
-  //   // eslint-disable-next-line no-unused-vars
-  //   entrar = true;
-  // }
-  // if (entrar) {
-  //   alert(mensaje);
-  // } else {
-  //   entrar false;
-  // }
+  console.log(password.length);
+  if (password.length < 6) {
+    mensaje2 += 'La constraseña no es válida';
+    entrar = false;
+  }
+  if (entrar) {
+    mensaje += 'Todo correcto';
+    alert(mensaje);
+    console.log(`dentro del if${entrar}`);
+  } else {
+    modalMensaje(mensaje, mensaje2);
+    console.log(`dentro del else${entrar}`);
+  }
   return entrar;
 };

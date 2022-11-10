@@ -9,13 +9,31 @@
   <link rel="stylesheet" href="./assets/css/home.css">
   <link rel="stylesheet" href="./assets/css/Registro.css">
   <link rel="stylesheet" href="./assets/css/Iniciosesion.css">
+  <link rel="stylesheet" href="./assets/css/modal.css">
   <link href="./assets/img/icono.ico" rel ="icon" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;0,900;1,500&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div id="root"></div>
+  <section id="mi_modal" class="modal">
+    <div class="flex_modal" id="flex_modal">
+        <div class="contenido_modal">
+             <div class="modal_header flex_modal">
+                <div class="logo_modal">
+                <h2>Lymusic</h2>
+                </div>
+                <span class="close" id="close">&times;</span>
+             </div>
+             <div class="modal_body">
+                <p class="text_modal" id="text_modal"></p>
+                <p class="text_modal" id="text_modal_2"></p>
+             </div>
+        </div>
+    </div>
+
+</section>
+  <section id="root"></section>
   
 <script type="module" src="main.js"></script>
 </body>

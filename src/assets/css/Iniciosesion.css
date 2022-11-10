@@ -60,12 +60,12 @@
 }
 
 .grupos2 input{
-    width: 300px;
+    width: 250px;
     padding: 5px;
 }
 
 .grupos2 label{
-    width: 250px;
+    width: 300px;
     text-align: left;
     margin-bottom: 5px;
     color: white;
@@ -134,4 +134,10 @@
   .botonRegreso2 button:hover {
     color: #ff99ac;
     background-color: #ff5c8a;
+  }
+
+  .ojito{
+    border: 1px solid #ff0a54;
+    display: inline-block;
+    width: 30px;
   }
