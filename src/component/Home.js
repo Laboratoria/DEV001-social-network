@@ -23,4 +23,3 @@ export const Home = (onNavigate) => {
   HomeDiv.appendChild(divBotones);
   return HomeDiv;
 };
-
