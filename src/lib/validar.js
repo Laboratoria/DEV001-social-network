@@ -16,9 +16,12 @@ export const validar = (email, password) => {
     entrar = false;
   }
   if (entrar) {
-    entrar = true;
+    mensaje += 'Todo correcto';
+    alert(mensaje);
+    console.log(`dentro del if${entrar}`);
   } else {
     modalMensaje(mensaje, mensaje2);
+    console.log(`dentro del else${entrar}`);
   }
   return entrar;
 };
