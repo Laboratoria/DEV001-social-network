@@ -1,4 +1,4 @@
-import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, } from 'firebase/auth';
+import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 // eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../../main';
 import { auth } from './firebase.js';
@@ -18,7 +18,7 @@ export const login = () => {
   const title = document.createElement('h2');
   const titleImg = document.createElement('img');
   const homeDiv2 = document.createElement('div');
-  const p = document.createElement('p');
+  // const p = document.createElement('p');
   const homeDiv3 = document.createElement('div');
   const p2 = document.createElement('p');
   const inputEmail = document.createElement('input');
@@ -98,9 +98,7 @@ export const login = () => {
   homeDiv5.appendChild(regresar);
   containerRegister.appendChild(homeDiv5);
 
-
   regresar.addEventListener('click', () => onNavigate('/register'));
-
 
   buttonInicio.addEventListener('click', async () => {
     const email = inputEmail.value;
