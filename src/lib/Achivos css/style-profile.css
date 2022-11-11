@@ -19,5 +19,34 @@
     margin-top: -20px;
   }
 
+  .text-subtitle2 {
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    font-size: 1.1rem;
+    color: white;
+    font-weight: 600;
+  }
+  
+  .text-subtitle3 {
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    font-size: 1.5rem;
+    color: #453d9d;
+    font-weight: 600;
+  }
+  
+  .text-subtitle4 {
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    font-size: 1.1rem;
+    color: white;
+    font-weight: 600;
+  }
 
+  .avatar-class {
+    background: #453d9d;
+    border-color: white;
+    border-width: 2px;
+    border-radius: 50px;
+  }
   
