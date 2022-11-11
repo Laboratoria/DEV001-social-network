@@ -1,5 +1,5 @@
-export const Begin = () => {
+export const Begin = (mensaje) => {
   const HomeDiv = document.createElement('div');
-  HomeDiv.textContent = 'HOLA';
+  HomeDiv.textContent = mensaje;
   return HomeDiv;
 };

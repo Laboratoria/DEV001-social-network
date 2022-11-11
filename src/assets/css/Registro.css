@@ -70,22 +70,13 @@
     color: white;
 }
 
-/*.formularioRegistro button{
-   width: 150px; 
-   height: 40px;
-   text-transform: uppercase;
-}*/
+
 .botonRegreso{
     margin-top: 40px;
 }
 
-.botonRegreso button{
-   width: 150px;
-   height: 40px;
-}
 
-
-.formularioRegistro button{
+.btn_formulario_registro{
     cursor: pointer;
     width: 200px;
     height: 40px;
@@ -99,18 +90,18 @@
     margin-top: 0px;
   }
   
-  .formularioRegistro button:active {
+  .btn_formulario_registro:active {
     background-color: var(--color_oscuro_boton_formulario);
     box-shadow: var(--sombra_boton_active);
     transform: translateY(4px);
   }
   
-  .formularioRegistro button:hover {
+  .btn_formulario_registro:hover {
     color: #0e0f0e;
     background-color: var(--color_boton_form_hover);
   }
 
-  .botonRegreso button{
+  .btn_home_registro{
     cursor: pointer;
     width: 200px;
     height: 40px;
@@ -124,13 +115,13 @@
     margin-top: 0px;
   }
   
-  .botonRegreso button:active {
+  .btn_home_registro:active {
     background-color: var(--color_boton_oscuro_regreso);
     box-shadow: var(--sombra_boton_active);
     transform: translateY(4px);
   }
   
-  .botonRegreso button:hover {
+  .btn_home_registro:hover {
     color: var(--color_boton_claro_regreso_hover);
     background-color: var(--color_boton_oscuro_regreso_hover);
   }
