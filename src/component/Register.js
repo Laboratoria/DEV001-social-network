@@ -1,5 +1,5 @@
 import { validar } from '../lib/validar.js';
-// import { formularioregistro } from '../lib/index.js';
+import { formularioregistro } from '../lib/index.js';
 
 export const Register = (onNavigate) => {
   const HomeDiv = document.createElement('div');
@@ -34,6 +34,7 @@ export const Register = (onNavigate) => {
   labelPass.textContent = 'Password';
   const buttonSubmit = document.createElement('button');
   buttonSubmit.textContent = 'sign up';
+  buttonSubmit.classList = 'btn_formulario_registro';
   grupo1.appendChild(labelEmail);
   grupo2.appendChild(labelPass);
   grupo1.appendChild(email);
@@ -47,21 +48,19 @@ export const Register = (onNavigate) => {
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const valido = validar(email.value, pass.value);
-    console.log(valido);
+
     if (valido) {
-      alert('true');
+      formularioregistro(email.value, pass.value).then((respuesta) => {
+        onNavigate(respuesta);
+      });
     }
-    // if (!validar()) {
-    //   formularioregistro(email.value, pass.value).then((respuesta) => {
-    //     console.log(respuesta);
-    //   });
-    // }
   });
   const divBoton = document.createElement('div');
   divBoton.className = 'botonRegreso';
   HomeDiv.appendChild(divBoton);
   const buttonHome = document.createElement('button');
   buttonHome.textContent = 'Back to home';
+  buttonHome.classList = 'btn_home_registro';
   divBoton.appendChild(buttonHome);
   buttonHome.addEventListener('click', () => onNavigate('/'));
 
