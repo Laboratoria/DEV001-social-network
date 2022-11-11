@@ -4,6 +4,14 @@ import { formularioregistro } from '../lib/index.js';
 export const Register = (onNavigate) => {
   const HomeDiv = document.createElement('div');
   HomeDiv.className = 'divPadre';
+  const divBoton = document.createElement('div');
+  divBoton.className = 'botonRegreso';
+  HomeDiv.appendChild(divBoton);
+  const buttonHome = document.createElement('button');
+  buttonHome.textContent = '«';
+  buttonHome.classList = 'btn_home_registro';
+  divBoton.appendChild(buttonHome);
+  buttonHome.addEventListener('click', () => onNavigate('/'));
   const divBienvenida = document.createElement('div');
   HomeDiv.appendChild(divBienvenida);
   const mensajeBienvenida = document.createElement('h2');
@@ -30,6 +38,8 @@ export const Register = (onNavigate) => {
   const pass = document.createElement('input');
   pass.type = 'password';
   pass.placeholder = 'Password';
+  pass.classList = 'pass_registro';
+  email.classList = 'email_registro';
   const labelPass = document.createElement('label');
   labelPass.textContent = 'Password';
   const buttonSubmit = document.createElement('button');
@@ -44,6 +54,17 @@ export const Register = (onNavigate) => {
   divForm.appendChild(buttonSubmit);
   grupo2.className = 'grupos';
   grupo1.className = 'grupos';
+  const spanPass = document.createElement('span');
+  spanPass.textContent = '👀';
+  spanPass.className = 'ojito2';
+  spanPass.addEventListener('click', () => {
+    if (pass.type === 'password') {
+      pass.type = 'text';
+    } else {
+      pass.type = 'password';
+    }
+  });
+  grupo2.appendChild(spanPass);
   buttonSubmit.type = 'submit';
   form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -55,14 +76,6 @@ export const Register = (onNavigate) => {
       });
     }
   });
-  const divBoton = document.createElement('div');
-  divBoton.className = 'botonRegreso';
-  HomeDiv.appendChild(divBoton);
-  const buttonHome = document.createElement('button');
-  buttonHome.textContent = 'Back to home';
-  buttonHome.classList = 'btn_home_registro';
-  divBoton.appendChild(buttonHome);
-  buttonHome.addEventListener('click', () => onNavigate('/'));
 
   return HomeDiv;
 };

@@ -31,6 +31,7 @@ export const Login = (onNavigate) => {
   const spanPass = document.createElement('span');
   spanPass.textContent = '👀';
   spanPass.className = 'ojito';
+  // aqui se coloca el ojito
   const labelPass = document.createElement('label');
   labelPass.textContent = 'Password';
   const buttonSubmit = document.createElement('button');

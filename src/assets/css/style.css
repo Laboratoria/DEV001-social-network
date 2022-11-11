@@ -10,8 +10,11 @@
    --sombra_formulario_registro :  0 5px 30px var(--color_sombra_form_registro),
   0 -5px 30px var(--color_sombra_form_registro);
   --color_claro_bienvenida_registro: #FFF;
+  --color_medio_bienvenida_registro: #ff99ac;
+  --color_oscuro_bienvenida_registro:#fae0e4;
+  /*--color_claro_bienvenida_registro: #FFF;
   --color_medio_bienvenida_registro: #95d5b2;
-  --color_oscuro_bienvenida_registro:#affc41;
+  --color_oscuro_bienvenida_registro:#affc41;*/
   --sombra_texto_bienvenida : var(--color_medio_bienvenida_registro) 0px 0px 5px,
   var(--color_claro_bienvenida_registro) 0px 0px 10px, var(--color_claro_bienvenida_registro) 0px 0px 15px, var(--color_oscuro_bienvenida_registro) 0px 0px 20px, 
   var(--color_oscuro_bienvenida_registro) 0px 0px 30px, var(--color_oscuro_bienvenida_registro) 0px 0px 40px, var(--color_oscuro_bienvenida_registro) 0px 0px 50px, 

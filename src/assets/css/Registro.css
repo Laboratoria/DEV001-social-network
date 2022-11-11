@@ -3,17 +3,24 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(120deg, rgba(0, 0, 0,  0.5) 0%, rgba(0, 0, 0, 0.7) 100%),url(../img/sinFondo.png);
+    background-attachment: fixed;
+    background-position: center;
    
 }
 
 .mensajeBienvenida h2{
-  margin-top: 25px;  
-  font-weight: 900;
-  font-size: 50px;
-  color: white;
-  -webkit-text-stroke: 1px var(--color_borde_bienvenida);
+  text-transform: uppercase;
+  margin-top: 30px;  
+  font-weight: 700;
+  font-size: 35px;
+  text-align: center;
+  color: #ff0a54;
+  /*-webkit-text-stroke: 1px var(--color_borde_bienvenida);*/
   text-shadow: var(--sombra_texto_bienvenida);
-     animation-name: moverTitulo;
+     /*animation-name: moverTitulo;*/
      animation-duration: 10s;
      animation-iteration-count: infinite;
      animation-timing-function: ease-in-out;   
@@ -31,18 +38,20 @@
 
 
 .formularioRegistro{
-    margin-top: 50px;
+    background:rgba(0, 0, 0,  0.5) ;
+    margin-top: 100px;
     padding: 15px 0px;
     align-items: center;
     width: 350px;
     height: 500px;
     border-radius:10px;
     text-align: center;
-    box-shadow:var(--sombra_formulario_registro);
+    
 }
 .formularioRegistro h1{
     color: white;
     font-weight: 700;
+    text-transform: uppercase;
 }
 .grupos{
     display: flex;
@@ -52,9 +61,21 @@
 
 }
 
-.grupos input{
+.email_registro{
     width: 300px;
-    padding: 5px;
+    height: 40px;
+    padding: 10px;
+    font-family: Arial, black;
+   
+    height: 40px;
+}
+.pass_registro{
+    width: 300px;
+    height: 40px;
+    padding: 10px;
+    font-family: Arial, black;
+   
+    height: 40px;
 }
 
 .grupos label{
@@ -66,13 +87,17 @@
 
 
 .botonRegreso{
-    margin-top: 40px;
+  display: inline-block;
+  top: 0;
+  left: 0;  
+  position: fixed; 
 }
 
 
 .btn_formulario_registro{
+  padding: 5px;
     cursor: pointer;
-    width: 200px;
+    width: 300px;
     height: 40px;
     font-size: 17px;
     border: none;
@@ -80,7 +105,7 @@
     background: var(--color_oscuro_boton_formulario);
     color: var(--color_claro_boton_formulario);
     box-shadow: var(--sombra_boton);
-   
+    text-transform: uppercase;
     margin-top: 0px;
   }
   
@@ -96,26 +121,41 @@
   }
 
   .btn_home_registro{
+    padding: 2px;
     cursor: pointer;
-    width: 200px;
-    height: 40px;
-    font-size: 17px;
+    width: 50px;
+    height: 45px;
+    font-size: 40px;
     border: none;
     border-radius: 10px;
-    background: var(--color_boton_oscuro_regreso);
+    background: transparent;
     color: #fae0e4;
-    box-shadow: var(--sombra_boton);
-   
-    margin-top: 0px;
+    
+      
   }
-  
+
   .btn_home_registro:active {
-    background-color: var(--color_boton_oscuro_regreso);
-    box-shadow: var(--sombra_boton_active);
+    background-color: transparent;
     transform: translateY(4px);
   }
   
   .btn_home_registro:hover {
     color: var(--color_boton_claro_regreso_hover);
     background-color: var(--color_boton_oscuro_regreso_hover);
+    box-shadow: var(--sombra_boton);
   }
+
+  ::-webkit-input-placeholder {
+    color: rgb(216, 11, 11);
+}
+
+.ojito2{
+   width: 20px;
+   height: 25px;
+   background: white;
+   display: inline-block;
+   position: absolute;
+   right: 0;
+   margin-right: 56px;
+   margin-top: 30px;
+}
