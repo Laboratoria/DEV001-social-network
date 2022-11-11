@@ -15,8 +15,10 @@ export const profile = () => {
   const imgwelcome = document.createElement('img');
   const imgTop = document.createElement('img');
   const imgBottom = document.createElement('img');
+  const fondoImagen = document.createElement('div');
   const title = document.createElement('h2');
   const titleImg = document.createElement('img');
+  const avatar = document.createElement('img');
   const homeDiv2 = document.createElement('div');
   const p = document.createElement('p');
   const homeDiv3 = document.createElement('div');
@@ -29,6 +31,7 @@ export const profile = () => {
   const homeDiv5 = document.createElement('div');
   const btnHome = document.createElement('button');
   const btnEdit = document.createElement('button');
+  const btnCerrar = document.createElement('button');
   homeDiv.className = 'container';
   container.className = 'container-im-and-register';
   containerImg.className = 'container-img';
@@ -45,6 +48,9 @@ export const profile = () => {
   containerRegister.className = 'container-register';
   p.textContent = 'Usuario';
   p.className = 'text-subtitle2';
+  avatar.src = './lib/img/Ellipse9.png';
+  avatar.className = 'avatar-class';
+  fondoImagen.className = 'avatar-class';
   p2.textContent = 'Descripción';
   p2.className = 'text-subtitle2';
   p3.textContent = 'Email';
@@ -59,6 +65,7 @@ export const profile = () => {
   btnHome.className = 'buttonRegister';
   btnEdit.textContent = 'Editar Perfil';
   btnEdit.className = 'buttonEditProfile';
+  btnCerrar.textContent = 'Cerrar Sesión';
   homeDiv2.className = 'container-div';
   homeDiv3.className = 'container-div';
   homeDiv4.className = 'container-div';
@@ -72,6 +79,8 @@ export const profile = () => {
   containerImg.appendChild(imgwelcome);
   containerRegister.appendChild(titleImg);
   containerRegister.appendChild(title);
+  fondoImagen.appendChild(avatar);
+  containerRegister.appendChild(fondoImagen);
   homeDiv2.appendChild(p);
   homeDiv2.appendChild(p4);
   containerRegister.appendChild(homeDiv2);
@@ -79,10 +88,11 @@ export const profile = () => {
   homeDiv3.appendChild(p5);
   containerRegister.appendChild(homeDiv3);
   homeDiv4.appendChild(p3);
+  homeDiv4.appendChild(p6);
   containerRegister.appendChild(homeDiv4);
-  homeDiv3.appendChild(p6);
   homeDiv5.appendChild(btnHome);
   homeDiv5.appendChild(btnEdit);
+  homeDiv5.appendChild(btnCerrar);
   containerRegister.appendChild(homeDiv5);
 
   btnCerrar.addEventListener('click', async () => {
