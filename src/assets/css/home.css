@@ -1,15 +1,20 @@
-.logo {
+.cont_home {
+    width: 100%;
+    height: 100%;
     text-align: right;
-    width: 600px;
-    height: 500px;
-    margin: auto;
-    background-image: url(../img/sinFondo.png);
-    background-repeat: no-repeat;
 }
 
-.logo img {
+.logo {
     width: 100%;
-    height: 80%;
+    height: 70%;
+    margin: auto;
+    -webkit-box-reflect: below -650px
+linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
+}
+
+.logoimagen {
+    width: 100%;
+    height: 60%;
 
 }
 
@@ -20,16 +25,18 @@
     margin-right: 50px;
     color: white;
     display: inline-block;
+    font-size: 40px;
 }
 
 
 .botonregistro {
     cursor: pointer;
-    width: 200px;
+    width: 300px;
     height: 40px;
     font-size: 17px;
     border: none;
     border-radius: 10px;
+    margin-bottom: 30px;
     background: #ff0a54;
     color: #fae0e4;
     box-shadow: 0 9px 14px rgba(255, 254, 254, 0.3);
@@ -37,7 +44,7 @@
 
 .botoniniciosesion {
     cursor: pointer;
-    width: 200px;
+    width: 300px;
     height: 40px;
     font-size: 17px;
     border: none;
@@ -48,11 +55,10 @@
 }
 
 .divBotones {
-    width: 600px;
+    width: 100%;
     height: auto;
-    margin: auto;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
 
 }

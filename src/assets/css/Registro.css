@@ -1,9 +1,3 @@
-#root{
-    width: 100%;
-    height: 100vh;
-    background-color: var(--fondo_de_pagina);
-}
-
 .divPadre{
     display: flex;
     flex-direction: column;
