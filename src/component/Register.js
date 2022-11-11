@@ -48,7 +48,9 @@ export const Register = (onNavigate) => {
     e.preventDefault();
     const valido = validar(email.value, pass.value);
     console.log(valido);
-
+    if (valido) {
+      alert('true');
+    }
     // if (!validar()) {
     //   formularioregistro(email.value, pass.value).then((respuesta) => {
     //     console.log(respuesta);

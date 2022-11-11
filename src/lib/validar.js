@@ -18,13 +18,11 @@ export const validar = (email, password) => {
     mensaje2 += 'La constraseña no es válida';
     entrar = false;
   }
-  if (entrar) {
-    mensaje += 'Todo correcto';
-    alert(mensaje);
-    console.log(`dentro del if${entrar}`);
-  } else {
+  if (!entrar) {
     modalMensaje(mensaje, mensaje2);
-    console.log(`dentro del else${entrar}`);
+    // mensaje += 'Todo correcto';
+    // alert(mensaje);
+    // console.log(`dentro del if${entrar}`);
   }
   return entrar;
 };

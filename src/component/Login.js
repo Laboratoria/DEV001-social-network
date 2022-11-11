@@ -50,6 +50,9 @@ export const Login = (onNavigate) => {
     e.preventDefault();
     const valido = validar(email.value, pass.value);
     console.log(valido);
+    if (valido) {
+      alert('true');
+    }
     // formulariologin(email.value, pass.value);
   });
   const divBoton = document.createElement('div');
