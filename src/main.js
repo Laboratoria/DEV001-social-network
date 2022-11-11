@@ -21,7 +21,7 @@ routes = {
   '/': Home(onNavigate),
   '/register': Register(onNavigate),
   '/login': Login(onNavigate),
-  '/Begin': Begin,
+  '/Begin': Begin(),
 
 };
 
