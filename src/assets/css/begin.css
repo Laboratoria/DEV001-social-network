@@ -1,0 +1,26 @@
+.bienvenida{
+    align-items: center;
+    text-align: center;
+    padding-top: 90px;
+}
+
+.texto_bienvenida{
+ 
+ font-weight: 900;
+  font-size: 60px;
+  color: white;
+  -webkit-text-stroke: 1px var(--color_borde_bienvenida);
+  text-shadow: var(--sombra_texto_bienvenida);
+     animation-name: moverTitulo;
+     animation-duration: 10s;
+     animation-iteration-count: infinite;
+     animation-timing-function: ease-in-out;   
+}
+@keyframes moverTitulo{
+    0%{
+        transform: scale(0.9)
+    }
+    100%{
+        transform: scale(1.1)
+    }
+}

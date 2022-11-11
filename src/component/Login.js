@@ -1,4 +1,4 @@
-// import { formulariologin } from '../lib/index.js';
+import { formulariologin } from '../lib/index.js';
 import { validar } from '../lib/validar.js';
 
 export const Login = (onNavigate) => {
@@ -35,6 +35,7 @@ export const Login = (onNavigate) => {
   labelPass.textContent = 'Password';
   const buttonSubmit = document.createElement('button');
   buttonSubmit.textContent = 'Login';
+  buttonSubmit.classList = 'btn_fotm_login';
   grupo1.appendChild(labelEmail);
   grupo2.appendChild(labelPass);
   grupo1.appendChild(email);
@@ -49,14 +50,18 @@ export const Login = (onNavigate) => {
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const valido = validar(email.value, pass.value);
-    console.log(valido);
-    // formulariologin(email.value, pass.value);
+    if (valido) {
+      formulariologin(email.value, pass.value).then((respuesta) => {
+        onNavigate(respuesta);
+      });
+    }
   });
   const divBoton = document.createElement('div');
   divBoton.className = 'botonRegreso2';
   HomeDiv.appendChild(divBoton);
   const buttonHome = document.createElement('button');
   buttonHome.textContent = 'Back to home';
+  buttonHome.className = 'btn_home_login';
   divBoton.appendChild(buttonHome);
   buttonHome.addEventListener('click', () => onNavigate('/'));
   return HomeDiv;
