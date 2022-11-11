@@ -1,5 +1,5 @@
 import {
-  createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, onAuthStateChanged,
+  createUserWithEmailAndPassword, onAuthStateChanged,
 } from 'firebase/auth';
 import { auth } from './firebase.js';
 // eslint-disable-next-line import/no-cycle
@@ -35,7 +35,6 @@ export const register = () => {
   const p3 = document.createElement('p');
   const inputPassword = document.createElement('input');
   const homeDiv5 = document.createElement('div');
-  const buttonGoogle = document.createElement('button');
   const buttonSend = document.createElement('button');
   const imgFlower = document.createElement('img');
   const imgFlower2 = document.createElement('img');
@@ -78,8 +77,6 @@ export const register = () => {
   inputPassword.placeholder = 'Ingresa tu contraseña:';
   regresar.innerHTML = '¿Ya tienes cuenta? <a href> Iniciar sesión </a>';
   regresar.className = 'link-login';
-  buttonGoogle.innerHTML = '<img class="img-google" src="https://icones.pro/wp-content/uploads/2021/02/google-icone-symbole-logo-png-150x150.png" /> Regístrarme con google';
-  buttonGoogle.className = 'button-google';
   buttonSend.textContent = 'Registrarme';
   buttonSend.className = 'buttonRegister';
   imgFlower.src = './lib/img/flowers2.png';
@@ -101,20 +98,19 @@ export const register = () => {
   containerImg.appendChild(imgwelcome);
   containerRegister.appendChild(titleImg);
   containerRegister.appendChild(title);
-  homeDiv3.appendChild(imgFlower);
-  homeDiv3.appendChild(p2);
-  homeDiv3.appendChild(inputEmail);
-  containerRegister.appendChild(homeDiv3);
   homeDiv2.appendChild(imgFlower2);
   homeDiv2.appendChild(p);
   homeDiv2.appendChild(inputName);
   containerRegister.appendChild(homeDiv2);
+  homeDiv3.appendChild(imgFlower);
+  homeDiv3.appendChild(p2);
+  homeDiv3.appendChild(inputEmail);
+  containerRegister.appendChild(homeDiv3);
   homeDiv4.appendChild(imgFlower3);
   homeDiv4.appendChild(p3);
   homeDiv4.appendChild(inputPassword);
   containerRegister.appendChild(homeDiv4);
   homeDiv5.appendChild(buttonSend);
-  homeDiv5.appendChild(buttonGoogle);
   homeDiv5.appendChild(regresar);
   containerRegister.appendChild(homeDiv5);
   regresar.addEventListener('click', () => onNavigate('/login'));
@@ -146,17 +142,6 @@ export const register = () => {
       }
       // const errorCode = error.code;
       // const errorMessage = error.message;
-    }
-  });
-
-  buttonGoogle.addEventListener('click', async () => {
-    const provider = new GoogleAuthProvider();
-    try {
-      const credentials = await signInWithPopup(auth, provider);
-      console.log(credentials);
-      onNavigate('/profile');
-    } catch (error) {
-      console.log(error);
     }
   });
 
