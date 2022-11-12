@@ -99,7 +99,7 @@
   border-style: none;
   font-family: "Poppins", sans-serif;
   border-radius: 10px;
-  padding: 10px 20px;
+  padding: 13px 20px;
   background-color: #ffffff;
   font-size: 1rem;
   color: #414141;
@@ -113,7 +113,7 @@
 
 .img-google{
   position: absolute;
-  top: 8px;
+  top: 9px;
   left: 20px;
   width: 10%;
 }
@@ -211,7 +211,7 @@
     width: 100%;
   }
   .buttonLogin {
-    padding: 10px 20px;
+    padding: 15px 20px;
   }
   .img-google{
     position: absolute;

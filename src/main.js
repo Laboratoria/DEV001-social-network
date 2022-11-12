@@ -1,31 +1,25 @@
 // Este es el punto de entrada de tu aplicacion
 
-// import { myFunction } from './lib/index.js';
+import "./lib/Archivos JS/firebase.js";
 
-// myFunction();
-
-import './lib/Archivos JS/firebase.js';
 // eslint-disable-next-line import/no-cycle
-import {home} from './lib/Archivos JS/home.js';
-import { register } from './lib/Archivos JS/register.js';
-import { login } from './lib/Archivos JS/login.js'; 
-import { profile } from './lib/Archivos JS/profile.js'; 
+import { home } from "./lib/Archivos JS/home.js";
+import { register } from "./lib/Archivos JS/register.js";
+import { login } from "./lib/Archivos JS/login.js";
+import { profile } from "./lib/Archivos JS/profile.js";
 
-const rootDiv = document.getElementById('root');
+
+const rootDiv = document.getElementById("root");
 
 const routes = {
-  '/': home,
-  '/register': register,
-  '/login': login,
-  '/profile': profile,
+  "/": home,
+  "/register": register,
+  "/login": login,
+  "/profile": profile,
 };
 
 export const onNavigate = (pathname) => {
-  window.history.pushState(
-    {},
-    pathname,
-    window.location.origin + pathname,
-  );
+  window.history.pushState({}, pathname, window.location.origin + pathname);
 
   while (rootDiv.firstChild) {
     rootDiv.removeChild(rootDiv.firstChild);
@@ -38,10 +32,9 @@ const component = routes[window.location.pathname];
 
 window.onpopstate = () => {
   rootDiv.appendChild(component());
-}
+};
 
 rootDiv.appendChild(component());
-
 
 window.onpopstate = () => {
   while (rootDiv.firstChild) {

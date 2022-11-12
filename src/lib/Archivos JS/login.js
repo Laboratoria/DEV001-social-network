@@ -1,7 +1,8 @@
-import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, } from 'firebase/auth';
+/*import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, } from 'firebase/auth';*/
 // eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../../main';
-import { auth } from './firebase.js';
+import { functionLogin, functionRegisterGoogle } from "./index.js";
+/*import { auth } from './firebase.js';*/
 
 const rootDiv = document.getElementById('root');
 
@@ -106,6 +107,31 @@ export const login = () => {
     const email = inputEmail.value;
     const password = inputPassword.value;
 
+    const result = await functionLogin(email, password);
+
+    //console.log(email);
+    //console.log(password);
+
+    if(result){
+      console.log("si vamos alogin")
+      onNavigate('/profile');
+    };
+
+  });
+
+  buttonGoogle.addEventListener('click', async () => {
+    const resultGoogle = await functionRegisterGoogle();
+
+    if(resultGoogle){
+      console.log("sita funcionando");
+      onNavigate('/profile');
+    }
+  });
+
+  /*buttonInicio.addEventListener('click', async () => {
+    const email = inputEmail.value;
+    const password = inputPassword.value;
+
     console.log(email, password);
 
     try {
@@ -125,18 +151,22 @@ export const login = () => {
       // const errorCode = error.code;
       // const errorMessage = error.message;
     }
-  });
+  });*/
 
+  /*
   buttonGoogle.addEventListener('click', async () => {
     const provider = new GoogleAuthProvider();
     try {
       const credentials = await signInWithPopup(auth, provider);
       console.log(credentials);
+      console.log(credentials.user);
       onNavigate('/profile');
+      //return provider.user
     } catch (error) {
       console.log(error);
+      throw new Error(error);
     }
-  });
+  });*/
 
   return homeDiv;
 };
