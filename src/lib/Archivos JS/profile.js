@@ -101,5 +101,7 @@ export const profile = () => {
     onNavigate('/');
   });
 
+  btnHome.addEventListener('click', () => onNavigate('/landingPage'));
+
   return homeDiv;
 };
