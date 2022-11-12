@@ -6,26 +6,29 @@
 
 .divPadre2{
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-   
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(120deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.7) 100%), url(../img/sinFondo.png);
+      background-attachment: fixed;
+      background-position: center;
 }
 
 .mensajeBienvenida2 h2{
-  margin-top: 25px;  
-  font-weight: 900;
-  font-size: 50px;
-  color: white;
-  -webkit-text-stroke: 1px #081c15;
-  text-shadow: #95d5b2 0px 0px 5px,
-     #FFF 0px 0px 10px, #FFF 0px 0px 15px, #affc41 0px 0px 20px, 
-     #affc41 0px 0px 30px, #affc41 0px 0px 40px, #affc41 0px 0px 50px, 
-     #74d3ae 0px 0px 75px;
-     animation-name: moverTitulo;
-     animation-duration: 10s;
-     animation-iteration-count: infinite;
-     animation-timing-function: ease-in-out;   
+  text-transform: uppercase;
+    margin-top: 30px;
+    font-weight: 700;
+    font-size: 35px;
+    text-align: center;
+    color: #ff0a54;
+    /*-webkit-text-stroke: 1px var(--color_borde_bienvenida);*/
+    text-shadow: var(--sombra_texto_bienvenida);
+    /*animation-name: moverTitulo;*/
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
 }
 @keyframes moverTitulo{
     0%{
@@ -38,18 +41,19 @@
 
 
 .formulariologin{
-    margin-top: 50px;
-    padding: 15px 0px;
-    align-items: center;
-    width: 350px;
-    height: 400px;
-    border-radius:10px;
-    text-align: center;
-    box-shadow:var(--sombra_formulario_registro);
+    background: rgba(0, 0, 0, 0.5);
+      margin-top: 100px;
+      padding: 15px 0px;
+      align-items: center;
+      width: 350px;
+      height: 500px;
+      border-radius: 10px;
+      text-align: center;
 }
 .formulariologin h1{
     color: white;
-    font-weight: 700;
+      font-weight: 700;
+      text-transform: uppercase;
 }
 .grupos2{
     display: flex;
@@ -58,14 +62,23 @@
     padding: 20px;
 
 }
-
-.grupos2 input{
-    width: 250px;
-    padding: 5px;
+.email_registro {
+  width: 300px;
+  height: 40px;
+  padding: 10px;
+  font-family: Arial, black;
+  height: 40px;
+}
+.pass_registro {
+  width: 300px;
+  height: 40px;
+  padding: 10px;
+  font-family: Arial, black;
+  height: 40px;
 }
 
 .grupos2 label{
-    width: 300px;
+    width: 250px;
     text-align: left;
     margin-bottom: 5px;
     color: white;
@@ -73,66 +86,76 @@
 
 
 .botonRegreso2{
-    margin-top: 40px;
+  display: inline-block;
+    top: 0;
+    left: 0;
+    position: fixed;
 }
 
 
 
 .btn_fotm_login{
+  padding: 5px;
     cursor: pointer;
-    width: 200px;
+    width: 300px;
     height: 40px;
     font-size: 17px;
     border: none;
     border-radius: 10px;
-    background: #7cb518;
-    color: #f7ffdd;
-    box-shadow: 0 9px 14px rgba(255, 254, 254, 0.3);
-   
+    background: var(--color_oscuro_boton_formulario);
+    color: var(--color_claro_boton_formulario);
+    box-shadow: var(--sombra_boton);
+    text-transform: uppercase;
     margin-top: 0px;
   }
   
   .btn_fotm_login:active {
-    background-color: #7cb518;
-    box-shadow: rgba(255, 255, 255, 0.5);
-    transform: translateY(4px);
+    background-color: var(--color_oscuro_boton_formulario);
+      box-shadow: var(--sombra_boton_active);
+      transform: translateY(4px);
   }
   
   .btn_fotm_login:hover {
     color: #0e0f0e;
-    background-color: #affc41;
+      background-color: var(--color_boton_form_hover);
   }
 
-  .btn_home_login{
-    cursor: pointer;
-    width: 200px;
-    height: 40px;
-    font-size: 17px;
-    border: none;
-    border-radius: 10px;
-    background: #ff0a54;
-    color: #fae0e4;
-    box-shadow: 0 9px 14px rgba(255, 254, 254, 0.3);
-   
-    margin-top: 0px;
+  .btn_home_registro2{
+    padding: 2px;
+      cursor: pointer;
+      width: 50px;
+      height: 45px;
+      font-size: 40px;
+      border: none;
+      border-radius: 10px;
+      background: transparent;
+      color: #fae0e4;
   }
   
-  .btn_home_login:active {
-    background-color: #ff0a54;
-    box-shadow: rgba(255, 255, 255, 0.5);
-    transform: translateY(4px);
+  .btn_home_registro2:active {
+      background-color: transparent;
+      transform: translateY(4px);
   }
   
-  .btn_home_login:hover {
-    color: #ff99ac;
-    background-color: #ff5c8a;
+  .btn_home_registro2:hover {
+      color: var(--color_boton_claro_regreso_hover);
+      background-color: var(--color_boton_oscuro_regreso_hover);
+      box-shadow: var(--sombra_boton);
   }
 
+    ::-webkit-input-placeholder {
+        color: rgb(216, 11, 11);
+  }
   
-  /*.ojito{
-    border: 1px solid #ff0a54;
-    display: inline-block;
-    width: 30px;
-  }*/
+    .ojito2 {
+      width: 20px;
+      height: 25px;
+      background: white;
+      display: inline-block;
+      position: absolute;
+      right: 0;
+      margin-right: 56px;
+      margin-top: 30px;
+    }
 
   

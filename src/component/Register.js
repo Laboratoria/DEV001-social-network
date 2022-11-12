@@ -28,8 +28,6 @@ export const Register = (onNavigate) => {
   divForm.className = 'formularioRegistro';
   const grupo1 = document.createElement('div');
   const grupo2 = document.createElement('div');
-  const labelName = document.createElement('label');
-  labelName.textContent = 'Name';
   const email = document.createElement('input');
   email.type = 'email';
   email.placeholder = 'Email';
