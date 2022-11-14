@@ -2,6 +2,7 @@
 // eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../../main';
 import { functionLogin, functionRegisterGoogle } from "./index.js";
+import { profile } from "./profile";
 /*import { auth } from './firebase.js';*/
 
 const rootDiv = document.getElementById('root');
@@ -19,7 +20,7 @@ export const login = () => {
   const title = document.createElement('h2');
   const titleImg = document.createElement('img');
   const homeDiv2 = document.createElement('div');
-  const p = document.createElement('p');
+  // const p = document.createElement('p');
   const homeDiv3 = document.createElement('div');
   const p2 = document.createElement('p');
   const inputEmail = document.createElement('input');
@@ -99,9 +100,7 @@ export const login = () => {
   homeDiv5.appendChild(regresar);
   containerRegister.appendChild(homeDiv5);
 
-
   regresar.addEventListener('click', () => onNavigate('/register'));
-
 
   buttonInicio.addEventListener('click', async () => {
     const email = inputEmail.value;
@@ -112,9 +111,11 @@ export const login = () => {
     //console.log(email);
     //console.log(password);
 
-    if(result){
+    if(result != "error"){
       console.log("si vamos alogin")
       onNavigate('/profile');
+      /*console.log("nombre ususario", result.user.displayName)
+      profile(result.user.displayName);*/
     };
 
   });
@@ -122,9 +123,11 @@ export const login = () => {
   buttonGoogle.addEventListener('click', async () => {
     const resultGoogle = await functionRegisterGoogle();
 
-    if(resultGoogle){
+    if(resultGoogle != "error"){
       console.log("sita funcionando");
       onNavigate('/profile');
+      /*console.log("nombre ususario", resultGoogle.user.displayName)
+      profile("gabriela zambrano");*/
     }
   });
 

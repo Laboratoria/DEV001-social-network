@@ -1,5 +1,6 @@
 // aqui exportaras las funciones que necesites
 import {
+  updateProfile,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   GoogleAuthProvider,
@@ -12,20 +13,37 @@ export const functionRegister = async (email, password, name) => {
   console.log(password);
   console.log(name);
 
-  try {
+   try {
   
     const userCredentials = await createUserWithEmailAndPassword(
       auth,
       email,
       password,
     )
-    userCredentials.user.displayName = name;
+    await updateProfile(userCredentials.user, {
+      displayName: name
+    });
     console.log(userCredentials.user);
     //console.log(userCredentials.user.displayName = name);
     return userCredentials.user;
   } catch (error) {
     console.log(error);
-    switch (error.code) {
+
+    if (error.code === "auth/email-already-in-use") {
+      alert("El correo ya está registrado")
+      return ("error");
+    } else if (error.code === "auth/invalid-email") {
+      alert("Debes ingresar un correo válido");
+      return ("error");
+    } else if (error.code === "auth/weak-password") {
+      alert("La contraseña debe tener al menos 6 carácteres");
+      return ("error");
+    } else if (error.code) {
+      alert("Algo está mal en tu registro");
+      return ("error");
+    }
+  }
+    /*switch (error.code) {
       case "auth/email-already-in-use":
         alert("El correo ya está registrado");
         break;
@@ -37,18 +55,7 @@ export const functionRegister = async (email, password, name) => {
         break;
       default:
         alert("Algo está mal en tu registro");
-    }
-    /*
-    if (error.code === "auth/email-already-in-use") {
-      alert("El correo ya está registrado");
-    } else if (error.code === "auth/invalid-email") {
-      alert("Debes ingresar un correo válido");
-    } else if (error.code === "auth/weak-password") {
-      alert("La contraseña debe tener al menos 6 carácteres");
-    } else if (error.code) {
-      alert("Algo está mal en tu registro");
     }*/
-  }
 };
 
 export const functionLogin = async (email, password) => {
@@ -56,8 +63,22 @@ export const functionLogin = async (email, password) => {
   console.log(password);
   try {
     const credentials = await signInWithEmailAndPassword(auth, email, password);
-    return credentials;
+    console.log(credentials.user);
+    return credentials.user;
   } catch (error) {
+    if (error.code === 'auth/wrong-password') {
+      alert('Contraseña incorrecta');
+      return ("error");
+    } else if (error.code === 'auth/user-not-found') {
+      alert('Dirección Email no encontrada, por favor regístrese');
+      return ("error");
+    } else if (error.code) {
+      alert('Error en inicio de sesión, intente nuevamente');
+      return ("error");
+    }
+  }
+
+    /*
     switch (error.code) {
       case "auth/wrong-password":
         alert("Contraseña incorrecta");
@@ -68,28 +89,18 @@ export const functionLogin = async (email, password) => {
       default:
         alert("Error en inicio de sesión, intente nuevamente");
     }
-
-    /*
-    if (error.code === 'auth/wrong-password') {
-      alert('Contraseña incorrecta');
-    } else if (error.code === 'auth/user-not-found') {
-      alert('Dirección Email no encontrada, por favor regístrese');
-    } else if (error.code) {
-      alert('Error en inicio de sesión, intente nuevamente');
-    }
     */
-  }
+  
 };
 
-
-export const functionRegisterGoogle = async () =>{
+export const functionRegisterGoogle = async () => {
   const provider = new GoogleAuthProvider();
-    try {
-      const credentials = await signInWithPopup(auth, provider);
-      console.log(credentials.user);
-      return credentials
-    } catch (error) {
-      console.log(error);
-      throw new Error(error);
-    }
+  try {
+    const credentials = await signInWithPopup(auth, provider);
+    console.log(credentials.user);
+    return credentials;
+  } catch (error) {
+    console.log(error);
+    return ("error");
+  }
 };

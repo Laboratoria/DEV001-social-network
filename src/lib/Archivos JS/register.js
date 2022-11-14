@@ -1,4 +1,3 @@
-
 // eslint-disable-next-line import/no-cycle
 import { onNavigate } from "../../main";
 import { functionRegister } from "./index.js";
@@ -114,12 +113,12 @@ export const register = () => {
     const email = inputEmail.value;
     const password = inputPassword.value;
 
-    const result = await functionRegister(email, password, name);
 
-    if (result) {
+    const result = await functionRegister(email, password, name);
+    console.log(result);
+    if (result != "error") {
       onNavigate("/profile");
     }
-  });
 
   /*buttonSend.addEventListener('click', async () => {
     const name = inputName.value;
@@ -151,6 +150,7 @@ export const register = () => {
       // const errorMessage = error.message;
     }
   });*/
-
+});
   return homeDiv;
-};
+
+}
