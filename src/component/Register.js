@@ -69,9 +69,8 @@ export const Register = (onNavigate) => {
     const valido = validar(email.value, pass.value);
 
     if (valido) {
-      formularioregistro(email.value, pass.value).then((respuesta) => {
-        onNavigate(respuesta);
-      });
+      formularioregistro(email.value, pass.value);
+      onNavigate('/Begin');
     }
   });
 

@@ -1,12 +1,14 @@
-export const Begin = (mensaje) => {
+export const Begin = (onNavigate) => {
   const HomeDiv = document.createElement('div');
   HomeDiv.className = 'bienvenida';
   const textoBienvenida = document.createElement('h1');
-  const textoUsuario = document.createElement('h2');
   textoBienvenida.textContent = 'Bienvenidos a la Pagina';
   textoBienvenida.classList = 'texto_bienvenida';
-  textoUsuario.textContent = mensaje;
+  const regresarHome = document.createElement('button');
+  regresarHome.textContent = 'HOME';
+  regresarHome.classList = 'btn_regresar';
+  regresarHome.addEventListener('click', () => onNavigate('/'));
   HomeDiv.appendChild(textoBienvenida);
-  HomeDiv.appendChild(textoUsuario);
+  HomeDiv.appendChild(regresarHome);
   return HomeDiv;
 };

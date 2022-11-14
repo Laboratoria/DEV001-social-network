@@ -41,7 +41,7 @@
 
 
 .formulariologin{
-    background: rgba(0, 0, 0, 0.5);
+     background: rgba(0, 0, 0, 0.5);
       margin-top: 100px;
       padding: 15px 0px;
       align-items: center;
@@ -62,20 +62,12 @@
     padding: 20px;
 
 }
-.email_registro {
+.email_registro  .pass_registro{
   width: 300px;
   height: 40px;
   padding: 10px;
-  font-family: Arial, black;
-  height: 40px;
 }
-.pass_registro {
-  width: 300px;
-  height: 40px;
-  padding: 10px;
-  font-family: Arial, black;
-  height: 40px;
-}
+
 
 .grupos2 label{
     width: 250px;
