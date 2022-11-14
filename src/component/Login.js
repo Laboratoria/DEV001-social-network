@@ -69,9 +69,8 @@ export const Login = (onNavigate) => {
     const valido = validar(email.value, pass.value);
 
     if (valido) {
-      formulariologin(email.value, pass.value).then((respuesta) => {
-        onNavigate(respuesta);
-      });
+      formulariologin(email.value, pass.value);
+      onNavigate('/Begin');
     }
   });
 

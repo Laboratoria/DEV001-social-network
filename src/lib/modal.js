@@ -1,10 +1,8 @@
-const modal = document.getElementById('mi_modal');
-const textModal = document.getElementById('text_modal');
-const textModal2 = document.getElementById('text_modal_2');
-
-const cerrar = document.getElementById('close');
-
 export const modalMensaje = (mensaje, mensaje2) => {
+  const modal = document.getElementById('mi_modal');
+  const textModal = document.getElementById('text_modal');
+  const textModal2 = document.getElementById('text_modal_2');
+  const cerrar = document.getElementById('close');
   modal.style.display = 'block';
   textModal.innerText = mensaje;
   textModal2.innerText = mensaje2;
