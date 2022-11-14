@@ -67,7 +67,7 @@ export const Login = (onNavigate) => {
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const valido = validar(email.value, pass.value);
-    
+
     if (valido) {
       formulariologin(email.value, pass.value).then((respuesta) => {
         onNavigate(respuesta);
