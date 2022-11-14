@@ -1,52 +1,77 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
 
+.profile-details {
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  font-size: 1.3rem;
+  color: #ffffff;
+  font-weight: 600;
+  margin-top: -20px;
+}
 
-  .profile-details {
-    font-family: "Poppins", sans-serif;
-    text-align: center;
-    font-size: 1.3rem;
-    color: #ffffff;
-    font-weight: 600;
-    margin-top: -20px;
-  }
+.user-description {
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  font-size: 1.3rem;
+  color: #ffffff;
+  font-weight: 300;
+  margin-top: -20px;
+}
 
-  .user-description {
-    font-family: "Poppins", sans-serif;
-    text-align: center;
-    font-size: 1.3rem;
-    color: #ffffff;
-    font-weight: 300;
-    margin-top: -20px;
-  }
+.text-subtitle2 {
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  font-size: 1.2rem;
+  color: rgb(255, 241, 241);
+  font-weight: 600;
+}
 
-  .text-subtitle2 {
-    font-family: "Poppins", sans-serif;
-    text-align: center;
-    font-size: 1.1rem;
-    color: white;
-    font-weight: 600;
-  }
-  
-  .text-subtitle3 {
-    font-family: "Poppins", sans-serif;
-    text-align: center;
-    font-size: 1.5rem;
-    color: #453d9d;
-    font-weight: 600;
-  }
-  
-  .text-subtitle4 {
-    font-family: "Poppins", sans-serif;
-    text-align: center;
-    font-size: 1.1rem;
-    color: white;
-    font-weight: 600;
-  }
+.text-subtitle3 {
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  font-size: 1.3rem;
+  color: #453d9d;
+  font-weight: 600;
+}
 
-  .avatar-class {
-    background: #453d9d;
-    border-color: white;
-    border-width: 2px;
-    border-radius: 50px;
+.text-subtitle4 {
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  font-size: 1.1rem;
+  color: white;
+  font-weight: 500;
+}
+
+.avatar-class {
+  background: #453d9d;
+  border-color: white;
+  border-width: 2px;
+  border-radius: 50px;
+}
+
+.buttonEditProfile {
+  border-style: none;
+  font-family: "Poppins", sans-serif;
+  border-radius: 10px;
+  padding: 13px 20px;
+  background-color: #9b95f3;
+  font-size: 1rem;
+  color: #fde1ca;
+  font-weight: 500;
+  width: 100%;
+  box-shadow: 1px 1px 1px 1px rgba(255, 206, 206, 0.805);
+  cursor: pointer;
+}
+
+.img-welcome-2{
+  display: none;
+}
+
+@media screen and (min-width: 900px) {
+
+  .img-welcome-2 {
+    display: flex;
+    width: 90%;
+    margin-right: 60px;
   }
-  
+}

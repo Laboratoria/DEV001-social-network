@@ -1,10 +1,7 @@
 // Este es el punto de entrada de tu aplicacion
 
-// import { myFunction } from './lib/index.js';
+import "./lib/Archivos JS/firebase.js";
 
-// myFunction();
-
-import './lib/Archivos JS/firebase.js';
 // eslint-disable-next-line import/no-cycle
 import { home } from './lib/Archivos JS/home.js';
 // eslint-disable-next-line import/no-cycle
@@ -15,7 +12,7 @@ import { login } from './lib/Archivos JS/login.js';
 import { profile } from './lib/Archivos JS/profile.js';
 import { landingPage } from './lib/Archivos JS/landingPage.js';
 
-const rootDiv = document.getElementById('root');
+const rootDiv = document.getElementById("root");
 
 const routes = {
   '/': home,
@@ -26,11 +23,7 @@ const routes = {
 };
 
 export const onNavigate = (pathname) => {
-  window.history.pushState(
-    {},
-    pathname,
-    window.location.origin + pathname,
-  );
+  window.history.pushState({}, pathname, window.location.origin + pathname);
 
   while (rootDiv.firstChild) {
     rootDiv.removeChild(rootDiv.firstChild);

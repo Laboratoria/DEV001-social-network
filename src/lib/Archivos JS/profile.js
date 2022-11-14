@@ -1,4 +1,4 @@
-import { signOut } from 'firebase/auth';
+import { signOut, getAuth  } from 'firebase/auth';
 import { auth } from './firebase.js';
 // eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../../main';
@@ -6,6 +6,9 @@ import { onNavigate } from '../../main';
 const rootDiv = document.getElementById('root');
 
 export const profile = () => {
+  const auth = getAuth();
+  const user = auth.currentUser;
+  console.log(user);
   rootDiv.innerHTML = ' ';
 
   const homeDiv = document.createElement('div');
@@ -32,6 +35,7 @@ export const profile = () => {
   const btnHome = document.createElement('button');
   const btnEdit = document.createElement('button');
   const btnCerrar = document.createElement('button');
+
   homeDiv.className = 'container';
   container.className = 'container-im-and-register';
   containerImg.className = 'container-img';
@@ -39,8 +43,8 @@ export const profile = () => {
   titleImg.className = 'img-title';
   title.textContent = 'Mi Perfil';
   title.className = 'title-register';
-  imgwelcome.src = './lib/img/img-women.png';
-  imgwelcome.className = 'img-welcome';
+  imgwelcome.src = './lib/img/Women-cel.png';
+  imgwelcome.className = 'img-welcome-2';
   imgTop.src = './lib/img/collage-3.png';
   imgTop.className = 'img-top-2';
   imgBottom.src = './lib/img/collage-5.png';
@@ -55,11 +59,11 @@ export const profile = () => {
   p2.className = 'text-subtitle2';
   p3.textContent = 'Email';
   p3.className = 'text-subtitle2';
-  p4.textContent = 'Silvia Falcón';
+  p4.textContent = `${user.displayName}`;
   p4.className = 'text-subtitle3';
   p5.textContent = 'Estudiante de Desarrollo Web.';
   p5.className = 'text-subtitle4';
-  p6.textContent = 'silvi0924@hotmail.com';
+  p6.textContent = `${user.email}`;
   p6.className = 'text-subtitle3';
   btnHome.textContent = 'Ir al Home';
   btnHome.className = 'buttonRegister';
@@ -72,8 +76,8 @@ export const profile = () => {
   homeDiv5.className = 'container-div';
 
   homeDiv.appendChild(container);
-  container.appendChild(containerImg);
   container.appendChild(containerRegister);
+  container.appendChild(containerImg);
   homeDiv.appendChild(imgTop);
   homeDiv.appendChild(imgBottom);
   containerImg.appendChild(imgwelcome);

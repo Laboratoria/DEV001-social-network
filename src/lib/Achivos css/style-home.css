@@ -6,6 +6,10 @@
   box-sizing: border-box;
 }
 
+body{
+  background-color: #7d74fd;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -75,21 +79,9 @@
   width: 100%;
   box-shadow: 1px 1px 1px 1px rgba(255, 206, 206, 0.805);
   cursor: pointer;
+  margin-bottom: 5px;
 }
 
-.buttonEditProfile {
-  border-style: none;
-  font-family: "Poppins", sans-serif;
-  border-radius: 10px;
-  padding: 13px 20px;
-  background-color: #9b95f3;
-  font-size: 1rem;
-  color: #fde1ca;
-  font-weight: 500;
-  width: 100%;
-  box-shadow: 1px 1px 1px 1px rgba(255, 206, 206, 0.805);
-  cursor: pointer;
-}
 
 .buttonLogin {
   border-style: none;
@@ -109,7 +101,7 @@
   display: none;
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 900px) {
   .container-landing {
     display: flex;
     flex-direction: row;
