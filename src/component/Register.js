@@ -33,6 +33,7 @@ export const Register = (onNavigate) => {
   email.placeholder = 'Email';
   const labelEmail = document.createElement('label');
   labelEmail.textContent = 'Email';
+  labelEmail.classList = 'label_email';
   const pass = document.createElement('input');
   pass.type = 'password';
   pass.placeholder = 'Password';
@@ -40,21 +41,26 @@ export const Register = (onNavigate) => {
   email.classList = 'email_registro';
   const labelPass = document.createElement('label');
   labelPass.textContent = 'Password';
+  labelPass.classList = 'label_pass';
   const buttonSubmit = document.createElement('button');
   buttonSubmit.textContent = 'sign up';
   buttonSubmit.classList = 'btn_formulario_registro';
+  const spanPass = document.createElement('label');
+  spanPass.textContent = '👀';
+  spanPass.className = 'ojito_registro';
+  const cajaOjito = document.createElement('div');
+  cajaOjito.className = 'caja_ojito';
+  cajaOjito.appendChild(pass);
+  cajaOjito.appendChild(spanPass);
   grupo1.appendChild(labelEmail);
   grupo2.appendChild(labelPass);
   grupo1.appendChild(email);
-  grupo2.appendChild(pass);
   divForm.appendChild(grupo1);
   divForm.appendChild(grupo2);
+  grupo2.appendChild(cajaOjito);
   divForm.appendChild(buttonSubmit);
   grupo2.className = 'grupos';
   grupo1.className = 'grupos';
-  const spanPass = document.createElement('span');
-  spanPass.textContent = '👀';
-  spanPass.className = 'ojito2';
   spanPass.addEventListener('click', () => {
     if (pass.type === 'password') {
       pass.type = 'text';
@@ -62,7 +68,6 @@ export const Register = (onNavigate) => {
       pass.type = 'password';
     }
   });
-  grupo2.appendChild(spanPass);
   buttonSubmit.type = 'submit';
   form.addEventListener('submit', (e) => {
     e.preventDefault();
