@@ -37,8 +37,8 @@ export const Login = (onNavigate) => {
   const pass = document.createElement('input');
   pass.type = 'password';
   pass.placeholder = 'Password';
-  pass.classList = 'pass_registro';
-  email.classList = 'email_registro';
+  pass.classList = 'pass_login';
+  email.classList = 'email_login';
   const labelPass = document.createElement('label');
   labelPass.textContent = 'Password';
   labelPass.classList = 'label_pass';

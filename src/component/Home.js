@@ -4,7 +4,7 @@ export const Home = (onNavigate) => {
   const buttonRegister = document.createElement('button');
   const buttonLogin = document.createElement('button');
   const divLogo = document.createElement('div');
-  divLogo.className = 'logo';
+  divLogo.className = 'logo_home';
   const letraLogo = document.createElement('h1');
   letraLogo.className = 'letraLogo';
   letraLogo.textContent = 'Lymusic';
