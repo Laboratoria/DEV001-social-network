@@ -9,12 +9,28 @@
  font-weight: 900;
   font-size: 60px;
   color: white;
+  margin: 30px;
   -webkit-text-stroke: 1px var(--color_borde_bienvenida);
   text-shadow: var(--sombra_texto_bienvenida);
      animation-name: moverTitulo;
      animation-duration: 10s;
      animation-iteration-count: infinite;
      animation-timing-function: ease-in-out;   
+}
+.parrafo_publicacion{
+    color: rgb(159, 27, 226);
+    margin: 130px;
+    font-size: 50px;
+}
+.btn_regresar {
+    background-color: red;
+    font-size: 30px;
+    color: white;
+    padding: 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: var(--sombra_boton);
+    border: none;
 }
 @keyframes moverTitulo{
     0%{

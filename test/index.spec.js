@@ -78,3 +78,20 @@ describe('test de la funcion validar', () => {
     expect(validar('khammylv@gmail.com', '5550121')).toBe(true);
   });
 });
+
+// eslint-disable-next-line jest/no-identical-title
+describe('testd de google', () => {
+  it('debería ser una función', () => {
+    expect(typeof Register).toBe('function');
+  });
+  it('Existe el boton de registro con google', () => {
+    const elemento = Register();
+    const boton = elemento.querySelector('.btn_google');
+    expect(boton).not.toBeNull();
+  });
+  // it('Existe el boton de crear cuenta', () => {
+  //  const elemento = Register();
+  // const boton = elemento.querySelector('.botonregistro');
+  //  expect(boton).not.toBeNull();
+  // });
+});
