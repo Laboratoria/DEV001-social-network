@@ -12,7 +12,6 @@ export const landingPage = () => {
   const avatarIcon = document.createElement('img');
   const greeting = document.createElement('p');
   const imgBottom = document.createElement('img');
-  
 
   const containerSlider = document.createElement('section');
   const imgSlider = document.createElement('img');
@@ -31,12 +30,25 @@ export const landingPage = () => {
   const pEmocional = document.createElement('p');
 
   const containerPosts = document.createElement('section');
+  const estructuraPost = document.createElement('div');
   const postDiv = document.createElement('div');
   const imgPostDiv = document.createElement('div');
   const imgPost = document.createElement('img');
   const postTitle = document.createElement('p');
   const postDesciption = document.createElement('p');
   const postAuthor = document.createElement('p');
+  const divisionLine = document.createElement('div');
+  const postInferiorDiv = document.createElement('div');
+  const categoryDiv = document.createElement('div');
+  const optionsDiv = document.createElement('div');
+  const likeDiv = document.createElement('div');
+  const editDiv = document.createElement('div');
+  const deleteDiv = document.createElement('div');
+  const likeImg = document.createElement('img');
+  const editImg = document.createElement('img');
+  const deleteImg = document.createElement('img');
+  const likeText = document.createElement('p');
+  const editText = document.createElement('p');
 
   // Asignación de clases
   homeDiv.className = 'container';
@@ -73,18 +85,35 @@ export const landingPage = () => {
   pEmocional.textContent = 'Emocional';
   pEmocional.className = 'text-categories';
 
-  postDiv.classList = 'class-post';
+  estructuraPost.classList = 'class-estructuraPost';
+  postDiv.classList = 'class-postDiv';
   imgPostDiv.classList = 'class-post-emocional';
   imgPost.src = './lib/img/meditando.png';
   imgPost.className = 'class-imgPost';
   postTitle.textContent = 'Simply Dummy Text';
-  postTitle.className = 'text-subtitle3';
+  postTitle.className = 'text-postTitle';
   postDesciption.textContent = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, '
   + 'sed do eiusmod tempor incididunt ut labore et dolore, '
   + 'eiusmod tempor incididunt ut labore et dolore do eiusmod tempor incididun.';
   postDesciption.className = 'class-postDescription';
   postAuthor.textContent = 'Silvia Falcón';
-  postAuthor.className = 'class-postDescription';
+  postAuthor.className = 'class-postAuthor';
+  divisionLine.className = 'class-divisionLine';
+  postInferiorDiv.className = 'class-postInferiorDiv';
+  categoryDiv.textContent = 'Emocional';
+  categoryDiv.className = 'class-category';
+  optionsDiv.className = 'class-optionsDiv';
+  likeDiv.className = 'class-like';
+  editDiv.className = 'class-edit';
+  deleteDiv.className = 'class-delete';
+  likeImg.src = './lib/img/like-icon.png';
+  likeImg.className = 'class-likeImg';
+  editImg.src = './lib/img/edit-icon.png';
+  editImg.className = 'class-editImg';
+  deleteImg.src = './lib/img/delete-icon.png';
+  deleteImg.className = 'class-deleteImg';
+  likeText.textContent = 'Me gusta';
+  editText.textContent = 'Editar';
 
   // nav.className = 'class-nav';
   // checkbox.type = 'checkbox';
@@ -119,12 +148,25 @@ export const landingPage = () => {
   emocionalDiv.appendChild(pEmocional);
   homeDiv.appendChild(containerCategories);
   homeDiv.appendChild(containerPosts);
-  containerPosts.appendChild(postDiv);
-  postDiv.appendChild(imgPostDiv);
+  containerPosts.appendChild(estructuraPost);
+  estructuraPost.appendChild(imgPostDiv);
   imgPostDiv.appendChild(imgPost);
+  estructuraPost.appendChild(postDiv);
   postDiv.appendChild(postTitle);
   postDiv.appendChild(postDesciption);
   postDiv.appendChild(postAuthor);
+  postDiv.appendChild(divisionLine);
+  postDiv.appendChild(postInferiorDiv);
+  imgPostDiv.appendChild(categoryDiv);
+  postInferiorDiv.appendChild(optionsDiv);
+  optionsDiv.appendChild(likeDiv);
+  likeDiv.appendChild(likeImg);
+  likeDiv.appendChild(likeText);
+  optionsDiv.appendChild(editDiv);
+  editDiv.appendChild(editImg);
+  editDiv.appendChild(editText);
+  optionsDiv.appendChild(deleteDiv);
+  deleteDiv.appendChild(deleteImg);
   // containerHeader.appendChild(nav);
   // nav.appendChild(checkbox);
   // checkbox.appendChild(label);
