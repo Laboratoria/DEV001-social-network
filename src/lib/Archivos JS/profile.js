@@ -9,7 +9,19 @@ export const profile = () => {
   const auth = getAuth();
   const user = auth.currentUser;
   console.log(user);
+  console.log(user.photoURL);
   rootDiv.innerHTML = ' ';
+
+  let photo;
+
+  if(user.photoURL != null){
+    photo = user.photoURL
+  }else{
+    const avatar = ['./lib/img/avatar-1.png', './lib/img/avatar-2.png', './lib/img/avatar-3.png', './lib/img/avatar-4.png', './lib/img/avatar-5.png'];
+    const selectedAvatar = avatar[Math.floor(Math.random() * avatar.length)];
+    user.photoURL = selectedAvatar;
+    photo = selectedAvatar;
+  }
 
   const homeDiv = document.createElement('div');
   const container = document.createElement('section');
@@ -52,7 +64,8 @@ export const profile = () => {
   containerRegister.className = 'container-register';
   p.textContent = 'Usuario';
   p.className = 'text-subtitle2';
-  avatar.src = './lib/img/Ellipse9.png';
+  avatar.referrerPolicy='no-referrer';
+  avatar.src =`${photo}`;
   avatar.className = 'avatar-class';
   fondoImagen.className = 'avatar-class';
   p2.textContent = 'Descripción';
@@ -61,7 +74,8 @@ export const profile = () => {
   p3.className = 'text-subtitle2';
   p4.textContent = `${user.displayName}`;
   p4.className = 'text-subtitle3';
-  p5.textContent = 'Estudiante de Desarrollo Web.';
+  p5.textContent = `Hola, soy estudiante de Desarrollo Web, 
+  tengo 24 años, disfruto muchos salir y enfrentarme a nuevos retos`;
   p5.className = 'text-subtitle4';
   p6.textContent = `${user.email}`;
   p6.className = 'text-subtitle3';

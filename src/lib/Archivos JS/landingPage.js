@@ -12,16 +12,7 @@ export const landingPage = () => {
   const avatarIcon = document.createElement('img');
   const greeting = document.createElement('p');
   const imgBottom = document.createElement('img');
-  // const nav = document.createElement('nav');
-  // const checkbox = document.createElement('input');
-  // const label = document.createElement('label');
-  // const menuHam = document.createElement('div');
-  // const linea1 = document.createElement('span');
-  // const linea2 = document.createElement('span');
-  // const linea3 = document.createElement('span');
-  // const ul = document.createElement('ul');
-  // const li = document.createElement('li');
-  // const btnCerrar = document.createElement('button');
+  
 
   const containerSlider = document.createElement('section');
   const imgSlider = document.createElement('img');
