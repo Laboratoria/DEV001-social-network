@@ -1,27 +1,13 @@
-import { signOut, getAuth  } from 'firebase/auth';
-import { auth } from './firebase.js';
-// eslint-disable-next-line import/no-cycle
+import { getAuth  } from 'firebase/auth';
 import { onNavigate } from '../../main';
 
 const rootDiv = document.getElementById('root');
 
-export const profile = () => {
+export const editProfile = () => {
   const auth = getAuth();
   const user = auth.currentUser;
   console.log(user);
-  console.log(user.photoURL);
   rootDiv.innerHTML = ' ';
-
-  let photo;
-
-  if(user.photoURL != null){
-    photo = user.photoURL
-  }else{
-    const avatar = ['./lib/img/avatar-1.png', './lib/img/avatar-2.png', './lib/img/avatar-3.png', './lib/img/avatar-4.png', './lib/img/avatar-5.png'];
-    const selectedAvatar = avatar[Math.floor(Math.random() * avatar.length)];
-    user.photoURL = selectedAvatar;
-    photo = selectedAvatar;
-  }
 
   const homeDiv = document.createElement('div');
   const container = document.createElement('section');
@@ -37,16 +23,13 @@ export const profile = () => {
   const homeDiv2 = document.createElement('div');
   const p = document.createElement('p');
   const homeDiv3 = document.createElement('div');
+  const editName = document.createElement('input');
   const p2 = document.createElement('p');
+  const editDescription = document.createElement('textarea');
+  const saveChanges = document.createElement('button');
   const homeDiv4 = document.createElement('div');
   const p3 = document.createElement('p');
-  const p4 = document.createElement('p');
-  const p5 = document.createElement('p');
   const p6 = document.createElement('p');
-  const homeDiv5 = document.createElement('div');
-  const btnHome = document.createElement('button');
-  const btnEdit = document.createElement('button');
-  const btnCerrar = document.createElement('button');
 
   homeDiv.className = 'container';
   container.className = 'container-im-and-register';
@@ -64,30 +47,28 @@ export const profile = () => {
   containerRegister.className = 'container-register';
   p.textContent = 'Usuario';
   p.className = 'text-subtitle2';
-  avatar.referrerPolicy='no-referrer';
-  avatar.src =`${photo}`;
+  avatar.src = './lib/img/Ellipse9.png';
   avatar.className = 'avatar-class';
   fondoImagen.className = 'avatar-class';
   p2.textContent = 'Descripción';
   p2.className = 'text-subtitle2';
   p3.textContent = 'Email';
   p3.className = 'text-subtitle2';
-  p4.textContent = `${user.displayName}`;
-  p4.className = 'text-subtitle3';
-  p5.textContent = `Hola, soy estudiante de Desarrollo Web, 
-  tengo 24 años, disfruto muchos salir y enfrentarme a nuevos retos`;
-  p5.className = 'text-subtitle4';
+  editName.type = 'text';
+  editName.placeholder = `${user.displayName}`;
+  editName.id = 'editName';
+  editName.className = 'text-subtitle3';
+  editDescription.rows = '3';
+  editDescription.placeholder = 'klkfnladfnjadlfjnakedhfk';
+  editDescription.id = 'editDescription';
+  editDescription.className = 'text-subtitle4';
   p6.textContent = `${user.email}`;
   p6.className = 'text-subtitle3';
-  btnHome.textContent = 'Ir al Home';
-  btnHome.className = 'buttonRegister';
-  btnEdit.textContent = 'Editar Perfil';
-  btnEdit.className = 'buttonEditProfile';
-  btnCerrar.textContent = 'Cerrar Sesión';
+  saveChanges.id = 'saveChanges'
+  saveChanges.textContent = 'Guardar cambios'
   homeDiv2.className = 'container-div';
   homeDiv3.className = 'container-div';
   homeDiv4.className = 'container-div';
-  homeDiv5.className = 'container-div';
 
   homeDiv.appendChild(container);
   container.appendChild(containerRegister);
@@ -100,28 +81,19 @@ export const profile = () => {
   fondoImagen.appendChild(avatar);
   containerRegister.appendChild(fondoImagen);
   homeDiv2.appendChild(p);
-  homeDiv2.appendChild(p4);
   containerRegister.appendChild(homeDiv2);
+  homeDiv3.appendChild(editName);
   homeDiv3.appendChild(p2);
-  homeDiv3.appendChild(p5);
+  homeDiv3.appendChild(editDescription);
+  homeDiv3.appendChild(saveChanges);
   containerRegister.appendChild(homeDiv3);
   homeDiv4.appendChild(p3);
   homeDiv4.appendChild(p6);
   containerRegister.appendChild(homeDiv4);
-  homeDiv5.appendChild(btnHome);
-  homeDiv5.appendChild(btnEdit);
-  homeDiv5.appendChild(btnCerrar);
-  containerRegister.appendChild(homeDiv5);
 
-  btnCerrar.addEventListener('click', async () => {
-    await signOut(auth);
-    console.log('user signed out');
-    onNavigate('/');
+   saveChanges.addEventListener('click', () => {
+    onNavigate('/profile');
   });
-
-  btnEdit.addEventListener('click', () => onNavigate('/editProfile'));
-
-  btnHome.addEventListener('click', () => onNavigate('/landingPage'));
 
   return homeDiv;
 };
