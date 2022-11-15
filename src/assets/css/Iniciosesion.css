@@ -39,7 +39,10 @@
         transform: scale(1.1)
     }
 }
-
+.logo {
+    -webkit-box-reflect: below -500px 
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
+}
 
 .formulariologin{
     background: rgba(0, 0, 0, 0.5);
@@ -164,15 +167,14 @@
   }
   
 @media (min-width: 600px) and (max-width: 767px){
-.formularioLogin{
-  background: red;
+.formulariologin{
   width: 100%;
   height: 450px;
   margin: auto;
+  font-size: 20px;
  }
-
 .mensajeBienvenida2 {
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 /*.ojito_registro{
   align-items: center;
@@ -189,22 +191,64 @@
   height: 40px;
   padding: 10px;
 }
-
 .ojito_login{
-  font-size: px;
-
+  font-size: 30px;
 }
-
-
+.btn_fotm_login{
+    height: 50px;
+    font-size: 22px;
+    margin: 30px;
+}
+.mensajeBienvenida2 h2 {
+  margin: 50px;
+  font-size: 50px;
+} 
 }
 
     /*medida para PC*/
 @media only screen and (min-width: 768px){
-  .botonregistro {
-      width: 350px;
-      height: 60px;
-      font-size: 20px;
-  }
-
+  .logo {
+    -webkit-box-reflect: below -340px 
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
 }
+.formulariologin {
+  width: 100%;
+  height: 450px;
+  margin: auto;
+  font-size: 20px;
+}
+
+.mensajeBienvenida2 {
+  margin-bottom: 10px;
+}
+
+.grupos2 {
+  width: 100%;
+}
+
+.pass_login {
+  width: 78%;
+  height: 40px;
+  padding: 10px;
+}
+
+.ojito_login {
+  font-size: 30px;
+}
+
+.btn_fotm_login {
+  height: 50px;
+  font-size: 22px;
+  margin: 30px;
+}
+
+.mensajeBienvenida2 h2 {
+  margin: 50px;
+  font-size: 50px;
+}
+}
+  
+  
+
+
   
