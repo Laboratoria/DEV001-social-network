@@ -28,9 +28,6 @@ export const editProfile = () => {
   const p2 = document.createElement('p');
   const editDescription = document.createElement('textarea');
   const saveChanges = document.createElement('button');
-  const homeDiv4 = document.createElement('div');
-  const p3 = document.createElement('p');
-  const p6 = document.createElement('p');
 
   homeDiv.className = 'container';
   container.className = 'container-im-and-register';
@@ -39,37 +36,34 @@ export const editProfile = () => {
   titleImg.className = 'img-title';
   title.textContent = 'Mi Perfil';
   title.className = 'title-register';
-  imgwelcome.src = './lib/img/Women-cel.png';
+  imgwelcome.src = './lib/img/Women-profile.png';
   imgwelcome.className = 'img-welcome-2';
   imgTop.src = './lib/img/collage-3.png';
   imgTop.className = 'img-top-2';
   imgBottom.src = './lib/img/collage-5.png';
   imgBottom.className = 'img-bottom-2';
   containerRegister.className = 'container-register';
-  p.textContent = 'Usuario';
+  p.textContent = 'Editar Nombre de Usuario:';
   p.className = 'text-subtitle2';
-  avatar.src = './lib/img/Ellipse9.png';
+  avatar.referrerPolicy='no-referrer';
+  avatar.src = `${user.photoURL}`;
   avatar.className = 'avatar-class';
   fondoImagen.className = 'avatar-class';
-  p2.textContent = 'Descripción';
+  p2.textContent = 'Editar Descripción:';
   p2.className = 'text-subtitle2';
-  p3.textContent = 'Email';
-  p3.className = 'text-subtitle2';
   editName.type = 'text';
   editName.placeholder = `${user.displayName}`;
   editName.id = 'editName';
-  editName.className = 'text-subtitle3';
+  editName.className = 'text-content-description';
   editDescription.rows = '3';
-  editDescription.placeholder = 'klkfnladfnjadlfjnakedhfk';
+  editDescription.placeholder = 'Hola, me encanta mucho...';
   editDescription.id = 'editDescription';
-  editDescription.className = 'text-subtitle4';
-  p6.textContent = `${user.email}`;
-  p6.className = 'text-subtitle3';
-  saveChanges.id = 'saveChanges'
-  saveChanges.textContent = 'Guardar cambios'
+  editDescription.className = 'text-content-description';
+  saveChanges.id = 'saveChanges';
+  saveChanges.textContent = 'Guardar Cambios';
+  saveChanges.className = 'buttonRegister';
   homeDiv2.className = 'container-div';
   homeDiv3.className = 'container-div';
-  homeDiv4.className = 'container-div';
 
   homeDiv.appendChild(container);
   container.appendChild(containerRegister);
@@ -82,15 +76,12 @@ export const editProfile = () => {
   fondoImagen.appendChild(avatar);
   containerRegister.appendChild(fondoImagen);
   homeDiv2.appendChild(p);
+  homeDiv2.appendChild(editName);
   containerRegister.appendChild(homeDiv2);
-  homeDiv3.appendChild(editName);
   homeDiv3.appendChild(p2);
   homeDiv3.appendChild(editDescription);
   homeDiv3.appendChild(saveChanges);
   containerRegister.appendChild(homeDiv3);
-  homeDiv4.appendChild(p3);
-  homeDiv4.appendChild(p6);
-  containerRegister.appendChild(homeDiv4);
 
    saveChanges.addEventListener('click', () => {
 
