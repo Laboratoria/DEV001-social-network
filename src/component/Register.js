@@ -46,7 +46,6 @@ export const Register = (onNavigate) => {
   buttonSubmit.textContent = 'sign up';
   buttonSubmit.classList = 'btn_formulario_registro';
   const buttonGoogle = document.createElement('button');
-  buttonGoogle.textContent = 'Sign Up with google';
   buttonGoogle.classList = 'btn_google';
   buttonGoogle.type = 'button';
   const imagenGoogle = document.createElement('img');
@@ -84,18 +83,18 @@ export const Register = (onNavigate) => {
     const valido = validar(email.value, pass.value);
 
     if (valido) {
-      formularioregistro(email.value, pass.value);
-      onNavigate('/Begin');
+      formularioregistro(email.value, pass.value).then((res) => {
+        console.log(res);
+        onNavigate('/Begin');
+      }).catch((err) => {
+        onNavigate('/error');
+        console.log(err);
+      });
     }
   });
 
   buttonGoogle.addEventListener('click', () => {
     formularioGoogle();
-  })
-
-
+  });
   return HomeDiv;
-
-
-
 };

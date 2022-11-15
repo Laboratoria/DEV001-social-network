@@ -1,4 +1,7 @@
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+// eslint-disable-next-line import/no-duplicates
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+// eslint-disable-next-line import/no-duplicates
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { app } from './Firebase.js';
 
 // GETUTH
@@ -26,9 +29,8 @@ export function formularioGoogle() {
     .catch((error) => {
       const errorMessage = error.message;
       return errorMessage;
-    })
+    });
 }
-
 
 export function formulariologin(email, password) {
   return signInWithEmailAndPassword(auth, email, password)
