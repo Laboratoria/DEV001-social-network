@@ -1,5 +1,4 @@
 import { signOut, getAuth  } from 'firebase/auth';
-import { auth } from './firebase.js';
 // eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../../main';
 
