@@ -1,4 +1,4 @@
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { app } from './Firebase.js';
 
 // GETUTH
@@ -12,10 +12,23 @@ export function formularioregistro(email, password) {
     })
     .catch((error) => {
       const errorMessage = error.message;
-
       return errorMessage;
     });
 }
+
+const provider = new GoogleAuthProvider(app);
+export function formularioGoogle() {
+  return signInWithPopup(auth, provider)
+    .then((result) => {
+      const user = result.user;
+      return user;
+    })
+    .catch((error) => {
+      const errorMessage = error.message;
+      return errorMessage;
+    })
+}
+
 
 export function formulariologin(email, password) {
   return signInWithEmailAndPassword(auth, email, password)

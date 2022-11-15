@@ -1,5 +1,5 @@
 import { validar } from '../lib/validar.js';
-import { formularioregistro } from '../lib/index.js';
+import { formularioregistro, formularioGoogle } from '../lib/index.js';
 
 export const Register = (onNavigate) => {
   const HomeDiv = document.createElement('div');
@@ -45,6 +45,9 @@ export const Register = (onNavigate) => {
   const buttonSubmit = document.createElement('button');
   buttonSubmit.textContent = 'sign up';
   buttonSubmit.classList = 'btn_formulario_registro';
+  const buttonGoogle = document.createElement('button');
+  buttonGoogle.textContent = 'Sign Up with google';
+  buttonGoogle.classList = 'btn_google';
   const spanPass = document.createElement('label');
   spanPass.textContent = '👀';
   spanPass.className = 'ojito_registro';
@@ -59,6 +62,7 @@ export const Register = (onNavigate) => {
   divForm.appendChild(grupo2);
   grupo2.appendChild(cajaOjito);
   divForm.appendChild(buttonSubmit);
+  divForm.appendChild(buttonGoogle);
   grupo2.className = 'grupos';
   grupo1.className = 'grupos';
   spanPass.addEventListener('click', () => {
@@ -79,5 +83,13 @@ export const Register = (onNavigate) => {
     }
   });
 
+  buttonGoogle.addEventListener('click', () => {
+    formularioGoogle();
+  })
+
+
   return HomeDiv;
+
+
+
 };
