@@ -1,4 +1,6 @@
-import { signOut, getAuth  } from 'firebase/auth';
+
+import { signOut, getAuth } from 'firebase/auth';
+
 // eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../../main';
 
@@ -13,9 +15,9 @@ export const profile = () => {
 
   let photo;
 
-  if(user.photoURL != null){
-    photo = user.photoURL
-  }else{
+  if (user.photoURL != null) {
+    photo = user.photoURL;
+  } else {
     const avatar = ['./lib/img/avatar-1.png', './lib/img/avatar-2.png', './lib/img/avatar-3.png', './lib/img/avatar-4.png', './lib/img/avatar-5.png'];
     const selectedAvatar = avatar[Math.floor(Math.random() * avatar.length)];
     user.photoURL = selectedAvatar;
@@ -63,8 +65,8 @@ export const profile = () => {
   containerRegister.className = 'container-register';
   p.textContent = 'Usuario';
   p.className = 'text-subtitle2';
-  avatar.referrerPolicy='no-referrer';
-  avatar.src =`${photo}`;
+  avatar.referrerPolicy = 'no-referrer';
+  avatar.src = `${photo}`;
   avatar.className = 'avatar-class';
   fondoImagen.className = 'avatar-class';
   p2.textContent = 'Descripción';
