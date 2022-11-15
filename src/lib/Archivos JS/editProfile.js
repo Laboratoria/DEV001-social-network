@@ -1,5 +1,6 @@
 import { getAuth  } from 'firebase/auth';
 import { onNavigate } from '../../main';
+import { saveTask } from './firebase.js';
 
 const rootDiv = document.getElementById('root');
 
@@ -83,7 +84,12 @@ export const editProfile = () => {
   containerRegister.appendChild(homeDiv3);
 
    saveChanges.addEventListener('click', () => {
-    onNavigate('/profile');
+
+    const editname = editName.value
+    const editdescription = editDescription.value
+    saveTask(editname, editdescription)
+
+    // onNavigate('/profile');
   });
 
   return homeDiv;
