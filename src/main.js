@@ -11,6 +11,7 @@ import { login } from './lib/Archivos JS/login.js';
 // eslint-disable-next-line import/no-cycle
 import { profile } from './lib/Archivos JS/profile.js';
 import { landingPage } from './lib/Archivos JS/landingPage.js';
+import { editProfile } from './lib/Archivos JS/editProfile.js';
 
 const rootDiv = document.getElementById("root");
 
@@ -19,6 +20,7 @@ const routes = {
   '/register': register,
   '/login': login,
   '/profile': profile,
+  '/editProfile': editProfile,
   '/landingPage': landingPage,
 };
 
