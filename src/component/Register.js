@@ -48,6 +48,12 @@ export const Register = (onNavigate) => {
   const buttonGoogle = document.createElement('button');
   buttonGoogle.textContent = 'Sign Up with google';
   buttonGoogle.classList = 'btn_google';
+  buttonGoogle.type = 'button';
+  const imagenGoogle = document.createElement('img');
+  imagenGoogle.classList = 'google_img';
+  imagenGoogle.src = '../assets/img/cromo.png';
+  imagenGoogle.alt = 'imagen de google';
+  buttonGoogle.appendChild(imagenGoogle);
   const spanPass = document.createElement('label');
   spanPass.textContent = '👀';
   spanPass.className = 'ojito_registro';
