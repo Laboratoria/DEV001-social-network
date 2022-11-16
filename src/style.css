@@ -1,0 +1,17 @@
+div {
+display: flex;
+width: 375px;
+height: 667px;
+}
+.plantilla {
+display: flex;
+justify-content: center;
+align-items: center;
+width:100%;
+height:100% ;
+}
+.logo {
+width:30px;
+height: 15px;
+object-fit: scale-down;
+}
