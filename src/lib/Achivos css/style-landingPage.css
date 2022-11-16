@@ -96,9 +96,9 @@
     transition: .3s;
 
 } */
-.avatarIcon-class {
+.avatarIcon-class{
   display: block;
-  background: #453d9d;
+  background: #ffffff;
   border-color: white;
   border-width: 2px;
   border-radius: 50px;
@@ -118,12 +118,20 @@
 }
 
 .containerHeader {
-  margin-top: -200px;
+  /*margin-top: -200px;*/
   display: flex;
   flex-direction: row;
-  align-items: left;
-  justify-content: left;
-  width: 90%;
+  justify-content: space-between;
+  position: fixed;
+  padding: 20px;
+  background: #453d9d;
+  /*width: 100%;*/
+  border-radius: 0px 0px 10px 10px;
+  box-shadow: 1px 1px 1px 1px rgba(112, 112, 112, 0.805);
+}
+
+.icon-menu{
+  width: 10%;
 }
 
 .container-divPost {
@@ -144,15 +152,16 @@
   justify-content: center;
   margin-top: 10px;
   width: 95%;
+  margin-top: 90px;
 }
 
 .containerPosts {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-top: 10px;
-  width: 90%;
+  width: 400px;
 }
 
 .containerPosts2 {
@@ -217,21 +226,21 @@
 
 .class-categories-icons {
   width: 27px;
-  height: 20px;
-  justify-content: center;
-  align-items: center;
+  margin-top: 10px;
 }
 
 .class-categories {
   width: 30%;
+  height: 80px;
+  padding: 7px;
   background-color: #453d9d;
   color: white;
   border-color: white;
   border: white;
   border-radius: 10px;
   margin: 8px;
-  justify-content: center;
   cursor: pointer;
+  text-align: center;
 }
 
 .class-categories:hover {
@@ -493,13 +502,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background-color: #7d74fd;
-  width: 100%;
-  height: 100% auto;
-  min-height: 200vh;
-  position: relative;
-  overflow: scroll;
+  margin: auto;
+  width: 90%;
+  /*overflow: scroll;*/
 }
 
 .text-content-post-description {
@@ -518,7 +523,8 @@
 }
 
 
-@media screen and (min-width: 1024px) {
+
+/*@media screen and (min-width: 1024px) {
   .containerHeader {
     display: flex;
     flex-direction: row;
@@ -616,4 +622,4 @@
       transform: scale(1);
     }
   }
-}
+}*/

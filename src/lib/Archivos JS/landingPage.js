@@ -75,6 +75,7 @@ export const landingPage = () => {
   const deleteImg = document.createElement('img');
   const likeText = document.createElement('p');
   const editText = document.createElement('p');
+  const iconMenu = document.createElement('img');
 
   // Asignación de clases
   postAll.className = 'containerLandingPage';
@@ -83,9 +84,12 @@ export const landingPage = () => {
   containerCategories.className = 'containerCategories';
   containerPosts.className = 'containerPosts';
   showPostDiv.className = 'containerPosts2';
-  avatarIcon.src = './lib/img/Ellipse9.png';
+  avatarIcon.referrerPolicy = 'no-referrer';
+  avatarIcon.src = `${user.photoURL}`;
   avatarIcon.className = 'avatarIcon-class';
-  greeting.textContent = `Bienvenida, ${user.displayName}`;
+  iconMenu.src = './lib/img/menu-icon-8.png';
+  iconMenu.className = 'icon-menu';
+  greeting.textContent = `Hola, ${user.displayName}`;
   greeting.className = 'class-greeting';
   imgBottom.src = './lib/img/collage-5.png';
   imgBottom.className = 'img-bottom-2';
@@ -152,6 +156,7 @@ export const landingPage = () => {
   postAll.appendChild(containerHeader);
   containerHeader.appendChild(avatarIcon);
   containerHeader.appendChild(greeting);
+  containerHeader.appendChild(iconMenu);
   postAll.appendChild(imgBottom);
   containerSlider.appendChild(btnLeft);
   containerSlider.appendChild(imgSlider);
@@ -177,8 +182,8 @@ export const landingPage = () => {
   editDiv.appendChild(editImg);
   editDiv.appendChild(editText);
   deleteDiv.appendChild(deleteImg);
-  postAll.appendChild(btnshowPost);
-  postAll.appendChild(showPostDiv);
+  containerPosts.appendChild(btnshowPost);
+  containerPosts.appendChild(showPostDiv);
   // containerHeader.appendChild(nav);
   // nav.appendChild(checkbox);
   // checkbox.appendChild(label);
