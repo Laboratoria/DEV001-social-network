@@ -79,9 +79,9 @@ export const Login = (onNavigate) => {
         localStorage.setItem('nombre', nombre);
         onNavigate('/Begin');
       }).catch((err) => {
-        onNavigate('/error');
         const error = err;
         localStorage.setItem('error', error);
+        onNavigate('/error');
       });
     }
   });
