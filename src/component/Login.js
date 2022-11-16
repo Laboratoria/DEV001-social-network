@@ -74,8 +74,15 @@ export const Login = (onNavigate) => {
     const valido = validar(email.value, pass.value);
 
     if (valido) {
-      formulariologin(email.value, pass.value);
-      onNavigate('/Begin');
+      formulariologin(email.value, pass.value).then((res) => {
+        const nombre = res;
+        localStorage.setItem('nombre', nombre);
+        onNavigate('/Begin');
+      }).catch((err) => {
+        const error = err;
+        localStorage.setItem('error', error);
+        onNavigate('/error');
+      });
     }
   });
 
