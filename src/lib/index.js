@@ -11,7 +11,7 @@ export function formularioregistro(email, password) {
     .then((userCredential) => {
       const user = userCredential.user;
 
-      return user;
+      return user.email;
     })
     .catch((error) => {
       const errorMessage = error.message;
@@ -24,7 +24,7 @@ export function formularioGoogle() {
   return signInWithPopup(auth, provider)
     .then((result) => {
       const user = result.user;
-      return user;
+      return user.email;
     })
     .catch((error) => {
       const errorMessage = error.message;
@@ -37,7 +37,7 @@ export function formulariologin(email, password) {
     .then((userCredential) => {
       const user = userCredential.user;
 
-      return user;
+      return user.email;
     })
     .catch((error) => {
       const errorMessage = error.message;
