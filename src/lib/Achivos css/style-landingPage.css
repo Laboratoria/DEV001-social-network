@@ -96,11 +96,13 @@
     transition: .3s;
 
 } */
+
+*  {
+  padding: 0;
+  margin: 0;
+}
 .avatarIcon-class {
   display: block;
-  background: #453d9d;
-  border-color: white;
-  border-width: 2px;
   border-radius: 50px;
   width: 40px;
   margin-right: 10px;
@@ -114,16 +116,15 @@
 
 .avatarIcon-class:hover {
   transform: scale(0.96);
-  background: white;
 }
 
 .containerHeader {
-  margin-top: -200px;
   display: flex;
   flex-direction: row;
   align-items: left;
   justify-content: left;
   width: 90%;
+  margin-top: 30px;
 }
 
 .container-divPost {
@@ -186,6 +187,7 @@
   margin-left: -310px;
   position: sticky;
   cursor: pointer;
+  box-shadow: 4px 4px 4px #453d9d;
 }
 
 .btnSlider1:hover {
@@ -213,13 +215,16 @@
   margin-right: -310px;
   position: sticky;
   cursor: pointer;
+  box-shadow: 4px 4px 4px #453d9d;
 }
 
 .class-categories-icons {
+  display: flex;
   width: 27px;
   height: 20px;
   justify-content: center;
   align-items: center;
+  margin-left: 38%;
 }
 
 .class-categories {
@@ -230,8 +235,12 @@
   border: white;
   border-radius: 10px;
   margin: 8px;
+  align-items: center;
+  align-content: center;
+  justify-items: center;
   justify-content: center;
   cursor: pointer;
+  box-shadow: 4px 4px 4px #2e296f;
 }
 
 .class-categories:hover {
@@ -264,10 +273,14 @@
   background-color: aliceblue;
   border-radius: 10px;
   font-family: "Poppins", sans-serif;
+  font-weight: 600;
   text-align: left;
   font-size: 0.8rem;
   color: rgb(104, 102, 102);
   margin: 15px;
+  padding: 10px;
+  box-shadow: 4px 4px 4px #453d9d;
+  justify-content: space-between;
 }
 
 .class-postDiv {
@@ -276,6 +289,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  box-shadow: 4px 4px 4px #453d9d;
 }
 
 
@@ -286,6 +300,7 @@
   color: white;
   font-weight: 600;
   margin-left: 60px;
+  text-shadow: 4px 4px 4px #453d9d;
 }
 
 .text-categories {
@@ -382,34 +397,37 @@
 
 .class-optionsDiv {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  width: 100px;
+  margin-left: 140px;
 }
 
 .class-like {
   display: flex;
-  flex-direction: row;
   background-color: #453d9d;
   width: 70px;
   border-radius: 5px;
-  height: 70%;
   font-family: "Poppins", sans-serif;
-  font-size: 0.5rem;
+  font-size: 0.6rem;
   font-weight: 500;
   text-align: center;
   color: white;
   align-items: center;
   justify-content: center;
+  padding: 2px;
+  cursor: pointer;
+}
+
+.class-like:hover {
+  transform: scale(0.96);
+  background: rgba(244, 95, 199, 0.842);
 }
 
 .class-likeImg {
-  width: 10px;
-  height: 10px;
+  width: 20px;
+  height: 15px;
   align-items: center;
   justify-content: center;
-  margin-right: 3px;
-  margin-bottom: 4px;
+  margin-right: 5px;
 }
 
 .class-edit {
@@ -417,16 +435,23 @@
   flex-direction: row;
   background-color: rgb(85, 83, 83);
   width: 50px;
+  height: 33px;
   border-radius: 5px;
-  height: 70%;
   font-family: "Poppins", sans-serif;
-  font-size: 0.5rem;
+  font-size: 0.6rem;
   font-weight: 500;
   text-align: center;
   color: white;
   align-items: center;
   justify-content: center;
   margin-left: 5px;
+  padding: 2px;
+  cursor: pointer;
+}
+
+.class-edit:hover {
+  transform: scale(0.96);
+  background: rgba(244, 95, 199, 0.842);
 }
 
 .class-editImg {
@@ -440,9 +465,9 @@
 
 .class-delete {
   background-color:rgba(244, 95, 199, 0.842);
-  width: 30px;
+  width: 40px;
+  height: 33px;
   border-radius: 5px;
-  height: 70%;
   font-family: "Poppins", sans-serif;
   font-size: 0.5rem;
   font-weight: 500;
@@ -451,6 +476,13 @@
   align-items: center;
   justify-content: center;
   margin-left: 5px;
+  padding: 2px;
+  cursor: pointer;
+}
+
+.class-delete:hover {
+  transform: scale(0.96);
+  background: #2e296f;
 }
 
 .btnDelete {
@@ -495,11 +527,9 @@
   align-items: center;
   justify-content: center;
   background-color: #7d74fd;
-  width: 100%;
-  height: 100% auto;
-  min-height: 200vh;
+  width: auto;
+  height: auto;
   position: relative;
-  overflow: scroll;
 }
 
 .text-content-post-description {
@@ -539,7 +569,7 @@
     text-align: left;
     font-size: 1.3rem;
     color: white;
-    margin-left: -400px;
+    margin-left: -210px;
     margin-bottom: 25px;
   }
 
@@ -569,6 +599,7 @@
     flex-direction: column;
     background-color: aliceblue;
     border-radius: 10px;
+    position: relative;
   }
 
   .imgSlider {
@@ -602,6 +633,22 @@
     margin-left: 220px;
   }
 
+  .class-postDiv {
+    width: 30%;
+  }
+
+  .buttonSeePosts {
+    width: 20%;
+  }
+
+  .class-categories-icons {
+    margin-left: 44%; 
+    margin-top: 10%;
+  }
+
+  .class-optionsDiv {
+    margin-left: 300px;
+  }
 
   @keyframes slider {
     0% {
