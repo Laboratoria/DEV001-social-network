@@ -1,42 +1,138 @@
-.bienvenida{
+.bienvenida {
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     text-align: center;
-    padding-top: 90px;
+    width: 100%;
+    height: 100%;
+    padding-top: 60px;
+    background-image: linear-gradient(120deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.7) 100%), url(../img/sinFondo.png);
+    background-attachment: fixed;
+    background-position: center;
 }
 
-.texto_bienvenida{
- 
- font-weight: 900;
-  font-size: 60px;
-  color: white;
-  margin: 30px;
-  -webkit-text-stroke: 1px var(--color_borde_bienvenida);
-  text-shadow: var(--sombra_texto_bienvenida);
-     animation-name: moverTitulo;
-     animation-duration: 10s;
-     animation-iteration-count: infinite;
-     animation-timing-function: ease-in-out;   
+.texto_bienvenida {
+    height: 100px;
+    text-transform: uppercase;
+    margin: 20px;
+    font-weight: 700px;
+    font-size: 40px;
+    text-align: center;
+    color: white;
+    /*-webkit-text-stroke: 1px var(--color_borde_bienvenida);*/
+    /*text-shadow: var(--sombra_texto_bienvenida);*/
+    /*animation-name: moverTitulo;*/
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
 }
-.parrafo_publicacion{
-    color: rgb(159, 27, 226);
-    margin: 130px;
-    font-size: 50px;
-}
-.btn_regresar {
-    background-color: red;
-    font-size: 30px;
+
+.cajas {
+    display: flex;
     color: white;
     padding: 20px;
-    border-radius: 20px;
-    cursor: pointer;
-    box-shadow: var(--sombra_boton);
-    border: none;
+    margin: 10px;
+    font-size: 20px;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
 }
-@keyframes moverTitulo{
-    0%{
+
+.novedades {
+
+    padding: 20px;
+    background-color: #f16c07;
+    border-radius: 10px;
+    height: 100px;
+    width: 160px;
+}
+
+.genero {
+
+    padding: 20px;
+    background-color: #fb0804;
+    border-radius: 10px;
+    height: 100px;
+    width: 160px;
+    align-content: center;
+}
+
+.populares {
+
+    padding: 20px;
+    background-color: #ff00c8;
+    border-radius: 10px;
+    height: 100px;
+    width: 160px;
+    align-content: center;
+}
+
+.artistas {
+
+    padding: 20px;
+    background-color: #88047f;
+    border-radius: 10px;
+    height: 100px;
+    width: 160px;
+    align-content: center;
+}
+
+.parrafo_publicacion {
+    color: white;
+    margin: 60px;
+    font-size: 30px;
+}
+
+
+.btn_regresar {
+    margin-bottom: 70px;
+    padding: 5px;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 30px;
+    box-shadow: var(--sombra_boton);
+    margin-top: 0px;
+}
+
+@keyframes moverTitulo {
+    0% {
         transform: scale(0.9)
     }
-    100%{
+
+    100% {
         transform: scale(1.1)
     }
+}
+
+.botonAtras {
+    display: inline-block;
+    top: 0;
+    left: 0;
+    position: fixed;
+}
+
+.btn_atras {
+    padding: 2px;
+    cursor: pointer;
+    width: 50px;
+    height: 45px;
+    font-size: 40px;
+    border: none;
+    border-radius: 10px;
+    background: transparent;
+    color: #fae0e4;
+}
+
+.btn_atras:active {
+    background-color: transparent;
+    transform: translateY(4px);
+}
+
+.btn_atras:hover {
+    color: var(--color_boton_claro_regreso_hover);
+    background-color: var(--color_boton_oscuro_regreso_hover);
+    box-shadow: var(--sombra_boton);
 }
