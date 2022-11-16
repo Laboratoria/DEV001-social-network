@@ -37,9 +37,14 @@ describe('testd de begin', () => {
   it('debería ser una función', () => {
     expect(typeof Begin).toBe('function');
   });
-  it('Existe el boton regresar', () => {
+  it('Existe el boton regresar a home', () => {
     const elemento = Begin();
     const boton = elemento.querySelector('.btn_regresar');
+    expect(boton).not.toBeNull();
+  });
+  it('Existe el boton regresar atras', () => {
+    const elemento = Begin();
+    const boton = elemento.querySelector('.btn_atras');
     expect(boton).not.toBeNull();
   });
 });
@@ -48,7 +53,7 @@ describe('testd de Error', () => {
     expect(typeof Error).toBe('function');
   });
   it('Existe el boton regresar', () => {
-    const elemento = Begin();
+    const elemento = Error();
     const boton = elemento.querySelector('.btn_inicio');
     expect(boton).not.toBeNull();
   });
@@ -95,19 +100,19 @@ describe('test de la funcion validar', () => {
   });
 });
 
-// eslint-disable-next-line jest/no-identical-title
-describe('testd de google', () => {
-  it('debería ser una función', () => {
-    expect(typeof Register).toBe('function');
-  });
-  it('Existe el boton de registro con google', () => {
-    const elemento = Register();
-    const boton = elemento.querySelector('.btn_google');
-    expect(boton).not.toBeNull();
-  });
-  // it('Existe el boton de crear cuenta', () => {
-  //  const elemento = Register();
-  // const boton = elemento.querySelector('.botonregistro');
-  //  expect(boton).not.toBeNull();
-  // });
-});
+// // eslint-disable-next-line jest/no-identical-title
+// describe('testd de google', () => {
+//   it('debería ser una función', () => {
+//     expect(typeof Register).toBe('function');
+//   });
+//   it('Existe el boton de registro con google', () => {
+//     const elemento = Register();
+//     const boton = elemento.querySelector('.btn_google');
+//     expect(boton).not.toBeNull();
+//   });
+//   // it('Existe el boton de crear cuenta', () => {
+//   //  const elemento = Register();
+//   // const boton = elemento.querySelector('.botonregistro');
+//   //  expect(boton).not.toBeNull();
+//   // });
+// });
