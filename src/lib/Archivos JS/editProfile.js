@@ -1,6 +1,7 @@
 import { getAuth  } from 'firebase/auth';
 import { async } from 'regenerator-runtime';
 import { onNavigate } from '../../main';
+
 // import { saveTask, getTask } from './firebase.js';
 
 const rootDiv = document.getElementById('root');
