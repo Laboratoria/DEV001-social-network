@@ -30,6 +30,7 @@ export const editProfile = () => {
   const p2 = document.createElement('p');
   const editDescription = document.createElement('textarea');
   const saveChanges = document.createElement('button');
+  const noSaveChanges = document.createElement('button');
 
   homeDiv.className = 'container';
   container.className = 'container-im-and-register';
@@ -63,6 +64,9 @@ export const editProfile = () => {
   editDescription.className = 'text-content-description';
   saveChanges.id = 'saveChanges';
   saveChanges.textContent = 'Guardar Cambios';
+  noSaveChanges.className = 'buttonRegister';
+  noSaveChanges.id = 'saveChanges';
+  noSaveChanges.textContent = 'Continuar sin Cambios';
   saveChanges.className = 'buttonRegister';
   homeDiv2.className = 'container-div';
   homeDiv3.className = 'container-div';
@@ -83,23 +87,38 @@ export const editProfile = () => {
   homeDiv3.appendChild(p2);
   homeDiv3.appendChild(editDescription);
   homeDiv3.appendChild(saveChanges);
+  homeDiv3.appendChild(noSaveChanges);
   containerRegister.appendChild(homeDiv3);
 
-//    homeDiv3.addEventListener('submit', async (e) => {
-//     e.preventDefault()
+  saveChanges.addEventListener("click", ()=>{
+    if(editName.value == "" || editDescription.value == ""){
+      alert("Falta completar tu información");
+      onNavigate('/editProfile');
+    }else{
+      onNavigate('/profile');
+    }
+  });
 
-//     const editname = editName.value
-//     const editdescription = editDescription.value
-//     saveTask(editname, editdescription)
+  noSaveChanges.addEventListener("click", ()=>{
+    onNavigate('/profile');
+  });
 
-//     homeDiv3.reset
 
-//     const querySnapshot = await getTask()
-//     querySnapshot.forEach(doc => {
-//         console.log(doc.data())
-//     })
-//     // onNavigate('/profile');
-//   });
+  /* homeDiv3.addEventListener('submit', async (e) => {
+    e.preventDefault()
+
+    const editname = editName.value
+    const editdescription = editDescription.value
+    saveTask(editname, editdescription)
+
+     homeDiv3.reset
+
+     const querySnapshot = await getTask()
+     querySnapshot.forEach(doc => {
+         console.log(doc.data())
+    });
+    onNavigate('/profile');
+  });*/
 
   return homeDiv;
 };
