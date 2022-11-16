@@ -6,6 +6,7 @@ import { Begin } from '../src/component/Begin.js';
 import { Login } from '../src/component/Login.js';
 import { Home } from '../src/component/Home.js';
 import { validar } from '../src/lib/validar.js';
+import { Error } from '../src/component/Error.js';
 
 jest.mock('../src/__mocks__/main.js');
 jest.mock('../src/lib/__mocks__/modal.js');
@@ -25,6 +26,11 @@ describe('test de registro', () => {
     const boton = elemento.querySelector('.btn_home_registro');
     expect(boton).not.toBeNull();
   });
+  it('Existe el boton de google', () => {
+    const elemento = Register();
+    const boton = elemento.querySelector('.btn_google');
+    expect(boton).not.toBeNull();
+  });
 });
 
 describe('testd de begin', () => {
@@ -34,6 +40,16 @@ describe('testd de begin', () => {
   it('Existe el boton regresar', () => {
     const elemento = Begin();
     const boton = elemento.querySelector('.btn_regresar');
+    expect(boton).not.toBeNull();
+  });
+});
+describe('testd de Error', () => {
+  it('debería ser una función', () => {
+    expect(typeof Error).toBe('function');
+  });
+  it('Existe el boton regresar', () => {
+    const elemento = Begin();
+    const boton = elemento.querySelector('.btn_inicio');
     expect(boton).not.toBeNull();
   });
 });

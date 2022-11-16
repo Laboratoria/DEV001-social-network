@@ -84,11 +84,13 @@ export const Register = (onNavigate) => {
 
     if (valido) {
       formularioregistro(email.value, pass.value).then((res) => {
-        console.log(res);
+        const nombre = res;
+        localStorage.setItem('nombre', nombre);
         onNavigate('/Begin');
       }).catch((err) => {
+        const error = err;
+        localStorage.setItem('error', error);
         onNavigate('/error');
-        console.log(err);
       });
     }
   });
