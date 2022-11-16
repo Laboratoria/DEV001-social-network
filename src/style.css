@@ -1,17 +1,86 @@
-div {
-display: flex;
-width: 375px;
-height: 667px;
-}
-.plantilla {
-display: flex;
-justify-content: center;
-align-items: center;
-width:100%;
-height:100% ;
-}
-.logo {
-width:30px;
-height: 15px;
-object-fit: scale-down;
-}
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Didact+Gothic&family=Merriweather+Sans:wght@300&display=swap');
+
+    main {
+        display: flex;
+        flex-direction: column;
+        width: 100vh;
+        height: auto;
+        padding: 0;
+        margin: 0;
+        /* background-color: aquamarine; */
+    }
+
+    section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        object-fit: scale-down;
+        margin: 20px 50px 20px 50px;
+        padding: 0;
+        border: 1px solid blue;
+       
+   
+        
+
+    }
+
+    .plantilla {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: auto;
+     
+    }
+
+    .imagenes {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin: 20px 20px 20px 20px;
+        
+        
+   
+    }
+    img.logo {
+        width: 100%;
+        height: auto;
+        margin-left: 80px;
+       
+   
+    }
+
+    img.girl {
+        width: 50%;
+        height: auto;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .usuario{
+        display: flex;
+        flex-direction: column;
+        width: 60vh;
+        border-radius: 30px; 
+        height: 40px;
+        font-size: 25px;
+        text-align:center;
+        background: rgb(253, 251, 172)
+    }
+
+    button {
+        width: 30vh;
+        margin-top: 40px;
+        height: 40px;
+        font-size: 25px;
+        font-family: 'Merriweather Sans', sans-serif;
+        border-radius: 30px; 
+        background: #1B6FB6;
+        color: white;
+
+    }
+/* @media screen and (max-width: 1024px) { */
