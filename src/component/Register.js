@@ -97,6 +97,7 @@ export const Register = (onNavigate) => {
 
   buttonGoogle.addEventListener('click', () => {
     formularioGoogle();
+    onNavigate('/Begin');
   });
   return HomeDiv;
 };
