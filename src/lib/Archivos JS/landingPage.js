@@ -44,11 +44,11 @@ export const landingPage = () => {
   editDescription.rows = '3';
   editDescription.placeholder = 'Quiero compartir con ustedes...';
   editDescription.id = 'editDescription';
-  editDescription.className = 'text-content-description';
+  editDescription.className = 'text-content-post-description';
   saveChanges.id = 'saveChanges';
   saveChanges.textContent = 'Publicar';
   saveChanges.className = 'buttonRegister';
-  homeDiv3.className = 'container-div';
+  homeDiv3.className = 'container-divPost';
 
   homeDiv3.appendChild(editDescription);
   homeDiv3.appendChild(saveChanges);
@@ -56,7 +56,7 @@ export const landingPage = () => {
 
   const btnshowPost = document.createElement('button');
   btnshowPost.textContent = 'Ver publicaciones';
-  btnshowPost.className = 'buttonRegister';
+  btnshowPost.className = 'buttonSeePosts';
 
   const showPostDiv = document.createElement('div');
 
@@ -77,7 +77,7 @@ export const landingPage = () => {
   const editText = document.createElement('p');
 
   // Asignación de clases
-  postAll.className = 'container';
+  postAll.className = 'containerLandingPage';
   containerHeader.className = 'containerHeader';
   containerSlider.className = 'containerSlider';
   containerCategories.className = 'containerCategories';
@@ -135,7 +135,6 @@ export const landingPage = () => {
   deleteImg.className = 'class-deleteImg';
   likeText.textContent = 'Me gusta';
   editText.textContent = 'Editar';
-  postAll.className = 'allPost';
   // nav.className = 'class-nav';
   // checkbox.type = 'checkbox';
   // checkbox.id = 'check';
@@ -169,22 +168,14 @@ export const landingPage = () => {
   emocionalDiv.appendChild(pEmocional);
   postAll.appendChild(containerCategories);
   postAll.appendChild(containerPosts);
-  containerPosts.appendChild(estructuraPost);
-  estructuraPost.appendChild(imgPostDiv);
+  containerPosts.appendChild(postDiv);
   imgPostDiv.appendChild(imgPost);
-  estructuraPost.appendChild(postDiv);
-  postDiv.appendChild(postAuthor);
-  postDiv.appendChild(divisionLine);
-  postDiv.appendChild(postInferiorDiv);
   imgPostDiv.appendChild(categoryDiv);
   postInferiorDiv.appendChild(optionsDiv);
-  optionsDiv.appendChild(likeDiv);
   likeDiv.appendChild(likeImg);
   likeDiv.appendChild(likeText);
-  optionsDiv.appendChild(editDiv);
   editDiv.appendChild(editImg);
   editDiv.appendChild(editText);
-  optionsDiv.appendChild(deleteDiv);
   deleteDiv.appendChild(deleteImg);
   postAll.appendChild(btnshowPost);
   postAll.appendChild(showPostDiv);

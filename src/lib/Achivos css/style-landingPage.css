@@ -96,10 +96,6 @@
     transition: .3s;
 
 } */
-
-.allPost {
-  overflow:scroll;
-}
 .avatarIcon-class {
   display: block;
   background: #453d9d;
@@ -130,6 +126,17 @@
   width: 90%;
 }
 
+.container-divPost {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  color: #fff;
+  width: 80%;
+  z-index: 2;
+}
+
 .containerSlider {
   display: flex;
   flex-direction: row;
@@ -146,6 +153,15 @@
   justify-content: center;
   margin-top: 10px;
   width: 90%;
+}
+
+.containerPosts2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  width: 95%;
 }
 
 .imgSlider {
@@ -231,12 +247,7 @@
   justify-content: center;
 }
 
-.postDiv {
-  display: flex;
-  width: 60%;
-}
-
-.class-estructuraPost {
+.class-postDiv {
   display: flex;
   width: 660px;
   height: auto;
@@ -247,11 +258,16 @@
 
 .class-estructuraPost2 {
   display: flex;
-  width: 500px;
-  height: 200px;
+  width: 80%;
+  height: 180px;
   flex-direction: column;
   background-color: aliceblue;
   border-radius: 10px;
+  font-family: "Poppins", sans-serif;
+  text-align: left;
+  font-size: 0.8rem;
+  color: rgb(104, 102, 102);
+  margin: 15px;
 }
 
 .class-postDiv {
@@ -453,6 +469,52 @@
   margin-top: 3px;
   align-items: center;
   justify-content: center;
+}
+
+.buttonSeePosts {
+  border-style: none;
+  font-family: "Poppins", sans-serif;
+  border-radius: 10px;
+  padding: 13px 20px;
+  background-color: #5c55ad;
+  font-size: 1rem;
+  color: #fde1ca;
+  font-weight: 500;
+  width: 60%;
+  box-shadow: 1px 1px 1px 1px rgba(255, 206, 206, 0.805);
+  cursor: pointer;
+  margin-bottom: 5px;
+  align-items: center;
+  justify-content: center;
+  margin: 15px;
+}
+
+.containerLandingPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #7d74fd;
+  width: 100%;
+  height: 100% auto;
+  min-height: 200vh;
+  position: relative;
+  overflow: scroll;
+}
+
+.text-content-post-description {
+  border: none;
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  padding: 15px;
+  border-radius: 15px;
+  margin: 10px;
+  box-shadow: 1px 1px 1px 1px rgba(255, 206, 206, 0.805);
+  cursor: pointer;
 }
 
 
