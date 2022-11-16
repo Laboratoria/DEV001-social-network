@@ -2,7 +2,7 @@
 // eslint-disable-next-line import/no-unresolved
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
-import { getFirestore, collection, addDoc } from "firebase/firestore";
+import { getFirestore, collection, addDoc, getDocs, onSnapshot } from "firebase/firestore";
 
 // import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js';
 // TODO: Add SDKs for Firebase products that you want to use
@@ -22,6 +22,8 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
-export const saveTask = (editname, editdescription) => {
-  addDoc(collection(db, 'task'), {editname, editdescription})
+export const saveTask = (editdescription) => {
+  addDoc(collection(db, 'task'), {editdescription})
 };
+export const getTask = () => getDocs(collection(db, 'task'));
+export const onGetTask = (callback) => onSnapshot(collection(db, 'task'), callback);

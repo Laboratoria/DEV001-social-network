@@ -1,6 +1,7 @@
 import { getAuth  } from 'firebase/auth';
+import { async } from 'regenerator-runtime';
 import { onNavigate } from '../../main';
-import { saveTask } from './firebase.js';
+// import { saveTask, getTask } from './firebase.js';
 
 const rootDiv = document.getElementById('root');
 
@@ -23,7 +24,7 @@ export const editProfile = () => {
   const avatar = document.createElement('img');
   const homeDiv2 = document.createElement('div');
   const p = document.createElement('p');
-  const homeDiv3 = document.createElement('div');
+  const homeDiv3 = document.createElement('form');
   const editName = document.createElement('input');
   const p2 = document.createElement('p');
   const editDescription = document.createElement('textarea');
@@ -83,14 +84,21 @@ export const editProfile = () => {
   homeDiv3.appendChild(saveChanges);
   containerRegister.appendChild(homeDiv3);
 
-   saveChanges.addEventListener('click', () => {
+//    homeDiv3.addEventListener('submit', async (e) => {
+//     e.preventDefault()
 
-    const editname = editName.value
-    const editdescription = editDescription.value
-    saveTask(editname, editdescription)
+//     const editname = editName.value
+//     const editdescription = editDescription.value
+//     saveTask(editname, editdescription)
 
-    // onNavigate('/profile');
-  });
+//     homeDiv3.reset
+
+//     const querySnapshot = await getTask()
+//     querySnapshot.forEach(doc => {
+//         console.log(doc.data())
+//     })
+//     // onNavigate('/profile');
+//   });
 
   return homeDiv;
 };

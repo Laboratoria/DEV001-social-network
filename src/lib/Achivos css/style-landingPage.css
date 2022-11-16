@@ -97,7 +97,9 @@
 
 } */
 
-
+.allPost {
+  overflow:scroll;
+}
 .avatarIcon-class {
   display: block;
   background: #453d9d;
@@ -241,6 +243,15 @@
   flex-direction: row;
   background-color: aliceblue;
   border-radius: 15px;
+}
+
+.class-estructuraPost2 {
+  display: flex;
+  width: 500px;
+  height: 200px;
+  flex-direction: column;
+  background-color: aliceblue;
+  border-radius: 10px;
 }
 
 .class-postDiv {
@@ -426,6 +437,16 @@
   margin-left: 5px;
 }
 
+.btnDelete {
+  background-color:rgba(233, 122, 199, 0.842);
+  width: 30px;
+  border-radius: 5px;
+  border: none;
+  height: 15%;
+  margin-left: 450px;
+  margin-top: 120px;
+}
+
 .class-deleteImg {
   width: 20px;
   height: 20px;
@@ -476,6 +497,16 @@
   .btnSlider2 {
     height: 35px;
     width: 35px;
+  }
+
+  .class-estructuraPost2 {
+    display: flex;
+    justify-content: center;
+    width: 500px;
+    height: 200px;
+    flex-direction: column;
+    background-color: aliceblue;
+    border-radius: 10px;
   }
 
   .imgSlider {
