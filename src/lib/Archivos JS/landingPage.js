@@ -1,13 +1,17 @@
+import { getAuth } from 'firebase/auth';
+import { saveTask, onGetTask } from './firebase.js';
 // // eslint-disable-next-line import/no-cycle
 // import { onNavigate } from '../../main';
 
 const rootDiv = document.getElementById('root');
 
 export const landingPage = () => {
+  const auth = getAuth();
+  const user = auth.currentUser;
   rootDiv.innerHTML = ' ';
 
   // Creación de elementos
-  const homeDiv = document.createElement('div');
+  const postAll = document.createElement('div');
   const containerHeader = document.createElement('section');
   const avatarIcon = document.createElement('img');
   const greeting = document.createElement('p');
@@ -32,10 +36,32 @@ export const landingPage = () => {
   const containerPosts = document.createElement('section');
   const estructuraPost = document.createElement('div');
   const postDiv = document.createElement('div');
+
+  const homeDiv3 = document.createElement('form');
+  const editDescription = document.createElement('textarea');
+  const saveChanges = document.createElement('button');
+
+  editDescription.rows = '3';
+  editDescription.placeholder = 'Quiero compartir con ustedes...';
+  editDescription.id = 'editDescription';
+  editDescription.className = 'text-content-description';
+  saveChanges.id = 'saveChanges';
+  saveChanges.textContent = 'Publicar';
+  saveChanges.className = 'buttonRegister';
+  homeDiv3.className = 'container-div';
+
+  homeDiv3.appendChild(editDescription);
+  homeDiv3.appendChild(saveChanges);
+  postDiv.appendChild(homeDiv3);
+
+  const btnshowPost = document.createElement('button');
+  btnshowPost.textContent = 'Ver publicaciones';
+  btnshowPost.className = 'buttonRegister';
+
+  const showPostDiv = document.createElement('div');
+
   const imgPostDiv = document.createElement('div');
   const imgPost = document.createElement('img');
-  const postTitle = document.createElement('p');
-  const postDesciption = document.createElement('p');
   const postAuthor = document.createElement('p');
   const divisionLine = document.createElement('div');
   const postInferiorDiv = document.createElement('div');
@@ -51,14 +77,15 @@ export const landingPage = () => {
   const editText = document.createElement('p');
 
   // Asignación de clases
-  homeDiv.className = 'container';
+  postAll.className = 'container';
   containerHeader.className = 'containerHeader';
   containerSlider.className = 'containerSlider';
   containerCategories.className = 'containerCategories';
   containerPosts.className = 'containerPosts';
+  showPostDiv.className = 'containerPosts2';
   avatarIcon.src = './lib/img/Ellipse9.png';
   avatarIcon.className = 'avatarIcon-class';
-  greeting.textContent = 'Hola Silvia';
+  greeting.textContent = `Bienvenida, ${user.displayName}`;
   greeting.className = 'class-greeting';
   imgBottom.src = './lib/img/collage-5.png';
   imgBottom.className = 'img-bottom-2';
@@ -90,13 +117,7 @@ export const landingPage = () => {
   imgPostDiv.classList = 'class-post-emocional';
   imgPost.src = './lib/img/meditando.png';
   imgPost.className = 'class-imgPost';
-  postTitle.textContent = 'Simply Dummy Text';
-  postTitle.className = 'text-postTitle';
-  postDesciption.textContent = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, '
-  + 'sed do eiusmod tempor incididunt ut labore et dolore, '
-  + 'eiusmod tempor incididunt ut labore et dolore do eiusmod tempor incididun.';
-  postDesciption.className = 'class-postDescription';
-  postAuthor.textContent = 'Silvia Falcón';
+  postAuthor.textContent = `${user.displayName}`;
   postAuthor.className = 'class-postAuthor';
   divisionLine.className = 'class-divisionLine';
   postInferiorDiv.className = 'class-postInferiorDiv';
@@ -114,7 +135,7 @@ export const landingPage = () => {
   deleteImg.className = 'class-deleteImg';
   likeText.textContent = 'Me gusta';
   editText.textContent = 'Editar';
-
+  postAll.className = 'allPost';
   // nav.className = 'class-nav';
   // checkbox.type = 'checkbox';
   // checkbox.id = 'check';
@@ -129,14 +150,14 @@ export const landingPage = () => {
   // btnCerrar.textContent = 'Cerrar Sesión';
 
   // Añadiendo hijos
-  homeDiv.appendChild(containerHeader);
+  postAll.appendChild(containerHeader);
   containerHeader.appendChild(avatarIcon);
   containerHeader.appendChild(greeting);
-  homeDiv.appendChild(imgBottom);
+  postAll.appendChild(imgBottom);
   containerSlider.appendChild(btnLeft);
   containerSlider.appendChild(imgSlider);
   containerSlider.appendChild(btnRight);
-  homeDiv.appendChild(containerSlider);
+  postAll.appendChild(containerSlider);
   containerCategories.appendChild(saludDiv);
   containerCategories.appendChild(socialDiv);
   containerCategories.appendChild(emocionalDiv);
@@ -146,14 +167,12 @@ export const landingPage = () => {
   socialDiv.appendChild(pSocial);
   emocionalDiv.appendChild(imgEmocional);
   emocionalDiv.appendChild(pEmocional);
-  homeDiv.appendChild(containerCategories);
-  homeDiv.appendChild(containerPosts);
+  postAll.appendChild(containerCategories);
+  postAll.appendChild(containerPosts);
   containerPosts.appendChild(estructuraPost);
   estructuraPost.appendChild(imgPostDiv);
   imgPostDiv.appendChild(imgPost);
   estructuraPost.appendChild(postDiv);
-  postDiv.appendChild(postTitle);
-  postDiv.appendChild(postDesciption);
   postDiv.appendChild(postAuthor);
   postDiv.appendChild(divisionLine);
   postDiv.appendChild(postInferiorDiv);
@@ -167,6 +186,8 @@ export const landingPage = () => {
   editDiv.appendChild(editText);
   optionsDiv.appendChild(deleteDiv);
   deleteDiv.appendChild(deleteImg);
+  postAll.appendChild(btnshowPost);
+  postAll.appendChild(showPostDiv);
   // containerHeader.appendChild(nav);
   // nav.appendChild(checkbox);
   // checkbox.appendChild(label);
@@ -178,5 +199,40 @@ export const landingPage = () => {
   // ul.appendChild(li);
   // li.appendChild(btnCerrar);
 
-  return homeDiv;
+  btnshowPost.addEventListener('click', async () => {
+    onGetTask((querySnapshot) => {
+      let html = '';
+
+      querySnapshot.forEach((doc) => {
+        const task = doc.data();
+        html += `
+          <div class = 'class-estructuraPost2'>
+          <p>${task.editdescription}</p>
+          <button class = btnDelete><img class= 'class-deleteImg' src="/lib/img/delete-icon.png"></button>
+          </div>
+          `;
+      });
+
+      showPostDiv.innerHTML = html;
+
+      const btnsDelete = showPostDiv.querySelectorAll('.btnDelete');
+
+      btnsDelete.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          console.log('deleting');
+        });
+      });
+    });
+  });
+
+  homeDiv3.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const editdescription = editDescription.value;
+    saveTask(editdescription);
+
+    homeDiv3.reset();
+  });
+
+  return postAll;
 };
