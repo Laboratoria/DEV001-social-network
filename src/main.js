@@ -1,6 +1,6 @@
 // Este es el punto de entrada de tu aplicacion
 
-import "./lib/Archivos JS/firebase.js";
+import './lib/Archivos JS/firebase.js';
 
 // eslint-disable-next-line import/no-cycle
 import { home } from './lib/Archivos JS/home.js';
@@ -11,9 +11,10 @@ import { login } from './lib/Archivos JS/login.js';
 // eslint-disable-next-line import/no-cycle
 import { profile } from './lib/Archivos JS/profile.js';
 import { landingPage } from './lib/Archivos JS/landingPage.js';
+// eslint-disable-next-line import/no-cycle
 import { editProfile } from './lib/Archivos JS/editProfile.js';
 
-const rootDiv = document.getElementById("root");
+const rootDiv = document.getElementById('root');
 
 const routes = {
   '/': home,

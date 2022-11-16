@@ -1,6 +1,6 @@
-import { getAuth  } from 'firebase/auth';
-import { async } from 'regenerator-runtime';
-import { onNavigate } from '../../main';
+import { getAuth } from 'firebase/auth';
+// import { async } from 'regenerator-runtime';
+// import { onNavigate } from '../../main';
 
 // import { saveTask, getTask } from './firebase.js';
 
@@ -47,7 +47,7 @@ export const editProfile = () => {
   containerRegister.className = 'container-register';
   p.textContent = 'Editar Nombre de Usuario:';
   p.className = 'text-subtitle2';
-  avatar.referrerPolicy='no-referrer';
+  avatar.referrerPolicy = 'no-referrer';
   avatar.src = `${user.photoURL}`;
   avatar.className = 'avatar-class';
   fondoImagen.className = 'avatar-class';
@@ -85,21 +85,21 @@ export const editProfile = () => {
   homeDiv3.appendChild(saveChanges);
   containerRegister.appendChild(homeDiv3);
 
-//    homeDiv3.addEventListener('submit', async (e) => {
-//     e.preventDefault()
+  //    homeDiv3.addEventListener('submit', async (e) => {
+  //     e.preventDefault()
 
-//     const editname = editName.value
-//     const editdescription = editDescription.value
-//     saveTask(editname, editdescription)
+  //     const editname = editName.value
+  //     const editdescription = editDescription.value
+  //     saveTask(editname, editdescription)
 
-//     homeDiv3.reset
+  //     homeDiv3.reset
 
-//     const querySnapshot = await getTask()
-//     querySnapshot.forEach(doc => {
-//         console.log(doc.data())
-//     })
-//     // onNavigate('/profile');
-//   });
+  //     const querySnapshot = await getTask()
+  //     querySnapshot.forEach(doc => {
+  //         console.log(doc.data())
+  //     })
+  //     // onNavigate('/profile');
+  //   });
 
   return homeDiv;
 };

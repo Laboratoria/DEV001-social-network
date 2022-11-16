@@ -1,5 +1,5 @@
 import { getAuth } from 'firebase/auth';
-import { saveTask, getTask, onGetTask } from './firebase.js';
+import { saveTask, onGetTask } from './firebase.js';
 // // eslint-disable-next-line import/no-cycle
 // import { onNavigate } from '../../main';
 
@@ -44,11 +44,11 @@ export const landingPage = () => {
   editDescription.rows = '3';
   editDescription.placeholder = 'Quiero compartir con ustedes...';
   editDescription.id = 'editDescription';
-  editDescription.className = 'text-content-description';
+  editDescription.className = 'text-content-post-description';
   saveChanges.id = 'saveChanges';
   saveChanges.textContent = 'Publicar';
   saveChanges.className = 'buttonRegister';
-  homeDiv3.className = 'container-div';
+  homeDiv3.className = 'container-divPost';
 
   homeDiv3.appendChild(editDescription);
   homeDiv3.appendChild(saveChanges);
@@ -56,11 +56,9 @@ export const landingPage = () => {
 
   const btnshowPost = document.createElement('button');
   btnshowPost.textContent = 'Ver publicaciones';
-  btnshowPost.className = 'buttonRegister';
+  btnshowPost.className = 'buttonSeePosts';
 
   const showPostDiv = document.createElement('div');
-
-
 
   const imgPostDiv = document.createElement('div');
   const imgPost = document.createElement('img');
@@ -79,7 +77,7 @@ export const landingPage = () => {
   const editText = document.createElement('p');
 
   // Asignación de clases
-  postAll.className = 'container';
+  postAll.className = 'containerLandingPage';
   containerHeader.className = 'containerHeader';
   containerSlider.className = 'containerSlider';
   containerCategories.className = 'containerCategories';
@@ -137,7 +135,6 @@ export const landingPage = () => {
   deleteImg.className = 'class-deleteImg';
   likeText.textContent = 'Me gusta';
   editText.textContent = 'Editar';
-  postAll.className = 'allPost'
   // nav.className = 'class-nav';
   // checkbox.type = 'checkbox';
   // checkbox.id = 'check';
@@ -171,22 +168,14 @@ export const landingPage = () => {
   emocionalDiv.appendChild(pEmocional);
   postAll.appendChild(containerCategories);
   postAll.appendChild(containerPosts);
-  containerPosts.appendChild(estructuraPost);
-  estructuraPost.appendChild(imgPostDiv);
+  containerPosts.appendChild(postDiv);
   imgPostDiv.appendChild(imgPost);
-  estructuraPost.appendChild(postDiv);
-  postDiv.appendChild(postAuthor);
-  postDiv.appendChild(divisionLine);
-  postDiv.appendChild(postInferiorDiv);
   imgPostDiv.appendChild(categoryDiv);
   postInferiorDiv.appendChild(optionsDiv);
-  optionsDiv.appendChild(likeDiv);
   likeDiv.appendChild(likeImg);
   likeDiv.appendChild(likeText);
-  optionsDiv.appendChild(editDiv);
   editDiv.appendChild(editImg);
   editDiv.appendChild(editText);
-  optionsDiv.appendChild(deleteDiv);
   deleteDiv.appendChild(deleteImg);
   postAll.appendChild(btnshowPost);
   postAll.appendChild(showPostDiv);
@@ -201,44 +190,39 @@ export const landingPage = () => {
   // ul.appendChild(li);
   // li.appendChild(btnCerrar);
 
-
   btnshowPost.addEventListener('click', async () => {
-
     onGetTask((querySnapshot) => {
       let html = '';
 
-      querySnapshot.forEach(doc => {
+      querySnapshot.forEach((doc) => {
         const task = doc.data();
         html += `
           <div class = 'class-estructuraPost2'>
           <p>${task.editdescription}</p>
           <button class = btnDelete><img class= 'class-deleteImg' src="/lib/img/delete-icon.png"></button>
           </div>
-          `
+          `;
       });
 
       showPostDiv.innerHTML = html;
 
       const btnsDelete = showPostDiv.querySelectorAll('.btnDelete');
 
-      btnsDelete.forEach(btn => {
+      btnsDelete.forEach((btn) => {
         btn.addEventListener('click', () => {
           console.log('deleting');
-        })
-      })
+        });
+      });
     });
-
   });
 
-
-
   homeDiv3.addEventListener('submit', async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    const editdescription = editDescription.value
-    saveTask(editdescription)
+    const editdescription = editDescription.value;
+    saveTask(editdescription);
 
-    homeDiv3.reset()
+    homeDiv3.reset();
   });
 
   return postAll;
