@@ -1,9 +1,11 @@
-/*import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, } from 'firebase/auth';*/
+/* import { signInWithEmailAndPassword, GoogleAuthProvider,
+  signInWithPopup, } from 'firebase/auth'; */
 // eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../../main';
-import { functionLogin, functionRegisterGoogle } from "./index.js";
-import { profile } from "./profile";
-/*import { auth } from './firebase.js';*/
+import { functionLogin, functionRegisterGoogle } from './index.js';
+// eslint-disable-next-line import/no-cycle
+// import { profile } from './profile';
+/* import { auth } from './firebase.js'; */
 
 const rootDiv = document.getElementById('root');
 
@@ -108,30 +110,29 @@ export const login = () => {
 
     const result = await functionLogin(email, password);
 
-    //console.log(email);
-    //console.log(password);
+    // console.log(email);
+    // console.log(password);
 
-    if(result != "error"){
-      console.log("si vamos alogin")
+    if (result !== 'error') {
+      console.log('si vamos alogin');
       onNavigate('/profile');
-      /*console.log("nombre ususario", result.user.displayName)
-      profile(result.user.displayName);*/
-    };
-
+      /* console.log("nombre ususario", result.user.displayName)
+      profile(result.user.displayName); */
+    }
   });
 
   buttonGoogle.addEventListener('click', async () => {
     const resultGoogle = await functionRegisterGoogle();
 
-    if(resultGoogle != "error"){
-      console.log("sita funcionando");
+    if (resultGoogle !== 'error') {
+      console.log('sita funcionando');
       onNavigate('/profile');
-      /*console.log("nombre ususario", resultGoogle.user.displayName)
-      profile("gabriela zambrano");*/
+      /* console.log("nombre ususario", resultGoogle.user.displayName)
+      profile("gabriela zambrano"); */
     }
   });
 
-  /*buttonInicio.addEventListener('click', async () => {
+  /* buttonInicio.addEventListener('click', async () => {
     const email = inputEmail.value;
     const password = inputPassword.value;
 
@@ -154,7 +155,7 @@ export const login = () => {
       // const errorCode = error.code;
       // const errorMessage = error.message;
     }
-  });*/
+  }); */
 
   /*
   buttonGoogle.addEventListener('click', async () => {
@@ -169,7 +170,7 @@ export const login = () => {
       console.log(error);
       throw new Error(error);
     }
-  });*/
+  }); */
 
   return homeDiv;
 };

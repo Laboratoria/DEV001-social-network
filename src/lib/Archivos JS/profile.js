@@ -1,4 +1,3 @@
-
 import { signOut, getAuth } from 'firebase/auth';
 
 // eslint-disable-next-line import/no-cycle

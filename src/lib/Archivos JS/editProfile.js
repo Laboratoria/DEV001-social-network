@@ -1,5 +1,6 @@
-import { getAuth  } from 'firebase/auth';
-import { onNavigate } from '../../main';
+import { getAuth } from 'firebase/auth';
+// eslint-disable-next-line import/no-cycle
+// import { onNavigate } from '../../main';
 import { saveTask } from './firebase.js';
 
 const rootDiv = document.getElementById('root');
@@ -45,7 +46,7 @@ export const editProfile = () => {
   containerRegister.className = 'container-register';
   p.textContent = 'Editar Nombre de Usuario:';
   p.className = 'text-subtitle2';
-  avatar.referrerPolicy='no-referrer';
+  avatar.referrerPolicy = 'no-referrer';
   avatar.src = `${user.photoURL}`;
   avatar.className = 'avatar-class';
   fondoImagen.className = 'avatar-class';
@@ -83,11 +84,10 @@ export const editProfile = () => {
   homeDiv3.appendChild(saveChanges);
   containerRegister.appendChild(homeDiv3);
 
-   saveChanges.addEventListener('click', () => {
-
-    const editname = editName.value
-    const editdescription = editDescription.value
-    saveTask(editname, editdescription)
+  saveChanges.addEventListener('click', () => {
+    const editname = editName.value;
+    const editdescription = editDescription.value;
+    saveTask(editname, editdescription);
 
     // onNavigate('/profile');
   });
