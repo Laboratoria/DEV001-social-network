@@ -397,14 +397,14 @@
 
 .class-optionsDiv {
   display: flex;
-  width: 100px;
-  margin-left: 140px;
+  width: 75%;
+  margin-left: 30%;
 }
 
 .class-like {
   display: flex;
   background-color: #453d9d;
-  width: 70px;
+  width: 40%;
   border-radius: 5px;
   font-family: "Poppins", sans-serif;
   font-size: 0.6rem;
@@ -434,7 +434,7 @@
   display: flex;
   flex-direction: row;
   background-color: rgb(85, 83, 83);
-  width: 50px;
+  width: 28%;
   height: 33px;
   border-radius: 5px;
   font-family: "Poppins", sans-serif;
@@ -445,8 +445,9 @@
   align-items: center;
   justify-content: center;
   margin-left: 5px;
-  padding: 2px;
+  padding: 8px;
   cursor: pointer;
+  gap: 2px;
 }
 
 .class-edit:hover {
@@ -455,8 +456,8 @@
 }
 
 .class-editImg {
-  width: 10px;
-  height: 10px;
+  width: 13px;
+  height: 13px;
   align-items: center;
   justify-content: center;
   margin-right: 3px;
