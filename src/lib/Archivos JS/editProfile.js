@@ -1,6 +1,6 @@
 import { getAuth } from 'firebase/auth';
 // import { async } from 'regenerator-runtime';
-// import { onNavigate } from '../../main';
+ import { onNavigate } from '../../main';
 
 // import { saveTask, getTask } from './firebase.js';
 
@@ -48,8 +48,8 @@ export const editProfile = () => {
   containerRegister.className = 'container-register';
   p.textContent = 'Editar Nombre de Usuario:';
   p.className = 'text-subtitle2';
-  avatar.referrerPolicy = 'no-referrer';
   avatar.src = `${user.photoURL}`;
+  avatar.referrerPolicy = 'no-referrer';
   avatar.className = 'avatar-class';
   fondoImagen.className = 'avatar-class';
   p2.textContent = 'Editar Descripción:';
@@ -90,7 +90,7 @@ export const editProfile = () => {
   homeDiv3.appendChild(noSaveChanges);
   containerRegister.appendChild(homeDiv3);
 
-  /*saveChanges.addEventListener("click", ()=>{
+  saveChanges.addEventListener("click", ()=>{
     if(editName.value == "" || editDescription.value == ""){
       alert("Falta completar tu información");
       onNavigate('/editProfile');
@@ -101,7 +101,7 @@ export const editProfile = () => {
 
   noSaveChanges.addEventListener("click", ()=>{
     onNavigate('/profile');
-  });*/
+  });
 
 
   /* homeDiv3.addEventListener('submit', async (e) => {
