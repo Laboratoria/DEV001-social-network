@@ -1,7 +1,7 @@
 import { getAuth } from 'firebase/auth';
 import { saveTask, onGetTask } from './firebase.js';
-// // eslint-disable-next-line import/no-cycle
-// import { onNavigate } from '../../main';
+// eslint-disable-next-line import/no-cycle, import/no-cycle
+import { onNavigate } from '../../main';
 
 const rootDiv = document.getElementById('root');
 
@@ -15,7 +15,6 @@ export const landingPage = () => {
   const containerHeader = document.createElement('section');
   const avatarIcon = document.createElement('img');
   const greeting = document.createElement('p');
-  const imgBottom = document.createElement('img');
 
   const containerSlider = document.createElement('section');
   const imgSlider = document.createElement('img');
@@ -66,7 +65,6 @@ export const landingPage = () => {
   const divisionLine = document.createElement('div');
   const postInferiorDiv = document.createElement('div');
   const categoryDiv = document.createElement('div');
-  const optionsDiv = document.createElement('div');
   const likeDiv = document.createElement('div');
   const editDiv = document.createElement('div');
   const deleteDiv = document.createElement('div');
@@ -91,8 +89,6 @@ export const landingPage = () => {
   iconMenu.className = 'icon-menu';
   greeting.textContent = `Hola, ${user.displayName}`;
   greeting.className = 'class-greeting';
-  imgBottom.src = './lib/img/collage-5.png';
-  imgBottom.className = 'img-bottom-2';
   imgSlider.src = './lib/img/slider.png';
   imgSlider.className = 'imgSlider';
   btnLeft.textContent = '<';
@@ -127,7 +123,6 @@ export const landingPage = () => {
   postInferiorDiv.className = 'class-postInferiorDiv';
   categoryDiv.textContent = 'Emocional';
   categoryDiv.className = 'class-category';
-  optionsDiv.className = 'class-optionsDiv';
   likeDiv.className = 'class-like';
   editDiv.className = 'class-edit';
   deleteDiv.className = 'class-delete';
@@ -157,7 +152,6 @@ export const landingPage = () => {
   containerHeader.appendChild(avatarIcon);
   containerHeader.appendChild(greeting);
   containerHeader.appendChild(iconMenu);
-  postAll.appendChild(imgBottom);
   containerSlider.appendChild(btnLeft);
   containerSlider.appendChild(imgSlider);
   containerSlider.appendChild(btnRight);
@@ -176,7 +170,6 @@ export const landingPage = () => {
   containerPosts.appendChild(postDiv);
   imgPostDiv.appendChild(imgPost);
   imgPostDiv.appendChild(categoryDiv);
-  postInferiorDiv.appendChild(optionsDiv);
   likeDiv.appendChild(likeImg);
   likeDiv.appendChild(likeText);
   editDiv.appendChild(editImg);
@@ -203,15 +196,19 @@ export const landingPage = () => {
         const task = doc.data();
         html += `
           <div class = 'class-estructuraPost2'>
-          <p>${task.editdescription}</p>
-          <button class = btnDelete><img class= 'class-deleteImg' src="/lib/img/delete-icon.png"></button>
+            <p>${task.editdescription}</p>
+            <section class= 'class-optionsDiv'>
+              <div class= 'class-like'><img class= 'class-likeImg' src = "./lib/img/like-icon.png"> Me gusta </div>
+              <div class= 'class-edit'><img class= 'class-editImg' src = "./lib/img/edit-icon.png"> Editar </div>
+              <div class= 'class-delete'><img class= 'class-deleteImg' src = "./lib/img/delete-icon.png"></div>
+            </section>
           </div>
           `;
       });
 
       showPostDiv.innerHTML = html;
 
-      const btnsDelete = showPostDiv.querySelectorAll('.btnDelete');
+      const btnsDelete = showPostDiv.querySelectorAll('.class-delete');
 
       btnsDelete.forEach((btn) => {
         btn.addEventListener('click', () => {
@@ -229,6 +226,8 @@ export const landingPage = () => {
 
     homeDiv3.reset();
   });
+
+  avatarIcon.addEventListener('click', () => onNavigate('/profile'));
 
   return postAll;
 };
