@@ -96,13 +96,11 @@
     transition: .3s;
 
 } */
-
-*  {
-  padding: 0;
-  margin: 0;
-}
-.avatarIcon-class {
+.avatarIcon-class{
   display: block;
+  background: #ffffff;
+  border-color: white;
+  border-width: 2px;
   border-radius: 50px;
   width: 40px;
   margin-right: 10px;
@@ -121,10 +119,17 @@
 .containerHeader {
   display: flex;
   flex-direction: row;
-  align-items: left;
-  justify-content: left;
-  width: 90%;
-  margin-top: 30px;
+  justify-content: space-between;
+  position: fixed;
+  padding: 40px 20px 20px 20px;
+  background: #453d9d;
+  border-radius: 0px 0px 10px 10px;
+  box-shadow: 1px 1px 1px 1px rgba(112, 112, 112, 0.805);
+  z-index: 3;
+}
+
+.icon-menu{
+  width: 10%;
 }
 
 .container-divPost {
@@ -143,17 +148,17 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin-top: 10px;
   width: 95%;
+  margin-top: 120px;
 }
 
 .containerPosts {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-top: 10px;
-  width: 90%;
+  width: 400px;
 }
 
 .containerPosts2 {
@@ -219,28 +224,23 @@
 }
 
 .class-categories-icons {
-  display: flex;
   width: 27px;
-  height: 20px;
-  justify-content: center;
-  align-items: center;
-  margin-left: 38%;
+  margin-top: 10px;
 }
 
 .class-categories {
   width: 30%;
+  height: 80px;
+  padding: 7px;
   background-color: #453d9d;
   color: white;
   border-color: white;
   border: white;
   border-radius: 10px;
   margin: 8px;
-  align-items: center;
-  align-content: center;
-  justify-items: center;
-  justify-content: center;
   cursor: pointer;
-  box-shadow: 4px 4px 4px #2e296f;
+  text-align: center;
+  box-shadow: 4px 4px 4px #312b73;
 }
 
 .class-categories:hover {
@@ -525,11 +525,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background-color: #7d74fd;
-  width: auto;
-  height: auto;
-  position: relative;
+  margin: auto;
+  width: 90%;
+  gap: 20px;
 }
 
 .text-content-post-description {
@@ -548,7 +546,8 @@
 }
 
 
-@media screen and (min-width: 1024px) {
+
+/*@media screen and (min-width: 1024px) {
   .containerHeader {
     display: flex;
     flex-direction: row;
@@ -663,4 +662,4 @@
       transform: scale(1);
     }
   }
-}
+}*/
