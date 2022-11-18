@@ -1,15 +1,14 @@
-import { onNavigate } from "../main.js";
+//import { onNavigate } from "../main.js";
 
-export const muro = () => {
+export const Muro = () => {
+  const muroDiv = document.createElement('div');
+  const buttonCerrar = document.createElement('button');
 
-    const muroDiv = document.createElement('div');
-    const buttonCerrar = document.createElement('button');
+  buttonCerrar.textContent = 'Cerrar sesión';
 
-    buttonCerrar.textContent = 'Cerrar sesión';
+//buttonCerrar.addEventListener('click', () => onNavigate('/'));
 
-    buttonCerrar.addEventListener('click', () => onNavigate('/'));
+  muroDiv.appendChild(buttonCerrar);
 
-    muroDiv.appendChild(buttonCerrar);
-
-    return muroDiv;
+  return muroDiv;
 };
