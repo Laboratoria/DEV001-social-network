@@ -114,48 +114,11 @@ export const register = () => {
     const password = inputPassword.value;
 
     const result = await functionRegister(email, password, name);
-    console.log(result);
+    //console.log(result);
     if (result !== 'error') {
       onNavigate('/profile');
-      /* if(result.photoURL == null){
-          const avatar = ['./lib/img/avatar-1.png', './lib/img/avatar-2.png',
-          './lib/img/avatar-3.png', './lib/img/avatar-4.png', './lib/img/avatar-5.png'];
-          const selectedAvatar = avatar[Math.floor(Math.random() * avatar.length)];
-          console.log(selectedAvatar)
-          result.photoURL = selectedAvatar;
-      }; */
     }
 
-  /* buttonSend.addEventListener('click', async () => {
-    const name = inputName.value;
-    const email = inputEmail.value;
-    const password = inputPassword.value;
-
-    console.log(name, email, password);
-    try {
-      const userCredentials = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password,
-      );
-      console.log(userCredentials);
-
-      onNavigate('/profile');
-    } catch (error) {
-      console.log(error);
-      if (error.code === 'auth/email-already-in-use') {
-        alert('El correo ya está registrado');
-      } else if (error.code === 'auth/invalid-email') {
-        alert('Debes ingresar un correo válido');
-      } else if (error.code === 'auth/weak-password') {
-        alert('La contraseña debe tener al menos 6 carácteres');
-      } else if (error.code) {
-        alert('Algo está mal en tu registro');
-      }
-      // const errorCode = error.code;
-      // const errorMessage = error.message;
-    }
-  }); */
   });
   return homeDiv;
 };

@@ -1,11 +1,8 @@
-/* import { signInWithEmailAndPassword, GoogleAuthProvider,
-  signInWithPopup, } from 'firebase/auth'; */
-// eslint-disable-next-line import/no-cycle
+
 import { onNavigate } from '../../main';
 import { functionLogin, functionRegisterGoogle } from './index.js';
 // eslint-disable-next-line import/no-cycle
-// import { profile } from './profile';
-/* import { auth } from './firebase.js'; */
+
 
 const rootDiv = document.getElementById('root');
 
@@ -22,7 +19,6 @@ export const login = () => {
   const title = document.createElement('h2');
   const titleImg = document.createElement('img');
   const homeDiv2 = document.createElement('div');
-  // const p = document.createElement('p');
   const homeDiv3 = document.createElement('div');
   const p2 = document.createElement('p');
   const inputEmail = document.createElement('input');
@@ -66,7 +62,8 @@ export const login = () => {
   inputPassword.placeholder = 'Ingresa tu contraseña:';
   regresar.innerHTML = '¿No tienes cuenta? <a href> Regístrate </a>';
   regresar.className = 'link-login';
-  buttonGoogle.innerHTML = '<img class="img-google" src="https://icones.pro/wp-content/uploads/2021/02/google-icone-symbole-logo-png-150x150.png" /> Iniciar Sesión con Google';
+  buttonGoogle.innerHTML =
+    '<img class="img-google" src="https://icones.pro/wp-content/uploads/2021/02/google-icone-symbole-logo-png-150x150.png" /> Iniciar Sesión con Google';
   buttonGoogle.className = 'button-google';
   buttonInicio.textContent = 'Iniciar Sesión';
   buttonInicio.className = 'buttonRegister';
@@ -114,10 +111,8 @@ export const login = () => {
     // console.log(password);
 
     if (result !== 'error') {
-      console.log('si vamos alogin');
+      //console.log('si vamos alogin');
       onNavigate('/profile');
-      /* console.log("nombre ususario", result.user.displayName)
-      profile(result.user.displayName); */
     }
   });
 
@@ -125,52 +120,10 @@ export const login = () => {
     const resultGoogle = await functionRegisterGoogle();
 
     if (resultGoogle !== 'error') {
-      console.log('sita funcionando');
+      //console.log('sita funcionando');
       onNavigate('/profile');
-      /* console.log("nombre ususario", resultGoogle.user.displayName)
-      profile("gabriela zambrano"); */
     }
   });
-
-  /* buttonInicio.addEventListener('click', async () => {
-    const email = inputEmail.value;
-    const password = inputPassword.value;
-
-    console.log(email, password);
-
-    try {
-      const credentials = await signInWithEmailAndPassword(auth, email, password);
-      console.log(credentials);
-
-      onNavigate('/profile');
-    } catch (error) {
-      console.log(error);
-      if (error.code === 'auth/wrong-password') {
-        alert('Contraseña incorrecta');
-      } else if (error.code === 'auth/user-not-found') {
-        alert('Dirección Email no encontrada, por favor regístrese');
-      } else if (error.code) {
-        alert('Error en inicio de sesión, intente nuevamente');
-      }
-      // const errorCode = error.code;
-      // const errorMessage = error.message;
-    }
-  }); */
-
-  /*
-  buttonGoogle.addEventListener('click', async () => {
-    const provider = new GoogleAuthProvider();
-    try {
-      const credentials = await signInWithPopup(auth, provider);
-      console.log(credentials);
-      console.log(credentials.user);
-      onNavigate('/profile');
-      //return provider.user
-    } catch (error) {
-      console.log(error);
-      throw new Error(error);
-    }
-  }); */
 
   return homeDiv;
 };
