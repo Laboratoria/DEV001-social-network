@@ -1,25 +1,12 @@
-// Este es el punto de entrada de tu aplicacion
-import { Home } from "./componente/home.js";
-import { registrate } from "./componente/registro.js";
-// import { muro } from "./componente/muro.js";
+import { Router } from './componente/Router.js';
 
-const divRoot = document.getElementById("root");
+const divRoot = document.getElementById('root');
 
-const routes = {
-  '/': Home,
-  '/registro': registrate,
-  // '/muro': muro,
+window.onpopstate = () => {
+  divRoot.innerHTML = '';
+  divRoot.innerHTML = Router();
 };
 
-// export const onNavigate = (pathname) => {
-//   window.history.pushState(
-//     {},
-//     pathname,
-//     window.location.origin + pathname,
-//   );
-//   divRoot.appendChild(routes[pathname]());
-// };
+window.addEventListener('DOMContentLoaded', Router);
 
-const component = routes[window.location.pathname];
-
-divRoot.appendChild(component());
+window.addEventListener('hashchange', Router);
