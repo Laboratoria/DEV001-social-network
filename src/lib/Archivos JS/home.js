@@ -34,7 +34,8 @@ export const home = () => {
   imgTop.className = 'img-top';
   imgBottom.src = './lib/img/collage-5.png';
   imgBottom.className = 'img-bottom';
-  description.textContent = '24/7 es una APP diseñada con el objetivo de crear un espacio de interacción para mujeres.';
+  description.textContent =
+    '24/7 es una APP diseñada con el objetivo de crear un espacio de interacción para mujeres.';
   description.className = 'text-description';
 
   buttonRegister.addEventListener('click', () => onNavigate('/register'));

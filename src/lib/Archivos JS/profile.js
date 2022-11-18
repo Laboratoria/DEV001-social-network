@@ -8,8 +8,8 @@ const rootDiv = document.getElementById('root');
 export const profile = () => {
   const auth = getAuth();
   const user = auth.currentUser;
-  console.log(user);
-  console.log(user.photoURL);
+  //console.log(user);
+  //console.log(user.photoURL);
   rootDiv.innerHTML = ' ';
 
   let photo;
@@ -17,7 +17,13 @@ export const profile = () => {
   if (user.photoURL != null) {
     photo = user.photoURL;
   } else {
-    const avatar = ['./lib/img/avatar-1.png', './lib/img/avatar-2.png', './lib/img/avatar-3.png', './lib/img/avatar-4.png', './lib/img/avatar-5.png'];
+    const avatar = [
+      './lib/img/avatar-1.png',
+      './lib/img/avatar-2.png',
+      './lib/img/avatar-3.png',
+      './lib/img/avatar-4.png',
+      './lib/img/avatar-5.png',
+    ];
     const selectedAvatar = avatar[Math.floor(Math.random() * avatar.length)];
     user.photoURL = selectedAvatar;
     photo = selectedAvatar;
@@ -115,7 +121,7 @@ export const profile = () => {
 
   btnCerrar.addEventListener('click', async () => {
     await signOut(auth);
-    console.log('user signed out');
+    //console.log('user signed out');
     onNavigate('/');
   });
 
