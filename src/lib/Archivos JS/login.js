@@ -1,8 +1,7 @@
-
+// eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../../main';
 import { functionLogin, functionRegisterGoogle } from './index.js';
 // eslint-disable-next-line import/no-cycle
-
 
 const rootDiv = document.getElementById('root');
 
@@ -62,8 +61,7 @@ export const login = () => {
   inputPassword.placeholder = 'Ingresa tu contraseña:';
   regresar.innerHTML = '¿No tienes cuenta? <a href> Regístrate </a>';
   regresar.className = 'link-login';
-  buttonGoogle.innerHTML =
-    '<img class="img-google" src="https://icones.pro/wp-content/uploads/2021/02/google-icone-symbole-logo-png-150x150.png" /> Iniciar Sesión con Google';
+  buttonGoogle.innerHTML = '<img class="img-google" src="https://icones.pro/wp-content/uploads/2021/02/google-icone-symbole-logo-png-150x150.png" /> Iniciar Sesión con Google';
   buttonGoogle.className = 'button-google';
   buttonInicio.textContent = 'Iniciar Sesión';
   buttonInicio.className = 'buttonRegister';
@@ -111,7 +109,7 @@ export const login = () => {
     // console.log(password);
 
     if (result !== 'error') {
-      //console.log('si vamos alogin');
+      // console.log('si vamos alogin');
       onNavigate('/profile');
     }
   });
@@ -120,7 +118,7 @@ export const login = () => {
     const resultGoogle = await functionRegisterGoogle();
 
     if (resultGoogle !== 'error') {
-      //console.log('sita funcionando');
+      // console.log('sita funcionando');
       onNavigate('/profile');
     }
   });

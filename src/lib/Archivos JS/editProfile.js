@@ -1,14 +1,14 @@
 import { getAuth } from 'firebase/auth';
 // import { async } from 'regenerator-runtime';
+// eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../../main';
-
 
 const rootDiv = document.getElementById('root');
 
 export const editProfile = () => {
   const auth = getAuth();
   const user = auth.currentUser;
-  //console.log(user);
+  // console.log(user);
   rootDiv.innerHTML = ' ';
 
   const homeDiv = document.createElement('div');
@@ -91,7 +91,7 @@ export const editProfile = () => {
 
   saveChanges.addEventListener('click', (e) => {
     e.preventDefault();
-    if (editName.value == '' || editDescription.value == '') {
+    if (editName.value === '' || editDescription.value === '') {
       alert('Falta completar tu información');
       onNavigate('/editProfile');
     } else {

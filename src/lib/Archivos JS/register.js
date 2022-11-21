@@ -114,11 +114,10 @@ export const register = () => {
     const password = inputPassword.value;
 
     const result = await functionRegister(email, password, name);
-    //console.log(result);
+    // console.log(result);
     if (result !== 'error') {
       onNavigate('/profile');
     }
-
   });
   return homeDiv;
 };
