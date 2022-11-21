@@ -10,9 +10,12 @@ import { register } from './lib/Archivos JS/register.js';
 import { login } from './lib/Archivos JS/login.js';
 // eslint-disable-next-line import/no-cycle
 import { profile } from './lib/Archivos JS/profile.js';
+// eslint-disable-next-line import/no-cycle
 import { landingPage } from './lib/Archivos JS/landingPage.js';
 // eslint-disable-next-line import/no-cycle
 import { editProfile } from './lib/Archivos JS/editProfile.js';
+// eslint-disable-next-line import/no-cycle
+import { contact } from './lib/Archivos JS/contact.js';
 
 const rootDiv = document.getElementById('root');
 
@@ -23,6 +26,7 @@ const routes = {
   '/profile': profile,
   '/editProfile': editProfile,
   '/landingPage': landingPage,
+  '/contact': contact,
 };
 
 export const onNavigate = (pathname) => {

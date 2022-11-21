@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+.container-contactDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    width: 90%;
+}
+
+.menu-nav2 {
+    background-color: hsla(245, 35%, 51%, 0.961);
+    width: 90%;
+    position: absolute;
+    top: 100px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    list-style: none;
+    border-radius: 15px;
+    margin-left: -178px;
+  }
+
+.container-messageDiv {
+    height: auto;
+    margin-top: 115px;
+}
+
+.class-messageText {
+    justify-content: center;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    text-align: left;
+    font-size: 1.5rem;
+    color: aliceblue;
+    text-shadow: 4px 4px 4px #453d9d;
+}
+
+.container-cardsDiv {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    justify-content: space-around;
+    gap: 35px;
+    margin-top: 25px;
+}
+
+.class-cardsDiv {
+    background-color: rgb(202, 206, 209);
+    border-radius: 15px;
+    box-shadow: 4px 4px 4px #453d9d;
+    height: 210px;
+    width: 200px;
+    padding: 30px;
+    font-family: "Poppins", sans-serif;
+    color: rgb(45, 46, 46);
+    font-weight: 600;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+.class-cardsDiv:hover {
+    background: linear-gradient(#5038c4, #8567f7);
+    color: rgb(237, 230, 221);
+}
+
+.class-cardsImgDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -10px;
+    background-color: #5c55ad;
+    width: 63px;
+    height: 63px;
+    border-radius: 50%;
+    margin-left: 35px;
+}
+
+.class-cardsImg {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background-color: rgb(237, 230, 221);
+}
+
+.class-cardsInfoDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 17px;
+}
+
+.class-cardsDescription {
+    font-weight: 300;
+}
+
+.class-contactDiv {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.class-linkedIn {
+    width: 20px;
+    cursor: pointer;
+}
+
+.class-github {
+    width: 20px;
+    cursor: pointer;
+}
+
+.class-mail {
+    width: 20px;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 900px) {
+
+    .container-cardsDiv {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .container-messageDiv {
+        margin-top: 150px;
+    }
+
+    .container-cardsDiv {
+        margin-top: 100px;
+    }
+
+    .menu-nav2 {
+        width: 30%;
+        margin-left: 290px;
+    }
+}
