@@ -204,6 +204,7 @@ export const landingPage = () => {
   deleteDiv.appendChild(deleteImg);
   containerPosts.appendChild(btnshowPost);
   containerPosts.appendChild(showPostDiv);
+  postAll.append(imgBottom);
 
 
   //?Menú hambuguesa 
@@ -217,24 +218,22 @@ export const landingPage = () => {
       </nav>`;
     menuDisplayed.innerHTML = options;
 
-    /*Al dar click a el icono cerrar */
-    let closeButton = document.getElementById('close-button');
+    /* Al dar click a el icono cerrar */
+    const closeButton = document.getElementById('close-button');
     closeButton.addEventListener('click', () => {
       menuDisplayed.style.display = 'none';
     });
 
+    const miPerfil = document.getElementById('option1');
+    miPerfil.addEventListener('click', () => onNavigate('/profile'));
 
-    /*Evento para cerrar sesión*/
-    let returnProfile = document.getElementById('option1');
-    returnProfile.addEventListener('click', () => {
-      onNavigate('/profile');
-    });
+    const contactanos = document.getElementById('option2');
+    contactanos.addEventListener('click', () => onNavigate('/contact'));
 
-    /*Evento para cerrar sesión*/
-    let closeSesion = document.getElementById('option3');
-    closeSesion.addEventListener('click', async () => {
+    const cerrarSesion = document.getElementById('option3');
+    cerrarSesion.addEventListener('click', async () => {
       await signOut(auth);
-      //console.log('user signed out');
+      console.log('user signed out');
       onNavigate('/');
     });
   });

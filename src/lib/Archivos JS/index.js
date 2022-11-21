@@ -9,24 +9,24 @@ import {
 import { auth } from './firebase.js';
 
 export const functionRegister = async (email, password, name) => {
-  //console.log(email);
-  //console.log(password);
-  //console.log(name);
+  // console.log(email);
+  // console.log(password);
+  // console.log(name);
 
   try {
     const userCredentials = await createUserWithEmailAndPassword(
       auth,
       email,
-      password
+      password,
     );
     await updateProfile(userCredentials.user, {
       displayName: name,
     });
-    //console.log(userCredentials.user);
+    // console.log(userCredentials.user);
     // console.log(userCredentials.user.displayName = name);
     return userCredentials.user;
   } catch (error) {
-    //console.log(error);
+    // console.log(error);
 
     if (error.code === 'auth/email-already-in-use') {
       alert('El correo ya está registrado');
@@ -48,11 +48,11 @@ export const functionRegister = async (email, password, name) => {
 };
 
 export const functionLogin = async (email, password) => {
-  //console.log(email);
-  //console.log(password);
+  // console.log(email);
+  // console.log(password);
   try {
     const credentials = await signInWithEmailAndPassword(auth, email, password);
-    //console.log(credentials.user);
+    // console.log(credentials.user);
     return credentials.user;
   } catch (error) {
     if (error.code === 'auth/wrong-password') {
@@ -74,10 +74,10 @@ export const functionRegisterGoogle = async () => {
   const provider = new GoogleAuthProvider();
   try {
     const credentials = await signInWithPopup(auth, provider);
-    //console.log(credentials.user);
+    // console.log(credentials.user);
     return credentials;
   } catch (error) {
-    //console.log(error);
+    // console.log(error);
     return 'error';
   }
 };
