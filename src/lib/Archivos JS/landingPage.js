@@ -1,7 +1,8 @@
-import { signOut, getAuth } from 'firebase/auth';
+import { getAuth, signOut } from 'firebase/auth';
 import { saveTask, onGetTask } from './firebase.js';
 // eslint-disable-next-line import/no-cycle, import/no-cycle
 import { onNavigate } from '../../main';
+import { carousel } from './carousel.js';
 
 const rootDiv = document.getElementById('root');
 
@@ -12,13 +13,19 @@ export const landingPage = () => {
 
   // Creación de elementos
   const postAll = document.createElement('div');
-  const imgBottom = document.createElement('img');
+  const imgBackground = document.createElement('img')
   const containerHeader = document.createElement('section');
   const avatarIcon = document.createElement('img');
   const greeting = document.createElement('p');
 
   const containerSlider = document.createElement('section');
-  const imgSlider = document.createElement('img');
+  const divSlider = document.createElement('div');
+  const imgSlider1 = document.createElement('div');
+  const slider1 = document.createElement('img');
+  const imgSlider2 = document.createElement('div');
+  const slider2 = document.createElement('img');
+  const imgSlider3 = document.createElement('div');
+  const slider3 = document.createElement('img');
   const btnLeft = document.createElement('button');
   const btnRight = document.createElement('button');
 
@@ -37,6 +44,7 @@ export const landingPage = () => {
   const estructuraPost = document.createElement('div');
   const postDiv = document.createElement('div');
 
+  const titlePost = document.createElement('h2');
   const homeDiv3 = document.createElement('form');
   const editDescription = document.createElement('textarea');
   const saveChanges = document.createElement('button');
@@ -47,17 +55,27 @@ export const landingPage = () => {
   editDescription.className = 'text-content-post-description';
   saveChanges.id = 'saveChanges';
   saveChanges.textContent = 'Publicar';
-  saveChanges.className = 'buttonRegister';
+  saveChanges.className = 'buttonRegister button-post';
   homeDiv3.className = 'container-divPost';
+  titlePost.textContent = 'Comparte con Nosotras:';
+  titlePost.className = 'subtitle-post';
+  imgBackground.src = './lib/img/img-flw.png';
+  imgBackground.className = 'img-background';
 
   homeDiv3.appendChild(editDescription);
   homeDiv3.appendChild(saveChanges);
+  postDiv.appendChild(titlePost);
   postDiv.appendChild(homeDiv3);
+  
+ 
 
   const btnshowPost = document.createElement('button');
   btnshowPost.textContent = 'Ver publicaciones';
-  btnshowPost.className = 'buttonSeePosts';
+  btnshowPost.className = 'buttonSeePosts button-See-Posts';
+  
+
   const showPostDiv = document.createElement('div');
+
   const imgPostDiv = document.createElement('div');
   const imgPost = document.createElement('img');
   const postAuthor = document.createElement('p');
@@ -77,8 +95,6 @@ export const landingPage = () => {
 
   // Asignación de clases
   postAll.className = 'containerLandingPage';
-  imgBottom.src = './lib/img/collage-5.png';
-  imgBottom.className = 'img-bottom-landingPage';
   containerHeader.className = 'containerHeader';
   containerSlider.className = 'containerSlider';
   containerCategories.className = 'containerCategories';
@@ -91,12 +107,23 @@ export const landingPage = () => {
   iconMenu.className = 'icon-menu';
   greeting.textContent = `Hola, ${user.displayName}`;
   greeting.className = 'class-greeting';
-  imgSlider.src = './lib/img/slider.png';
-  imgSlider.className = 'imgSlider';
+  imgSlider1.className = 'slider';
+  slider1.src = './lib/img/slider-1.png';
+  slider1.className = 'slider-img';
+  imgSlider2.className = 'slider';
+  slider2.src = './lib/img/slider-2.png';
+  slider2.className = 'slider-img';
+  imgSlider3.className = 'slider';
+  slider3.src = './lib/img/slider-3.png';
+  slider3.className = 'slider-img';
+  divSlider.className = 'imgSlider';
+  divSlider.id = 'imgSlider-container';
   btnLeft.textContent = '<';
   btnLeft.className = 'btnSlider1';
+  btnLeft.id = 'btnSlider-left';
   btnRight.textContent = '>';
   btnRight.className = 'btnSlider2';
+  btnRight.id = 'btnSlider-right';
 
   saludDiv.className = 'class-categories';
   socialDiv.className = 'class-categories';
@@ -142,11 +169,18 @@ export const landingPage = () => {
   // Añadiendo hijos
   postAll.appendChild(containerHeader);
   postAll.appendChild(menuDisplayed);
+  postAll.appendChild(imgBackground);
   containerHeader.appendChild(avatarIcon);
   containerHeader.appendChild(greeting);
   containerHeader.appendChild(iconMenu);
   containerSlider.appendChild(btnLeft);
-  containerSlider.appendChild(imgSlider);
+  containerSlider.appendChild(divSlider);
+  divSlider.appendChild(imgSlider1);
+  imgSlider1.appendChild(slider1);
+  divSlider.appendChild(imgSlider2);
+  imgSlider2.appendChild(slider2);
+  divSlider.appendChild(imgSlider3);
+  imgSlider3.appendChild(slider3);
   containerSlider.appendChild(btnRight);
   postAll.appendChild(containerSlider);
   containerCategories.appendChild(saludDiv);
@@ -172,13 +206,15 @@ export const landingPage = () => {
   containerPosts.appendChild(showPostDiv);
   postAll.append(imgBottom);
 
+
+  //?Menú hambuguesa 
   iconMenu.addEventListener('click', () => {
     menuDisplayed.style.display = 'flex';
-    const options = `<nav class="menu-nav">
-      <li><a class="option" id="option1">Mi Perfil</a></li>
-      <li><a class="option" id="option2">Contáctanos</a></li>
-      <li><a class="option" id="option3">Cerrar Sesión</a></li>
-      <img src="./lib/img/icon-close.png" alt="close" class="close-button" id="close-button">
+    let options = `<nav class='menu-nav'>
+      <li><a class='option' id='option1'>Mi Perfil</a></li>
+      <li><a class='option' id='option2'>Contáctanos</a></li>
+      <li><a class='option' id='option3'>Cerrar Sesión</a></li>
+      <img src='./lib/img/icon-close.png' alt='close' class='close-button' id='close-button'>
       </nav>`;
     menuDisplayed.innerHTML = options;
 
@@ -202,20 +238,31 @@ export const landingPage = () => {
     });
   });
 
-  // ?Función de fireBase - firestore*/
+
+  //?Lamar a la función Carrusel- slider
+  const arraySliders = [imgSlider1, imgSlider2, imgSlider3];
+  carousel(btnRight, btnLeft, arraySliders);
+
+
+
+  //?Función de fireBase - firestore*/
+  btnshowPost.classList.remove('button-See-Posts');
   btnshowPost.addEventListener('click', async () => {
     onGetTask((querySnapshot) => {
       let html = '';
+      btnshowPost.classList.remove('buttonSeePosts');
+      btnshowPost.classList.add('button-See-Posts');
 
       querySnapshot.forEach((doc) => {
         const task = doc.data();
         html += `
           <div class = 'class-estructuraPost2'>
             <p>${task.editdescription}</p>
+            <img src='./lib/img/adorno-comentarios.png' alt='img-adorno' class='img-adorno'>
             <section class= 'class-optionsDiv'>
-              <div class= 'class-like'><img class= 'class-likeImg' src = "./lib/img/like-icon.png"> Me gusta </div>
-              <div class= 'class-edit'><img class= 'class-editImg' src = "./lib/img/edit-icon.png"> Editar </div>
-              <div class= 'class-delete'><img class= 'class-deleteImg' src = "./lib/img/delete-icon.png"></div>
+              <div class= 'class-like'><img class= 'class-likeImg' src = './lib/img/like-icon.png'> Me gusta </div>
+              <div class= 'class-edit'><img class= 'class-editImg' src = './lib/img/edit-icon.png'> Editar </div>
+              <div class= 'class-delete'><img class= 'class-deleteImg' src = './lib/img/delete-icon.png'></div>
             </section>
           </div>
           `;
@@ -225,6 +272,7 @@ export const landingPage = () => {
 
       const btnsDelete = showPostDiv.querySelectorAll('.class-delete');
 
+      //? Boton para eliminar cometarios del usuario.
       btnsDelete.forEach((btn) => {
         btn.addEventListener('click', () => {
           console.log('deleting');

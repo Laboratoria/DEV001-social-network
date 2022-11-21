@@ -3,7 +3,11 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 import {
-  getFirestore, collection, addDoc, getDocs, onSnapshot,
+  getFirestore,
+  collection,
+  addDoc,
+  getDocs,
+  onSnapshot,
 } from 'firebase/firestore';
 
 // import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js';
@@ -28,4 +32,5 @@ export const saveTask = (editdescription) => {
   addDoc(collection(db, 'task'), { editdescription });
 };
 export const getTask = () => getDocs(collection(db, 'task'));
-export const onGetTask = (callback) => onSnapshot(collection(db, 'task'), callback);
+export const onGetTask = (callback) =>
+  onSnapshot(collection(db, 'task'), callback);

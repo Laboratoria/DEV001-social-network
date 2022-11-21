@@ -1,0 +1,101 @@
+@media screen and (min-width: 900px) {
+  .containerLandingPage {
+    width: 98%;
+    gap: 25px;
+  }
+
+  .containerHeader {
+    width: 100%;
+    padding: 20px 15px 15px 15px;
+  }
+  .avatarIcon-class {
+    width: 42px;
+    margin-left: 10px;
+    top: 18px;
+  }
+  .class-greeting {
+    margin-left: 65px;
+    margin-top: 13px;
+    font-size: 0.9rem;
+  }
+  .icon-menu {
+    width: 3%;
+  }
+
+  .btnSlider2, .btnSlider1 {
+    width: 40px;
+    height: 40px;
+  }
+  .btnSlider2{
+    margin-left: 15px;
+  }
+  .btnSlider1{
+    margin-right: 15px;
+  }
+  
+  .containerCategories {
+    width: 55%;
+  }
+  .class-categories {
+    height: 150px;
+  }
+  .class-categories-icons {
+    width: 33%;
+    margin-top: 30px;
+  }
+  .class-postDiv {
+    width: 750px;
+    height: 250px;
+  }
+  .class-estructuraPost2 {
+    width: 750px;
+    height: 160px;
+  }
+  .img-adorno{
+    width: 12%;
+  }
+  .class-optionsDiv {
+    display: flex;
+    width: 42%;
+    margin-left: 64%;
+  }
+  .button-post{
+    width: 40%;
+  }
+  .menu-nav {
+    background-color: hsl(245, 35%, 51%);
+    width: 18%;
+    top: 80px;
+    right: 3px;
+  }
+  .option {
+    font-size: 0.9rem;
+  }
+  .close-button {
+    width: 17%;
+  }
+  .option:hover{
+    font-size: 1rem;
+    color: #1f1a60;
+  }
+  .img-background{
+    width: 30%;
+  }
+
+  /*slider img*/
+
+  .containerSlider {
+    gap: 15px;
+  }
+
+  .imgSlider {
+    gap: 3px;
+    width: 60%;
+  }
+
+  .slider-img {
+    width: 750px;
+    gap: 5px;
+  }
+
+}

@@ -8,8 +8,8 @@ const rootDiv = document.getElementById('root');
 export const profile = () => {
   const auth = getAuth();
   const user = auth.currentUser;
-  console.log(user);
-  console.log(user.photoURL);
+  // console.log(user);
+  // console.log(user.photoURL);
   rootDiv.innerHTML = ' ';
 
   let photo;
@@ -17,7 +17,13 @@ export const profile = () => {
   if (user.photoURL != null) {
     photo = user.photoURL;
   } else {
-    const avatar = ['./lib/img/avatar-1.png', './lib/img/avatar-2.png', './lib/img/avatar-3.png', './lib/img/avatar-4.png', './lib/img/avatar-5.png'];
+    const avatar = [
+      './lib/img/avatar-1.png',
+      './lib/img/avatar-2.png',
+      './lib/img/avatar-3.png',
+      './lib/img/avatar-4.png',
+      './lib/img/avatar-5.png',
+    ];
     const selectedAvatar = avatar[Math.floor(Math.random() * avatar.length)];
     user.photoURL = selectedAvatar;
     photo = selectedAvatar;
@@ -46,6 +52,7 @@ export const profile = () => {
   const homeDiv5 = document.createElement('div');
   const btnHome = document.createElement('button');
   const btnEdit = document.createElement('button');
+  /* const btnCerrar = document.createElement('button'); */
 
   homeDiv.className = 'container';
   container.className = 'container-im-and-register';
@@ -82,6 +89,7 @@ export const profile = () => {
   btnHome.className = 'buttonRegister';
   btnEdit.textContent = 'Editar Perfil';
   btnEdit.className = 'buttonEditProfile';
+  /* btnCerrar.textContent = 'Cerrar Sesión'; */
   homeDiv2.className = 'container-div';
   homeDiv3.className = 'container-div';
   homeDiv4.className = 'container-div';
@@ -108,7 +116,14 @@ export const profile = () => {
   containerRegister.appendChild(homeDiv4);
   homeDiv5.appendChild(btnHome);
   homeDiv5.appendChild(btnEdit);
+  /* homeDiv5.appendChild(btnCerrar); */
   containerRegister.appendChild(homeDiv5);
+
+  /* btnCerrar.addEventListener('click', async () => {
+    await signOut(auth);
+    //console.log('user signed out');
+    onNavigate('/');
+  }); */
 
   btnEdit.addEventListener('click', () => onNavigate('/editProfile'));
 

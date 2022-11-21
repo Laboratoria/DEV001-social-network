@@ -1,15 +1,14 @@
 import { getAuth } from 'firebase/auth';
 // import { async } from 'regenerator-runtime';
- import { onNavigate } from '../../main';
+import { onNavigate } from '../../main';
 
-// import { saveTask, getTask } from './firebase.js';
 
 const rootDiv = document.getElementById('root');
 
 export const editProfile = () => {
   const auth = getAuth();
   const user = auth.currentUser;
-  console.log(user);
+  //console.log(user);
   rootDiv.innerHTML = ' ';
 
   const homeDiv = document.createElement('div');
@@ -90,35 +89,20 @@ export const editProfile = () => {
   homeDiv3.appendChild(noSaveChanges);
   containerRegister.appendChild(homeDiv3);
 
-  saveChanges.addEventListener("click", ()=>{
-    if(editName.value == "" || editDescription.value == ""){
-      alert("Falta completar tu información");
+  saveChanges.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (editName.value == '' || editDescription.value == '') {
+      alert('Falta completar tu información');
       onNavigate('/editProfile');
-    }else{
+    } else {
       onNavigate('/profile');
     }
   });
 
-  noSaveChanges.addEventListener("click", ()=>{
+  noSaveChanges.addEventListener('click', (e) => {
+    e.preventDefault();
     onNavigate('/profile');
   });
-
-
-  /* homeDiv3.addEventListener('submit', async (e) => {
-    e.preventDefault()
-
-    const editname = editName.value
-    const editdescription = editDescription.value
-    saveTask(editname, editdescription)
-
-     homeDiv3.reset
-
-     const querySnapshot = await getTask()
-     querySnapshot.forEach(doc => {
-         console.log(doc.data())
-    });
-    onNavigate('/profile');
-  });*/
 
   return homeDiv;
 };

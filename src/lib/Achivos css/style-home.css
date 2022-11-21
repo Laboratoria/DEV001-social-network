@@ -155,3 +155,34 @@ body{
     left: -15px;
   }
 }
+
+
+
+/*
+.containerSlider {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  max-width: 900px;
+  margin-top: 110px;
+  overflow: hiden;
+}
+
+.imgSlider {
+  display: flex;
+  gap: 10px;
+  width: 400%;
+  height: 400px;
+}
+
+.slider-img{
+  display: block;
+  width: 100%;
+  height: 100%;
+
+}
+.slider{
+  width: 100%;
+}*/

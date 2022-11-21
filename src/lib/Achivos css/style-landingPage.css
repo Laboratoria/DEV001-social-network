@@ -5,11 +5,8 @@
   border-width: 2px;
   border-radius: 50px;
   width: 40px;
-  margin-right: 10px;
-  margin-top: -12px;
-  margin-left: 10px;
-  align-items: center;
-  justify-content: flex-start;
+  margin-left: 8px;
+  top: 32px;
   position: absolute;
   cursor: pointer;
 }
@@ -23,7 +20,7 @@
   flex-direction: row;
   justify-content: space-between;
   position: fixed;
-  padding: 40px 20px 20px 20px;
+  padding: 35px 20px 20px 20px;
   background: #453d9d;
   border-radius: 0px 0px 10px 10px;
   box-shadow: 1px 1px 1px 1px rgba(112, 112, 112, 0.805);
@@ -45,16 +42,6 @@
   z-index: 2;
 }
 
-.containerSlider {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  width: 95%;
-  margin-top: 120px;
-}
-
-
 .containerPosts {
   display: flex;
   flex-direction: column;
@@ -73,32 +60,6 @@
   width: 95%;
 }
 
-.imgSlider {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px;
-  width: 88%;
-  cursor: pointer;
-  animation-name: slider;
-  animation-duration: 8s;
-  animation-iteration-count: infinite;
-}
-
-@keyframes slider {
-  0% {
-    transform: scale(1);
-  }
-
-  50% {
-    transform: scale(0.95);
-  }
-
-  100% {
-    transform: scale(1);
-  }
-}
-
 .btnSlider1 {
   display: block;
   width: 23px;
@@ -113,6 +74,7 @@
   position: sticky;
   cursor: pointer;
   box-shadow: 4px 4px 4px #453d9d;
+  margin-right: 15px;
 }
 
 .btnSlider1:hover {
@@ -141,6 +103,7 @@
   position: sticky;
   cursor: pointer;
   box-shadow: 4px 4px 4px #453d9d;
+  margin-left: 15px;
 }
 
 .class-categories-icons {
@@ -188,7 +151,7 @@
 .class-estructuraPost2 {
   display: flex;
   width: 80%;
-  height: 150px;
+  height: 200px;
   flex-direction: column;
   background-color: aliceblue;
   border-radius: 10px;
@@ -201,6 +164,14 @@
   padding: 12px;
   box-shadow: 4px 4px 4px #453d9d;
   justify-content: space-between;
+  position: relative;
+}
+
+.img-adorno{
+  width: 28%;
+  position: absolute;
+  bottom: -10px;
+  left: -28px;
 }
 
 .class-postDiv {
@@ -214,11 +185,11 @@
 
 .class-greeting {
   font-family: "Poppins", sans-serif;
-  text-align: left;
   font-size: 1rem;
   color: white;
   font-weight: 600;
   margin-left: 60px;
+  margin-top: 6px;
   text-shadow: 4px 4px 4px #453d9d;
 }
 
@@ -430,14 +401,17 @@
   background-color: #5c55ad;
   font-size: 1rem;
   color: #fde1ca;
-  font-weight: 500;
+  font-weight: 600;
   width: 60%;
   box-shadow: 1px 1px 1px 1px rgba(255, 206, 206, 0.805);
   cursor: pointer;
-  margin-bottom: 5px;
-  align-items: center;
-  justify-content: center;
-  margin: 15px;
+  margin-top: 25px;
+}
+
+.buttonSeePosts:hover{
+  transform: scale(0.96);
+  font-weight: 600;
+  background-color: #494295;
 }
 
 .containerLandingPage {
@@ -460,7 +434,7 @@
   padding: 15px;
   border-radius: 15px;
   margin: 10px;
-  box-shadow: 1px 1px 1px 1px rgba(255, 206, 206, 0.805);
+  box-shadow: 2px 2px 2px 2px rgb(233 122 199 / 84%);
   cursor: pointer;
 }
 
@@ -474,7 +448,7 @@
   background-color: hsla(245, 35%, 51%, 0.961);
   width: 100%;
   position: absolute;
-  top: 100px;
+  top: 95px;
   padding: 30px;
   display: flex;
   flex-direction: column;
@@ -498,86 +472,73 @@
 
 .close-button{
   position: absolute;
-  width: 14%;
+  width: 13%;
   top: 8px;
   right: 10px;
   cursor: pointer;
 }
 
-.img-bottom-landingPage {
-    width: 100%;
-    top: 460px;
-    left: -15px;
-    z-index: -1;
-    position: fixed;
-  }
+.subtitle-post{
+  font-size: 1.1rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  color: #5c55ad;
+  text-align: center;
+  padding-top: 15px;
+}
 
-@media screen and (min-width: 900px) {
-  .containerLandingPage {
-    width: 60%;
-  }
+.button-See-Posts{
+  border-style: none;
+  font-family: "Poppins", sans-serif;
+  border-radius: 10px;
+  padding: 13px 20px;
+  background-color: #c34095;
+  font-size: 1rem;
+  color: #fde1ca;
+  font-weight: 600;
+  width: 60%;
+  box-shadow: 1px 1px 1px 1px rgba(255, 206, 206, 0.805);
+  cursor: pointer;
+  margin-top: 25px;
+}
 
-  .containerHeader {
-    width: 100%;
-    height: 10%;
-  }
-  
-  .icon-menu {
-    width: 4%;
-    height: 35px;
-    margin-top: -19px;
-  }
+.img-background{
+  position: absolute;
+  z-index: -1;
+  bottom: 0px;
+  left: 0px;
+  width: 50%;
+}
 
-  .class-greeting {
-    margin-top: -13px;
-    margin-left: 90px;
-  }
 
-  .avatarIcon-class {
-    margin-top: -20px;
-  }
+/*clases para slider*/
 
-  .menu-nav {
-    width: 50%;
-    margin-left: 750px;
-  }
+.containerSlider {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 95%;
+  margin-top: 110px;
+}
 
-  .close-button {
-    width: 10%;
-  }
+.imgSlider {
+  width: 80%;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 5px;
+  overflow: hidden;
+}
 
-  .containerSlider {
-    width: 80%;
-    margin-top: 80px;
-  }
+.slider{
+  position: relative;
+  left: 0px;
+  transition: 0.5s all;
+}
 
-  .btnSlider1 {
-    width: 5%;
-    height: 35px;
-  }
-
-  .btnSlider2 {
-    width: 5%;
-    height: 35px;
-  }
-
-  .class-categories {
-    height: 120px;
-    width: 25%;
-  }
-
-  .class-categories-icons {
-    margin-top: 14%;
-  }
-
-  .img-bottom-landingPage {
-    width: 40%;
-    top: 160px;
-    left: -15px;
-  }
-
-  .avatarIcon-class {
-    width: 3.5%;
-    top: 30px;
-  }
+.slider-img{
+  display: block;
+  width: 265px;
+  object-fit: cover;/*para que las imagenes no se estiren*/
 }
