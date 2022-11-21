@@ -1,4 +1,4 @@
-import { signOut, getAuth } from 'firebase/auth';
+import { getAuth } from 'firebase/auth';
 
 // eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../../main';
@@ -52,7 +52,7 @@ export const profile = () => {
   const homeDiv5 = document.createElement('div');
   const btnHome = document.createElement('button');
   const btnEdit = document.createElement('button');
-  const btnCerrar = document.createElement('button');
+  /*const btnCerrar = document.createElement('button');*/
 
   homeDiv.className = 'container';
   container.className = 'container-im-and-register';
@@ -89,7 +89,7 @@ export const profile = () => {
   btnHome.className = 'buttonRegister';
   btnEdit.textContent = 'Editar Perfil';
   btnEdit.className = 'buttonEditProfile';
-  btnCerrar.textContent = 'Cerrar Sesión';
+  /*btnCerrar.textContent = 'Cerrar Sesión';*/
   homeDiv2.className = 'container-div';
   homeDiv3.className = 'container-div';
   homeDiv4.className = 'container-div';
@@ -116,14 +116,14 @@ export const profile = () => {
   containerRegister.appendChild(homeDiv4);
   homeDiv5.appendChild(btnHome);
   homeDiv5.appendChild(btnEdit);
-  homeDiv5.appendChild(btnCerrar);
+  /*homeDiv5.appendChild(btnCerrar);*/
   containerRegister.appendChild(homeDiv5);
 
-  btnCerrar.addEventListener('click', async () => {
+  /*btnCerrar.addEventListener('click', async () => {
     await signOut(auth);
     //console.log('user signed out');
     onNavigate('/');
-  });
+  });*/
 
   btnEdit.addEventListener('click', () => onNavigate('/editProfile'));
 
