@@ -13,7 +13,7 @@ export const landingPage = () => {
 
   // Creación de elementos
   const postAll = document.createElement('div');
-  const imgBackground = document.createElement('img')
+  const imgBackground = document.createElement('img');
   const containerHeader = document.createElement('section');
   const avatarIcon = document.createElement('img');
   const greeting = document.createElement('p');
@@ -66,14 +66,9 @@ export const landingPage = () => {
   homeDiv3.appendChild(saveChanges);
   postDiv.appendChild(titlePost);
   postDiv.appendChild(homeDiv3);
-  
- 
-
   const btnshowPost = document.createElement('button');
   btnshowPost.textContent = 'Ver publicaciones';
   btnshowPost.className = 'buttonSeePosts button-See-Posts';
-  
-
   const showPostDiv = document.createElement('div');
 
   const imgPostDiv = document.createElement('div');
@@ -204,13 +199,11 @@ export const landingPage = () => {
   deleteDiv.appendChild(deleteImg);
   containerPosts.appendChild(btnshowPost);
   containerPosts.appendChild(showPostDiv);
-  postAll.append(imgBottom);
 
-
-  //?Menú hambuguesa 
+  // Menú hambuguesa
   iconMenu.addEventListener('click', () => {
     menuDisplayed.style.display = 'flex';
-    let options = `<nav class='menu-nav'>
+    const options = `<nav class='menu-nav'>
       <li><a class='option' id='option1'>Mi Perfil</a></li>
       <li><a class='option' id='option2'>Contáctanos</a></li>
       <li><a class='option' id='option3'>Cerrar Sesión</a></li>
@@ -233,19 +226,16 @@ export const landingPage = () => {
     const cerrarSesion = document.getElementById('option3');
     cerrarSesion.addEventListener('click', async () => {
       await signOut(auth);
-      console.log('user signed out');
+      // console.log('user signed out');
       onNavigate('/');
     });
   });
 
-
-  //?Lamar a la función Carrusel- slider
+  // Lamar a la función Carrusel- slider
   const arraySliders = [imgSlider1, imgSlider2, imgSlider3];
   carousel(btnRight, btnLeft, arraySliders);
 
-
-
-  //?Función de fireBase - firestore*/
+  // Función de fireBase - firestore*/
   btnshowPost.classList.remove('button-See-Posts');
   btnshowPost.addEventListener('click', async () => {
     onGetTask((querySnapshot) => {
@@ -272,10 +262,10 @@ export const landingPage = () => {
 
       const btnsDelete = showPostDiv.querySelectorAll('.class-delete');
 
-      //? Boton para eliminar cometarios del usuario.
+      // Boton para eliminar cometarios del usuario.
       btnsDelete.forEach((btn) => {
         btn.addEventListener('click', () => {
-          console.log('deleting');
+          // console.log('deleting');
         });
       });
     });

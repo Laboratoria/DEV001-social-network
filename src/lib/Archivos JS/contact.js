@@ -11,7 +11,7 @@ export const contact = () => {
 
   // Creación de elementos
   const contactDiv = document.createElement('div');
-  const imgBottom = document.createElement('img');
+  const imgBackground = document.createElement('img');
   const containerHeader = document.createElement('section');
   const avatarIcon = document.createElement('img');
   const greeting = document.createElement('p');
@@ -56,8 +56,8 @@ export const contact = () => {
 
   // Asignación de clases
   contactDiv.className = 'container-contactDiv';
-  imgBottom.src = './lib/img/collage-5.png';
-  imgBottom.className = 'img-bottom-landingPage';
+  imgBackground.src = './lib/img/img-flw.png';
+  imgBackground.className = 'img-background';
   containerHeader.className = 'containerHeader';
   avatarIcon.referrerPolicy = 'no-referrer';
   avatarIcon.src = `${user.photoURL}`;
@@ -134,7 +134,7 @@ export const contact = () => {
 
   // Añadiendo hijos
   contactDiv.appendChild(messageDiv);
-
+  contactDiv.appendChild(imgBackground);
   contactDiv.appendChild(containerHeader);
   contactDiv.appendChild(menuDisplayed);
   containerHeader.appendChild(avatarIcon);
@@ -177,7 +177,6 @@ export const contact = () => {
   valeriaContact.appendChild(valeriaLinkedIn);
   valeriaContact.appendChild(valeriaGithub);
   valeriaContact.appendChild(valeriaMail);
-  valeriaDiv.append(imgBottom);
 
   // Agregar eventos
   iconMenu.addEventListener('click', () => {
@@ -204,7 +203,7 @@ export const contact = () => {
     const cerrarSesion = document.getElementById('option3');
     cerrarSesion.addEventListener('click', async () => {
       await signOut(auth);
-      console.log('user signed out');
+      // console.log('user signed out');
       onNavigate('/');
     });
   });

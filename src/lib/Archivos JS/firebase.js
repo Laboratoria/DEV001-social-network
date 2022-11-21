@@ -32,5 +32,4 @@ export const saveTask = (editdescription) => {
   addDoc(collection(db, 'task'), { editdescription });
 };
 export const getTask = () => getDocs(collection(db, 'task'));
-export const onGetTask = (callback) =>
-  onSnapshot(collection(db, 'task'), callback);
+export const onGetTask = (callback) => onSnapshot(collection(db, 'task'), callback);
