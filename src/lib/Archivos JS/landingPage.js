@@ -242,12 +242,20 @@ export const landingPage = () => {
       let html = '';
       btnshowPost.classList.remove('buttonSeePosts');
       btnshowPost.classList.add('button-See-Posts');
-
+      /* querySnapshot.docs -> array de los posts */
+      /*const data = querySnapshot.docs.sort((a,b)=>{
+        console.log(a.creationDate);
+        return new Date(a.creationDate) + new Date(b.creationDate);
+      });*/
+      
       querySnapshot.forEach((doc) => {
         const task = doc.data();
+        const date = new Date(task.creationDate);
         html += `
           <div class = 'class-estructuraPost2'>
             <p>${task.editdescription}</p>
+            <h3 class='task-nameUser'>${task.nameUser}</h3>
+            <h3>${date.toLocaleDateString()}</h3>
             <img src='./lib/img/adorno-comentarios.png' alt='img-adorno' class='img-adorno'>
             <section class= 'class-optionsDiv'>
               <div class= 'class-like'><img class= 'class-likeImg' src = './lib/img/like-icon.png'> Me gusta </div>
@@ -275,7 +283,11 @@ export const landingPage = () => {
     e.preventDefault();
 
     const editdescription = editDescription.value;
-    saveTask(editdescription);
+    let nameUser = user.displayName;
+    let idUser = user.uid;
+    let creationDate = Date.now();
+
+    saveTask(editdescription, nameUser, idUser, creationDate);
 
     homeDiv3.reset();
   });

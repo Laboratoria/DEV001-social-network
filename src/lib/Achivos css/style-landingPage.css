@@ -290,6 +290,14 @@
   margin-left: 30%;
 }
 
+.task-nameUser{
+  color: #453d9d;
+  font-size: 1rem;
+  position: absolute;
+  right: 15px;
+  bottom: 25%;
+}
+
 .class-like {
   display: flex;
   background-color: #453d9d;
@@ -446,8 +454,8 @@
 
 .menu-nav {
   background-color: hsla(245, 35%, 51%, 0.961);
-  width: 100%;
-  position: absolute;
+  width: 90%;
+  position: fixed;
   top: 95px;
   padding: 30px;
   display: flex;
