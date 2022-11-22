@@ -1,9 +1,10 @@
 import { getAuth, signOut } from 'firebase/auth';
-import { saveTask, onGetTask, deleteTask, getTask2, updateTask, } from './firebase.js';
+import {
+  saveTask, onGetTask, deleteTask, getTask2, updateTask,
+} from './firebase.js';
 // eslint-disable-next-line import/no-cycle, import/no-cycle
 import { onNavigate } from '../../main';
 import { carousel } from './carousel.js';
-import { async } from 'regenerator-runtime';
 
 const rootDiv = document.getElementById('root');
 let editStatus = false;
@@ -246,11 +247,11 @@ export const landingPage = () => {
       btnshowPost.classList.remove('buttonSeePosts');
       btnshowPost.classList.add('button-See-Posts');
       /* querySnapshot.docs -> array de los posts */
-      /*const data = querySnapshot.docs.sort((a,b)=>{
+      /* const data = querySnapshot.docs.sort((a,b)=>{
         console.log(a.creationDate);
         return new Date(a.creationDate) + new Date(b.creationDate);
-      });*/
-      
+      }); */
+
       querySnapshot.forEach((doc) => {
         const task = doc.data();
         const date = new Date(task.creationDate);
@@ -271,33 +272,31 @@ export const landingPage = () => {
       showPostDiv.innerHTML = html;
 
       const btnsDelete = showPostDiv.querySelectorAll('.class-delete');
-      
+
       // Boton para eliminar cometarios del usuario.
-      btnsDelete.forEach(btn => {
-        btn.addEventListener('click', ({target: { dataset }}) => {
+      btnsDelete.forEach((btn) => {
+        btn.addEventListener('click', ({ target: { dataset } }) => {
           deleteTask(dataset.id);
         });
       });
 
-
       // Boton para editar cometarios del usuario.
-     const btnsEdit = showPostDiv.querySelectorAll('.class-edit');
+      const btnsEdit = showPostDiv.querySelectorAll('.class-edit');
 
-      btnsEdit.forEach(btn => {
-        btn.addEventListener('click', async ({target: { dataset }}) => {
+      btnsEdit.forEach((btn) => {
+        btn.addEventListener('click', async ({ target: { dataset } }) => {
           homeDiv3.style.position = 'fixed';
 
           const doc = await getTask2(dataset.id);
           const task = doc.data();
 
-          editDescription.value = task.editdescription
-          
+          editDescription.value = task.editdescription;
+
           editStatus = true;
           id = doc.id;
-          saveChanges.innerText = 'Guardar cambios'
+          saveChanges.innerText = 'Guardar cambios';
         });
       });
-
     });
   });
 
@@ -306,22 +305,20 @@ export const landingPage = () => {
     e.preventDefault();
 
     const editdescription = editDescription.value;
-    let nameUser = user.displayName;
-    let idUser = user.uid;
-    let creationDate = Date.now();
-   
-    if (!editStatus) {
-      
-    saveTask(editdescription, nameUser, idUser, creationDate);
-    } else {
+    const nameUser = user.displayName;
+    const idUser = user.uid;
+    const creationDate = Date.now();
 
-      //función modificar firebase.
-      updateTask (id, {
-        editdescription: editDescription.value
+    if (!editStatus) {
+      saveTask(editdescription, nameUser, idUser, creationDate);
+    } else {
+      // función modificar firebase.
+      updateTask(id, {
+        editdescription: editDescription.value,
       });
 
       homeDiv3.style.position = 'relative';
-      saveChanges.innerText = 'Publicar'
+      saveChanges.innerText = 'Publicar';
       editStatus = false;
     }
     homeDiv3.reset();
