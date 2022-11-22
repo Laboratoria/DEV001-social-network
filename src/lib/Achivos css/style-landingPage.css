@@ -151,7 +151,8 @@
 .class-estructuraPost2 {
   display: flex;
   width: 80%;
-  height: 200px;
+  height: auto;
+  min-height: 270px;
   flex-direction: column;
   background-color: aliceblue;
   border-radius: 10px;
@@ -295,7 +296,13 @@
   font-size: 1rem;
   position: absolute;
   right: 15px;
-  bottom: 25%;
+  bottom: 28%;
+}
+
+.task-date{
+  position: absolute;
+  right: 15px;
+  bottom: 20%;
 }
 
 .class-like {

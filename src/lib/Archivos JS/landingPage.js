@@ -1,10 +1,13 @@
 import { getAuth, signOut } from 'firebase/auth';
-import { saveTask, onGetTask } from './firebase.js';
+import { saveTask, onGetTask, deleteTask, getTask2, updateTask, } from './firebase.js';
 // eslint-disable-next-line import/no-cycle, import/no-cycle
 import { onNavigate } from '../../main';
 import { carousel } from './carousel.js';
+import { async } from 'regenerator-runtime';
 
 const rootDiv = document.getElementById('root');
+let editStatus = false;
+let id = '';
 
 export const landingPage = () => {
   const auth = getAuth();
@@ -255,30 +258,50 @@ export const landingPage = () => {
           <div class = 'class-estructuraPost2'>
             <p>${task.editdescription}</p>
             <h3 class='task-nameUser'>${task.nameUser}</h3>
-            <h3>${date.toLocaleDateString()}</h3>
+            <h3 class='task-date'>${date.toLocaleDateString()}</h3>
             <img src='./lib/img/adorno-comentarios.png' alt='img-adorno' class='img-adorno'>
             <section class= 'class-optionsDiv'>
               <div class= 'class-like'><img class= 'class-likeImg' src = './lib/img/like-icon.png'> Me gusta </div>
-              <div class= 'class-edit'><img class= 'class-editImg' src = './lib/img/edit-icon.png'> Editar </div>
-              <div class= 'class-delete'><img class= 'class-deleteImg' src = './lib/img/delete-icon.png'></div>
+              <button class= 'class-edit' data-id= '${doc.id}'> Editar </button>
+              <button class= 'class-delete' data-id= '${doc.id}'>Eliminar</button>
             </section>
-          </div>
-          `;
+          </div>`;
       });
 
       showPostDiv.innerHTML = html;
 
       const btnsDelete = showPostDiv.querySelectorAll('.class-delete');
-
+      
       // Boton para eliminar cometarios del usuario.
-      btnsDelete.forEach((btn) => {
-        btn.addEventListener('click', () => {
-          // console.log('deleting');
+      btnsDelete.forEach(btn => {
+        btn.addEventListener('click', ({target: { dataset }}) => {
+          deleteTask(dataset.id);
         });
       });
+
+
+      // Boton para editar cometarios del usuario.
+     const btnsEdit = showPostDiv.querySelectorAll('.class-edit');
+
+      btnsEdit.forEach(btn => {
+        btn.addEventListener('click', async ({target: { dataset }}) => {
+          homeDiv3.style.position = 'fixed';
+
+          const doc = await getTask2(dataset.id);
+          const task = doc.data();
+
+          editDescription.value = task.editdescription
+          
+          editStatus = true;
+          id = doc.id;
+          saveChanges.innerText = 'Guardar cambios'
+        });
+      });
+
     });
   });
 
+  // Boton para enviar cambios al formulario - cometarios del usuario.
   homeDiv3.addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -286,9 +309,21 @@ export const landingPage = () => {
     let nameUser = user.displayName;
     let idUser = user.uid;
     let creationDate = Date.now();
-
+   
+    if (!editStatus) {
+      
     saveTask(editdescription, nameUser, idUser, creationDate);
+    } else {
 
+      //función modificar firebase.
+      updateTask (id, {
+        editdescription: editDescription.value
+      });
+
+      homeDiv3.style.position = 'relative';
+      saveChanges.innerText = 'Publicar'
+      editStatus = false;
+    }
     homeDiv3.reset();
   });
 

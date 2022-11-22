@@ -29,7 +29,8 @@ export const contact = () => {
   const silviaDescription = document.createElement('p');
   const silviaContact = document.createElement('div');
   const silviaLinkedIn = document.createElement('img');
-  const silviaGithub = document.createElement('img');
+  const silviaGithub = document.createElement('a');
+  const imgSilviaGithub = document.createElement('img');
   const silviaMail = document.createElement('img');
 
   const gabrielaDiv = document.createElement('div');
@@ -40,7 +41,8 @@ export const contact = () => {
   const gabrielaDescription = document.createElement('p');
   const gabrielaContact = document.createElement('div');
   const gabrielaLinkedIn = document.createElement('img');
-  const gabrielaGithub = document.createElement('img');
+  const gabrielaGithub = document.createElement('a');
+  const imgGabrielaGithub = document.createElement('img');
   const gabrielaMail = document.createElement('img');
 
   const valeriaDiv = document.createElement('div');
@@ -51,7 +53,8 @@ export const contact = () => {
   const valeriaDescription = document.createElement('p');
   const valeriaContact = document.createElement('div');
   const valeriaLinkedIn = document.createElement('img');
-  const valeriaGithub = document.createElement('img');
+  const valeriaGithub = document.createElement('a');
+  const imgValeriaGithub = document.createElement('img');
   const valeriaMail = document.createElement('img');
 
   // Asignación de clases
@@ -85,9 +88,10 @@ export const contact = () => {
   gabrielaLinkedIn.className = 'class-linkedIn';
   gabrielaLinkedIn.src = './lib/img/contact-linkedin.png';
   gabrielaLinkedIn.id = 'gabriela-linkedIn';
-  gabrielaGithub.className = 'class-github';
-  gabrielaGithub.src = './lib/img/contact-github.png';
+  imgGabrielaGithub.className = 'class-github';
   gabrielaGithub.id = 'gabriela-github';
+  imgGabrielaGithub.src = './lib/img/contact-github.png';
+  gabrielaGithub.href = 'https://github.com/Ruth-Gabriela';
   gabrielaMail.className = 'class-mail';
   gabrielaMail.src = './lib/img/contact-mail.png';
   gabrielaMail.id = 'gabriela-mail';
@@ -95,7 +99,7 @@ export const contact = () => {
   silviaDiv.className = 'class-cardsDiv';
   silviaImgDiv.className = 'class-cardsImgDiv';
   silviaImg.className = 'class-cardsImg';
-  silviaImg.src = './lib/img/avatar-icon-cards.png';
+  silviaImg.src = './lib/img/foto-silvia.jpg';
   silviaInfoDiv.className = 'class-cardsInfoDiv';
   silviaName.textContent = 'Silvia Falcón';
   silviaName.className = 'class-nameCards';
@@ -105,8 +109,9 @@ export const contact = () => {
   silviaLinkedIn.className = 'class-linkedIn';
   silviaLinkedIn.src = './lib/img/contact-linkedin.png';
   silviaLinkedIn.id = 'silvia-linkedIn';
-  silviaGithub.className = 'class-github';
-  silviaGithub.src = './lib/img/contact-github.png';
+  imgSilviaGithub.className = 'class-github';
+  imgSilviaGithub.src = './lib/img/contact-github.png';
+  silviaGithub.href = 'https://github.com/SilviBibi';
   silviaGithub.id = 'silvia-github';
   silviaMail.className = 'class-mail';
   silviaMail.src = './lib/img/contact-mail.png';
@@ -124,9 +129,10 @@ export const contact = () => {
   valeriaContact.className = 'class-contactDiv';
   valeriaLinkedIn.className = 'class-linkedIn';
   valeriaLinkedIn.src = './lib/img/contact-linkedin.png';
-  valeriaGithub.src = './lib/img/contact-github.png';
+  imgValeriaGithub.src = './lib/img/contact-github.png';
+  valeriaGithub.href = 'https://github.com/valeriamurguiag';
   valeriaLinkedIn.id = 'valeria-linkedIn';
-  valeriaGithub.className = 'class-github';
+  imgValeriaGithub.className = 'class-github';
   valeriaGithub.id = 'valeria-github';
   valeriaMail.className = 'class-mail';
   valeriaMail.src = './lib/img/contact-mail.png';
@@ -156,6 +162,7 @@ export const contact = () => {
   gabrielaDiv.appendChild(gabrielaContact);
   gabrielaContact.appendChild(gabrielaLinkedIn);
   gabrielaContact.appendChild(gabrielaGithub);
+  gabrielaGithub.appendChild(imgGabrielaGithub);
   gabrielaContact.appendChild(gabrielaMail);
 
   silviaDiv.appendChild(silviaImgDiv);
@@ -166,6 +173,7 @@ export const contact = () => {
   silviaDiv.appendChild(silviaContact);
   silviaContact.appendChild(silviaLinkedIn);
   silviaContact.appendChild(silviaGithub);
+  silviaGithub.appendChild(imgSilviaGithub);
   silviaContact.appendChild(silviaMail);
 
   valeriaDiv.appendChild(valeriaImgDiv);
@@ -176,14 +184,15 @@ export const contact = () => {
   valeriaDiv.appendChild(valeriaContact);
   valeriaContact.appendChild(valeriaLinkedIn);
   valeriaContact.appendChild(valeriaGithub);
+  valeriaGithub.appendChild(imgValeriaGithub);
   valeriaContact.appendChild(valeriaMail);
 
   // Agregar eventos
   iconMenu.addEventListener('click', () => {
     menuDisplayed.style.display = 'flex';
     const options = `<nav class="menu-nav2">
+      <li><a class="option" id="option4">Ir al home</a></li>
       <li><a class="option" id="option1">Mi Perfil</a></li>
-      <li><a class="option" id="option4">Inicio</a></li>
       <li><a class="option" id="option3">Cerrar Sesión</a></li>
       <img src="./lib/img/icon-close.png" alt="close" class="close-button" id="close-button">
       </nav>`;
