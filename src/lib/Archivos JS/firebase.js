@@ -33,7 +33,9 @@ export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
 export const saveTask = (editdescription, nameUser, idUser, creationDate) => {
-  addDoc(collection(db, 'task'), { editdescription, nameUser, idUser, creationDate });
+  addDoc(collection(db, 'task'), {
+    editdescription, nameUser, idUser, creationDate,
+  });
 };
 export const getTask = () => getDocs(collection(db, 'task'));
 export const onGetTask = (callback) => onSnapshot(collection(db, 'task'), callback);
