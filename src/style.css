@@ -1,74 +1,124 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Didact+Gothic&family=Merriweather+Sans:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@1,200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@300&display=swap');
+body {  
+    margin: 0;
+    padding: 0;
+}
 
 main {
-  display: flex;
-  flex-direction: column;
-  width: 100vh;
-  height: auto;
-  padding: 0;
-  margin: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100vh;
+    height: auto;
+    padding: 0;
+    margin: 0;
 }
 
 section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  object-fit: contain;
-  margin: 20px 20px 20px 20px;
-  padding: 0;
-  border: 1px solid blue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    object-fit: contain;
+    margin: 20px 20px 20px 20px;
+    padding: 0;
+    border:  1px solid #1B6FB6;
 }
 
 .plantilla {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
 }
 
 .images {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin: 20px 20px 20px 20px;
-}
-img.logo {
-  width: 100%;
-  height: auto;
-  margin-left: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 20px 20px 20px 20px;
 }
 
+img.logo {
+    width: 100%;
+    height: auto;
+    margin-top: 40px;
+    
+}   
+
 img.girl {
-  width: 50%;
-  height: auto;
-  justify-content: center;
-  align-items: center;
+    width: 50%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
 }
 
 .user {
-  display: flex;
-  flex-direction: column;
-  width: 60vh;
-  border-radius: 30px; 
-  height: 40px;
-  font-size: 25px;
-  text-align:center;
-  background: rgb(253, 251, 172)
+    display: flex;
+    flex-direction: column;
+    width: 80vh;
+    border-radius: 30px;
+    height: 50px;
+    font-size: 30px;
+    font-family: 'Fira Sans Condensed', sans-serif;
+    text-align: center;
+    background: rgb(253, 251, 172);
+    margin-top: 40px;   
 }
 
-button {
-  width: 30vh;
-  margin-top: 40px;
-  height: 40px;
-  font-size: 20px;
-  font-family: 'Merriweather Sans', sans-serif;
-  border-radius: 30px; 
-  background: #1B6FB6;
-  color: white;
+.form-register {
+    display: flex;
+    flex-direction: column;
+    width: 60vh;
+    height: 40px;
+    font-size: 30px;
+    font-family: 'Fira Sans Condensed', sans-serif;
+    text-align: center;
+    background: rgb(253, 251, 172)
 }
+
+
+button {
+    width: 40vh;
+    margin-top: 40px;
+    height: 60px;
+    font-size: 30px;
+    font-family: 'Fira Sans Condensed', sans-serif;
+    border-radius: 30px;
+    background: #1B6FB6;
+    color: white;
+}
+
+.mensaje {
+    font-size: 30px;
+    font-family: 'Fira Sans Condensed', sans-serif;
+    padding: 30px 30px ;
+    margin: 0;
+    text-align: center;
+    
+
+}
+.enlaces {
+    font-size: 30px;
+    font-family: 'Fira Sans Condensed', sans-serif;
+    margin-top: 50px;
+}
+
+.enlaces1 {
+    font-size: 30px;
+    font-family: 'Fira Sans Condensed', sans-serif;
+    margin-top: 20px;
+}
+
+.sectionHome {
+    padding: 60px 0 100px 0;
+}
+.sectionRegister{
+    padding: 60px 0 30px 0;
+}   
+
 
 /* @media screen and (min-width: 1024px) { */
