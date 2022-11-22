@@ -151,7 +151,8 @@
 .class-estructuraPost2 {
   display: flex;
   width: 80%;
-  height: 200px;
+  height: auto;
+  min-height: 270px;
   flex-direction: column;
   background-color: aliceblue;
   border-radius: 10px;
@@ -288,6 +289,20 @@
   display: flex;
   width: 75%;
   margin-left: 30%;
+}
+
+.task-nameUser{
+  color: #453d9d;
+  font-size: 1rem;
+  position: absolute;
+  right: 15px;
+  bottom: 28%;
+}
+
+.task-date{
+  position: absolute;
+  right: 15px;
+  bottom: 20%;
 }
 
 .class-like {
@@ -446,7 +461,7 @@
 
 .menu-nav {
   background-color: hsla(245, 35%, 51%, 0.961);
-  width: 100%;
+  width: 90%;
   position: fixed;
   top: 95px;
   padding: 30px;

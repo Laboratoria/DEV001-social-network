@@ -74,7 +74,7 @@ export const functionRegisterGoogle = async () => {
   const provider = new GoogleAuthProvider();
   try {
     const credentials = await signInWithPopup(auth, provider);
-    // console.log(credentials.user);
+    console.log(credentials.user);
     return credentials;
   } catch (error) {
     // console.log(error);
