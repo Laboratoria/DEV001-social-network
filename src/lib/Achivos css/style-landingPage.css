@@ -447,7 +447,7 @@
 .menu-nav {
   background-color: hsla(245, 35%, 51%, 0.961);
   width: 100%;
-  position: absolute;
+  position: fixed;
   top: 95px;
   padding: 30px;
   display: flex;
