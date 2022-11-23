@@ -1,10 +1,17 @@
-import { getAuth, signOut } from 'firebase/auth';
+import { getAuth } from 'firebase/auth';
 import {
-  saveTask, onGetTask, deleteTask, getTask2, updateTask,
+// saveTask,
+// onGetTask,
+// getTask2,
+// updateTask,
 } from './firebase.js';
 // eslint-disable-next-line import/no-cycle, import/no-cycle
 import { onNavigate } from '../../main';
 import { carousel } from './carousel.js';
+import {
+  functionSignOut, functionDeleteTask, functionGetTask2, functionUpdateTask, functionSaveTask,
+  functionOnGetTask,
+} from './index.js';
 
 const rootDiv = document.getElementById('root');
 let editStatus = false;
@@ -229,7 +236,7 @@ export const landingPage = () => {
 
     const cerrarSesion = document.getElementById('option3');
     cerrarSesion.addEventListener('click', async () => {
-      await signOut(auth);
+      await functionSignOut(auth);
       // console.log('user signed out');
       onNavigate('/');
     });
@@ -242,7 +249,7 @@ export const landingPage = () => {
   // Función de fireBase - firestore*/
   btnshowPost.classList.remove('button-See-Posts');
   btnshowPost.addEventListener('click', async () => {
-    onGetTask((querySnapshot) => {
+    functionOnGetTask((querySnapshot) => {
       let html = '';
       btnshowPost.classList.remove('buttonSeePosts');
       btnshowPost.classList.add('button-See-Posts');
@@ -281,7 +288,7 @@ export const landingPage = () => {
       btnsDelete.forEach((btn) => {
         btn.addEventListener('click', ({ target: { dataset } }) => {
           // console.log(dataset.id);
-          deleteTask(dataset.id);
+          functionDeleteTask(dataset.id);
         });
       });
 
@@ -294,7 +301,7 @@ export const landingPage = () => {
           homeDiv3.classList.remove('container-divPost');
           homeDiv3.classList.add('container-divPost2');
 
-          const doc = await getTask2(dataset.id);
+          const doc = await functionGetTask2(dataset.id);
           const task = doc.data();
 
           editDescription.value = task.editdescription;
@@ -319,10 +326,10 @@ export const landingPage = () => {
     const creationDate = Date.now();
 
     if (!editStatus) {
-      saveTask(editdescription, nameUser, idUser, creationDate);
+      functionSaveTask(editdescription, nameUser, idUser, creationDate);
     } else {
       // función modificar firebase.
-      updateTask(id, {
+      functionUpdateTask(id, {
         editdescription: editDescription.value,
       });
 

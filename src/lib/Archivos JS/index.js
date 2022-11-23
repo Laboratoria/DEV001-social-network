@@ -1,13 +1,18 @@
-// aqui exportaras las funciones que necesites
+// aquí exportaras las funciones que necesites
 import {
   updateProfile,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
+  signOut,
 } from 'firebase/auth';
-import { auth } from './firebase.js';
+import {
+  deleteDoc, doc, getDoc, updateDoc, addDoc, collection, getDocs, onSnapshot,
+} from 'firebase/firestore';
+import { auth, db } from './firebase.js';
 
+// Función de createUserWithEmailAndPassword
 export const functionRegister = async (email, password, name) => {
   // console.log(email);
   // console.log(password);
@@ -48,6 +53,7 @@ export const functionRegister = async (email, password, name) => {
   }
 };
 
+// Función de signInWithEmailAndPassword
 export const functionLogin = async (email, password) => {
   // console.log(email);
   // console.log(password);
@@ -72,14 +78,40 @@ export const functionLogin = async (email, password) => {
   }
 };
 
+// Función de signInWithPopup
 export const functionRegisterGoogle = async () => {
   const provider = new GoogleAuthProvider();
   try {
     const credentials = await signInWithPopup(auth, provider);
-    console.log(credentials.user);
+    // console.log(credentials.user);
     return credentials;
   } catch (error) {
     // console.log(error);
     return 'error';
   }
 };
+
+// Función de addDoc
+export const functionSaveTask = (editdescription, nameUser, idUser, creationDate) => {
+  addDoc(collection(db, 'task'), {
+    editdescription, nameUser, idUser, creationDate,
+  });
+};
+
+// Función de getDocs
+export const functionGetTask = () => getDocs(collection(db, 'task'));
+
+// Función de onSnapshot
+export const functionOnGetTask = (callback) => onSnapshot(collection(db, 'task'), callback);
+
+// Función de signOut
+export const functionSignOut = async (authentication) => signOut(authentication);
+
+// Función de deleteDoc
+export const functionDeleteTask = (id) => deleteDoc(doc(db, 'task', id));
+
+// Función de getDoc
+export const functionGetTask2 = (id) => getDoc(doc(db, 'task', id));
+
+// Función de updateDoc
+export const functionUpdateTask = (id, newTask) => updateDoc(doc(db, 'task', id), newTask);
