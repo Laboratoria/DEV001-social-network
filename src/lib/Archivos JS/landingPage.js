@@ -248,23 +248,27 @@ export const landingPage = () => {
       btnshowPost.classList.add('button-See-Posts');
 
       // creando nuevo array de la data que llega de firebase para realizar el sort.
-      const arrayNewData = [];
-      querySnapshot.forEach((doc) => arrayNewData.push(doc.data()));
-      const data = arrayNewData.sort((a, b) => new Date(b.creationDate) - new Date(a.creationDate));
+      const newArr = [];
+      querySnapshot.forEach((doc) => {
+        const data = doc.data();
+        const idDoc = doc.id;
+        newArr.push([data, { id: idDoc }]);
+      });
+      const data = newArr.sort((a, b) => new Date(b[0].creationDate) - new Date(a[0].creationDate));
 
       data.forEach((doc) => {
         // const task = doc.data();
-        const date = new Date(doc.creationDate);
+        const date = new Date(doc[0].creationDate);
         html += `
           <div class = 'class-estructuraPost2'>
-            <p>${doc.editdescription}</p>
-            <h3 class='task-nameUser'>${doc.nameUser}</h3>
+            <p>${doc[0].editdescription}</p>
+            <h3 class='task-nameUser'>${doc[0].nameUser}</h3>
             <h3 class='task-date'>${date.toLocaleDateString()}</h3>
             <img src='./lib/img/adorno-comentarios.png' alt='img-adorno' class='img-adorno'>
             <section class= 'class-optionsDiv'>
               <div class= 'class-like'><img class= 'class-likeImg' src = './lib/img/like-icon.png'> Me gusta </div>
-              <button class= 'class-edit' data-id= '${doc.id}'> Editar </button>
-              <button class= 'class-delete' data-id= '${doc.id}'> Eliminar </button>
+              <button class= 'class-edit' data-id= '${doc[1].id}'> Editar </button>
+              <button class= 'class-delete' data-id= '${doc[1].id}'> Eliminar </button>
             </section>
           </div>`;
       });
@@ -276,19 +280,15 @@ export const landingPage = () => {
       // Boton para eliminar cometarios del usuario.
       btnsDelete.forEach((btn) => {
         btn.addEventListener('click', ({ target: { dataset } }) => {
+          // console.log(dataset.id);
           deleteTask(dataset.id);
         });
       });
 
-      // Boton para editar cometarios del usuario.
-      /* postDiv.classList.remove('edit-container-divPost'); */
+      // Boton para editar comentarios del usuario.
       const btnsEdit = showPostDiv.querySelectorAll('.class-edit');
 
-      /* homeDiv3.classList.remove('edit-container-divPost'); */
       btnsEdit.forEach((btn) => {
-        /* homeDiv3.classList.remove('container-divPost');
-        homeDiv3.classList.add('edit-container-divPost'); */
-
         saveChanges.innerText = 'Guardar cambios';
 
         btn.addEventListener('click', async ({ target: { dataset } }) => {
