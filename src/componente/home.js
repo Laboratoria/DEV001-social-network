@@ -58,4 +58,5 @@ export const Home = () => {
     window.location.hash = '#Register';
   });
   return HomeDiv;
+  
 };
