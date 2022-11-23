@@ -4,14 +4,14 @@ import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 import {
   getFirestore,
-  collection,
-  addDoc,
-  getDocs,
-  onSnapshot,
-  deleteDoc,
-  doc,
-  getDoc,
-  updateDoc,
+  // collection,
+  // addDoc,
+  // getDocs,
+  // onSnapshot,
+  // deleteDoc,
+  // doc,
+  // getDoc,
+  // updateDoc,
   /* orderBy,
   query, */
 } from 'firebase/firestore';
@@ -34,20 +34,15 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
-export const saveTask = (editdescription, nameUser, idUser, creationDate) => {
-  addDoc(collection(db, 'task'), {
-    editdescription, nameUser, idUser, creationDate,
-  });
-};
 
-/* export const getTask = () => {
-  const ref = collection(db, 'task');
-  return getDocs(query(ref), orderBy('creationDate', 'asc'));
-}; */
+// export const saveTask = (editdescription, nameUser, idUser, creationDate) => {
+//   addDoc(collection(db, 'task'), {
+//     editdescription, nameUser, idUser, creationDate,
+//   });
+// };
 
-export const getTask = () => getDocs(collection(db, 'task'));
-export const onGetTask = (callback) => onSnapshot(collection(db, 'task'), callback);
+// export const onGetTask = (callback) => onSnapshot(collection(db, 'task'), callback);
 
-export const deleteTask = (id) => deleteDoc(doc(db, 'task', id));
-export const getTask2 = (id) => getDoc(doc(db, 'task', id));
-export const updateTask = (id, newTask) => updateDoc(doc(db, 'task', id), newTask);
+// export const deleteTask = (id) => deleteDoc(doc(db, 'task', id));
+// export const getTask2 = (id) => getDoc(doc(db, 'task', id));
+// export const updateTask = (id, newTask) => updateDoc(doc(db, 'task', id), newTask);
