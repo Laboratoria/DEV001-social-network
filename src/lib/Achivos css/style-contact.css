@@ -133,7 +133,9 @@
     }
 
     .menu-nav2 {
-        width: 30%;
-        margin-left: 290px;
+        background-color: hsl(245, 35%, 51%);
+        width: 18%;
+        top: 80px;
+        right: 3px;
     }
 }

@@ -78,7 +78,7 @@ export const contact = () => {
   gabrielaDiv.className = 'class-cardsDiv';
   gabrielaImgDiv.className = 'class-cardsImgDiv';
   gabrielaImg.className = 'class-cardsImg';
-  gabrielaImg.src = './lib/img/avatar-icon-cards.png';
+  gabrielaImg.src = './lib/img/contacto-Gaby.jpg';
   gabrielaInfoDiv.className = 'class-cardsInfoDiv';
   gabrielaName.textContent = 'Gabriela Zambrano';
   gabrielaName.className = 'class-nameCards';
