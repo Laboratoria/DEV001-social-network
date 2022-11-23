@@ -289,10 +289,10 @@ export const landingPage = () => {
       const btnsEdit = showPostDiv.querySelectorAll('.class-edit');
 
       btnsEdit.forEach((btn) => {
-        saveChanges.innerText = 'Guardar cambios';
-
         btn.addEventListener('click', async ({ target: { dataset } }) => {
-          homeDiv3.style.position = 'fixed';
+          // homeDiv3.style.position = 'fixed';
+          homeDiv3.classList.remove('container-divPost');
+          homeDiv3.classList.add('container-divPost2');
 
           const doc = await getTask2(dataset.id);
           const task = doc.data();
@@ -326,7 +326,8 @@ export const landingPage = () => {
         editdescription: editDescription.value,
       });
 
-      homeDiv3.style.position = 'relative';
+      homeDiv3.classList.remove('container-divPost2');
+      homeDiv3.classList.add('container-divPost');
       saveChanges.innerText = 'Publicar';
       editStatus = false;
     }

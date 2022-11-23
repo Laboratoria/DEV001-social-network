@@ -4,6 +4,12 @@
     gap: 25px;
   }
 
+  .container-divPost2 {
+    position: fixed;
+    z-index: 4;
+    top: 250px;
+  }
+
   .containerHeader {
     width: 100%;
     padding: 20px 15px 15px 15px;
