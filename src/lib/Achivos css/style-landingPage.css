@@ -152,7 +152,7 @@
   display: flex;
   width: 80%;
   height: auto;
-  min-height: 270px;
+  min-height: 300px;
   flex-direction: column;
   background-color: aliceblue;
   border-radius: 10px;
@@ -162,7 +162,7 @@
   font-size: 0.8rem;
   color: rgb(104, 102, 102);
   margin: 15px;
-  padding: 12px;
+  padding: 18px;
   box-shadow: 4px 4px 4px #453d9d;
   justify-content: space-between;
   position: relative;
@@ -178,6 +178,7 @@
 .class-postDiv {
   display: flex;
   width: 80%;
+  padding: 10px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -288,21 +289,21 @@
 .class-optionsDiv {
   display: flex;
   width: 75%;
-  margin-left: 30%;
+  margin-left: 25%;
 }
 
 .task-nameUser{
   color: #453d9d;
   font-size: 1rem;
   position: absolute;
-  right: 15px;
-  bottom: 28%;
+  right: 23px;
+  bottom: 30%;
 }
 
 .task-date{
   position: absolute;
-  right: 15px;
-  bottom: 20%;
+  right: 23px;
+  bottom: 22%;
 }
 
 .class-like {
@@ -352,6 +353,7 @@
   padding: 8px;
   cursor: pointer;
   gap: 2px;
+  border: none;
 }
 
 .class-edit:hover {
@@ -369,20 +371,21 @@
 }
 
 .class-delete {
-  background-color: rgba(244, 95, 199, 0.842);
-  width: 40px;
-  height: 33px;
-  border-radius: 5px;
-  font-family: "Poppins", sans-serif;
-  font-size: 0.5rem;
-  font-weight: 500;
-  text-align: center;
-  color: white;
-  align-items: center;
-  justify-content: center;
-  margin-left: 5px;
-  padding: 2px;
-  cursor: pointer;
+  background-color: rgba(233, 122, 199);
+    width: 25%;
+    height: 33px;
+    border-radius: 5px;
+    font-family: "Poppins", sans-serif;
+    font-size: 0.6rem;
+    font-weight: 500;
+    text-align: center;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5px;
+    padding: 5px;
+    cursor: pointer;
+    border: none;
 }
 
 .class-delete:hover {
@@ -441,6 +444,7 @@
 .text-content-post-description {
   border: none;
   width: 100%;
+  height: 160px;
   font-family: "Poppins", sans-serif;
   text-align: center;
   justify-content: center;
@@ -523,6 +527,22 @@
   bottom: 0px;
   left: 0px;
   width: 50%;
+}
+
+/* clase para mejorar editar contenido de post*/
+
+.edit-container-divPost {
+  display: flex;
+  background: #f9b4c7;
+  border-radius: 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  color: #fff;
+  width: 90%;
+  padding: 30px;
+  z-index: 2;
 }
 
 

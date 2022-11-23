@@ -44,6 +44,7 @@ export const functionRegister = async (email, password, name) => {
       alert('Algo está mal en tu registro');
       return 'error';
     }
+    return 'error';
   }
 };
 
@@ -67,6 +68,7 @@ export const functionLogin = async (email, password) => {
       alert('Error en inicio de sesión, intente nuevamente');
       return 'error';
     }
+    return 'error';
   }
 };
 

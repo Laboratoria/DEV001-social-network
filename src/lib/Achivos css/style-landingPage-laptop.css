@@ -46,11 +46,11 @@
   }
   .class-postDiv {
     width: 750px;
-    height: 250px;
+    height: 300px;
   }
   .class-estructuraPost2 {
     width: 750px;
-    height: 160px;
+    min-height: 200px;
   }
   .img-adorno{
     width: 12%;
@@ -58,14 +58,17 @@
   .class-optionsDiv {
     display: flex;
     width: 42%;
-    margin-left: 64%;
+    margin-left: 59%;
   }
   .task-nameUser{
     color: #453d9d;
     font-size: 1rem;
     position: absolute;
-    right: 15px;
-    bottom: 33%;
+    right: 20px;
+    bottom: 38%;
+  }
+  .task-date {
+    bottom: 28%;
   }
   .button-post{
     width: 40%;

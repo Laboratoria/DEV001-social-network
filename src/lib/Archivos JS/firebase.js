@@ -12,6 +12,8 @@ import {
   doc,
   getDoc,
   updateDoc,
+  /* orderBy,
+  query, */
 } from 'firebase/firestore';
 
 // import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js';
@@ -37,8 +39,15 @@ export const saveTask = (editdescription, nameUser, idUser, creationDate) => {
     editdescription, nameUser, idUser, creationDate,
   });
 };
+
+/* export const getTask = () => {
+  const ref = collection(db, 'task');
+  return getDocs(query(ref), orderBy('creationDate', 'asc'));
+}; */
+
 export const getTask = () => getDocs(collection(db, 'task'));
 export const onGetTask = (callback) => onSnapshot(collection(db, 'task'), callback);
+
 export const deleteTask = (id) => deleteDoc(doc(db, 'task', id));
 export const getTask2 = (id) => getDoc(doc(db, 'task', id));
 export const updateTask = (id, newTask) => updateDoc(doc(db, 'task', id), newTask);

@@ -1,5 +1,4 @@
 import { getAuth, signOut } from 'firebase/auth';
-// import { async } from 'regenerator-runtime';
 import {
   saveTask, onGetTask, deleteTask, getTask2, updateTask,
 } from './firebase.js';
@@ -248,19 +247,24 @@ export const landingPage = () => {
       btnshowPost.classList.remove('buttonSeePosts');
       btnshowPost.classList.add('button-See-Posts');
 
-      querySnapshot.forEach((doc) => {
-        const task = doc.data();
-        const date = new Date(task.creationDate);
+      // creando nuevo array de la data que llega de firebase para realizar el sort.
+      const arrayNewData = [];
+      querySnapshot.forEach((doc) => arrayNewData.push(doc.data()));
+      const data = arrayNewData.sort((a, b) => new Date(b.creationDate) - new Date(a.creationDate));
+
+      data.forEach((doc) => {
+        // const task = doc.data();
+        const date = new Date(doc.creationDate);
         html += `
           <div class = 'class-estructuraPost2'>
-            <p>${task.editdescription}</p>
-            <h3 class='task-nameUser'>${task.nameUser}</h3>
+            <p>${doc.editdescription}</p>
+            <h3 class='task-nameUser'>${doc.nameUser}</h3>
             <h3 class='task-date'>${date.toLocaleDateString()}</h3>
             <img src='./lib/img/adorno-comentarios.png' alt='img-adorno' class='img-adorno'>
             <section class= 'class-optionsDiv'>
               <div class= 'class-like'><img class= 'class-likeImg' src = './lib/img/like-icon.png'> Me gusta </div>
               <button class= 'class-edit' data-id= '${doc.id}'> Editar </button>
-              <button class= 'class-delete' data-id= '${doc.id}'>Eliminar</button>
+              <button class= 'class-delete' data-id= '${doc.id}'> Eliminar </button>
             </section>
           </div>`;
       });
@@ -277,9 +281,16 @@ export const landingPage = () => {
       });
 
       // Boton para editar cometarios del usuario.
+      /* postDiv.classList.remove('edit-container-divPost'); */
       const btnsEdit = showPostDiv.querySelectorAll('.class-edit');
 
+      /* homeDiv3.classList.remove('edit-container-divPost'); */
       btnsEdit.forEach((btn) => {
+        /* homeDiv3.classList.remove('container-divPost');
+        homeDiv3.classList.add('edit-container-divPost'); */
+
+        saveChanges.innerText = 'Guardar cambios';
+
         btn.addEventListener('click', async ({ target: { dataset } }) => {
           homeDiv3.style.position = 'fixed';
 
@@ -300,6 +311,8 @@ export const landingPage = () => {
   homeDiv3.addEventListener('submit', async (e) => {
     e.preventDefault();
 
+    postDiv.classList.remove('edit-container-divPost');
+
     const editdescription = editDescription.value;
     const nameUser = user.displayName;
     const idUser = user.uid;
@@ -317,7 +330,6 @@ export const landingPage = () => {
       saveChanges.innerText = 'Publicar';
       editStatus = false;
     }
-
     homeDiv3.reset();
   });
 
