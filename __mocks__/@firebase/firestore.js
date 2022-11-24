@@ -16,6 +16,10 @@ export const GoogleAuthProvider = jest.fn(() => Promise.resolve());
 
 export const getDocs = jest.fn(() => Promise.resolve());
 
+export const onSnapshot = jest.fn((callback) => console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAA') || callback([
+  { id: 'aaa', data: () => ({}) },
+]));
+
 export const signOut = jest.fn((auth) => Promise.resolve(auth));
 
 export const deleteDoc = jest.fn((id) => Promise.resolve(id));

@@ -13,11 +13,11 @@ import {
   functionOnGetTask,
 } from './index.js';
 
-const rootDiv = document.getElementById('root');
 let editStatus = false;
 let id = '';
 
 export const landingPage = () => {
+  const rootDiv = document.getElementById('root');
   const auth = getAuth();
   const user = auth.currentUser;
   rootDiv.innerHTML = ' ';
@@ -250,6 +250,7 @@ export const landingPage = () => {
   btnshowPost.classList.remove('button-See-Posts');
   btnshowPost.addEventListener('click', async () => {
     functionOnGetTask((querySnapshot) => {
+      console.log('querySnapshot', querySnapshot);
       let html = '';
       btnshowPost.classList.remove('buttonSeePosts');
       btnshowPost.classList.add('button-See-Posts');
