@@ -31,12 +31,13 @@ const routes = {
 
 export const onNavigate = (pathname) => {
   window.history.pushState({}, pathname, window.location.origin + pathname);
+  const rootDiv1 = document.getElementById('root');
 
-  while (rootDiv.firstChild) {
-    rootDiv.removeChild(rootDiv.firstChild);
+  while (rootDiv1.firstChild) {
+    rootDiv1.removeChild(rootDiv1.firstChild);
   }
 
-  rootDiv.appendChild(routes[pathname]());
+  rootDiv1.appendChild(routes[pathname]());
 };
 
 const component = routes[window.location.pathname];
@@ -45,7 +46,9 @@ window.onpopstate = () => {
   rootDiv.appendChild(component());
 };
 
-rootDiv.appendChild(component());
+if (rootDiv) {
+  rootDiv.appendChild(component());
+}
 
 window.onpopstate = () => {
   while (rootDiv.firstChild) {
@@ -53,5 +56,3 @@ window.onpopstate = () => {
   }
   rootDiv.appendChild(routes[window.location.pathname]());
 };
-
-rootDiv.appendChild(component());

@@ -83,19 +83,22 @@ export const functionRegisterGoogle = async () => {
   const provider = new GoogleAuthProvider();
   try {
     const credentials = await signInWithPopup(auth, provider);
-    // console.log(credentials.user);
-    return credentials;
+    console.log(credentials.user);
+    return credentials.user;
   } catch (error) {
     // console.log(error);
     return 'error';
   }
 };
 
+// Recordatorio -> testear qué regresa signInWithPopup
+
 // Función de addDoc
 export const functionSaveTask = (editdescription, nameUser, idUser, creationDate) => {
   addDoc(collection(db, 'task'), {
     editdescription, nameUser, idUser, creationDate,
   });
+  console.log(collection.data());
 };
 
 // Función de getDocs
