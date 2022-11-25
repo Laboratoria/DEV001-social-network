@@ -21,7 +21,7 @@ import {
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
-const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: 'AIzaSyCZqGV_EakpgC-cW-WwOLgJU_Obb6S3MBQ',
   authDomain: 'social-network-24-7.firebaseapp.com',
   projectId: 'social-network-24-7',
@@ -34,6 +34,7 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
+console.log(getFirestore());
 
 // export const saveTask = (editdescription, nameUser, idUser, creationDate) => {
 //   addDoc(collection(db, 'task'), {
