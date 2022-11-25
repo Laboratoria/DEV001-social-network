@@ -119,12 +119,6 @@ export const profile = () => {
   /* homeDiv5.appendChild(btnCerrar); */
   containerRegister.appendChild(homeDiv5);
 
-  /* btnCerrar.addEventListener('click', async () => {
-    await signOut(auth);
-    //console.log('user signed out');
-    onNavigate('/');
-  }); */
-
   btnEdit.addEventListener('click', () => onNavigate('/editProfile'));
 
   btnHome.addEventListener('click', () => onNavigate('/landingPage'));
