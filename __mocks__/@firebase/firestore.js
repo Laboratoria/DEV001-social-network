@@ -1,10 +1,11 @@
 export const getAuth = jest.fn(() => ({ currentUser: { photoURL: '', displayName: '' } }));
+export const getFirestore = jest.fn(() => ({}));
 // eslint-disable-next-line max-len
 export const createUserWithEmailAndPassword = jest.fn((auth, email, password) => Promise.resolve({ user: { email, password } }));
 export const updateProfile = jest.fn(() => Promise.resolve());
 // eslint-disable-next-line max-len
 export const signInWithEmailAndPassword = jest.fn((auth, email, password) => Promise.resolve({ user: { email, password } }));
-
+export const onAuthStateChanged = jest.fn();
 export const GoogleAuthProvider = jest.fn(() => Promise.resolve());
 
 // eslint-disable-next-line max-len
@@ -16,7 +17,7 @@ export const GoogleAuthProvider = jest.fn(() => Promise.resolve());
 
 export const getDocs = jest.fn(() => Promise.resolve());
 
-export const onSnapshot = jest.fn((callback) => console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAA') || callback([
+export const onSnapshot = jest.fn((callback) => console.log('AAA') || callback([
   { id: 'aaa', data: () => ({}) },
 ]));
 
