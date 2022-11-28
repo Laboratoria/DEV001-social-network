@@ -1,11 +1,25 @@
+// import { onNavigate } from '../main.js';
+
 export const Home = () => {
   const homeDiv = document.createElement('div');
-  const buttonLogIn = document.createElement('button');
+  const textoAlto = document.createElement('h1');
+  const textoBajo = document.createElement('h2');
+  const buttonLogin = document.createElement('button');
   const buttonRegister = document.createElement('button');
 
-  buttonLogIn.textContent = 'Iniciar sesión';
+  buttonLogin.textContent = 'Iniciar sesión';
   buttonRegister.textContent = 'Regístrate';
+  textoAlto.textContent = 'Te damos la bienvenida a Semillero';
+  textoBajo.textContent = 'Aquí va la descripción de la app';
 
-  homeDiv.appendChild(buttonRegister, buttonLogIn);
+  // buttonLogin.addEventListener('click', () => {
+  //   onNavigate('/login');
+  // });
+
+  // buttonRegister.addEventListener('click', () => {
+  //   onNavigate('/register');
+  // });
+
+  homeDiv.append(textoAlto, textoBajo, buttonLogin, buttonRegister);
   return homeDiv;
 };
