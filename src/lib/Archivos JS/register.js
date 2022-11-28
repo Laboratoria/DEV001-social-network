@@ -2,11 +2,7 @@
 import { onNavigate } from '../../main';
 import { functionRegister } from './index.js';
 
-const rootDiv = document.getElementById('root');
-
 export const register = () => {
-  rootDiv.innerHTML = ' ';
-
   const homeDiv = document.createElement('div');
   const container = document.createElement('section');
   const containerRegister = document.createElement('div');
@@ -114,7 +110,6 @@ export const register = () => {
     const password = inputPassword.value;
 
     const result = await functionRegister(email, password, name);
-    // console.log(result);
     if (result !== 'error') {
       onNavigate('/profile');
     }

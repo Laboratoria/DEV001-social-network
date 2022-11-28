@@ -1,16 +1,9 @@
-import { getAuth } from 'firebase/auth';
 // import { async } from 'regenerator-runtime';
 // eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../../main';
 
-const rootDiv = document.getElementById('root');
-
 export const editProfile = () => {
-  const auth = getAuth();
-  const user = auth.currentUser;
-  // console.log(user);
-  rootDiv.innerHTML = ' ';
-
+  const user = JSON.parse(localStorage.getItem('user'));
   const homeDiv = document.createElement('div');
   const container = document.createElement('section');
   const containerRegister = document.createElement('div');
@@ -47,14 +40,14 @@ export const editProfile = () => {
   containerRegister.className = 'container-register';
   p.textContent = 'Editar Nombre de Usuario:';
   p.className = 'text-subtitle2';
-  avatar.src = `${user.photoURL}`;
+  avatar.src = user ? user.photoURL : 'www.google.com';
   avatar.referrerPolicy = 'no-referrer';
   avatar.className = 'avatar-class';
   fondoImagen.className = 'avatar-class';
   p2.textContent = 'Editar Descripción:';
   p2.className = 'text-subtitle2';
   editName.type = 'text';
-  editName.placeholder = `${user.displayName}`;
+  editName.placeholder = user ? user.displayName : 'prueba';
   editName.id = 'editName';
   editName.className = 'text-content-description';
   editDescription.rows = '3';

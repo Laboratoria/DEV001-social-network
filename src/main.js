@@ -1,7 +1,3 @@
-// Este es el punto de entrada de tu aplicacion
-
-import './lib/Archivos JS/firebase.js';
-
 // eslint-disable-next-line import/no-cycle
 import { home } from './lib/Archivos JS/home.js';
 // eslint-disable-next-line import/no-cycle
@@ -17,42 +13,53 @@ import { editProfile } from './lib/Archivos JS/editProfile.js';
 // eslint-disable-next-line import/no-cycle
 import { contact } from './lib/Archivos JS/contact.js';
 
-const rootDiv = document.getElementById('root');
+// const rootDiv = document.getElementById('root');
+
+/* export const onNavigate = (pathname) => {
+  window.history.pushState({}, pathname, window.location.origin + pathname);
+  while (rootDiv.firstChild) {
+    rootDiv.removeChild(rootDiv.firstChild);
+  }
+  rootDiv.appendChild(routes[pathname](onNavigate));
+}; */
 
 const routes = {
   '/': home,
-  '/register': register,
   '/login': login,
+  '/register': register,
   '/profile': profile,
   '/editProfile': editProfile,
   '/landingPage': landingPage,
   '/contact': contact,
 };
 
-export const onNavigate = (pathname) => {
-  window.history.pushState({}, pathname, window.location.origin + pathname);
-  const rootDiv1 = document.getElementById('root');
-
-  while (rootDiv1.firstChild) {
-    rootDiv1.removeChild(rootDiv1.firstChild);
-  }
-
-  rootDiv1.appendChild(routes[pathname]());
+// función para anexar un registro al historial del navegador (.pushState)
+export const onNavigate = (pathname, routesList = routes) => {
+  const rootDiv = document.getElementById('root');
+  window.history.pushState(
+    {},
+    pathname,
+    window.location.origin + pathname,
+  );
+  rootDiv.replaceChildren(routesList[pathname]());
 };
 
-const component = routes[window.location.pathname];
-
+// onpopstate, se dispara realizando una acción en el navegador como volver
 window.onpopstate = () => {
-  rootDiv.appendChild(component());
+  onNavigate(window.location.pathname);
 };
+window.addEventListener('load', () => onNavigate(window.location.pathname));
 
-if (rootDiv) {
-  rootDiv.appendChild(component());
-}
+/* const component = routes[window.location.pathname](onNavigate);
 
 window.onpopstate = () => {
   while (rootDiv.firstChild) {
     rootDiv.removeChild(rootDiv.firstChild);
   }
   rootDiv.appendChild(routes[window.location.pathname]());
-};
+}; */
+
+/* if (rootDiv) {
+  rootDiv.appendChild(component);
+}
+ */
