@@ -1,11 +1,24 @@
+import { onNavigate } from '../main.js';
+
 export const Home = () => {
   const homeDiv = document.createElement('div');
-  const buttonLogIn = document.createElement('button');
+  const title = document.createElement('h2');
+  const buttonLogin = document.createElement('button');
   const buttonRegister = document.createElement('button');
 
-  buttonLogIn.textContent = 'Iniciar sesión';
-  buttonRegister.textContent = 'Regístrate';
+  buttonLogin.textContent = 'Inicia Sesión';
+  buttonRegister.textContent = 'Registrate';
+  title.textContent = 'Somos la mejor RED social del mundo mundial jaja muahaha';
 
-  homeDiv.appendChild(buttonRegister, buttonLogIn);
+  buttonLogin.addEventListener('click', () => {
+    onNavigate('/login');
+  });
+
+  buttonRegister.addEventListener('click', () => {
+    onNavigate('/register');
+  });
+
+  homeDiv.append(title, buttonLogin, buttonRegister);
+
   return homeDiv;
 };
