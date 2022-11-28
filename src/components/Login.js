@@ -1,5 +1,3 @@
-import { onNavigate } from '../main.js';
-
 export const Login = () => {
   const loginDiv = document.createElement('div');
   const title = document.createElement('h2');

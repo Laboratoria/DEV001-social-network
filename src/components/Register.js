@@ -1,5 +1,3 @@
-import { onNavigate } from '../main.js';
-
 export const Register = () => {
   const registerDiv = document.createElement('div');
   const title = document.createElement('h2');
@@ -12,12 +10,12 @@ export const Register = () => {
   buttonBack.textContent = 'Regresa';
   title.textContent = 'Registro de nueva cuenta';
 
-  button.addEventListener('click', () => {
-    onNavigate('/login');
-  });
-  buttonBack.addEventListener('click', () => {
-    onNavigate('/');
-  });
+  // button.addEventListener('click', () => {
+  //   onNavigate('/login');
+  // });
+  // buttonBack.addEventListener('click', () => {
+  //   onNavigate('/');
+  // });
 
   registerDiv.append(title, inputEmail, inputPass, button, buttonBack);
 

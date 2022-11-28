@@ -1,30 +1,11 @@
-import { Home } from './components/Home.js';
-import { Register } from './components/Register.js';
-import { Login } from './components/Login.js';
+import { Router } from './components/Router.js';
 
 const rootDiv = document.getElementById('root');
 
-const routes = {
-  '/': Home,
-  '/register': Register,
-  '/login': Login,
-};
-
-export const onNavigate = (pathname) => {
-  window.history.pushState(
-    {},
-    pathname,
-    window.location.origin + pathname,
-  );
-  rootDiv.removeChild(rootDiv.firstChild);
-  rootDiv.appendChild(routes[pathname]());
-};
-
-const component = routes[window.location.pathname];
-
 window.onpopstate = () => {
-  rootDiv.removeChild(rootDiv.firstChild);
-  rootDiv.append(component());
+  rootDiv.innerHTML = '';
+  rootDiv.innerHTML = Router();
 };
 
-rootDiv.appendChild(component());
+window.addEventListener('DOMContentLoaded', Router);
+window.addEventListener('hashchange', Router);
