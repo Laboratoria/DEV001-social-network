@@ -1,27 +1,27 @@
 import { getAuth } from 'firebase/auth';
-import {
-// saveTask,
+import // saveTask,
 // onGetTask,
 // getTask2,
 // updateTask,
-} from './firebase.js';
+'./firebase.js';
 // eslint-disable-next-line import/no-cycle, import/no-cycle
 import { onNavigate } from '../../main';
 import { carousel } from './carousel.js';
 import {
-  functionSignOut, functionDeleteTask, functionGetTask2, functionUpdateTask, functionSaveTask,
+  functionSignOut,
+  functionDeleteTask,
+  functionGetTask2,
+  functionUpdateTask,
+  functionSaveTask,
   functionOnGetTask,
 } from './index.js';
 
-const rootDiv = document.getElementById('root');
 let editStatus = false;
 let id = '';
 
 export const landingPage = () => {
   const auth = getAuth();
-  const user = auth.currentUser;
-  rootDiv.innerHTML = ' ';
-
+  const user = JSON.parse(localStorage.getItem('user'));
   // Creación de elementos
   const postAll = document.createElement('div');
   const imgBackground = document.createElement('img');
@@ -107,11 +107,11 @@ export const landingPage = () => {
   containerPosts.className = 'containerPosts';
   showPostDiv.className = 'containerPosts2';
   avatarIcon.referrerPolicy = 'no-referrer';
-  avatarIcon.src = `${user.photoURL}`;
+  avatarIcon.src = user ? user.photoURL : 'www.google.com';
   avatarIcon.className = 'avatarIcon-class';
   iconMenu.src = './lib/img/menu-icon-8.png';
   iconMenu.className = 'icon-menu';
-  greeting.textContent = `Hola, ${user.displayName}`;
+  greeting.textContent = user ? user.displayName : 'prueba';
   greeting.className = 'class-greeting';
   imgSlider1.className = 'slider';
   slider1.src = './lib/img/slider-1.png';
@@ -152,7 +152,7 @@ export const landingPage = () => {
   imgPostDiv.classList = 'class-post-emocional';
   imgPost.src = './lib/img/meditando.png';
   imgPost.className = 'class-imgPost';
-  postAuthor.textContent = `${user.displayName}`;
+  postAuthor.textContent = user ? user.displayName : 'prueba';
   postAuthor.className = 'class-postAuthor';
   divisionLine.className = 'class-divisionLine';
   postInferiorDiv.className = 'class-postInferiorDiv';
@@ -237,6 +237,7 @@ export const landingPage = () => {
     const cerrarSesion = document.getElementById('option3');
     cerrarSesion.addEventListener('click', async () => {
       await functionSignOut(auth);
+      localStorage.clear();
       // console.log('user signed out');
       onNavigate('/');
     });
@@ -250,6 +251,7 @@ export const landingPage = () => {
   btnshowPost.classList.remove('button-See-Posts');
   btnshowPost.addEventListener('click', async () => {
     functionOnGetTask((querySnapshot) => {
+      console.log('querySnapshot', querySnapshot);
       let html = '';
       btnshowPost.classList.remove('buttonSeePosts');
       btnshowPost.classList.add('button-See-Posts');
@@ -261,7 +263,9 @@ export const landingPage = () => {
         const idDoc = doc.id;
         newArr.push([data, { id: idDoc }]);
       });
-      const data = newArr.sort((a, b) => new Date(b[0].creationDate) - new Date(a[0].creationDate));
+      const data = newArr.sort(
+        (a, b) => new Date(b[0].creationDate) - new Date(a[0].creationDate),
+      );
 
       data.forEach((doc) => {
         // const task = doc.data();

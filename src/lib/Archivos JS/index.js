@@ -34,22 +34,18 @@ export const functionRegister = async (email, password, name) => {
     // console.log(error);
 
     if (error.code === 'auth/email-already-in-use') {
-      // eslint-disable-next-line no-alert
       alert('El correo ya está registrado');
       return 'error';
     }
     if (error.code === 'auth/invalid-email') {
-      // eslint-disable-next-line no-alert
       alert('Debes ingresar un correo válido');
       return 'error';
     }
     if (error.code === 'auth/weak-password') {
-      // eslint-disable-next-line no-alert
       alert('La contraseña debe tener al menos 6 carácteres');
       return 'error';
     }
     if (error.code) {
-      // eslint-disable-next-line no-alert
       alert('Algo está mal en tu registro');
       return 'error';
     }
@@ -67,17 +63,14 @@ export const functionLogin = async (email, password) => {
     return credentials.user;
   } catch (error) {
     if (error.code === 'auth/wrong-password') {
-      // eslint-disable-next-line no-alert
       alert('Contraseña incorrecta');
       return 'error';
     }
     if (error.code === 'auth/user-not-found') {
-      // eslint-disable-next-line no-alert
       alert('Dirección Email no encontrada, por favor regístrese');
       return 'error';
     }
     if (error.code) {
-      // eslint-disable-next-line no-alert
       alert('Error en inicio de sesión, intente nuevamente');
       return 'error';
     }
@@ -87,10 +80,10 @@ export const functionLogin = async (email, password) => {
 
 // Función de signInWithPopup
 export const functionRegisterGoogle = async () => {
+  const provider = new GoogleAuthProvider();
   try {
-    const provider = new GoogleAuthProvider();
     const credentials = await signInWithPopup(auth, provider);
-    // console.log(credentials);
+    console.log(credentials.user);
     return credentials.user;
   } catch (error) {
     // console.log(error);
@@ -98,11 +91,14 @@ export const functionRegisterGoogle = async () => {
   }
 };
 
+// Recordatorio -> testear qué regresa signInWithPopup
+
 // Función de addDoc
 export const functionSaveTask = (editdescription, nameUser, idUser, creationDate) => {
   addDoc(collection(db, 'task'), {
     editdescription, nameUser, idUser, creationDate,
   });
+  console.log(collection.data());
 };
 
 // Función de getDocs

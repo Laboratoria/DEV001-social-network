@@ -3,11 +3,7 @@ import { onNavigate } from '../../main';
 import { functionLogin, functionRegisterGoogle } from './index.js';
 // eslint-disable-next-line import/no-cycle
 
-const rootDiv = document.getElementById('root');
-
 export const login = () => {
-  rootDiv.innerHTML = ' ';
-
   const homeDiv = document.createElement('div');
   const container = document.createElement('section');
   const containerRegister = document.createElement('div');
@@ -105,11 +101,7 @@ export const login = () => {
 
     const result = await functionLogin(email, password);
 
-    // console.log(email);
-    // console.log(password);
-
     if (result !== 'error') {
-      // console.log('si vamos alogin');
       onNavigate('/profile');
     }
   });
@@ -118,7 +110,6 @@ export const login = () => {
     const resultGoogle = await functionRegisterGoogle();
 
     if (resultGoogle !== 'error') {
-      // console.log('sita funcionando');
       onNavigate('/profile');
     }
   });

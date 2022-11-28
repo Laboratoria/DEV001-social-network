@@ -1,11 +1,7 @@
 // eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../../main';
 
-const rootDiv = document.getElementById('root');
-
 export const home = () => {
-  rootDiv.innerHTML = ' ';
-
   const homeDiv = document.createElement('div');
   const containerLanding = document.createElement('div');
   const containerImg = document.createElement('section');
@@ -49,6 +45,6 @@ export const home = () => {
   containerElements.appendChild(buttonLogin);
   homeDiv.appendChild(imgTop);
   homeDiv.appendChild(imgBottom);
-
+  homeDiv.appendChild(imgBottom);
   return homeDiv;
 };

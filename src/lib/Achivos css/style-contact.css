@@ -100,6 +100,7 @@
     margin-top: 15px;
     display: flex;
     justify-content: space-around;
+    height: 18px;
 }
 
 .class-linkedIn {
@@ -108,8 +109,9 @@
 }
 
 .class-github {
-    width: 20px;
+    width: 22px;
     cursor: pointer;
+    height: 20px;
 }
 
 .class-mail {

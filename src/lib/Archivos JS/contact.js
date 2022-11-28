@@ -2,13 +2,9 @@ import { signOut, getAuth } from 'firebase/auth';
 // eslint-disable-next-line import/no-cycle, import/no-cycle
 import { onNavigate } from '../../main';
 
-const rootDiv = document.getElementById('root');
-
 export const contact = () => {
   const auth = getAuth();
-  const user = auth.currentUser;
-  rootDiv.innerHTML = ' ';
-
+  const user = JSON.parse(localStorage.getItem('user'));
   // Creación de elementos
   const contactDiv = document.createElement('div');
   const imgBackground = document.createElement('img');
@@ -63,11 +59,11 @@ export const contact = () => {
   imgBackground.className = 'img-background';
   containerHeader.className = 'containerHeader';
   avatarIcon.referrerPolicy = 'no-referrer';
-  avatarIcon.src = `${user.photoURL}`;
+  avatarIcon.src = user ? user.photoURL : 'www.google.com';
   avatarIcon.className = 'avatarIcon-class';
   iconMenu.src = './lib/img/menu-icon-8.png';
   iconMenu.className = 'icon-menu';
-  greeting.textContent = `Hola, ${user.displayName}`;
+  greeting.textContent = user ? user.displayName : 'prueba';
   greeting.className = 'class-greeting';
 
   messageDiv.className = 'container-messageDiv';

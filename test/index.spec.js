@@ -1,7 +1,11 @@
+/* eslint-disable jest/no-identical-title */
 // importamos la funcion que vamos a testear
 // import { auth } from '../src/lib/Archivos JS/firebase.js';//
 // import { async } from "regenerator-runtime";
-import { functionRegister, functionLogin, functionRegisterGoogle } from '../src/lib/Archivos JS/index.js';
+import {
+  functionRegister, functionLogin, functionRegisterGoogle, functionGetTask, functionSignOut,
+  functionDeleteTask, functionGetTask2, functionUpdateTask,
+} from '../src/lib/Archivos JS/index.js';
 
 // Test a functionRegister
 describe('myFunctionRegister', () => {
@@ -19,10 +23,6 @@ describe('myFunctionRegister', () => {
       expect(user.password).toBe('1234ruth');
     },
   ));
-
-  it('debería retornar un error', () => functionRegister('ruth.pz@gmail.com', '1234ruth', 'Gaby').then((user) => {
-    expect(user.email).toBe('ruth.pz@gmail.com');
-  }));
 });
 
 // Test a functionLogin
@@ -38,6 +38,11 @@ describe('myFunctionLogin', () => {
       expect(user.password).toBe('valeria1234');
     });
   });
+  // it('debería retornar un error', async () => {
+  //   functionLogin('valeriamurguia98@gmail.com', 'val').then(() => {
+  //     expect(user.password).toBe('error');
+  //   });
+  // });
 });
 
 // Test a functionRegisterGoogle
@@ -53,4 +58,80 @@ describe('myFun awaitctionRegisterGoogle', () => {
       },
     );
   }); */
+});
+
+// Test a functionSaveTask
+
+// Test a functionOnGetTask
+describe('myFunctionGetTask', () => {
+  it('debería ser una función', () => {
+    expect(typeof functionGetTask).toBe('function');
+  });
+});
+
+// Test a functionSignOut
+describe('myFunctionSignOut', () => {
+  it('debería ser una función', () => {
+    expect(typeof functionSignOut).toBe('function');
+  });
+});
+
+// Test a functionDeleteTask
+describe('myFunctionDeleteTask', () => {
+  it('debería ser una función', () => {
+    expect(typeof functionDeleteTask).toBe('function');
+  });
+});
+
+// Test a functionGetTask2
+describe('myFunctionGetTask2', () => {
+  it('debería ser una función', () => {
+    expect(typeof functionGetTask2).toBe('function');
+  });
+});
+
+// Test a functionUpdateTask
+describe('myFunctionUpdateTask', () => {
+  it('debería ser una función', () => {
+    expect(typeof functionUpdateTask).toBe('function');
+  });
+});
+
+// Test a functionSaveTask
+
+// Test a functionGetTask
+
+// Test a functionOnGetTask
+describe('myFunctionGetTask', () => {
+  it('debería ser una función', () => {
+    expect(typeof functionGetTask).toBe('function');
+  });
+});
+
+// Test a functionSignOut
+describe('myFunctionSignOut', () => {
+  it('debería ser una función', () => {
+    expect(typeof functionSignOut).toBe('function');
+  });
+});
+
+// Test a functionDeleteTask
+describe('myFunctionDeleteTask', () => {
+  it('debería ser una función', () => {
+    expect(typeof functionDeleteTask).toBe('function');
+  });
+});
+
+// Test a functionGetTask2
+describe('myFunctionGetTask2', () => {
+  it('debería ser una función', () => {
+    expect(typeof functionGetTask2).toBe('function');
+  });
+});
+
+// Test a functionUpdateTask
+describe('myFunctionUpdateTask', () => {
+  it('debería ser una función', () => {
+    expect(typeof functionUpdateTask).toBe('function');
+  });
 });

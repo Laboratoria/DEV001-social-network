@@ -3,19 +3,16 @@ import { getAuth } from 'firebase/auth';
 // eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../../main';
 
-const rootDiv = document.getElementById('root');
-
 export const profile = () => {
   const auth = getAuth();
-  const user = auth.currentUser;
-  // console.log(user);
+  if (auth.currentUser !== null) {
+    localStorage.setItem('user', JSON.stringify(auth.currentUser));
+  }
+  const user = JSON.parse(localStorage.getItem('user'));
   // console.log(user.photoURL);
-  rootDiv.innerHTML = ' ';
-
   let photo;
-
-  if (user.photoURL != null) {
-    photo = user.photoURL;
+  if (user) {
+    photo = user.photoURL || 'www.google.com';
   } else {
     const avatar = [
       './lib/img/avatar-1.png',
@@ -25,7 +22,6 @@ export const profile = () => {
       './lib/img/avatar-5.png',
     ];
     const selectedAvatar = avatar[Math.floor(Math.random() * avatar.length)];
-    user.photoURL = selectedAvatar;
     photo = selectedAvatar;
   }
 
@@ -52,7 +48,6 @@ export const profile = () => {
   const homeDiv5 = document.createElement('div');
   const btnHome = document.createElement('button');
   const btnEdit = document.createElement('button');
-  /* const btnCerrar = document.createElement('button'); */
 
   homeDiv.className = 'container';
   container.className = 'container-im-and-register';
@@ -78,18 +73,17 @@ export const profile = () => {
   p2.className = 'text-subtitle2';
   p3.textContent = 'Email';
   p3.className = 'text-subtitle2';
-  p4.textContent = `${user.displayName}`;
+  p4.textContent = user ? user.displayName : 'prueba';
   p4.className = 'text-subtitle3';
   p5.textContent = `Hola, soy estudiante de Desarrollo Web, 
   tengo 24 años, disfruto muchos salir y enfrentarme a nuevos retos`;
   p5.className = 'text-subtitle4';
-  p6.textContent = `${user.email}`;
+  p6.textContent = user ? user.email : 'prueba@gmail.com';
   p6.className = 'text-subtitle3';
   btnHome.textContent = 'Ir al Home';
   btnHome.className = 'buttonRegister';
   btnEdit.textContent = 'Editar Perfil';
   btnEdit.className = 'buttonEditProfile';
-  /* btnCerrar.textContent = 'Cerrar Sesión'; */
   homeDiv2.className = 'container-div';
   homeDiv3.className = 'container-div';
   homeDiv4.className = 'container-div';
@@ -116,7 +110,6 @@ export const profile = () => {
   containerRegister.appendChild(homeDiv4);
   homeDiv5.appendChild(btnHome);
   homeDiv5.appendChild(btnEdit);
-  /* homeDiv5.appendChild(btnCerrar); */
   containerRegister.appendChild(homeDiv5);
 
   btnEdit.addEventListener('click', () => onNavigate('/editProfile'));
