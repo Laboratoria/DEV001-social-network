@@ -1,24 +1,26 @@
-// import { onNavigate } from '../main.js';
+import { onNavigate } from '../main.js';
 
 export const Home = () => {
  const div = document.createElement('div');
   const textoAlto = document.createElement('h1');
-  const textoBajo = document.createElement('h2');
-  const buttonLogin = document.createElement('button');
-  const buttonRegister = document.createElement('button');
-
   textoAlto.textContent = 'Te damos la bienvenida a Semillero';
+
+  const textoBajo = document.createElement('h2');
   textoBajo.textContent = 'aquí pondremos una descripción de la app';
+
+  const buttonLogin = document.createElement('button');
   buttonLogin.textContent = 'Inicia Sesión';
+
+  const buttonRegister = document.createElement('button');
   buttonRegister.textContent = 'Registrate';
 
-  // buttonLogin.addEventListener('click', () => {
-  //   onNavigate('/login'); 
-  // });
+  buttonLogin.addEventListener('click', () => {
+    onNavigate('/login'); 
+  });
 
-  // buttonRegister.addEventListener('click', () => {
-  //   onNavigate('/register');
-  // });
+  buttonRegister.addEventListener('click', () => {
+    onNavigate('/register');
+  });
 
   div.append(textoAlto, textoBajo, buttonLogin, buttonRegister);
 
