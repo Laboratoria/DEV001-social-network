@@ -107,7 +107,7 @@ export const landingPage = () => {
   containerPosts.className = 'containerPosts';
   showPostDiv.className = 'containerPosts2';
   avatarIcon.referrerPolicy = 'no-referrer';
-  avatarIcon.src = user ? user.photoURL : 'www.google.com';
+  avatarIcon.src = user ? user.photoURL : './lib/img/avatar-1.png';
   avatarIcon.className = 'avatarIcon-class';
   iconMenu.src = './lib/img/menu-icon-8.png';
   iconMenu.className = 'icon-menu';
@@ -270,7 +270,10 @@ export const landingPage = () => {
       data.forEach((doc) => {
         // const task = doc.data();
         const date = new Date(doc[0].creationDate);
-        html += `
+        console.log(doc);
+        console.log(user.uid);
+        if (doc[0].idUser === user.uid) {
+          html += `
           <div class = 'class-estructuraPost2'>
             <p>${doc[0].editdescription}</p>
             <h3 class='task-nameUser'>${doc[0].nameUser}</h3>
@@ -278,10 +281,22 @@ export const landingPage = () => {
             <img src='./lib/img/adorno-comentarios.png' alt='img-adorno' class='img-adorno'>
             <section class= 'class-optionsDiv'>
               <div class= 'class-like'><img class= 'class-likeImg' src = './lib/img/like-icon.png'> Me gusta </div>
-              <button class= 'class-edit' data-id= '${doc[1].id}'> Editar </button>
+              <button class= 'class-edit' data-id= '${doc[1].id}'> Editar </>
               <button class= 'class-delete' data-id= '${doc[1].id}'> Eliminar </button>
             </section>
           </div>`;
+        } else {
+          html += `
+          <div class = 'class-estructuraPost2'>
+            <p>${doc[0].editdescription}</p>
+            <h3 class='task-nameUser'>${doc[0].nameUser}</h3>
+            <h3 class='task-date'>${date.toLocaleDateString()}</h3>
+            <img src='./lib/img/adorno-comentarios.png' alt='img-adorno' class='img-adorno'>
+            <section class= 'class-optionsDiv'>
+              <div class= 'class-like'><img class= 'class-likeImg' src = './lib/img/like-icon.png'> Me gusta </div>
+            </section>
+            </div>`;
+        }
       });
 
       showPostDiv.innerHTML = html;

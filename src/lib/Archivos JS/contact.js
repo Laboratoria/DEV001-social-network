@@ -59,7 +59,7 @@ export const contact = () => {
   imgBackground.className = 'img-background';
   containerHeader.className = 'containerHeader';
   avatarIcon.referrerPolicy = 'no-referrer';
-  avatarIcon.src = user ? user.photoURL : 'www.google.com';
+  avatarIcon.src = user ? user.photoURL : './lib/img/avatar-1.png';
   avatarIcon.className = 'avatarIcon-class';
   iconMenu.src = './lib/img/menu-icon-8.png';
   iconMenu.className = 'icon-menu';
