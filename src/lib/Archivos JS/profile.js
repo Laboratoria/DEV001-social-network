@@ -12,7 +12,7 @@ export const profile = () => {
   // console.log(user.photoURL);
   let photo;
   if (user) {
-    photo = user.photoURL || 'www.google.com';
+    photo = user.photoURL || './lib/img/avatar-1.png';
   } else {
     const avatar = [
       './lib/img/avatar-1.png',

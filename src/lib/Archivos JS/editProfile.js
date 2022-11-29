@@ -40,7 +40,7 @@ export const editProfile = () => {
   containerRegister.className = 'container-register';
   p.textContent = 'Editar Nombre de Usuario:';
   p.className = 'text-subtitle2';
-  avatar.src = user ? user.photoURL : 'www.google.com';
+  avatar.src = user ? user.photoURL : './lib/img/avatar-1.png';
   avatar.referrerPolicy = 'no-referrer';
   avatar.className = 'avatar-class';
   fondoImagen.className = 'avatar-class';
