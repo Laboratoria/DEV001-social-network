@@ -151,7 +151,7 @@ body{
   }
   .img-bottom {
     width: 20%;
-    top: 380px;
+    bottom: 0;
     left: -15px;
   }
 }

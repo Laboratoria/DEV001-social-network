@@ -46,7 +46,10 @@
   background: #453d9d;
   border-color: white;
   border-width: 2px;
-  border-radius: 50px;
+  border-radius: 50%;
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
 }
 
 .buttonEditProfile {

@@ -17,6 +17,8 @@
 
   .avatarIcon-class {
     width: 42px;
+    height: 42px;
+    object-fit: cover;
     margin-left: 10px;
     top: 18px;
   }
@@ -45,10 +47,13 @@
   }
   .class-categories {
     height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   .class-categories-icons {
     width: 33%;
-    margin-top: 30px;
   }
   .class-postDiv {
     width: 750px;
@@ -97,6 +102,9 @@
   }
   .img-background{
     width: 30%;
+  }
+  .text-categories {
+    font-size: 0.95rem;
   }
 
   /*slider img*/
