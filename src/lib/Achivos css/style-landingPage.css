@@ -5,6 +5,8 @@
   border-width: 2px;
   border-radius: 50px;
   width: 40px;
+  height: 40px;
+  object-fit: cover;
   margin-left: 8px;
   top: 32px;
   position: absolute;
@@ -113,7 +115,6 @@
 
 .class-categories-icons {
   width: 27px;
-  margin-top: 10px;
 }
 
 .class-categories {
@@ -129,6 +130,12 @@
   cursor: pointer;
   text-align: center;
   box-shadow: 4px 4px 4px #312b73;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+
 }
 
 .class-categories:hover {
@@ -203,7 +210,7 @@
 .text-categories {
   font-family: "Poppins", sans-serif;
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: white;
   font-weight: 600;
   align-content: center;
@@ -323,7 +330,7 @@
   color: white;
   align-items: center;
   justify-content: center;
-  padding: 2px;
+  padding: 5px;
   cursor: pointer;
 }
 
@@ -581,4 +588,15 @@
   display: block;
   width: 265px;
   object-fit: cover;/*para que las imagenes no se estiren*/
+}
+
+
+
+.count-likes{
+  background-color: white;
+  color: #453d9d;
+  padding: 1px 5px;
+  border-radius: 50%;
+  font-size: .7rem;
+  margin-left: 10px;
 }

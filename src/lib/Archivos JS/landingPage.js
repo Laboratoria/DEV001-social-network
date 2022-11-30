@@ -280,7 +280,7 @@ export const landingPage = () => {
             <h3 class='task-date'>${date.toLocaleDateString()}</h3>
             <img src='./lib/img/adorno-comentarios.png' alt='img-adorno' class='img-adorno'>
             <section class= 'class-optionsDiv'>
-              <div class= 'class-like'><img class= 'class-likeImg' src = './lib/img/like-icon.png'> Me gusta </div>
+              <div class= 'class-like' data-id= '${doc[1].id}'><img class= 'class-likeImg' src = './lib/img/like-icon.png'> Me gusta  <span class= 'count-likes'>${doc[0].likes}</span></div>
               <button class= 'class-edit' data-id= '${doc[1].id}'> Editar </>
               <button class= 'class-delete' data-id= '${doc[1].id}'> Eliminar </button>
             </section>
@@ -293,7 +293,7 @@ export const landingPage = () => {
             <h3 class='task-date'>${date.toLocaleDateString()}</h3>
             <img src='./lib/img/adorno-comentarios.png' alt='img-adorno' class='img-adorno'>
             <section class= 'class-optionsDiv'>
-              <div class= 'class-like'><img class= 'class-likeImg' src = './lib/img/like-icon.png'> Me gusta </div>
+              <div class= 'class-like' data-id= '${doc[1].id}'><img class= 'class-likeImg' src = './lib/img/like-icon.png'> Me gusta  ${doc[0].likes}</div>
             </section>
             </div>`;
         }
@@ -301,9 +301,8 @@ export const landingPage = () => {
 
       showPostDiv.innerHTML = html;
 
-      const btnsDelete = showPostDiv.querySelectorAll('.class-delete');
-
       // Boton para eliminar cometarios del usuario.
+      const btnsDelete = showPostDiv.querySelectorAll('.class-delete');
       btnsDelete.forEach((btn) => {
         btn.addEventListener('click', ({ target: { dataset } }) => {
           // console.log(dataset.id);
@@ -330,6 +329,21 @@ export const landingPage = () => {
           saveChanges.innerText = 'Guardar cambios';
         });
       });
+
+      // Boton para likear comentarios del usuario.
+      const btnsLike = document.querySelectorAll('.class-like');
+
+      btnsLike.forEach((btn) => {
+        btn.addEventListener('click', async ({ target: { dataset } }) => {
+          const doc = await functionGetTask2(dataset.id);
+          const task = doc.data();
+          const newLikes = task.likes + 1;
+          id = doc.id;
+          functionUpdateTask(id, {
+            likes: newLikes,
+          });
+        });
+      });
     });
   });
 
@@ -343,15 +357,15 @@ export const landingPage = () => {
     const nameUser = user.displayName;
     const idUser = user.uid;
     const creationDate = Date.now();
+    const likes = 0;
 
     if (!editStatus) {
-      functionSaveTask(editdescription, nameUser, idUser, creationDate);
+      functionSaveTask(editdescription, nameUser, idUser, creationDate, likes);
     } else {
-      // función modificar firebase.
+      // función modificar firebase para edición de post
       functionUpdateTask(id, {
         editdescription: editDescription.value,
       });
-
       homeDiv3.classList.remove('container-divPost2');
       homeDiv3.classList.add('container-divPost');
       saveChanges.innerText = 'Publicar';
