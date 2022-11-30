@@ -264,7 +264,7 @@ export const landingPage = () => {
         newArr.push([data, { id: idDoc }]);
       });
       const data = newArr.sort(
-        (a, b) => new Date(b[0].creationDate) - new Date(a[0].creationDate)
+        (a, b) => new Date(b[0].creationDate) - new Date(a[0].creationDate),
       );
 
       data.forEach((doc) => {
