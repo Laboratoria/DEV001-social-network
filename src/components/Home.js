@@ -1,7 +1,5 @@
-import { onNavigate } from '../main.js';
-
-export const Home = () => {
- const div = document.createElement('div');
+export const Home = (onNavigate) => {
+  const div = document.createElement('div');
   const textoAlto = document.createElement('h1');
   textoAlto.textContent = 'Te damos la bienvenida a Semillero';
 
@@ -15,7 +13,7 @@ export const Home = () => {
   buttonRegister.textContent = 'Registrate';
 
   buttonLogin.addEventListener('click', () => {
-    onNavigate('/login'); 
+    onNavigate('/login');
   });
 
   buttonRegister.addEventListener('click', () => {

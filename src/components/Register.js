@@ -1,6 +1,4 @@
-import { onNavigate } from '../main.js';
-
-export const Register = () => {
+export const Register = (onNavigate) => {
   const homeDiv = document.createElement('div');
 
   const textoRegister = document.createElement('h2');
