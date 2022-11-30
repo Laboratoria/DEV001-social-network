@@ -297,6 +297,12 @@
   margin-left: 25%;
 }
 
+.class-optionsDiv2 {
+  display: flex;
+  width: 75%;
+  margin-left: 65%;
+}
+
 .task-nameUser{
   color: #453d9d;
   font-size: 1rem;
@@ -326,6 +332,23 @@
   padding: 2px;
   cursor: pointer;
 }
+
+.class-like2 {
+  display: flex;
+  background-color: #453d9d;
+  width: 44%;
+  border-radius: 5px;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.6rem;
+  font-weight: 500;
+  text-align: center;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  padding: 9px;
+  cursor: pointer;
+}
+
 
 .class-like:hover {
   transform: scale(0.96);

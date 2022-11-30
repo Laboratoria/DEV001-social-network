@@ -7,6 +7,8 @@ import {
   functionDeleteTask, functionGetTask2, functionUpdateTask,
 } from '../src/lib/Archivos JS/index.js';
 
+
+
 // Test a functionRegister
 describe('myFunctionRegister', () => {
   it('debería ser una función', () => {

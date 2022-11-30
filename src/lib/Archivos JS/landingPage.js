@@ -292,8 +292,9 @@ export const landingPage = () => {
             <h3 class='task-nameUser'>${doc[0].nameUser}</h3>
             <h3 class='task-date'>${date.toLocaleDateString()}</h3>
             <img src='./lib/img/adorno-comentarios.png' alt='img-adorno' class='img-adorno'>
-            <section class= 'class-optionsDiv'>
-              <div class= 'class-like'><img class= 'class-likeImg' src = './lib/img/like-icon.png'> Me gusta </div>
+            <section class= 'class-optionsDiv2'>
+              <div class= 'class-numberOfLikes'></div>
+              <div id='class-like2' class= 'class-like2'><img class= 'class-likeImg' src = './lib/img/like-icon.png'> Me gusta </div>
             </section>
             </div>`;
         }
