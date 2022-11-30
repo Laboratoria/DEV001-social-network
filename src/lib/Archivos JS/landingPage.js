@@ -301,9 +301,8 @@ export const landingPage = () => {
 
       showPostDiv.innerHTML = html;
 
-      const btnsDelete = showPostDiv.querySelectorAll('.class-delete');
-
       // Boton para eliminar cometarios del usuario.
+      const btnsDelete = showPostDiv.querySelectorAll('.class-delete');
       btnsDelete.forEach((btn) => {
         btn.addEventListener('click', ({ target: { dataset } }) => {
           // console.log(dataset.id);
