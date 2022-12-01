@@ -63,6 +63,10 @@
     width: 750px;
     min-height: 200px;
   }
+
+  .container-confirmationDiv {
+    position: fixed;
+  }
   .img-adorno{
     width: 12%;
   }
@@ -107,6 +111,13 @@
     font-size: 0.95rem;
   }
 
+  .class-like2 {
+    width: 22%;
+  }
+
+  .class-optionsDiv2 {
+    margin-left: 83%;
+  }
   /*slider img*/
 
   .containerSlider {
@@ -117,6 +128,7 @@
     gap: 3px;
     width: 750px;
   }
+
 
   .slider-img {
     width: 750px;

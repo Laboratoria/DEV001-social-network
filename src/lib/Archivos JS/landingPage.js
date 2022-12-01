@@ -57,6 +57,7 @@ export const landingPage = () => {
 
   const titlePost = document.createElement('h2');
   const homeDiv3 = document.createElement('form');
+  const showConfirmationDiv = document.createElement('div');
   const editDescription = document.createElement('textarea');
   const saveChanges = document.createElement('button');
 
@@ -68,6 +69,7 @@ export const landingPage = () => {
   saveChanges.textContent = 'Publicar';
   saveChanges.className = 'buttonRegister button-post';
   homeDiv3.className = 'container-divPost';
+  showConfirmationDiv.className = 'container-divPost';
   titlePost.textContent = 'Comparte con Nosotras:';
   titlePost.className = 'subtitle-post';
   imgBackground.src = './lib/img/img-flw.png';
@@ -77,6 +79,7 @@ export const landingPage = () => {
   homeDiv3.appendChild(saveChanges);
   postDiv.appendChild(titlePost);
   postDiv.appendChild(homeDiv3);
+  postDiv.appendChild(showConfirmationDiv);
   const btnshowPost = document.createElement('button');
   btnshowPost.textContent = 'Ver publicaciones';
   btnshowPost.className = 'buttonSeePosts button-See-Posts';
@@ -116,6 +119,7 @@ export const landingPage = () => {
   imgSlider1.className = 'slider';
   slider1.src = './lib/img/slider-1.png';
   slider1.className = 'slider-img';
+  slider1.id = 'imgSlider1';
   imgSlider2.className = 'slider';
   slider2.src = './lib/img/slider-2.png';
   slider2.className = 'slider-img';
@@ -243,6 +247,9 @@ export const landingPage = () => {
     });
   });
 
+  // Redirección al click en el slider1
+  imgSlider1.addEventListener('click', () => onNavigate('/aboutTheApp'));
+
   // Lamar a la función Carrusel- slider
   const arraySliders = [imgSlider1, imgSlider2, imgSlider3];
   carousel(btnRight, btnLeft, arraySliders);
@@ -298,14 +305,60 @@ export const landingPage = () => {
 
       showPostDiv.innerHTML = html;
 
+      data.forEach((doc) => {
+        // const task = doc.data();
+        console.log(doc);
+        console.log(user.uid);
+        if (doc[0].idUser === user.uid) {
+          // Boton para confirmar eliminación de cometarios del usuario.
+          const btnsDeleteConfirmation = showPostDiv.querySelectorAll('.class-delete');
+          btnsDeleteConfirmation.forEach((btn) => {
+            btn.addEventListener('click', () => {
+              console.log('¿Borrar posts?');
+              showConfirmationDiv.classList.remove('container-divPost');
+              showConfirmationDiv.classList.add('container-confirmationDiv');
+              showConfirmationDiv.innerHTML = `
+                <p> ¿Borrar posts? </p>
+                <div class='container-confirmationBts'>
+                  <button id='buttonYes' data-id='${doc[1].id}' class='buttonYes'> Sí </button> <button id='buttonNo' class='buttonNo'> No </button>
+                </div>`;
+              showConfirmationDiv.style.display = 'block';
+
+              // Boton para cerrar confirmación del usuario
+              const closeConfirmation = document.getElementById('buttonNo');
+              closeConfirmation.addEventListener('click', () => {
+                showConfirmationDiv.style.display = 'none';
+              });
+
+              // Boton para eliminar cometarios del usuario.
+              const btnsDelete = document.getElementById('buttonYes');
+              btnsDelete.addEventListener('click', ({ target: { dataset } }) => {
+                // console.log(dataset.id);
+                functionDeleteTask(dataset.id);
+                showConfirmationDiv.style.display = 'none';
+              });
+            });
+          });
+        }
+      });
+
       // Boton para eliminar cometarios del usuario.
-      const btnsDelete = showPostDiv.querySelectorAll('.class-delete');
+      const btnsDelete = showConfirmationDiv.querySelectorAll('.buttonYes');
       btnsDelete.forEach((btn) => {
         btn.addEventListener('click', ({ target: { dataset } }) => {
           // console.log(dataset.id);
           functionDeleteTask(dataset.id);
         });
       });
+
+      // Bóton para borrar comentarios del usuario (hecho por Silvia) -----------------
+      // const btnsDelete = showPostDiv.querySelectorAll('.class-delete');
+      // btnsDelete.forEach((btn) => {
+      //   btn.addEventListener('click', ({ target: { dataset } }) => {
+      //     // console.log(dataset.id);
+      //     functionDeleteTask(dataset.id);
+      //   });
+      // });
 
       // Boton para editar comentarios del usuario.
       const btnsEdit = showPostDiv.querySelectorAll('.class-edit');
