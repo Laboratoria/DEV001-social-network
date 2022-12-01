@@ -3,10 +3,14 @@ import { Register } from './components/Register.js';
 import { Login } from './components/Login.js';
 
 const rootDiv = document.getElementById('root');
-// cambios
-let routes = {};
 
-const onNavigate = (pathname) => {
+const routes = {
+  '/': Home,
+  '/register': Register,
+  '/login': Login,
+};
+
+export const onNavigate = (pathname) => {
   window.history.pushState(
     {},
     pathname,
@@ -15,18 +19,12 @@ const onNavigate = (pathname) => {
   rootDiv.removeChild(rootDiv.firstChild);
   rootDiv.appendChild(routes[pathname]());
 };
-// cambios
-routes = {
-  '/': Home(onNavigate),
-  '/register': Register(onNavigate),
-  '/login': Login(onNavigate),
-};
 
-const components = () => routes[window.location.pathname];
+const component = routes[window.location.pathname];
 
 window.onpopstate = () => {
   rootDiv.removeChild(rootDiv.firstChild);
-  rootDiv.append(components());
+  rootDiv.append(component());
 };
 
-rootDiv.appendChild(components());
+rootDiv.appendChild(component());

@@ -40,5 +40,17 @@
   },
   "dependencies": {
     "firebase": "^9.14.0"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RosarioHA/DEV001-social-network.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/RosarioHA/DEV001-social-network/issues"
+  },
+  "homepage": "https://github.com/RosarioHA/DEV001-social-network#readme"
 }
