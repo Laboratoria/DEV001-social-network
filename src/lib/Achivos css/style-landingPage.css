@@ -5,6 +5,8 @@
   border-width: 2px;
   border-radius: 50px;
   width: 40px;
+  height: 40px;
+  object-fit: cover;
   margin-left: 8px;
   top: 32px;
   position: absolute;
@@ -45,6 +47,31 @@
 .container-divPost2 {
   position: fixed;
   z-index: 4;
+}
+
+.container-confirmationDiv {
+  border-style: none;
+  font-family: "Poppins", sans-serif;
+  border-radius: 10px;
+  padding: 13px 20px;
+  background-color: #c34095;
+  font-size: 1rem;
+  color: #fde1ca;
+  font-weight: 600;
+  width: 60%;
+  box-shadow: 1px 1px 1px 1px rgba(255, 206, 206, 0.805);
+  cursor: pointer;
+  margin-top: 25px;
+  position: fixed;
+  z-index: 4;
+  display: flex;
+  justify-items: center;
+}
+
+.container-confirmationBts {
+  display: flex;
+  justify-content: space-around;
+  margin-left: 20px;
 }
 
 .containerPosts {
@@ -113,7 +140,6 @@
 
 .class-categories-icons {
   width: 27px;
-  margin-top: 10px;
 }
 
 .class-categories {
@@ -129,6 +155,12 @@
   cursor: pointer;
   text-align: center;
   box-shadow: 4px 4px 4px #312b73;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+
 }
 
 .class-categories:hover {
@@ -203,7 +235,7 @@
 .text-categories {
   font-family: "Poppins", sans-serif;
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: white;
   font-weight: 600;
   align-content: center;
@@ -329,7 +361,7 @@
   color: white;
   align-items: center;
   justify-content: center;
-  padding: 2px;
+  padding: 5px;
   cursor: pointer;
 }
 
@@ -452,6 +484,37 @@
   box-shadow: 1px 1px 1px 1px rgba(255, 206, 206, 0.805);
   cursor: pointer;
   margin-top: 25px;
+}
+
+.buttonYes {
+  border-style: none;
+  font-family: "Poppins", sans-serif;
+  border-radius: 10px;
+  padding: 9px 16px;
+  background-color: #fde1ca;
+  font-size: 1rem;
+  color: #5c55ad;
+  font-weight: 600;
+  width: 65px;
+  box-shadow: 1px 1px 1px 1px rgba(255, 206, 206, 0.805);
+  cursor: pointer;
+  margin-top: 55px;
+}
+
+.buttonNo {
+  border-style: none;
+  font-family: "Poppins", sans-serif;
+  border-radius: 10px;
+  padding: 9px 16px;
+  background-color: #fde1ca;
+  font-size: 1rem;
+  color: #5c55ad;
+  font-weight: 600;
+  width: 65px;
+  box-shadow: 1px 1px 1px 1px rgba(255, 206, 206, 0.805);
+  cursor: pointer;
+  margin-top: 25px;
+  margin-top: 55px;
 }
 
 .buttonSeePosts:hover{
@@ -592,6 +655,7 @@
   align-items: center;
   gap: 5px;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .slider{
@@ -604,4 +668,15 @@
   display: block;
   width: 265px;
   object-fit: cover;/*para que las imagenes no se estiren*/
+}
+
+
+
+.count-likes{
+  background-color: white;
+  color: #453d9d;
+  padding: 1px 5px;
+  border-radius: 50%;
+  font-size: .7rem;
+  margin-left: 10px;
 }

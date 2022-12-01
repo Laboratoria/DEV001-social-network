@@ -57,6 +57,7 @@ export const landingPage = () => {
 
   const titlePost = document.createElement('h2');
   const homeDiv3 = document.createElement('form');
+  const showConfirmationDiv = document.createElement('div');
   const editDescription = document.createElement('textarea');
   const saveChanges = document.createElement('button');
 
@@ -68,6 +69,7 @@ export const landingPage = () => {
   saveChanges.textContent = 'Publicar';
   saveChanges.className = 'buttonRegister button-post';
   homeDiv3.className = 'container-divPost';
+  showConfirmationDiv.className = 'container-divPost';
   titlePost.textContent = 'Comparte con Nosotras:';
   titlePost.className = 'subtitle-post';
   imgBackground.src = './lib/img/img-flw.png';
@@ -77,6 +79,7 @@ export const landingPage = () => {
   homeDiv3.appendChild(saveChanges);
   postDiv.appendChild(titlePost);
   postDiv.appendChild(homeDiv3);
+  postDiv.appendChild(showConfirmationDiv);
   const btnshowPost = document.createElement('button');
   btnshowPost.textContent = 'Ver publicaciones';
   btnshowPost.className = 'buttonSeePosts button-See-Posts';
@@ -116,6 +119,7 @@ export const landingPage = () => {
   imgSlider1.className = 'slider';
   slider1.src = './lib/img/slider-1.png';
   slider1.className = 'slider-img';
+  slider1.id = 'imgSlider1';
   imgSlider2.className = 'slider';
   slider2.src = './lib/img/slider-2.png';
   slider2.className = 'slider-img';
@@ -243,6 +247,9 @@ export const landingPage = () => {
     });
   });
 
+  // Redirección al click en el slider1
+  imgSlider1.addEventListener('click', () => onNavigate('/aboutTheApp'));
+
   // Lamar a la función Carrusel- slider
   const arraySliders = [imgSlider1, imgSlider2, imgSlider3];
   carousel(btnRight, btnLeft, arraySliders);
@@ -280,7 +287,7 @@ export const landingPage = () => {
             <h3 class='task-date'>${date.toLocaleDateString()}</h3>
             <img src='./lib/img/adorno-comentarios.png' alt='img-adorno' class='img-adorno'>
             <section class= 'class-optionsDiv'>
-              <div class= 'class-like'><img class= 'class-likeImg' src = './lib/img/like-icon.png'> Me gusta </div>
+              <div class= 'class-like' data-id= '${doc[1].id}'><img class= 'class-likeImg' src = './lib/img/like-icon.png'> Me gusta  <span class= 'count-likes'>${doc[0].likes}</span></div>
               <button class= 'class-edit' data-id= '${doc[1].id}'> Editar </>
               <button class= 'class-delete' data-id= '${doc[1].id}'> Eliminar </button>
             </section>
@@ -292,9 +299,8 @@ export const landingPage = () => {
             <h3 class='task-nameUser'>${doc[0].nameUser}</h3>
             <h3 class='task-date'>${date.toLocaleDateString()}</h3>
             <img src='./lib/img/adorno-comentarios.png' alt='img-adorno' class='img-adorno'>
-            <section class= 'class-optionsDiv2'>
-              <div class= 'class-numberOfLikes'></div>
-              <div id='class-like2' class= 'class-like2'><img class= 'class-likeImg' src = './lib/img/like-icon.png'> Me gusta </div>
+            <section class= 'class-optionsDiv'>
+              <div class= 'class-like' data-id= '${doc[1].id}'><img class= 'class-likeImg' src = './lib/img/like-icon.png'> Me gusta  ${doc[0].likes}</div>
             </section>
             </div>`;
         }
@@ -302,15 +308,60 @@ export const landingPage = () => {
 
       showPostDiv.innerHTML = html;
 
-      const btnsDelete = showPostDiv.querySelectorAll('.class-delete');
+      data.forEach((doc) => {
+        // const task = doc.data();
+        console.log(doc);
+        console.log(user.uid);
+        if (doc[0].idUser === user.uid) {
+          // Boton para confirmar eliminación de cometarios del usuario.
+          const btnsDeleteConfirmation = showPostDiv.querySelectorAll('.class-delete');
+          btnsDeleteConfirmation.forEach((btn) => {
+            btn.addEventListener('click', () => {
+              console.log('¿Borrar posts?');
+              showConfirmationDiv.classList.remove('container-divPost');
+              showConfirmationDiv.classList.add('container-confirmationDiv');
+              showConfirmationDiv.innerHTML = `
+                <p> ¿Borrar posts? </p>
+                <div class='container-confirmationBts'>
+                  <button id='buttonYes' data-id='${doc[1].id}' class='buttonYes'> Sí </button> <button id='buttonNo' class='buttonNo'> No </button>
+                </div>`;
+              showConfirmationDiv.style.display = 'block';
+
+              // Boton para cerrar confirmación del usuario
+              const closeConfirmation = document.getElementById('buttonNo');
+              closeConfirmation.addEventListener('click', () => {
+                showConfirmationDiv.style.display = 'none';
+              });
+
+              // Boton para eliminar cometarios del usuario.
+              const btnsDelete = document.getElementById('buttonYes');
+              btnsDelete.addEventListener('click', ({ target: { dataset } }) => {
+                // console.log(dataset.id);
+                functionDeleteTask(dataset.id);
+                showConfirmationDiv.style.display = 'none';
+              });
+            });
+          });
+        }
+      });
 
       // Boton para eliminar cometarios del usuario.
+      const btnsDelete = showConfirmationDiv.querySelectorAll('.buttonYes');
       btnsDelete.forEach((btn) => {
         btn.addEventListener('click', ({ target: { dataset } }) => {
           // console.log(dataset.id);
           functionDeleteTask(dataset.id);
         });
       });
+
+      // Bóton para borrar comentarios del usuario (hecho por Silvia) -----------------
+      // const btnsDelete = showPostDiv.querySelectorAll('.class-delete');
+      // btnsDelete.forEach((btn) => {
+      //   btn.addEventListener('click', ({ target: { dataset } }) => {
+      //     // console.log(dataset.id);
+      //     functionDeleteTask(dataset.id);
+      //   });
+      // });
 
       // Boton para editar comentarios del usuario.
       const btnsEdit = showPostDiv.querySelectorAll('.class-edit');
@@ -331,6 +382,21 @@ export const landingPage = () => {
           saveChanges.innerText = 'Guardar cambios';
         });
       });
+
+      // Boton para likear comentarios del usuario.
+      const btnsLike = document.querySelectorAll('.class-like');
+
+      btnsLike.forEach((btn) => {
+        btn.addEventListener('click', async ({ target: { dataset } }) => {
+          const doc = await functionGetTask2(dataset.id);
+          const task = doc.data();
+          const newLikes = task.likes + 1;
+          id = doc.id;
+          functionUpdateTask(id, {
+            likes: newLikes,
+          });
+        });
+      });
     });
   });
 
@@ -344,15 +410,15 @@ export const landingPage = () => {
     const nameUser = user.displayName;
     const idUser = user.uid;
     const creationDate = Date.now();
+    const likes = 0;
 
     if (!editStatus) {
-      functionSaveTask(editdescription, nameUser, idUser, creationDate);
+      functionSaveTask(editdescription, nameUser, idUser, creationDate, likes);
     } else {
-      // función modificar firebase.
+      // función modificar firebase para edición de post
       functionUpdateTask(id, {
         editdescription: editDescription.value,
       });
-
       homeDiv3.classList.remove('container-divPost2');
       homeDiv3.classList.add('container-divPost');
       saveChanges.innerText = 'Publicar';

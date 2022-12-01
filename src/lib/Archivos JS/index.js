@@ -13,11 +13,10 @@ import {
 import { auth, db } from './firebase.js';
 
 // Función de createUserWithEmailAndPassword
-export const functionRegister = async (email, password, name) => {
+export const functionRegister = async (email, password, name, image) => {
   // console.log(email);
   // console.log(password);
   // console.log(name);
-
   try {
     const userCredentials = await createUserWithEmailAndPassword(
       auth,
@@ -26,6 +25,7 @@ export const functionRegister = async (email, password, name) => {
     );
     await updateProfile(userCredentials.user, {
       displayName: name,
+      photoURL: image,
     });
     // console.log(userCredentials.user);
     // console.log(userCredentials.user.displayName = name);
@@ -94,11 +94,11 @@ export const functionRegisterGoogle = async () => {
 // Recordatorio -> testear qué regresa signInWithPopup
 
 // Función de addDoc
-export const functionSaveTask = (editdescription, nameUser, idUser, creationDate) => {
+export const functionSaveTask = (editdescription, nameUser, idUser, creationDate, likes) => {
   addDoc(collection(db, 'task'), {
-    editdescription, nameUser, idUser, creationDate,
+    editdescription, nameUser, idUser, creationDate, likes,
   });
-  console.log(collection.data());
+  // console.log(collection.data());
 };
 
 // Función de getDocs

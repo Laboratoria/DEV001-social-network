@@ -2,6 +2,28 @@
 import { onNavigate } from '../../main';
 import { functionRegister } from './index.js';
 
+let image;
+
+function uploadImage(e) {
+  const archivos = e.target.files;
+  // Instancia del objeto formdata
+  const sendData = new FormData();
+  sendData.append('file', archivos[0]);
+  sendData.append('upload_preset', 'social-network-laboratoria');
+  // fetch método para realizar llamadas asincronas mediante promesas
+  fetch('https://api.cloudinary.com/v1_1/dfio49epx/image/upload', {
+    method: 'POST',
+    body: sendData,
+  })
+    .then((result) => result.json())
+    .then((data) => {
+      image = data;
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+}
+
 export const register = () => {
   const homeDiv = document.createElement('div');
   const container = document.createElement('section');
@@ -27,6 +49,9 @@ export const register = () => {
   const imgFlower2 = document.createElement('img');
   const imgFlower3 = document.createElement('img');
   const regresar = document.createElement('p');
+  const labelImage = document.createElement('label');
+  const spanImage = document.createElement('span');
+  const inputImage = document.createElement('input');
   homeDiv.className = 'container';
   container.className = 'container-im-and-register';
   containerImg.className = 'container-img';
@@ -78,6 +103,15 @@ export const register = () => {
   homeDiv4.className = 'container-div';
   homeDiv5.className = 'container-div';
 
+  labelImage.className = 'drop-container';
+  labelImage.htmlFor = 'images';
+  inputImage.type = 'file';
+  inputImage.id = 'images';
+  inputImage.onchange = uploadImage;
+  inputImage.className = 'upload-Image';
+  spanImage.className = 'drop-title';
+  spanImage.innerText = 'Selecciona tu imagen de perfil';
+
   homeDiv.appendChild(container);
   container.appendChild(containerImg);
   container.appendChild(containerRegister);
@@ -86,6 +120,7 @@ export const register = () => {
   containerImg.appendChild(imgwelcome);
   containerRegister.appendChild(titleImg);
   containerRegister.appendChild(title);
+  homeDiv2.appendChild(labelImage);
   homeDiv2.appendChild(imgFlower2);
   homeDiv2.appendChild(p);
   homeDiv2.appendChild(inputName);
@@ -101,15 +136,16 @@ export const register = () => {
   homeDiv5.appendChild(buttonSend);
   homeDiv5.appendChild(regresar);
   containerRegister.appendChild(homeDiv5);
-
+  labelImage.appendChild(spanImage);
+  labelImage.appendChild(inputImage);
   regresar.addEventListener('click', () => onNavigate('/login'));
 
   buttonSend.addEventListener('click', async () => {
     const name = inputName.value;
     const email = inputEmail.value;
     const password = inputPassword.value;
-
-    const result = await functionRegister(email, password, name);
+    const photo = image.secure_url;
+    const result = await functionRegister(email, password, name, photo);
     if (result !== 'error') {
       onNavigate('/profile');
     }
