@@ -164,7 +164,7 @@
   display: flex;
   width: 80%;
   height: auto;
-  min-height: 300px;
+  min-height: 340px;
   flex-direction: column;
   background-color: aliceblue;
   border-radius: 10px;
@@ -300,8 +300,8 @@
 
 .class-optionsDiv {
   display: flex;
-  width: 75%;
-  margin-left: 25%;
+  width: 90%;
+  margin-left: 10%;
 }
 
 .task-nameUser{
@@ -321,7 +321,7 @@
 .class-like {
   display: flex;
   background-color: #453d9d;
-  width: 40%;
+  width: 50%;
   border-radius: 5px;
   font-family: "Poppins", sans-serif;
   font-size: 0.6rem;
@@ -340,8 +340,8 @@
 }
 
 .class-likeImg {
-  width: 20px;
-  height: 15px;
+  width: 18px;
+  height: 18px;
   align-items: center;
   justify-content: center;
   margin-right: 5px;
@@ -593,10 +593,8 @@
 
 
 .count-likes{
-  background-color: white;
-  color: #453d9d;
+  color: white;
   padding: 1px 5px;
-  border-radius: 50%;
-  font-size: .7rem;
+  font-size: .9rem;
   margin-left: 10px;
 }
