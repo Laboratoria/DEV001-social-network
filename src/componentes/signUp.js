@@ -1,5 +1,3 @@
-import { register } from '../basededatos/auth';
-
 function signUp() {
   const templateFormulario1 = `
       <div class= "contenedor1">
