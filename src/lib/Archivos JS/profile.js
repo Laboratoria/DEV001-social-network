@@ -13,16 +13,6 @@ export const profile = () => {
   let photo;
   if (user) {
     photo = user.photoURL || './lib/img/avatar-1.png';
-  } else {
-    const avatar = [
-      './lib/img/avatar-1.png',
-      './lib/img/avatar-2.png',
-      './lib/img/avatar-3.png',
-      './lib/img/avatar-4.png',
-      './lib/img/avatar-5.png',
-    ];
-    const selectedAvatar = avatar[Math.floor(Math.random() * avatar.length)];
-    photo = selectedAvatar;
   }
 
   const homeDiv = document.createElement('div');

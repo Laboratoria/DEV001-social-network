@@ -273,12 +273,9 @@ export const landingPage = () => {
       const data = newArr.sort(
         (a, b) => new Date(b[0].creationDate) - new Date(a[0].creationDate),
       );
-
       data.forEach((doc) => {
         // const task = doc.data();
         const date = new Date(doc[0].creationDate);
-        console.log(doc);
-        console.log(user.uid);
         if (doc[0].idUser === user.uid) {
           html += `
           <div class = 'class-estructuraPost2'>
@@ -286,8 +283,8 @@ export const landingPage = () => {
             <h3 class='task-nameUser'>${doc[0].nameUser}</h3>
             <h3 class='task-date'>${date.toLocaleDateString()}</h3>
             <img src='./lib/img/adorno-comentarios.png' alt='img-adorno' class='img-adorno'>
-            <section class= 'class-optionsDiv'>
-              <div class= 'class-like' data-id= '${doc[1].id}'><img class= 'class-likeImg' src = './lib/img/like-icon.png'> Me gusta  <span class= 'count-likes'>${doc[0].likes}</span></div>
+            <section class='class-optionsDiv'>
+              <div class='class-like' data-id= '${doc[1].id}' ><img class= 'class-likeImg' src = ${doc[0].likes.includes(user.uid) ? './lib/img/like-icon.png' : './lib/img/no-like.png'}> 'Me gusta'  <span class= 'count-likes'>${doc[0].likes.length}</span></div>
               <button class= 'class-edit' data-id= '${doc[1].id}'> Editar </>
               <button class= 'class-delete' data-id= '${doc[1].id}'> Eliminar </button>
             </section>
@@ -299,8 +296,8 @@ export const landingPage = () => {
             <h3 class='task-nameUser'>${doc[0].nameUser}</h3>
             <h3 class='task-date'>${date.toLocaleDateString()}</h3>
             <img src='./lib/img/adorno-comentarios.png' alt='img-adorno' class='img-adorno'>
-            <section class= 'class-optionsDiv'>
-              <div class= 'class-like' data-id= '${doc[1].id}'><img class= 'class-likeImg' src = './lib/img/like-icon.png'> Me gusta  ${doc[0].likes}</div>
+            <section class='class-optionsDiv'>
+              <div class='class-like' data-id= '${doc[1].id}'><img class= 'class-likeImg' src = ${doc[0].likes.includes(user.uid) ? './lib/img/like-icon.png' : './lib/img/no-like.png'}> ${'Me gusta'}<span class= 'count-likes'>${doc[0].likes.length}</span></div>
             </section>
             </div>`;
         }
@@ -390,11 +387,18 @@ export const landingPage = () => {
         btn.addEventListener('click', async ({ target: { dataset } }) => {
           const doc = await functionGetTask2(dataset.id);
           const task = doc.data();
-          const newLikes = task.likes + 1;
           id = doc.id;
-          functionUpdateTask(id, {
-            likes: newLikes,
-          });
+          if (!task.likes.includes(user.uid)) {
+            const newLikes = [...task.likes, user.uid];
+            functionUpdateTask(id, {
+              likes: newLikes,
+            });
+          } else {
+            const filterUsers = task.likes.filter((el) => el !== user.uid);
+            functionUpdateTask(id, {
+              likes: filterUsers,
+            });
+          }
         });
       });
     });
@@ -410,7 +414,7 @@ export const landingPage = () => {
     const nameUser = user.displayName;
     const idUser = user.uid;
     const creationDate = Date.now();
-    const likes = 0;
+    const likes = [];
 
     if (!editStatus) {
       functionSaveTask(editdescription, nameUser, idUser, creationDate, likes);
