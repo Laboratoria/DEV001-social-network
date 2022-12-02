@@ -4,6 +4,17 @@ export const Login = (onNavigate) => {
   const textoLogin = document.createElement('h2');
   textoLogin.textContent = 'estamos en login';
 
+  const loginMail = document.createElement('input');
+  loginMail.placeholder = 'ingresa tu correo';
+  loginMail.type = 'email';
+
+  const loginPass = document.createElement('input');
+  loginPass.placeholder = 'ingresa tu contraseña';
+  loginPass.type = 'password';
+
+  const buttonLogin = document.createElement('button');
+  buttonLogin.textContent = 'iniciar sesión';
+
   const buttonHome = document.createElement('button');
   buttonHome.textContent = 'volver al inicio';
 
@@ -11,6 +22,6 @@ export const Login = (onNavigate) => {
     onNavigate('/');
   });
 
-  homeDiv.append(textoLogin, buttonHome);
+  homeDiv.append(textoLogin, loginMail, loginPass, buttonLogin, buttonHome);
   return homeDiv;
 };
