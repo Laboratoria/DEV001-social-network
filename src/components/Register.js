@@ -1,3 +1,6 @@
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../lib/index.js';
+
 export const Register = (onNavigate) => {
   const homeDiv = document.createElement('div');
 
@@ -20,6 +23,23 @@ export const Register = (onNavigate) => {
 
   buttonHome.addEventListener('click', () => {
     onNavigate('/');
+  });
+
+  buttonSend.addEventListener('click', () => {
+    const userMail = registerMail.value;
+    const userPass = registerPass.value;
+    createUserWithEmailAndPassword(auth, userMail, userPass)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log(user);
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // ..
+      });
   });
 
   homeDiv.append(textoRegister, registerMail, registerPass, buttonSend, buttonHome);

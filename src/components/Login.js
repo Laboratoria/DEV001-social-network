@@ -1,3 +1,5 @@
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+
 export const Login = (onNavigate) => {
   const homeDiv = document.createElement('div');
 
@@ -21,6 +23,24 @@ export const Login = (onNavigate) => {
   buttonHome.addEventListener('click', () => {
     onNavigate('/');
   });
+
+  buttonLogin.addEventListener('click', () => {
+    const userMail = loginMail.value;
+    const userPass = loginPass.value;
+    const auth = getAuth();
+    signInWithEmailAndPassword(auth, userMail, userPass)
+      .then((userCredential) => {
+      // Signed in
+        const user = userCredential.user;
+        console.log(user);
+      // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+      });
+  });
+
 
   homeDiv.append(textoLogin, loginMail, loginPass, buttonLogin, buttonHome);
   return homeDiv;
