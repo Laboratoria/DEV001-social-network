@@ -1,4 +1,4 @@
-export const login = () => {
+export const login = (onNavigate) => {
   const templateFormulario = `
     <div class= "container">
     <div class="logo">
@@ -14,12 +14,12 @@ export const login = () => {
   const HomeDiv = document.createElement('div');
   HomeDiv.textContent = 'Bienvenido al Login';
 
-  //HomeDiv.innerHTML = templateFormulario;
+  HomeDiv.innerHTML = templateFormulario;
 
   const buttonHome = document.createElement('button');
-
   buttonHome.textContent = 'Regresar al Home';
-
+  buttonHome.addEventListener('click', () => onNavigate('/'));
+  
   HomeDiv.appendChild(buttonHome);
 
   return HomeDiv;
