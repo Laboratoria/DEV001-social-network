@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+/**------- INICIO CONFIGURACIÓN GENERAL PARA EMPEZAR ------*/
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;/*Para quitar las letras subrayadas*/
+}
+/*------------- Lo utilizo para definir los colores ------*/
+:root{
+    --whiskey: #d19f6f;
+    --wood-bark: #230704;
+    --bull-shot: #834923;
+    --redwood: #56260f;
+    --cape-palliser: #946d47;
+    --fiery-orange: #a44b12;
+    --lunar-green: #39483f;
+    --mine-shaft: #383334;
+    --sand-dune: #856464;
+    --white:#FFFFFF;
+}
+
+/**------- FIN CONFIGURACIÓN GENERAL PARA EMPEZAR ------*/
+
+body {
+    /* background: url(../estilos/imagenes/wallpaper.jpg) no-repeat; */
+    background-color: #230704;
+}

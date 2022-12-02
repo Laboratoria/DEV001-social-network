@@ -6,7 +6,7 @@ const root = document.getElementById('root');
 
 let routes = {};
 
-const onNavigate = (pathname) => {
+export const onNavigate = (pathname) => {
   window.history.pushState(
     {},
     pathname,
@@ -14,13 +14,12 @@ const onNavigate = (pathname) => {
   );
 
   root.removeChild(root.firstChild);
-  root.appendChild(routes[pathname]());
+  root.appendChild(routes[pathname]);
 };
-
 routes = {
-    '/': welcome(onNavigate),
-    '/login': login(onNavigate),
-  };
+  '/': welcome(onNavigate),
+  '/login': login(onNavigate),
+};
 
 const components = () => routes[window.location.pathname];
 

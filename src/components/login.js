@@ -1,4 +1,6 @@
 /* import { onNavigate } from '../main.js'; */
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../lib/firebase';
 
 export const login = (onNavigate) => {
   const hdiv = document.createElement('div');
@@ -12,7 +14,21 @@ export const login = (onNavigate) => {
   btnBack.textContent = 'Back';
   tittle.textContent = 'Welcome!';
   btn.addEventListener('click', () => {
-    onNavigate('/');
+    /*     onNavigate('/'); */
+    const userEmail = inputEmail.value;
+    const userPass = inputPass.value;
+    createUserWithEmailAndPassword(auth, userEmail, userPass)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log(user);
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // ..
+      });
   });
   btnBack.addEventListener('click', () => {
     onNavigate('/');
