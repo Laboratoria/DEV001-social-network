@@ -1,5 +1,5 @@
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../lib/index.js';
+import { createUserWithEmailAndPassword, getAuth, signInWithRedirect } from 'firebase/auth';
+import { auth, provider } from '../lib/index.js';
 
 export const Register = (onNavigate) => {
   const homeDiv = document.createElement('div');
@@ -20,9 +20,16 @@ export const Register = (onNavigate) => {
 
   const buttonHome = document.createElement('button');
   buttonHome.textContent = 'volver al inicio';
-
   buttonHome.addEventListener('click', () => {
     onNavigate('/');
+  });
+
+  const buttonGoogle = document.createElement('button');
+  buttonGoogle.textContent = 'inicia sesion con Google';
+
+  buttonGoogle.addEventListener('click', () => {
+    const authGoogle = getAuth();
+    signInWithRedirect(authGoogle, provider);
   });
 
   buttonSend.addEventListener('click', () => {
@@ -42,6 +49,6 @@ export const Register = (onNavigate) => {
       });
   });
 
-  homeDiv.append(textoRegister, registerMail, registerPass, buttonSend, buttonHome);
+  homeDiv.append(textoRegister, registerMail, registerPass, buttonSend, buttonHome, buttonGoogle);
   return homeDiv;
 };
