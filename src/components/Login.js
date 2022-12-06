@@ -1,5 +1,7 @@
-import { getAuth, signInWithEmailAndPassword, signInWithRedirect } from 'firebase/auth';
-import { provider } from '../lib/index.js';
+import {
+  getAuth, signInWithEmailAndPassword, signInWithPopup, onAuthStateChanged, GoogleAuthProvider,
+} from 'firebase/auth';
+import { provider, auth } from '../lib/index.js';
 
 export const Login = (onNavigate) => {
   const homeDiv = document.createElement('div');
@@ -24,9 +26,14 @@ export const Login = (onNavigate) => {
   const buttonGoogle = document.createElement('button');
   buttonGoogle.textContent = 'inicia sesion con Google';
 
-  buttonGoogle.addEventListener('click', () => {
-    const auth = getAuth();
-    signInWithRedirect(auth, provider);
+  buttonGoogle.addEventListener('click', async () => {
+    const provider = new GoogleAuthProvider();
+    try {
+      const credentials = await signInWithPopup(auth, provider);
+      onNavigate('/wall');
+    } catch (error) {
+      console.log(error);
+    }
   });
 
   buttonHome.addEventListener('click', () => {
@@ -40,8 +47,16 @@ export const Login = (onNavigate) => {
     signInWithEmailAndPassword(auth, userMail, userPass)
       .then((userCredential) => {
       // Signed in
-        const user = userCredential.user;
-        console.log(user);
+        const usuario = userCredential.user;
+        onAuthStateChanged(auth, (usuario) => {
+          if (usuario) {
+            onNavigate('/wall');
+            const uid = usuario.uid;
+          } else {
+            alert('no');
+          }
+        });
+
       // ...
       })
       .catch((error) => {
