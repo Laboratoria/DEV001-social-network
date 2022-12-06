@@ -1,14 +1,15 @@
 /* import { onNavigate } from '../main.js'; */
-import { signInWithEmailAndPassword, getAuth, signInWithRedirect } from 'firebase/auth';
+import { createUserWithEmailAndPassword, getAuth, signInWithRedirect } from 'firebase/auth';
 import { auth, provider } from '../lib/firebase';
 
-export const login = (onNavigate) => {
+export const signin = (onNavigate) => {
   const hdiv = document.createElement('div');
   const title = document.createElement('h2');
+  const userName = document.createElement('input');
   const inputEmail = document.createElement('input');
   const inputPass = document.createElement('input');
-  const btn = document.createElement('button');
-  const btnBack = document.createElement('button');
+  const btnSignIn = document.createElement('button');
+  const btnBack2 = document.createElement('button');
   const btnGoogle = document.createElement('button');
   const logo = document.createElement('img');
 
@@ -19,21 +20,23 @@ export const login = (onNavigate) => {
   inputPass.placeholder = '*******';
   inputPass.type = 'password';
   inputPass.required = 'true';
-  btn.className = 'btnLogin';
-  btnBack.className = 'btnBack';
+  btnSignIn.className = 'btnSingIn';
+  btnBack2.className = 'btnBack2';
   btnGoogle.className = 'btnGoogle';
-  btn.textContent = 'Log in';
-  btnBack.textContent = 'Back';
+  btnSignIn.textContent = 'Log in';
+  btnBack2.textContent = 'Back';
   title.textContent = 'Welcome!';
   title.className = 'title';
   btnGoogle.innerHTML = '<img class="img-google" src="https://icones.pro/wp-content/uploads/2021/02/google-icone-symbole-logo-png-150x150.png" /> Login with Google';
   logo.src = './lib/archivo_css/Imagenes/Logo.png';
+  userName.type = 'text';
+  userName.placeholder = 'Your Name';
 
-  btn.addEventListener('click', async () => {
+  btnSignIn.addEventListener('click', async () => {
     /*     onNavigate('/'); */
     const userEmail = inputEmail.value;
     const userPass = inputPass.value;
-    const result = signInWithEmailAndPassword(auth, userEmail, userPass)
+    const result = createUserWithEmailAndPassword(auth, userEmail, userPass)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
@@ -58,11 +61,11 @@ export const login = (onNavigate) => {
     }
   });
 
-  btnBack.addEventListener('click', () => {
+  btnBack2.addEventListener('click', () => {
     onNavigate('/');
   });
 
-  hdiv.append(title, logo, inputEmail, inputPass, btn, btnBack, btnGoogle);
+  hdiv.append(title, logo, userName, inputEmail, inputPass, btnSignIn, btnBack2, btnGoogle);
 
   return hdiv;
 };
