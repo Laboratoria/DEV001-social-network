@@ -1,4 +1,5 @@
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, signInWithEmailAndPassword, signInWithRedirect } from 'firebase/auth';
+import { provider } from '../lib/index.js';
 
 export const Login = (onNavigate) => {
   const homeDiv = document.createElement('div');
@@ -20,6 +21,14 @@ export const Login = (onNavigate) => {
   const buttonHome = document.createElement('button');
   buttonHome.textContent = 'volver al inicio';
 
+  const buttonGoogle = document.createElement('button');
+  buttonGoogle.textContent = 'inicia sesion con Google';
+
+  buttonGoogle.addEventListener('click', () => {
+    const auth = getAuth();
+    signInWithRedirect(auth, provider);
+  });
+
   buttonHome.addEventListener('click', () => {
     onNavigate('/');
   });
@@ -36,11 +45,18 @@ export const Login = (onNavigate) => {
       // ...
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
+        if (error.code === 'auth/email-already-in-use') {
+          alert('Este correo ya está registrado', 'error');
+        } else if (error.code === 'auth/invalid-email') {
+          alert('El correo que ingresaste es inválido');
+        } else if (error.code === 'auth/weak-password') {
+          alert('Tu clave tiene que tener un mínimo de seis dígitos');
+        } else if (error.code) {
+          alert('Revisa los datos ingresados, algo no está bien');
+        }
       });
   });
 
-  homeDiv.append(textoLogin, loginMail, loginPass, buttonLogin, buttonHome);
+  homeDiv.append(textoLogin, loginMail, loginPass, buttonLogin, buttonHome, buttonGoogle);
   return homeDiv;
 };

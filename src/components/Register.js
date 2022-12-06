@@ -1,5 +1,5 @@
-import { createUserWithEmailAndPassword, getAuth, signInWithRedirect } from 'firebase/auth';
-import { auth, provider } from '../lib/index.js';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../lib/index.js';
 
 export const Register = (onNavigate) => {
   const homeDiv = document.createElement('div');
@@ -24,14 +24,6 @@ export const Register = (onNavigate) => {
     onNavigate('/');
   });
 
-  const buttonGoogle = document.createElement('button');
-  buttonGoogle.textContent = 'inicia sesion con Google';
-
-  buttonGoogle.addEventListener('click', () => {
-    const authGoogle = getAuth();
-    signInWithRedirect(authGoogle, provider);
-  });
-
   buttonSend.addEventListener('click', () => {
     const userMail = registerMail.value;
     const userPass = registerPass.value;
@@ -43,12 +35,18 @@ export const Register = (onNavigate) => {
         // ...
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // ..
+        if (error.code === 'auth/email-already-in-use') {
+          alert('Este correo ya está registrado', 'error');
+        } else if (error.code === 'auth/invalid-email') {
+          alert('El correo que ingresaste es inválido');
+        } else if (error.code === 'auth/weak-password') {
+          alert('Tu clave tiene que tener un mínimo de seis dígitos');
+        } else if (error.code) {
+          alert('Revisa los datos ingresados, algo no está bien');
+        }
       });
   });
 
-  homeDiv.append(textoRegister, registerMail, registerPass, buttonSend, buttonHome, buttonGoogle);
+  homeDiv.append(textoRegister, registerMail, registerPass, buttonSend, buttonHome);
   return homeDiv;
 };
