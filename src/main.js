@@ -1,6 +1,8 @@
 // Este es el punto de entrada de tu aplicacion (aqui va la lógica de lo que se imprime en pantalla)
 import { welcome } from './components/welcome.js';
 import { login } from './components/login.js';
+import { signin } from './components/signin.js';
+import { feed } from './components/feed.js';
 
 const root = document.getElementById('root');
 
@@ -19,6 +21,8 @@ export const onNavigate = (pathname) => {
 routes = {
   '/': welcome(onNavigate),
   '/login': login(onNavigate),
+  '/signin': signin(onNavigate),
+  '/feed': feed(onNavigate),
 };
 
 const components = () => routes[window.location.pathname];
