@@ -1,4 +1,3 @@
-// aquí exportaras las funciones que necesites
 import {
   updateProfile,
   createUserWithEmailAndPassword,
@@ -7,59 +6,45 @@ import {
   signInWithPopup,
   signOut,
 } from 'firebase/auth';
+
 import {
   deleteDoc, doc, getDoc, updateDoc, addDoc, collection, getDocs, onSnapshot,
 } from 'firebase/firestore';
+
 import { auth, db } from './firebase.js';
 
-// Función de createUserWithEmailAndPassword
 export const functionRegister = async (email, password, name, image) => {
-  // console.log(email);
-  // console.log(password);
-  // console.log(name);
   try {
     const userCredentials = await createUserWithEmailAndPassword(
       auth,
       email,
       password,
     );
-    await updateProfile(userCredentials.user, {
-      displayName: name,
-      photoURL: image,
-    });
-    // console.log(userCredentials.user);
-    // console.log(userCredentials.user.displayName = name);
+    if (name && image) {
+      await updateProfile(userCredentials.user, {
+        displayName: name,
+        photoURL: image,
+      });
+    }
     return userCredentials.user;
   } catch (error) {
-    // console.log(error);
-
     if (error.code === 'auth/email-already-in-use') {
-      alert('El correo ya está registrado');
-      return 'error';
+      return 'El correo ya está registrado';
     }
     if (error.code === 'auth/invalid-email') {
-      alert('Debes ingresar un correo válido');
-      return 'error';
+      return 'Debes ingresar un correo válido';
     }
     if (error.code === 'auth/weak-password') {
-      alert('La contraseña debe tener al menos 6 carácteres');
-      return 'error';
+      return 'La contraseña debe tener al menos 6 carácteres';
     }
-    if (error.code) {
-      alert('Algo está mal en tu registro');
-      return 'error';
-    }
-    return 'error';
+    return 'Algo está mal en tu registro';
   }
 };
 
 // Función de signInWithEmailAndPassword
 export const functionLogin = async (email, password) => {
-  // console.log(email);
-  // console.log(password);
   try {
     const credentials = await signInWithEmailAndPassword(auth, email, password);
-    // console.log(credentials.user);
     return credentials.user;
   } catch (error) {
     if (error.code === 'auth/wrong-password') {
@@ -83,10 +68,8 @@ export const functionRegisterGoogle = async () => {
   const provider = new GoogleAuthProvider();
   try {
     const credentials = await signInWithPopup(auth, provider);
-    console.log(credentials.user);
     return credentials.user;
   } catch (error) {
-    // console.log(error);
     return 'error';
   }
 };
@@ -98,7 +81,6 @@ export const functionSaveTask = (editdescription, nameUser, idUser, creationDate
   addDoc(collection(db, 'task'), {
     editdescription, nameUser, idUser, creationDate, likes,
   });
-  // console.log(collection.data());
 };
 
 // Función de getDocs

@@ -1,7 +1,12 @@
+/* eslint-disable import/first */
 /* eslint-disable jest/no-identical-title */
 // importamos la funcion que vamos a testear
 // import { auth } from '../src/lib/Archivos JS/firebase.js';//
 // import { async } from "regenerator-runtime";
+
+jest.mock('firebase/auth');
+// import { createUserWithEmailAndPassword } from 'firebase/auth';
+
 import {
   functionRegister, functionLogin, functionRegisterGoogle, functionGetTask, functionSignOut,
   functionDeleteTask, functionGetTask2, functionUpdateTask,
@@ -23,6 +28,20 @@ describe('myFunctionRegister', () => {
       expect(user.password).toBe('1234ruth');
     },
   ));
+
+  /*  it('Ejecuta createUserWithEmailAndPassword()', () => {
+    const email = 'marianita@gmail.com';
+    const password = '123';
+
+    functionRegister(email, password);
+    expect(createUserWithEmailAndPassword(auth, email, password)).toHaveBeenCalled();
+  }); */
+
+  /* it('debería retornar un error', async () => {
+    functionReagister('valeriamurguia98@gmail.com', 'val').then(() => {
+      expect(user.password).toBe('error');
+    });
+  }); */
 });
 
 // Test a functionLogin
