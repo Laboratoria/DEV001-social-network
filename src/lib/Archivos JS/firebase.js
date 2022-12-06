@@ -34,7 +34,7 @@ export const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
-console.log(getFirestore());
+// console.log(getFirestore());
 
 // export const saveTask = (editdescription, nameUser, idUser, creationDate) => {
 //   addDoc(collection(db, 'task'), {

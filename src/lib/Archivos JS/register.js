@@ -19,9 +19,7 @@ function uploadImage(e) {
     .then((data) => {
       image = data;
     })
-    .catch((error) => {
-      console.error('Error:', error);
-    });
+    .catch((error) => error);
 }
 
 export const register = () => {
@@ -146,8 +144,10 @@ export const register = () => {
     const password = inputPassword.value;
     const photo = image.secure_url;
     const result = await functionRegister(email, password, name, photo);
-    if (result !== 'error') {
+    if (typeof (result) === 'object') {
       onNavigate('/profile');
+    } else {
+      alert(result);
     }
   });
   return homeDiv;
