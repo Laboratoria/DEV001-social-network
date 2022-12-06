@@ -44,7 +44,9 @@ export const onNavigate = (pathname, routesList = routes) => {
     pathname,
     window.location.origin + pathname,
   );
-  rootDiv.replaceChildren(routesList[pathname]());
+  if (rootDiv !== null) {
+    rootDiv.replaceChildren(routesList[pathname]());
+  }
 };
 
 // onpopstate, se dispara realizando una acción en el navegador como volver
@@ -52,17 +54,3 @@ window.onpopstate = () => {
   onNavigate(window.location.pathname);
 };
 window.addEventListener('load', () => onNavigate(window.location.pathname));
-
-/* const component = routes[window.location.pathname](onNavigate);
-
-window.onpopstate = () => {
-  while (rootDiv.firstChild) {
-    rootDiv.removeChild(rootDiv.firstChild);
-  }
-  rootDiv.appendChild(routes[window.location.pathname]());
-}; */
-
-/* if (rootDiv) {
-  rootDiv.appendChild(component);
-}
- */
