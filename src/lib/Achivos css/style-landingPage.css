@@ -47,6 +47,7 @@
 .container-divPost2 {
   position: fixed;
   z-index: 4;
+  padding: 10px;
 }
 
 .container-confirmationDiv {
@@ -534,7 +535,7 @@
 
 .text-content-post-description {
   border: none;
-  width: 100%;
+  width: 95%;
   height: 160px;
   font-family: "Poppins", sans-serif;
   text-align: center;
