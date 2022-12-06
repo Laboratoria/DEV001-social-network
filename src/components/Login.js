@@ -4,10 +4,12 @@ import {
 import { provider, auth } from '../lib/index.js';
 
 export const Login = (onNavigate) => {
-  const homeDiv = document.createElement('div');
+  const loginDiv = document.createElement('div');
+  loginDiv.className = 'contenedor';
 
   const textoLogin = document.createElement('h2');
-  textoLogin.textContent = 'estamos en login';
+  textoLogin.textContent = 'Si ya creaste tu cuenta, o tienes una de Google, puedes ingresar a Semillero';
+  textoLogin.className = 'textoLogin';
 
   const loginMail = document.createElement('input');
   loginMail.placeholder = 'ingresa tu correo';
@@ -72,6 +74,6 @@ export const Login = (onNavigate) => {
       });
   });
 
-  homeDiv.append(textoLogin, loginMail, loginPass, buttonLogin, buttonHome, buttonGoogle);
-  return homeDiv;
+  loginDiv.append(textoLogin, loginMail, loginPass, buttonLogin, buttonHome, buttonGoogle);
+  return loginDiv;
 };

@@ -3,9 +3,10 @@ import { auth } from '../lib/index.js';
 
 export const Register = (onNavigate) => {
   const homeDiv = document.createElement('div');
+  homeDiv.className = 'contenedor';
 
   const textoRegister = document.createElement('h2');
-  textoRegister.textContent = 'estamos en register';
+  textoRegister.textContent = '¡Te damos la bienvenida! crea aquí tu cuenta para comenzar a intercambiar tus semillas';
 
   const registerMail = document.createElement('input');
   registerMail.placeholder = 'ingresa tu correo';

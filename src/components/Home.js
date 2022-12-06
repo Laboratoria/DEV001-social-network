@@ -1,10 +1,12 @@
 export const Home = (onNavigate) => {
   const div = document.createElement('div');
+  div.className = 'contenedor';
+
   const textoAlto = document.createElement('h1');
   textoAlto.textContent = 'Te damos la bienvenida a Semillero';
 
   const textoBajo = document.createElement('h2');
-  textoBajo.textContent = 'aquí pondremos una descripción de la app';
+  textoBajo.textContent = 'Semillero es una red social de intercambio de semillas tradicionales a nivel local.¡Te invitamos a unirte!';
 
   const buttonLogin = document.createElement('button');
   buttonLogin.textContent = 'Inicia Sesión';
@@ -21,6 +23,5 @@ export const Home = (onNavigate) => {
   });
 
   div.append(textoAlto, textoBajo, buttonLogin, buttonRegister);
-
   return div;
 };
