@@ -65,7 +65,21 @@
   }
 
   .container-confirmationDiv {
+    border-style: none;
+    font-family: "Poppins", sans-serif;
+    border-radius: 10px;
+    padding: 23px 30px;
+    background-color: #c34095;
+    font-size: 1rem;
+    color: #fde1ca;
+    font-weight: 600;
+    width: 40%;
+    box-shadow: 1px 1px 1px 1px rgb(255 206 206 / 81%);
+    cursor: pointer;
+    top: 35%;
+    left: 30%;
     position: fixed;
+    z-index: 6;
   }
   .img-adorno{
     width: 12%;
