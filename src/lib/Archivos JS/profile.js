@@ -65,8 +65,7 @@ export const profile = () => {
   p3.className = 'text-subtitle2';
   p4.textContent = user ? user.displayName : 'prueba';
   p4.className = 'text-subtitle3';
-  p5.textContent = `Hola, soy estudiante de Desarrollo Web, 
-  tengo 24 años, disfruto muchos salir y enfrentarme a nuevos retos`;
+  p5.textContent = 'Web Developer';
   p5.className = 'text-subtitle4';
   p6.textContent = user ? user.email : 'prueba@gmail.com';
   p6.className = 'text-subtitle3';

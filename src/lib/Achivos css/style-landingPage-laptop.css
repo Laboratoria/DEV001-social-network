@@ -63,13 +63,17 @@
     width: 750px;
     min-height: 200px;
   }
+
+  .container-confirmationDiv {
+    position: fixed;
+  }
   .img-adorno{
     width: 12%;
   }
   .class-optionsDiv {
     display: flex;
     width: 42%;
-    margin-left: 59%;
+    margin-left: 79%;
   }
   .task-nameUser{
     color: #453d9d;
@@ -107,6 +111,14 @@
     font-size: 0.95rem;
   }
 
+  .class-like2 {
+    width: 22%;
+  }
+
+  .class-optionsDiv2 {
+    margin-left: 60%;
+    width: 40%;
+  }
   /*slider img*/
 
   .containerSlider {
@@ -117,6 +129,7 @@
     gap: 3px;
     width: 750px;
   }
+
 
   .slider-img {
     width: 750px;

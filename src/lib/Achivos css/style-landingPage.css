@@ -49,6 +49,31 @@
   z-index: 4;
 }
 
+.container-confirmationDiv {
+  border-style: none;
+  font-family: "Poppins", sans-serif;
+  border-radius: 10px;
+  padding: 13px 20px;
+  background-color: #c34095;
+  font-size: 1rem;
+  color: #fde1ca;
+  font-weight: 600;
+  width: 60%;
+  box-shadow: 1px 1px 1px 1px rgba(255, 206, 206, 0.805);
+  cursor: pointer;
+  margin-top: 25px;
+  position: fixed;
+  z-index: 4;
+  display: flex;
+  justify-items: center;
+}
+
+.container-confirmationBts {
+  display: flex;
+  justify-content: space-around;
+  margin-left: 20px;
+}
+
 .containerPosts {
   display: flex;
   flex-direction: column;
@@ -301,6 +326,12 @@
 .class-optionsDiv {
   display: flex;
   width: 90%;
+  margin-left: 53%;
+}
+
+.class-optionsDiv2 {
+  display: flex;
+  width: 90%;
   margin-left: 10%;
 }
 
@@ -333,6 +364,23 @@
   padding: 5px;
   cursor: pointer;
 }
+
+.class-like2 {
+  display: flex;
+  background-color: #453d9d;
+  width: 44%;
+  border-radius: 5px;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.6rem;
+  font-weight: 500;
+  text-align: center;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  padding: 9px;
+  cursor: pointer;
+}
+
 
 .class-like:hover {
   transform: scale(0.96);
@@ -436,6 +484,37 @@
   box-shadow: 1px 1px 1px 1px rgba(255, 206, 206, 0.805);
   cursor: pointer;
   margin-top: 25px;
+}
+
+.buttonYes {
+  border-style: none;
+  font-family: "Poppins", sans-serif;
+  border-radius: 10px;
+  padding: 9px 16px;
+  background-color: #fde1ca;
+  font-size: 1rem;
+  color: #5c55ad;
+  font-weight: 600;
+  width: 65px;
+  box-shadow: 1px 1px 1px 1px rgba(255, 206, 206, 0.805);
+  cursor: pointer;
+  margin-top: 55px;
+}
+
+.buttonNo {
+  border-style: none;
+  font-family: "Poppins", sans-serif;
+  border-radius: 10px;
+  padding: 9px 16px;
+  background-color: #fde1ca;
+  font-size: 1rem;
+  color: #5c55ad;
+  font-weight: 600;
+  width: 65px;
+  box-shadow: 1px 1px 1px 1px rgba(255, 206, 206, 0.805);
+  cursor: pointer;
+  margin-top: 25px;
+  margin-top: 55px;
 }
 
 .buttonSeePosts:hover{
@@ -576,6 +655,7 @@
   align-items: center;
   gap: 5px;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .slider{
