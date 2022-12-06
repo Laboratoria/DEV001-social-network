@@ -283,7 +283,7 @@ export const landingPage = () => {
             <h3 class='task-nameUser'>${doc[0].nameUser}</h3>
             <h3 class='task-date'>${date.toLocaleDateString()}</h3>
             <img src='./lib/img/adorno-comentarios.png' alt='img-adorno' class='img-adorno'>
-            <section class='class-optionsDiv'>
+            <section class='class-optionsDiv2'>
               <div class='class-like' data-id= '${doc[1].id}' ><img class= 'class-likeImg' src = ${doc[0].likes.includes(user.uid) ? './lib/img/like-icon.png' : './lib/img/no-like.png'}> 'Me gusta'  <span class= 'count-likes'>${doc[0].likes.length}</span></div>
               <button class= 'class-edit' data-id= '${doc[1].id}'> Editar </>
               <button class= 'class-delete' data-id= '${doc[1].id}'> Eliminar </button>

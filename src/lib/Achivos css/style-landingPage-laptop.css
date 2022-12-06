@@ -73,7 +73,7 @@
   .class-optionsDiv {
     display: flex;
     width: 42%;
-    margin-left: 59%;
+    margin-left: 79%;
   }
   .task-nameUser{
     color: #453d9d;
@@ -116,7 +116,8 @@
   }
 
   .class-optionsDiv2 {
-    margin-left: 83%;
+    margin-left: 60%;
+    width: 40%;
   }
   /*slider img*/
 

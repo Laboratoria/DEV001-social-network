@@ -29,8 +29,9 @@ export const home = () => {
   imgTop.src = './lib/img/collage-1.png';
   imgTop.className = 'img-top';
   imgBottom.src = './lib/img/collage-5.png';
-  imgBottom.className = 'img-bottom';
-  description.textContent = '24/7 es una APP diseñada con el objetivo de crear un espacio de interacción para mujeres.';
+  imgBottom.className = 'img-bottom-2';
+  description.textContent = '"24/7 es una red social para todas las mujeres en Latinoamérica. Una herramienta en donde pueden '
+  + 'encontrar recursos sobre seguridad, apoyo emocional y salud sexual. Una red de apoyo que está para nosotras 24/7"';
   description.className = 'text-description';
 
   buttonRegister.addEventListener('click', () => onNavigate('/register'));

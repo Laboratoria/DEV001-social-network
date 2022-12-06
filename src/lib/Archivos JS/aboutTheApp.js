@@ -16,23 +16,28 @@ export const aboutTheApp = () => {
   const menuDisplayed = document.createElement('div');
   const imgBackground = document.createElement('img');
   const containerLanding = document.createElement('div');
+  const container1 = document.createElement('div');
   const containerElements = document.createElement('section');
   const imgLogo = document.createElement('img');
   const description = document.createElement('p');
   const description2 = document.createElement('p');
   const containerImg = document.createElement('section');
   const imgwelcome = document.createElement('img');
+  const container2 = document.createElement('div');
   const containerElements2 = document.createElement('section');
   const description3 = document.createElement('p');
   const description4 = document.createElement('p');
   const containerImg2 = document.createElement('section');
   const imgwelcome2 = document.createElement('img');
+  const container3 = document.createElement('div');
   const containerElements3 = document.createElement('section');
   const description5 = document.createElement('p');
   const description6 = document.createElement('p');
+  const containerImg3 = document.createElement('section');
+  const imgwelcome3 = document.createElement('img');
 
   // Asignación de clases
-  aboutContent.className = 'containerLandingaPage';
+  aboutContent.className = 'containerAboutThePage';
   containerHeader.className = 'containerHeader';
   avatarIcon.referrerPolicy = 'no-referrer';
   avatarIcon.src = user ? user.photoURL : './lib/img/avatar-1.png';
@@ -45,7 +50,8 @@ export const aboutTheApp = () => {
   menuDisplayed.id = 'menu-desplegable-id';
   imgBackground.src = './lib/img/img-flw.png';
   imgBackground.className = 'img-background';
-  containerLanding.className = 'container-landing';
+  containerLanding.className = 'container-landing2';
+  container1.className = 'container-landing3';
   containerElements.className = 'container-home';
   imgLogo.src = './lib/img/logo-24-7.png';
   imgLogo.className = 'logo-24-7-2';
@@ -57,7 +63,8 @@ export const aboutTheApp = () => {
   description2.className = 'text-description';
   containerImg.className = 'container-imgWomen';
   imgwelcome.src = './lib/img/img-aboutTheApp2.png';
-  imgwelcome.className = 'img-welcome2';
+  imgwelcome.className = 'img-welcome3';
+  container2.className = 'container-landing3';
   containerElements2.className = 'container-home';
   description3.textContent = '¿Qué puedes hacer en 24/7?';
   description3.className = 'title-register';
@@ -72,8 +79,9 @@ export const aboutTheApp = () => {
   description4.className = 'text-description';
   containerImg2.className = 'container-imgWomen';
   imgwelcome2.src = './lib/img/img-aboutTheApp.png';
-  imgwelcome2.className = 'img-welcome2';
+  imgwelcome2.className = 'img-welcome4';
 
+  container3.className = 'container-landing3';
   containerElements3.className = 'container-home';
   description5.textContent = 'Reglas de 24/7';
   description5.className = 'title-register';
@@ -91,6 +99,9 @@ export const aboutTheApp = () => {
   <p> 5. Los videos y/o links sin contexto no están permitidos. </p>
   `;
   description6.className = 'text-description';
+  containerImg3.className = 'container-imgWomen';
+  imgwelcome3.src = './lib/img/img-aboutTheApp3.png';
+  imgwelcome3.className = 'img-welcome5';
 
   // Añadiendo hijos
   aboutContent.appendChild(containerHeader);
@@ -100,20 +111,27 @@ export const aboutTheApp = () => {
   aboutContent.appendChild(menuDisplayed);
   aboutContent.appendChild(imgBackground);
   aboutContent.appendChild(containerLanding);
-  containerLanding.appendChild(containerElements);
+  containerLanding.appendChild(container1);
+  containerLanding.appendChild(container2);
+  containerLanding.appendChild(container3);
+  container1.appendChild(containerElements);
   containerElements.appendChild(imgLogo);
   containerElements.appendChild(description);
   containerElements.appendChild(description2);
-  containerLanding.appendChild(containerImg);
+  container1.appendChild(containerImg);
   containerImg.appendChild(imgwelcome);
-  containerLanding.appendChild(containerElements2);
+  containerLanding.appendChild(container2);
+  container2.appendChild(containerElements2);
   containerElements2.appendChild(description3);
   containerElements2.appendChild(description4);
-  containerLanding.appendChild(containerImg2);
+  container2.appendChild(containerImg2);
   containerImg2.appendChild(imgwelcome2);
-  containerLanding.appendChild(containerElements3);
+  containerLanding.appendChild(container3);
+  container3.appendChild(containerElements3);
   containerElements3.appendChild(description5);
   containerElements3.appendChild(description6);
+  container3.appendChild(containerImg3);
+  containerImg3.appendChild(imgwelcome3);
 
   // Menú hambuguesa
   iconMenu.addEventListener('click', () => {
