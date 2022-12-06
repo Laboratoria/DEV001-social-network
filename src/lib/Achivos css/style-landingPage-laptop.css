@@ -1,0 +1,126 @@
+@media screen and (min-width: 900px) {
+  .containerLandingPage {
+    width: 98%;
+    gap: 25px;
+  }
+
+  .container-divPost2 {
+    position: fixed;
+    z-index: 4;
+    top: 250px;
+  }
+
+  .containerHeader {
+    width: 100%;
+    padding: 20px 15px 15px 15px;
+  }
+
+  .avatarIcon-class {
+    width: 42px;
+    height: 42px;
+    object-fit: cover;
+    margin-left: 10px;
+    top: 18px;
+  }
+  .class-greeting {
+    margin-left: 65px;
+    margin-top: 13px;
+    font-size: 0.9rem;
+  }
+  .icon-menu {
+    width: 3%;
+  }
+
+  .btnSlider2, .btnSlider1 {
+    width: 40px;
+    height: 40px;
+  }
+  .btnSlider2{
+    margin-left: 15px;
+  }
+  .btnSlider1{
+    margin-right: 15px;
+  }
+  
+  .containerCategories {
+    width: 55%;
+  }
+  .class-categories {
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .class-categories-icons {
+    width: 33%;
+  }
+  .class-postDiv {
+    width: 750px;
+    height: 300px;
+  }
+  .class-estructuraPost2 {
+    width: 750px;
+    min-height: 200px;
+  }
+  .img-adorno{
+    width: 12%;
+  }
+  .class-optionsDiv {
+    display: flex;
+    width: 42%;
+    margin-left: 59%;
+  }
+  .task-nameUser{
+    color: #453d9d;
+    font-size: 1rem;
+    position: absolute;
+    right: 20px;
+    bottom: 38%;
+  }
+  .task-date {
+    bottom: 28%;
+  }
+  .button-post{
+    width: 40%;
+  }
+  .menu-nav {
+    background-color: hsl(245, 35%, 51%);
+    width: 18%;
+    top: 80px;
+    right: 3px;
+  }
+  .option {
+    font-size: 0.9rem;
+  }
+  .close-button {
+    width: 17%;
+  }
+  .option:hover{
+    font-size: 1rem;
+    color: #1f1a60;
+  }
+  .img-background{
+    width: 30%;
+  }
+  .text-categories {
+    font-size: 0.95rem;
+  }
+
+  /*slider img*/
+
+  .containerSlider {
+    gap: 15px;
+  }
+
+  .imgSlider {
+    gap: 3px;
+    width: 750px;
+  }
+
+  .slider-img {
+    width: 750px;
+    gap: 5px;
+  }
+
+}

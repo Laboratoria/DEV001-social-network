@@ -1,0 +1,281 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container-img {
+  display: none;
+}
+
+.container-im-and-register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 17px;
+}
+
+.title-register {
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  font-size: 1.9rem;
+  color: #ffffff;
+  font-weight: 600;
+  margin-top: -20px;
+}
+
+.text-subtitle {
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #453d9d;
+  font-weight: 600;
+}
+
+.img-bottom-2 {
+  position: absolute;
+  width: 70%;
+  bottom: 0px;
+  left: 0px;
+}
+
+.img-top-2 {
+  position: absolute;
+  width: 100%;
+  top: 0px;
+  right: 0px;
+}
+
+.img-title {
+  width: 30%;
+  top: 0px;
+  right: 0px;
+}
+
+.container-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  color: #fff;
+  width: 80%;
+  z-index: 2;
+}
+
+.icon-img-flower {
+  width: 9%;
+}
+
+.link-login {
+  margin-top: 8px;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.1rem;
+}
+
+.input-register {
+  border-style: none;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  border-radius: 10px;
+  padding: 10px 10px;
+  font-size: 1rem;
+  color: #434343;
+  font-weight: 500;
+  width: 100%;
+  box-shadow: 1px 1px 1px 1px rgba(255, 206, 206, 0.805);
+}
+
+.button-google{
+  border-style: none;
+  font-family: "Poppins", sans-serif;
+  border-radius: 10px;
+  padding: 13px 20px;
+  background-color: #ffffff;
+  font-size: 1rem;
+  color: #414141;
+  font-weight: 500;
+  width: 100%;
+  box-shadow: 1px 1px 1px 1px rgba(142, 142, 142, 0.805);
+  position: relative;
+  padding-right: 15px;
+  cursor: pointer;
+}
+
+.img-google{
+  position: absolute;
+  top: 9px;
+  left: 20px;
+  width: 10%;
+}
+
+
+input[type=file]{
+  width: 100%;
+  cursor: pointer;
+}
+
+input[type=file]::file-selector-button {
+  margin-right: 20px;
+  border: none;
+  background: #453d9d;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  transition: background .2s ease-in-out;
+}
+
+input[type=file]::file-selector-button:hover {
+  background: #534ab7;
+}
+
+.drop-container {
+  font-family: 'Poppins', sans-serif;
+  width: 100%;
+  position: relative;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 120px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px dashed rgba(250,250,250,.2);
+  color: #fff;
+  cursor: pointer;
+  transition: background .2s ease-in-out, border .2s ease-in-out;
+}
+
+.drop-container:hover {
+  background: rgba(250,250,250,.5);
+
+}
+
+.drop-container:hover .drop-title {
+  color: #534ab7;
+}
+
+.drop-title {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  text-align: center;
+  transition: color .2s ease-in-out;
+}
+
+@media screen and (min-width: 900px) {
+  input[type=file]{
+    width: auto;
+  }
+  .container-im-and-register {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+  }
+
+  .container-register {
+    width: 70%;
+    gap: 10px;
+  }
+
+  .container-img {
+    display: flex;
+    justify-content: right;
+    width: 40%;
+    animation-name: women;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes women {
+    0% {
+      transform: scale(1);
+    }
+
+    50% {
+      transform: scale(1.1);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  .img-welcome {
+    width: 90%;
+    margin-right: -40px;
+  }
+
+  .title-register {
+    font-size: 1.5rem;
+    margin-top: -20px;
+  }
+
+  .text-subtitle {
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  .img-bottom-2 {
+    width: 20%;
+    bottom: 0;
+    left: 0px;
+  }
+
+  .img-top-2 {
+    transform: rotateY(180deg);
+    width: 30%;
+    top: -5px;
+    right: 0px;
+  }
+
+  .img-title {
+    width: 15%;
+    top: 0px;
+    right: 0px;
+  }
+
+  .container-div {
+    width: 55%;
+    z-index: 2;
+  }
+
+  .icon-img-flower {
+    width: 7%;
+  }
+
+  .link-login {
+    font-size: 0.9rem;
+  }
+
+  .input-register {
+    border-radius: 10px;
+    padding: 10px 10px;
+    font-size: 0.9rem;
+    color: #434343;
+    font-weight: 500;
+    width: 100%;
+  }
+  .buttonLogin {
+    padding: 13px 20px;
+  }
+  .img-google{
+    position: absolute;
+    top: 6px;
+    left: 40px;
+    width: 8%;
+  }
+}
