@@ -77,9 +77,10 @@ export const functionRegisterGoogle = async () => {
 // Recordatorio -> testear qué regresa signInWithPopup
 
 // Función de addDoc
-export const functionSaveTask = (editdescription, nameUser, idUser, creationDate, likes) => {
+// eslint-disable-next-line max-len
+export const functionSaveTask = (editdescription, nameUser, idUser, creationDate, likes, category) => {
   addDoc(collection(db, 'task'), {
-    editdescription, nameUser, idUser, creationDate, likes,
+    editdescription, nameUser, idUser, creationDate, likes, category,
   });
 };
 

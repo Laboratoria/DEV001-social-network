@@ -589,13 +589,36 @@
   cursor: pointer;
 }
 
-.subtitle-post{
+.subtitle-post,
+.title-categoría{
   font-size: 1.1rem;
   font-family: "Poppins", sans-serif;
   font-weight: 700;
   color: #5c55ad;
   text-align: center;
   padding-top: 15px;
+}
+
+.title-categoría{
+  padding-top: 0px;
+}
+
+.content-select{
+  width: 95%;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  font-weight: 500px;
+
+  border: none;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  color: #393939;
+  box-shadow: 2px 2px 2px 2px rgb(233 122 199 / 84%);
+  cursor: pointer;
 }
 
 .button-See-Posts{

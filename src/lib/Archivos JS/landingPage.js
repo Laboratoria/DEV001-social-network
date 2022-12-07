@@ -60,6 +60,8 @@ export const landingPage = () => {
   const showConfirmationDiv = document.createElement('div');
   const editDescription = document.createElement('textarea');
   const saveChanges = document.createElement('button');
+  const titleSelect = document.createElement('h3');
+  const containerSelect = document.createElement('select');
 
   editDescription.rows = '3';
   editDescription.placeholder = 'Quiero compartir con ustedes...';
@@ -74,8 +76,19 @@ export const landingPage = () => {
   titlePost.className = 'subtitle-post';
   imgBackground.src = './lib/img/img-flw.png';
   imgBackground.className = 'img-background';
+  titleSelect.textContent = 'Selecciona una categoría:';
+  titleSelect.className = 'title-categoría';
+  containerSelect.className = 'content-select';
+  containerSelect.id = 'content-select';
+  containerSelect.name = 'categorias';
+  containerSelect.innerHTML = `
+  <option value="social" class="option-select">Social</option>
+  <option value="emocional" class="option-select">Emocional</option>
+  <option value="salud" class="option-select">Salud</option>`;
 
   homeDiv3.appendChild(editDescription);
+  homeDiv3.appendChild(titleSelect);
+  homeDiv3.appendChild(containerSelect);
   homeDiv3.appendChild(saveChanges);
   postDiv.appendChild(titlePost);
   postDiv.appendChild(homeDiv3);
@@ -258,7 +271,7 @@ export const landingPage = () => {
   btnshowPost.classList.remove('button-See-Posts');
   btnshowPost.addEventListener('click', async () => {
     functionOnGetTask((querySnapshot) => {
-      console.log('querySnapshot', querySnapshot);
+      // console.log('querySnapshot', querySnapshot);
       let html = '';
       btnshowPost.classList.remove('buttonSeePosts');
       btnshowPost.classList.add('button-See-Posts');
@@ -273,6 +286,7 @@ export const landingPage = () => {
       const data = newArr.sort(
         (a, b) => new Date(b[0].creationDate) - new Date(a[0].creationDate),
       );
+
       data.forEach((doc) => {
         // const task = doc.data();
         const date = new Date(doc[0].creationDate);
@@ -307,14 +321,14 @@ export const landingPage = () => {
 
       data.forEach((doc) => {
         // const task = doc.data();
-        console.log(doc);
-        console.log(user.uid);
+        // console.log(doc);
+        // console.log(user.uid);
         if (doc[0].idUser === user.uid) {
           // Boton para confirmar eliminación de cometarios del usuario.
           const btnsDeleteConfirmation = showPostDiv.querySelectorAll('.class-delete');
           btnsDeleteConfirmation.forEach((btn) => {
             btn.addEventListener('click', () => {
-              console.log('¿Borrar posts?');
+              // console.log('¿Borrar posts?');
               showConfirmationDiv.classList.remove('container-divPost');
               showConfirmationDiv.classList.add('container-confirmationDiv');
               showConfirmationDiv.innerHTML = `
@@ -346,19 +360,9 @@ export const landingPage = () => {
       const btnsDelete = showConfirmationDiv.querySelectorAll('.buttonYes');
       btnsDelete.forEach((btn) => {
         btn.addEventListener('click', ({ target: { dataset } }) => {
-          // console.log(dataset.id);
           functionDeleteTask(dataset.id);
         });
       });
-
-      // Bóton para borrar comentarios del usuario (hecho por Silvia) -----------------
-      // const btnsDelete = showPostDiv.querySelectorAll('.class-delete');
-      // btnsDelete.forEach((btn) => {
-      //   btn.addEventListener('click', ({ target: { dataset } }) => {
-      //     // console.log(dataset.id);
-      //     functionDeleteTask(dataset.id);
-      //   });
-      // });
 
       // Boton para editar comentarios del usuario.
       const btnsEdit = showPostDiv.querySelectorAll('.class-edit');
@@ -404,6 +408,30 @@ export const landingPage = () => {
     });
   });
 
+  // función para obtener los valores de las opciones del selector.
+
+  const selectCategory = containerSelect;
+  let valueOption = '';
+
+  selectCategory.addEventListener('change', () => {
+    // eslint-disable-next-line default-case
+    switch (selectCategory.value) {
+      case 'social':
+        valueOption = 'social';
+        // document.querySelector('#modal2').style.display = 'flex';
+        break;
+      case 'emocional':
+        valueOption = 'emocional';
+        // document.querySelector('#modal2').style.display = 'flex';
+        break;
+      case 'salud':
+        valueOption = 'salud';
+        // document.querySelector('#modal2').style.display = 'flex';
+        break;
+    }
+    // console.log(valueOption);
+  });
+
   // Boton para enviar cambios al formulario - cometarios del usuario.
   homeDiv3.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -415,9 +443,16 @@ export const landingPage = () => {
     const idUser = user.uid;
     const creationDate = Date.now();
     const likes = [];
+    let category;
+
+    if (valueOption === '') {
+      category = 'social';
+    } else {
+      category = valueOption;
+    }
 
     if (!editStatus) {
-      functionSaveTask(editdescription, nameUser, idUser, creationDate, likes);
+      functionSaveTask(editdescription, nameUser, idUser, creationDate, likes, category);
     } else {
       // función modificar firebase para edición de post
       functionUpdateTask(id, {
@@ -429,6 +464,22 @@ export const landingPage = () => {
       editStatus = false;
     }
     homeDiv3.reset();
+  });
+
+  // función para llamar a las categorias
+
+  // Redirección al click en el slider1
+  saludDiv.addEventListener('click', () => {
+    localStorage.setItem('category', JSON.stringify('salud'));
+    onNavigate('/categoryPost');
+  });
+  socialDiv.addEventListener('click', () => {
+    localStorage.setItem('category', JSON.stringify('social'));
+    onNavigate('/categoryPost');
+  });
+  emocionalDiv.addEventListener('click', () => {
+    localStorage.setItem('category', JSON.stringify('emocional'));
+    onNavigate('/categoryPost');
   });
 
   avatarIcon.addEventListener('click', () => onNavigate('/profile'));
