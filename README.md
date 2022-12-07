@@ -67,15 +67,14 @@ Ejemplo: “Yo como usuario [visitante del sitio] quiero poder VER todos lxs pos
 
 "Vista mobile: historia de usuario 1"
 
-[![prototipo-hu2.png](https://i.postimg.cc/pVhB31NV/prototipo-hu2.png)](https://postimg.cc/9z2T7bFs)
+[![imagen-mobile2.png](https://i.postimg.cc/zGMDMk4y/imagen-mobile2.png)](https://postimg.cc/ts3HnFqb)
 
 "Vista mobile: historia de usuario 2"
 
-[![prototipo-hu3.png](https://i.postimg.cc/5yBQbzqg/prototipo-hu3.png)](https://postimg.cc/Zvq5LCQv)
-
+[![imagen-mobile3.png](https://i.postimg.cc/wvzz842j/imagen-mobile3.png)](https://postimg.cc/v10k5zCJ)
 
 "Vista mobile: historia de usuario 3"
 
-[![prototipo-mobile1.png](https://i.postimg.cc/sgkBQK6m/prototipo-mobile1.png)](https://postimg.cc/pmBV3Qt5)
+[![imagen-mobile4.png](https://i.postimg.cc/HsRf1Ps1/imagen-mobile4.png)](https://postimg.cc/9rPxGb7L)
 
 ***
