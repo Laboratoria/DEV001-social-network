@@ -8,6 +8,8 @@
 * [4. Investigación UX: Cómo el producto soluciona los problemas/necesidades de dichos usuarios](#4-investigación-ux-cómo-el-producto-soluciona-los-problemasnecesidades-de-dichos-usuarios)
 * [5. Historias de usuarios](#5-historias-de-usuarios)
 * [6. Imagen del prototipo final](#6-imagen-del-prototipo-final)
+* [7. Imagen final del proyecto: vista mobile](#7-imagen-final-del-proyecto-vista-mobile)
+
 
 ***
 
@@ -59,32 +61,21 @@ Ejemplo: “Yo como usuario [visitante del sitio] quiero poder VER todos lxs pos
 [![imagen-prototipo2.png](https://i.postimg.cc/BQgSC3qQ/imagen-prototipo2.png)](https://postimg.cc/KR1hZdkd)
 
 
+## 6. Imagen final del proyecto: vista mobile
 
-"Prototipo PC digital: historia de usuario 1"
+[![imagen-mobile.png](https://i.postimg.cc/PqzbKNFF/imagen-mobile.png)](https://postimg.cc/DW0bwfhq)
+
+"Vista mobile: historia de usuario 1"
 
 [![prototipo-hu2.png](https://i.postimg.cc/pVhB31NV/prototipo-hu2.png)](https://postimg.cc/9z2T7bFs)
 
-"Prototipo PC digital: historia de usuario 2"
+"Vista mobile: historia de usuario 2"
 
 [![prototipo-hu3.png](https://i.postimg.cc/5yBQbzqg/prototipo-hu3.png)](https://postimg.cc/Zvq5LCQv)
 
 
-"Prototipo PC digital: historia de usuario 3"
+"Vista mobile: historia de usuario 3"
 
 [![prototipo-mobile1.png](https://i.postimg.cc/sgkBQK6m/prototipo-mobile1.png)](https://postimg.cc/pmBV3Qt5)
-
-
-"Prototipo MOBILE digital: historia de usuario 1"
-
-[![prototipo-mobile2.png](https://i.postimg.cc/d11Kqc2x/prototipo-mobile2.png)](https://postimg.cc/sBtLc80Y)
-
-"Prototipo MOBILE digital: historia de usuario 2"
-
-[![prototipo-mobile3.png](https://i.postimg.cc/XJp7sCzq/prototipo-mobile3.png)](https://postimg.cc/47RgdmZR)
-
-
-"Prototipo MOBILE digital: historia de usuario 3"
-
-
 
 ***
