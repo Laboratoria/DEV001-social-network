@@ -21,13 +21,15 @@
 
 "Historia de usuario 1"
 
-[![imagen-final2.png](https://i.postimg.cc/7LFpyrWD/imagen-final2.png)](https://postimg.cc/gwKMvQpB)
+[![imagen-final2.png](https://i.postimg.cc/1tCXMZ0q/imagen-final2.png)](https://postimg.cc/mz9T2J5L)
 
 "Historia de usuario 2"
 
-[![imagen-final3.png](https://i.postimg.cc/BZMMTGB6/imagen-final3.png)](https://postimg.cc/QVKQDwPG)
+[![imagen-final3.png](https://i.postimg.cc/KcCBynLg/imagen-final3.png)](https://postimg.cc/4nbm6HWJ)
 
 "Historia de usuario 3"
+
+[![imagen-final4.png](https://i.postimg.cc/9MR0xnLg/imagen-final4.png)](https://postimg.cc/9R2c0J5y)
 
 
 ## 3. Investigación UX: Quiénes son los usuarios y los objetivos en relación con el producto
@@ -52,7 +54,10 @@ Ejemplo: “Yo como usuario [visitante del sitio] quiero poder VER todos lxs pos
 
 ## 6. Imagen del prototipo final
 
-[![imagen-final.png](https://i.postimg.cc/zfwq21Nf/imagen-final.png)](https://postimg.cc/5H0cjT6c)
+[![imagen-prototipo.png](https://i.postimg.cc/jSMjRb9k/imagen-prototipo.png)](https://postimg.cc/cv8WcVdQ)
+
+[![imagen-prototipo2.png](https://i.postimg.cc/BQgSC3qQ/imagen-prototipo2.png)](https://postimg.cc/KR1hZdkd)
+
 
 
 "Prototipo PC digital: historia de usuario 1"
