@@ -5,7 +5,7 @@
 // import { async } from "regenerator-runtime";
 
 jest.mock('firebase/auth');
-// import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 import {
   functionRegister, functionLogin, functionRegisterGoogle, functionGetTask, functionSignOut,
@@ -37,11 +37,18 @@ describe('myFunctionRegister', () => {
     expect(createUserWithEmailAndPassword(auth, email, password)).toHaveBeenCalled();
   }); */
 
-  /* it('debería retornar un error', async () => {
-    functionReagister('valeriamurguia98@gmail.com', 'val').then(() => {
-      expect(user.password).toBe('error');
+  it('debería retornar el string "La contraseña debe tener al menos 6 carácteres"', () => {
+    const prueba = createUserWithEmailAndPassword();
+    functionRegister('valeriamurguia98@gmail.com', 'val').then(() => {
+      expect(prueba.message).toBe('La contraseña debe tener al menos 6 carácteres');
     });
-  }); */
+  });
+  // it('tests error with async/await and rejects', async () => {
+  //   functionRegister('valeriamurguia98@gmail.com', 'val').then((user) =>
+  // expect.assertions(user.message).toBe({
+  //     error: 'La contraseña debe tener al menos 6 carácteres',
+  //   }));
+  // });
 });
 
 // Test a functionLogin
