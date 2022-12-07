@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+.container-landing-post {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    margin-top: 95px;
+}
+
+.class-estructuraPost-salud {
+    display: flex;
+    width: 80%;
+    height: auto;
+    min-height: 340px;
+    flex-direction: column;
+    align-items: center;
+    background-color: aliceblue;
+    border-radius: 10px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    text-align: left;
+    font-size: 0.8rem;
+    color: rgb(104, 102, 102);
+    margin: 15px;
+    padding: 18px;
+    box-shadow: 4px 4px 4px #453d9d;
+    justify-content: space-between;
+    position: relative;
+}
+.info-user{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(21,21,21,.1);
+}
+
+.task-nameUser-social {
+    color: #453d9d;
+    font-size: 1rem;
+}
+
+.category{
+    text-transform: capitalize;
+}
+.post {
+    flex-basis: 90%;
+    overflow-wrap: break-word;
+    width: 100%;
+}
+
+.task-date-social {
+}
+
+.img-category {
+    width: 120px;
+}
+
+@media screen and (min-width: 900px) {
+    .class-estructuraPost-salud {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 750px;
+        min-height: 200px;
+        gap: 30px;
+    }
+
+    .img-category {
+        display: flex;
+
+    }
+}

@@ -14,6 +14,8 @@ import { editProfile } from './lib/Archivos JS/editProfile.js';
 import { contact } from './lib/Archivos JS/contact.js';
 // eslint-disable-next-line import/no-cycle
 import { aboutTheApp } from './lib/Archivos JS/aboutTheApp.js';
+// eslint-disable-next-line import/no-cycle
+import { categoryPost } from './lib/Archivos JS/categoryPost.js';
 
 // const rootDiv = document.getElementById('root');
 
@@ -34,6 +36,7 @@ const routes = {
   '/landingPage': landingPage,
   '/contact': contact,
   '/aboutTheApp': aboutTheApp,
+  '/categoryPost': categoryPost,
 };
 
 // función para anexar un registro al historial del navegador (.pushState)

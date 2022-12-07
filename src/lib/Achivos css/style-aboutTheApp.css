@@ -1,94 +1,99 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
 
 .container-imgWomen {
-    display: flex;
-    justify-content: center;
-    width: 70%;
-    animation-name: women;
-    animation-duration: 8s;
-    animation-iteration-count: infinite;
-    margin-top: 50px;
-    margin-bottom: 145px;
+  display: flex;
+  justify-content: center;
+  width: 70%;
+  animation-name: women;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+  margin-top: 50px;
+  margin-bottom: 145px;
 }
 
 @keyframes women {
-    0% {
-        transform: scale(1);
-    }
+  0% {
+    transform: scale(1);
+  }
 
-    50% {
-        transform: scale(1.1);
-    }
+  50% {
+    transform: scale(1.1);
+  }
 
-    100% {
-        transform: scale(1);
-    }
+  100% {
+    transform: scale(1);
+  }
 }
 
-.img-welcome3 {
-    width: 100%;
+.img-welcome3,
+.img-welcome4,
+.img-welcome5{
+  width: 100%;
+}
+
+.logo-24-7-2 {
+  width: 30%;
+  margin-top: 150px;
+}
+
+.containerAboutThePage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  /* width: 90%; */
+  gap: 20px;
+}
+
+.container-landing2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+}
+
+.container-landing3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+}
+
+
+@media screen and (min-width: 900px) {
+  .container-imgWomen {
+    display: flex;
+    justify-content: center;
+    width: 28%;
+    animation-name: women;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+    margin-top: 240px;
+    margin-left: 100px;
+  }
+
+
+  .container-landing3 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: -50px;
   }
 
   .logo-24-7-2 {
-    width: 30%;
+    width: 15%;
     margin-top: 150px;
   }
 
-  .containerAboutThePage {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: auto;
-    width: 90%;
-    gap: 20px;
+  .img-welcome4 {
+    width: 100%;
+    margin-top: -115px;
   }
 
-  .container-landing2 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  .img-welcome5 {
+    width: 100%;
+    margin-top: -115px;
   }
-  .container-landing3 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
 
-@media screen and (min-width: 900px) {
-    .container-imgWomen {
-        display: flex;
-        justify-content: center;
-        width: 28%;
-        animation-name: women;
-        animation-duration: 8s;
-        animation-iteration-count: infinite;
-        margin-top: 240px;
-        margin-left: 100px;
-    } 
-    
-
-    .container-landing3 {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        margin-top: -50px;
-      }
-
-      .logo-24-7-2 {
-        width: 15%;
-        margin-top: 150px;
-      }
-
-      .img-welcome4 {
-        width: 100%;
-        margin-top: -115px;
-      }
-
-      .img-welcome5 {
-        width: 100%;
-        margin-top: -115px;
-      }
-      
-} 
+}
