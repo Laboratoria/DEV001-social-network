@@ -1,4 +1,4 @@
-# Data Lovers
+# Social Network
 
 ## Índice
 
@@ -17,7 +17,7 @@
 
 
 ## 2. Imagen final del proyecto
-[![imagen-final.png](https://i.postimg.cc/dVv3wgg2/imagen-final.png)](https://postimg.cc/MvPqY36H)
+[![imagen-final.png](https://i.postimg.cc/zfwq21Nf/imagen-final.png)](https://postimg.cc/5H0cjT6c)
 
 "Historia de usuario 1"
 
