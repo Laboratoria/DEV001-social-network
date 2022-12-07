@@ -17,7 +17,7 @@
 
 
 ## 2. Imagen final del proyecto
-[![imagen-final.png](https://i.postimg.cc/zfwq21Nf/imagen-final.png)](https://postimg.cc/5H0cjT6c)
+[![imagen-final.png](https://i.postimg.cc/2jG7RqGQ/imagen-final.png)](https://postimg.cc/py9FKLgr)
 
 "Historia de usuario 1"
 
