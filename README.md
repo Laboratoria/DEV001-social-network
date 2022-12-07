@@ -63,8 +63,6 @@ Ejemplo: “Yo como usuario [visitante del sitio] quiero poder VER todos lxs pos
 
 ## 6. Imagen final del proyecto: Vista Mobile
 
-[![imagen-mobile.png](https://i.postimg.cc/PqzbKNFF/imagen-mobile.png)](https://postimg.cc/DW0bwfhq)
-
 "Vista mobile: historia de usuario 1"
 
 [![imagen-mobile2.png](https://i.postimg.cc/zGMDMk4y/imagen-mobile2.png)](https://postimg.cc/ts3HnFqb)
