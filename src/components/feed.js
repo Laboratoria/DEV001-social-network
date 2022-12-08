@@ -8,12 +8,17 @@ export const feed = (onNavigate) => {
   const btnSave = document.createElement('button');
   const logOutIcon = document.createElement('i');
 
+  hdiv.className = 'hdivFeed';
   postForm.id = 'postForm';
   title.textContent = 'Welcome...';
   logOutIcon.class = 'bx bx-log-out';
   postSpace.placeholder = "What's on your mind?";
+  postSpace.className = 'postSpace';
   postSpace.id = 'postSpace';
   btnSave.textContent = 'Post';
+  btnSave.className = 'btnSave';
+  btnLogOut.className = 'btnPost';
+  btnLogOut.textContent = 'Log Out';
 
   hdiv.append(nav, postForm);
   btnLogOut.append(logOutIcon);
