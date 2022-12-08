@@ -63,7 +63,7 @@ export const Login = (onNavigate) => {
       })
       .catch((error) => {
         if (error.code === 'auth/email-already-in-use') {
-          alert('Este correo ya está registrado', 'error');
+          alert('Este correo ya está registrado');
         } else if (error.code === 'auth/invalid-email') {
           alert('El correo que ingresaste es inválido');
         } else if (error.code === 'auth/weak-password') {

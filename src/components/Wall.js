@@ -17,7 +17,7 @@ export const Wall = (onNavigate) => {
   buttonLogout.textContent = 'cerrar sesión';
   buttonLogout.addEventListener('click', async () => {
     await signOut(auth);
-    console.log('funciona!');
+    // console.log('funciona!');
     onNavigate('/');
   });
 

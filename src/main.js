@@ -6,7 +6,7 @@ import { Wall } from './components/Wall.js';
 const rootDiv = document.getElementById('root');
 let routes = {};
 
-const onNavigate = (pathname) => {
+export const onNavigate = (pathname) => {
   window.history.pushState(
     {},
     pathname,
