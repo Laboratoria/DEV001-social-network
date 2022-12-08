@@ -16,11 +16,14 @@ export const Register = (onNavigate) => {
   registerPass.placeholder = 'ingresa tu contraseña';
   registerPass.type = 'password';
 
+  const errorSpace = document.createElement('p');
+  errorSpace.id = 'errorSpace';
+
   const buttonSend = document.createElement('button');
-  buttonSend.textContent = 'crear usuario';
+  buttonSend.textContent = 'CREAR USUARIO';
 
   const buttonHome = document.createElement('button');
-  buttonHome.textContent = 'volver al inicio';
+  buttonHome.textContent = 'VOLVER AL INICIO';
   buttonHome.addEventListener('click', () => {
     onNavigate('/');
   });
@@ -32,22 +35,22 @@ export const Register = (onNavigate) => {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        console.log(user);
+        onNavigate('/login');
         // ...
       })
       .catch((error) => {
         if (error.code === 'auth/email-already-in-use') {
-          alert('Este correo ya está registrado', 'error');
+          document.getElementById('errorSpace').innerHTML = 'Éste correo ya está registrado';
         } else if (error.code === 'auth/invalid-email') {
-          alert('El correo que ingresaste es inválido');
+          document.getElementById('errorSpace').innerHTML = 'El correo que ingresaste es inválido';
         } else if (error.code === 'auth/weak-password') {
-          alert('Tu clave tiene que tener un mínimo de seis dígitos');
+          document.getElementById('errorSpace').innerHTML = 'Tu clave tiene que tener un mínimo de seis dígitos';
         } else if (error.code) {
-          alert('Revisa los datos ingresados, algo no está bien');
+          document.getElementById('errorSpace').innerHTML = 'Revisa los datos ingresados, algo no está bien';
         }
       });
   });
 
-  homeDiv.append(textoRegister, registerMail, registerPass, buttonSend, buttonHome);
+  homeDiv.append(textoRegister, registerMail, registerPass, errorSpace, buttonSend, buttonHome);
   return homeDiv;
 };

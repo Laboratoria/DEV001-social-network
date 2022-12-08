@@ -9,10 +9,10 @@ export const Home = (onNavigate) => {
   textoBajo.textContent = 'Semillero es una red social de intercambio de semillas tradicionales a nivel local.¡Te invitamos a unirte!';
 
   const buttonLogin = document.createElement('button');
-  buttonLogin.textContent = 'Inicia Sesión';
+  buttonLogin.textContent = 'INICIAR SESIÓN';
 
   const buttonRegister = document.createElement('button');
-  buttonRegister.textContent = 'Registrate';
+  buttonRegister.textContent = 'REGÍSTRATE';
 
   buttonLogin.addEventListener('click', () => {
     onNavigate('/login');
