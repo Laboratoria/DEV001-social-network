@@ -19,6 +19,7 @@ export const login = (onNavigate) => {
   inputPass.placeholder = '*******';
   inputPass.type = 'password';
   inputPass.required = 'true';
+  hdiv.className = 'hdivLogin';
   btn.className = 'btnLogin';
   btnBack.className = 'btnBack';
   btnGoogle.className = 'btnGoogle';
