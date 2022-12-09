@@ -6,14 +6,14 @@ export const Register = (onNavigate) => {
   homeDiv.className = 'contenedor';
 
   const textoRegister = document.createElement('h2');
-  textoRegister.textContent = '¡Te damos la bienvenida! crea aquí tu cuenta para comenzar a intercambiar tus semillas';
+  textoRegister.textContent = 'Puedes registrarte en Semillero usando tu correo electrónico. Tu clave debe tener un mínimo de seis dígitos:';
 
   const registerMail = document.createElement('input');
   registerMail.placeholder = 'ingresa tu correo';
   registerMail.type = 'email';
 
   const registerPass = document.createElement('input');
-  registerPass.placeholder = 'ingresa tu contraseña';
+  registerPass.placeholder = 'crea una contraseña';
   registerPass.type = 'password';
 
   const errorSpace = document.createElement('p');
