@@ -1,6 +1,4 @@
-import {
-  signInWithEmailAndPassword, signInWithPopup, onAuthStateChanged,
-} from 'firebase/auth';
+import { signInWithPopup } from 'firebase/auth';
 import { provider, auth } from '../lib/Firebase.js';
 import { signUp } from '../lib/Auth.js';
 
@@ -53,39 +51,10 @@ export const Login = (onNavigate) => {
     onNavigate('/');
   });
 
-  // const signUp = (userMail, userPass) => {
-  //   signInWithEmailAndPassword(auth, userMail, userPass)
-  //     .then((userCredential) => {
-  //     // Signed in
-  //       // const user = userCredential.user;
-  //       onAuthStateChanged(auth, (usuario) => {
-  //         if (usuario) {
-  //           onNavigate('/wall');
-  //           const uid = usuario.uid;
-  //         } else {
-  //           onNavigate('/login');
-  //         }
-  //       });
-
-  //     // ...
-  //     })
-  //     .catch((error) => {
-  //       if (error.code === 'auth/email-already-in-use') {
-  //         document.getElementById('errorLogin').innerHTML = 'Este correo ya está registrado';
-  //       } else if (error.code === 'auth/invalid-email') {
-  //         document.getElementById('errorLogin').innerHTML = 'El correo que ingresaste es inválido';
-  //       } else if (error.code === 'auth/weak-password') {
-  //         document.getElementById('errorLogin').innerHTML = 'Tu clave tiene que tener un mínimo de seis dígitos';
-  //       } else if (error.code) {
-  //         document.getElementById('errorLogin').innerHTML = 'Revisa los datos ingresados, algo no está bien';
-  //       }
-  //     });
-  // };
-
   buttonLogin.addEventListener('click', () => { // aquí comienza la función que tenemos que sacar y nombrar para luego test
     const userMail = loginMail.value;
     const userPass = loginPass.value;
-    signUp(userMail, userPass);
+    signUp(userMail, userPass, onNavigate);
     // const auth = getAuth();
   });
   loginDiv.append(textoLogin, loginMail, loginPass, errorLogin, buttonLogin, buttonGoogle, buttonHome, registerLink);

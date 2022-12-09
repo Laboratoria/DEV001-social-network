@@ -1,10 +1,11 @@
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, onAuthStateChanged } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
 import { auth } from './Firebase.js';
 
-export const crearUSyPass = (userMail, userPass) => {
+// CREAR USUARIO CON EMAIL
+export const createUser = (userMail, userPass) => {
   createUserWithEmailAndPassword(auth, userMail, userPass)
     .then((userCredential) => {
-      // Signed in
+    // Signed in
       const user = userCredential.user;
       // ...
     })
@@ -21,22 +22,20 @@ export const crearUSyPass = (userMail, userPass) => {
     });
 };
 
+// INGRESAR CON USUARIO EXISTENTE
 export const signUp = (userMail, userPass, onNavigate) => {
   signInWithEmailAndPassword(auth, userMail, userPass)
     .then((userCredential) => {
-      // Signed in
+    // Signed in
       // const user = userCredential.user;
       onAuthStateChanged(auth, (usuario) => {
         if (usuario) {
-          console.log('ingresaste usuario!');
           onNavigate('/wall');
           // const uid = usuario.uid;
         } else {
           onNavigate('/login');
         }
       });
-
-      // ...
     })
     .catch((error) => {
       if (error.code === 'auth/email-already-in-use') {
