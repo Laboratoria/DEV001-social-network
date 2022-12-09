@@ -1,12 +1,11 @@
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, onAuthStateChanged } from 'firebase/auth';
 import { auth } from './Firebase.js';
 
-export const crearUSyPass = (userMail, userPass, onNavigate) => {
+export const crearUSyPass = (userMail, userPass) => {
   createUserWithEmailAndPassword(auth, userMail, userPass)
     .then((userCredential) => {
       // Signed in
       const user = userCredential.user;
-      onNavigate('/login');
       // ...
     })
     .catch((error) => {
@@ -29,8 +28,9 @@ export const signUp = (userMail, userPass, onNavigate) => {
       // const user = userCredential.user;
       onAuthStateChanged(auth, (usuario) => {
         if (usuario) {
+          console.log('ingresaste usuario!');
           onNavigate('/wall');
-          const uid = usuario.uid;
+          // const uid = usuario.uid;
         } else {
           onNavigate('/login');
         }

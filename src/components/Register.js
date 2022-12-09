@@ -54,6 +54,7 @@ export const Register = (onNavigate) => {
     const userMail = registerMail.value;
     const userPass = registerPass.value;
     crearUSyPass(userMail, userPass);
+    onNavigate('/login');
   });
 
   homeDiv.append(textoRegister, registerMail, registerPass, errorSpace, buttonSend, buttonHome);
