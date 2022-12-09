@@ -1,5 +1,6 @@
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../lib/index.js';
+// import { createUserWithEmailAndPassword } from 'firebase/auth';
+// import { auth } from '../lib/Firebase.js';
+import { crearUSyPass } from '../lib/Auth.js';
 
 export const Register = (onNavigate) => {
   const homeDiv = document.createElement('div');
@@ -28,27 +29,31 @@ export const Register = (onNavigate) => {
     onNavigate('/');
   });
 
+  // const crearUSyPass = (userMail, userPass) => {
+  //   createUserWithEmailAndPassword(auth, userMail, userPass)
+  //     .then((userCredential) => {
+  //       // Signed in
+  //       const user = userCredential.user;
+  //       onNavigate('/login');
+  //       // ...
+  //     })
+  //     .catch((error) => {
+  //       if (error.code === 'auth/email-already-in-use') {
+  //         document.getElementById('errorSpace').innerHTML = 'Éste correo ya está registrado';
+  //       } else if (error.code === 'auth/invalid-email') {
+  //         document.getElementById('errorSpace').innerHTML = 'El correo que ingresaste es inválido';
+  //       } else if (error.code === 'auth/weak-password') {
+  //         document.getElementById('errorSpace').innerHTML = 'Tu clave tiene que tener un mínimo de seis dígitos';
+  //       } else if (error.code) {
+  //         document.getElementById('errorSpace').innerHTML = 'Revisa los datos ingresados, algo no está bien';
+  //       }
+  //     });
+  // };
+
   buttonSend.addEventListener('click', () => {
     const userMail = registerMail.value;
     const userPass = registerPass.value;
-    createUserWithEmailAndPassword(auth, userMail, userPass)
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        onNavigate('/login');
-        // ...
-      })
-      .catch((error) => {
-        if (error.code === 'auth/email-already-in-use') {
-          document.getElementById('errorSpace').innerHTML = 'Éste correo ya está registrado';
-        } else if (error.code === 'auth/invalid-email') {
-          document.getElementById('errorSpace').innerHTML = 'El correo que ingresaste es inválido';
-        } else if (error.code === 'auth/weak-password') {
-          document.getElementById('errorSpace').innerHTML = 'Tu clave tiene que tener un mínimo de seis dígitos';
-        } else if (error.code) {
-          document.getElementById('errorSpace').innerHTML = 'Revisa los datos ingresados, algo no está bien';
-        }
-      });
+    crearUSyPass(userMail, userPass);
   });
 
   homeDiv.append(textoRegister, registerMail, registerPass, errorSpace, buttonSend, buttonHome);

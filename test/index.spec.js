@@ -1,9 +1,9 @@
 // importamos la funcion que vamos a testear
-import { app, auth, provider } from '../src/lib/index.js';
+import { crearUSyPass } from '../src/components/Register.js';
 
-describe('app', () => {
+describe('crearUSyPass', () => {
   it('debería ser una función', () => {
-    expect(typeof app).toBe('function');
+    expect(typeof crearUSyPass).toBe('function');
   });
 });
 describe('auth', () => {

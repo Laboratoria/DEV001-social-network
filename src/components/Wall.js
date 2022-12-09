@@ -1,5 +1,5 @@
 import { signOut } from 'firebase/auth';
-import { auth } from '../lib/index.js';
+import { auth } from '../lib/Firebase.js';
 
 export const Wall = (onNavigate) => {
   const wallDiv = document.createElement('div');
