@@ -4,32 +4,32 @@ export const welcome = (onNavigate) => {
   const divWelcome = document.createElement('div');
   const divTitle = document.createElement('div');
   const title = document.createElement('h2');
-  const btnLogin = document.createElement('button');
-  const btnRegister = document.createElement('button');
+  const btnSignIn = document.createElement('button');
+  const btnSignUp = document.createElement('button');
   const logo = document.createElement('img');
 
-  btnLogin.className = 'btnLogin';
-  btnRegister.className = 'btnRegister';
+  btnSignIn.className = 'btnSignIn';
+  btnSignUp.className = 'btnSignUp';
   title.className = 'titleWelcome';
   divWelcome.className = 'divWelcome';
   divTitle.className ='divTitle';
   logo.className = 'logo';
-  btnLogin.textContent = 'Log in';
-  btnRegister.textContent = 'Sign In';
+  btnSignIn.textContent = 'Sign In';
+  btnSignUp.textContent = 'Sign Up';
   title.textContent = 'Welcome to the place where all the dreams come true!';
   logo.src = './lib/archivo_css/Imagenes/Logo.png';
 
-  btnLogin.addEventListener('click', () => {
-    onNavigate('/login');
+  btnSignIn.addEventListener('click', () => {
+    onNavigate('/signIn');
   /*    alert('hola'); */
   });
 
-  btnRegister.addEventListener('click', () => {
-    onNavigate('/signin');
+  btnSignUp.addEventListener('click', () => {
+    onNavigate('/signUp');
   });
 
   divTitle.append(title);
-  divWelcome.append(logo, title, btnLogin, btnRegister, divTitle);
+  divWelcome.append(logo, title, btnSignIn, btnSignUp, divTitle);
 
   return divWelcome;
 };

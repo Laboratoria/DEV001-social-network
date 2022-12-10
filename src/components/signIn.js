@@ -1,9 +1,10 @@
 /* import { onNavigate } from '../main.js'; */
 import {
-  signInWithEmailAndPassword, getAuth,signInWithPopup, GoogleAuthProvider} from 'firebase/auth';
+  signInWithEmailAndPassword, getAuth, signInWithPopup, GoogleAuthProvider,
+} from 'firebase/auth';
 import { auth, provider } from '../lib/firebase';
 
-export const login = (onNavigate) => {
+export const signIn = (onNavigate) => {
   const hdiv = document.createElement('div');
   const title = document.createElement('h2');
   const inputEmail = document.createElement('input');
@@ -20,15 +21,15 @@ export const login = (onNavigate) => {
   inputPass.placeholder = '*******';
   inputPass.type = 'password';
   inputPass.required = 'true';
-  hdiv.className = 'hdivLogin';
-  btn.className = 'btnLogin';
+  hdiv.className = 'hdivSignIn';
+  btn.className = 'btnSignIn';
   btnBack.className = 'btnBack';
   btnGoogle.className = 'btnGoogle';
-  btn.textContent = 'Log in';
+  btn.textContent = 'Sign In';
   btnBack.textContent = 'Back';
   title.textContent = 'Welcome!';
   title.className = 'title';
-  btnGoogle.innerHTML = '<img class="img-google" src="https://icones.pro/wp-content/uploads/2021/02/google-icone-symbole-logo-png-150x150.png" /> Login with Google';
+  btnGoogle.innerHTML = '<img class="img-google" src="https://icones.pro/wp-content/uploads/2021/02/google-icone-symbole-logo-png-150x150.png" /> Sign In with Google';
   logo.src = './lib/archivo_css/Imagenes/Logo.png';
 
   btn.addEventListener('click', async () => {
