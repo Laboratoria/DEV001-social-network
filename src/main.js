@@ -1,7 +1,8 @@
 // Este es el punto de entrada de tu aplicacion (aqui va la lógica de lo que se imprime en pantalla)
 import { welcome } from './components/welcome.js';
-import { login } from './components/login.js';
-import { signin } from './components/signin.js';
+// eslint-disable-next-line import/named
+import { signIn } from './components/signIn.js';
+import { signUp } from './components/signUp.js';
 import { feed } from './components/feed.js';
 
 const root = document.getElementById('root');
@@ -20,8 +21,8 @@ export const onNavigate = (pathname) => {
 };
 routes = {
   '/': welcome(onNavigate),
-  '/login': login(onNavigate),
-  '/signin': signin(onNavigate),
+  '/signIn': signIn(onNavigate),
+  '/signUp': signUp(onNavigate),
   '/feed': feed(onNavigate),
 };
 
