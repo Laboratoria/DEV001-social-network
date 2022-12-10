@@ -1,5 +1,6 @@
 /* import { onNavigate } from '../main.js'; */
-import { signInWithEmailAndPassword, getAuth, signInWithRedirect } from 'firebase/auth';
+import {
+  signInWithEmailAndPassword, getAuth,signInWithPopup, GoogleAuthProvider} from 'firebase/auth';
 import { auth, provider } from '../lib/firebase';
 
 export const login = (onNavigate) => {
@@ -52,13 +53,29 @@ export const login = (onNavigate) => {
   });
 
   btnGoogle.addEventListener('click', () => {
-    const authGoogle = getAuth();
-    const result = signInWithRedirect(authGoogle, provider);
-    if (result !== 'error') {
-      onNavigate('/feed');
-    }
+    const auth = getAuth();
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        // The signed-in user info.
+        const user = result.user;
+        console.log(user);
+        onNavigate('/feed');
+        // ...
+      }).catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorMessage);
+        // The email of the user's account used.
+        const email = error.customData.email;
+        // The AuthCredential type that was used.
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        // ...
+      });
   });
-
   btnBack.addEventListener('click', () => {
     onNavigate('/');
   });
