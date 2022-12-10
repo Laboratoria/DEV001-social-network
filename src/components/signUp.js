@@ -8,6 +8,7 @@ export const signUp = (onNavigate) => {
   const hdiv = document.createElement('div');
   const title = document.createElement('h2');
   const userName = document.createElement('input');
+
   const inputEmail = document.createElement('input');
   const inputPass = document.createElement('input');
   const btnSignUp = document.createElement('button');
@@ -19,6 +20,7 @@ export const signUp = (onNavigate) => {
   inputEmail.placeholder = 'example@youremail.com';
   inputEmail.type = 'email';
   inputEmail.required = 'true';
+
   inputEmail.className = 'inputSignUp';
   inputPass.placeholder = '*******';
   inputPass.type = 'password';
@@ -40,20 +42,45 @@ export const signUp = (onNavigate) => {
     /*     onNavigate('/'); */
     const userEmail = inputEmail.value;
     const userPass = inputPass.value;
-    const result = createUserWithEmailAndPassword(auth, userEmail, userPass)
-      .then((userCredential) => {
+    const name = userName.value;
+
+    if (name === '') {
+      alert('Please insert your name');
+    }
+    if (userEmail === '') {
+      alert('Please insert your email');
+      // onNavigate('/signUp');
+    }
+    if (userPass === '') {
+      alert('Please insert your password');
+    } else {
+      createUserWithEmailAndPassword(auth, userEmail, userPass)
+        .then((userCredential) => {
         // Signed in
-        const user = userCredential.user;
-        console.log(user);
+          const user = userCredential.user;
+          console.log(user);
+          onNavigate('/feed');
         // ...
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // ..
-      });
-    if (result !== 'error') {
-      onNavigate('/feed');
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          // const errorMessage = error.message;
+          if (errorCode.includes('auth/email-already-in-use')) {
+            alert('This email is already in use');
+          }
+          if (errorCode.includes('auth/invalid-email')) {
+            alert('Invalid email');
+          }
+          if (errorCode.includes('auth/weak-password')) {
+            alert('the password must have at least six characters');
+          } 
+          // // else if (errorCode) {
+          // //   alert('There is something wrong, please check again');
+          // }
+        });
+    // if (result !== 'error') {
+    //   onNavigate('/feed');
+    // }
     }
   });
 
