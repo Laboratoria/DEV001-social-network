@@ -5,7 +5,7 @@
 // import { async } from "regenerator-runtime";
 
 jest.mock('firebase/auth');
-// import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 
 import {
   functionRegister, functionLogin, functionRegisterGoogle, functionGetTask,
@@ -23,32 +23,26 @@ describe('myFunctionRegister', () => {
     },
   ));
 
-  it('debería retornar un objeto con la propiedad password', () => functionRegister('ruth.pz@gmail.com', '1234ruth', 'Gaby').then(
-    (user) => {
-      expect(user.password).toBe('1234ruth');
-    },
-  ));
-
-  /*  it('Ejecuta createUserWithEmailAndPassword()', () => {
+  it('Ejecuta createUserWithEmailAndPassword()', () => {
     const email = 'marianita@gmail.com';
     const password = '123';
 
     functionRegister(email, password);
-    expect(createUserWithEmailAndPassword(auth, email, password)).toHaveBeenCalled();
-  }); */
+    expect(createUserWithEmailAndPassword).toHaveBeenCalled();
+  });
 
-  // it('debería retornar el string "La contraseña debe tener al menos 6 carácteres"', () => {
-  //   const prueba = createUserWithEmailAndPassword();
-  //   functionRegister('valeriamurguia98@gmail.com', 'val').then(() => {
-  //     expect(prueba.message).toBe('La contraseña debe tener al menos 6 carácteres');
-  //   });
-  // });
-  // it('tests error with async/await and rejects', async () => {
-  //   functionRegister('valeriamurguia98@gmail.com', 'val').then((user) =>
-  // expect.assertions(user.message).toBe({
-  //     error: 'La contraseña debe tener al menos 6 carácteres',
-  //   }));
-  // });
+  it('debería retornar el error "La contraseña debe tener al menos 6 carácteres"', () => {
+    createUserWithEmailAndPassword.mockRejectedValue(new Error('La contraseña debe tener al menos 6 carácteres'));
+    functionRegister('valeriamurguia98@gmail.com', 'val').catch((error) => {
+      expect(error.message).toBe('La contraseña debe tener al menos 6 carácteres');
+    });
+  });
+  it('debería retornar el error "Debes ingresar un correo válido"', () => {
+    createUserWithEmailAndPassword.mockRejectedValue(new Error('Debes ingresar un correo válido'));
+    functionRegister('valeriamurguia98@gmail', 'vale234').catch((error) => {
+      expect(error.message).toBe('Debes ingresar un correo válido');
+    });
+  });
 });
 
 // Test a functionLogin
@@ -59,16 +53,17 @@ describe('myFunctionLogin', () => {
   it('debería retornar un objeto con la propiedad email', () => functionLogin('valeriamurguia98@gmail.com', 'vale123').then((user) => {
     expect(user.email).toBe('valeriamurguia98@gmail.com');
   }));
-  it('debería retornar un error', async () => {
+  it('debería tomar el segundo parámetro como contraseña válida', async () => {
     await functionLogin('valeriamurguia98@gmail.com', 'valeria1234').then((user) => {
       expect(user.password).toBe('valeria1234');
     });
   });
-  // it('debería retornar un error', async () => {
-  //   functionLogin('valeriamurguia98@gmail.com', 'val').then(() => {
-  //     expect(user.password).toBe('error');
-  //   });
-  // });
+  it('debería retornar el error de una promesa', () => {
+    signInWithEmailAndPassword.mockRejectedValue(new Error('error'));
+    functionLogin('valeriamurguia98@gmail.com', 'valeria234').catch((error) => {
+      expect(error.message).toBe('error');
+    });
+  });
 });
 
 // Test a functionRegisterGoogle
@@ -76,14 +71,15 @@ describe('myFun awaitctionRegisterGoogle', () => {
   it('debería ser una función', () => {
     expect(typeof functionRegisterGoogle).toBe('function');
   });
-
-  /* it('debería retornar un error', () => {
-    functionRegisterGoogle().then(
-      () => {
-        expect('error').toBe('error');
-      },
-    );
-  }); */
+  it('debería retornar el error de una promesa', () => {
+    signInWithPopup.mockRejectedValue(new Error('error'));
+    functionRegisterGoogle('valeriamurguia98@gmail.com', 'valeria234').catch((error) => {
+      expect(error.message).toBe('error');
+    });
+  });
+  it('debería retornar un string', () => functionRegisterGoogle().then((provider) => {
+    expect(typeof provider).toBe('string');
+  }));
 });
 
 // Test a functionSaveTask
