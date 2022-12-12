@@ -84,6 +84,13 @@ export const functionSaveTask = (editdescription, nameUser, idUser, creationDate
   });
 };
 
+// eslint-disable-next-line max-len
+export const functionSaveTaskProfile = (userDescription, nameUser, idUser) => {
+  addDoc(collection(db, 'users'), {
+    userDescription, nameUser, idUser,
+  });
+};
+
 // Función de getDocs
 export const functionGetTask = () => getDocs(collection(db, 'task'));
 
