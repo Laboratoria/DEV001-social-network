@@ -53,7 +53,7 @@ export const editProfile = () => {
   editDescription.rows = '3';
   editDescription.placeholder = 'Hola, me encanta mucho...';
   editDescription.id = 'editDescription';
-  editDescription.className = 'text-content-description';
+  editDescription.className = 'text-content-description text-content-description-2';
   saveChanges.id = 'saveChanges';
   saveChanges.textContent = 'Guardar Cambios';
   noSaveChanges.className = 'buttonRegister';

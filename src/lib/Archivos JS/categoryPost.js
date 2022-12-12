@@ -107,13 +107,13 @@ export const categoryPost = () => {
             <img src='./lib/img/img-women.png' alt='img-category' class='img-category'>
           </div>
             <div class = 'post'>
-            <h2 class='category'>${doc[0].category}</h2>
-            <p>${doc[0].editdescription}</p>
-            <div class="info-user">
-              <h3 class='task-nameUser-social'>${doc[0].nameUser}</h3>
-              <h3 class='task-date-social'>${date.toLocaleDateString()}</h3>
-            </div>
-            <img src='./lib/img/adorno-comentarios.png' alt='img-adorno' class='img-adorno'>
+              <h2 class='category'>${doc[0].category}</h2>
+              <p>${doc[0].editdescription}</p>
+              <div class="info-user">
+                <h3 class='task-nameUser-social'>${doc[0].nameUser}</h3>
+                <h3 class='task-date-social'>${date.toLocaleDateString()}</h3>
+              </div>
+              <img src='./lib/img/adorno-comentarios.png' alt='img-adorno' class='img-adorno'>
           </div>
         </div>`;
     });

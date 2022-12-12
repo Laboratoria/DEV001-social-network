@@ -52,7 +52,7 @@ export const login = () => {
   p3.className = 'text-subtitle';
   inputPassword.type = 'password';
   inputPassword.id = 'inputPassword';
-  inputPassword.className = 'input-register';
+  inputPassword.className = 'input-register input-password';
   inputPassword.required = 'true';
   inputPassword.placeholder = 'Ingresa tu contraseña:';
   regresar.innerHTML = '¿No tienes cuenta? <a href> Regístrate </a>';
