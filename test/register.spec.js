@@ -7,6 +7,9 @@ describe('existe la función register', () => {
   const component = register();
   const botonCreateUser = component.querySelector('.buttonRegister');
   const botonGoToLogin = component.querySelector('.link-login');
+
+  const uploadImage = jest.fn(() => Promise.resolve());
+
   it('Debe ser una función', () => {
     expect(typeof register).toBe('function');
   });
@@ -20,6 +23,9 @@ describe('existe la función register', () => {
   it('El link Iniciar sesión debe enviar a "/login"', () => {
     botonGoToLogin.click();
     expect(window.location.pathname).toBe('/login');
+  });
+  it('uploadImage debería ser una función', () => {
+    expect(typeof uploadImage).toBe('function');
   });
   /* it('El boton createUser debe enviar a "/profile"', async () => {
     await botonCreateUser.click();
