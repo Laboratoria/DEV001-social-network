@@ -1,9 +1,5 @@
 import { getAuth } from 'firebase/auth';
-import // saveTask,
-// onGetTask,
-// getTask2,
-// updateTask,
-'./firebase.js';
+import './firebase.js';
 // eslint-disable-next-line import/no-cycle, import/no-cycle
 import { onNavigate } from '../../main';
 import { carousel } from './carousel.js';
@@ -418,15 +414,12 @@ export const landingPage = () => {
     switch (selectCategory.value) {
       case 'social':
         valueOption = 'social';
-        // document.querySelector('#modal2').style.display = 'flex';
         break;
       case 'emocional':
         valueOption = 'emocional';
-        // document.querySelector('#modal2').style.display = 'flex';
         break;
       case 'salud':
         valueOption = 'salud';
-        // document.querySelector('#modal2').style.display = 'flex';
         break;
     }
     // console.log(valueOption);
