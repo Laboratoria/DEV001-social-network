@@ -8,7 +8,7 @@ export default defineConfig(({ command }) => {
       // para hacer un deploy, configura propiedad base con el nombre/url de tu repo
       // https://vitejs.dev/guide/static-deploy.html#github-pages
       // ejemplo:
-      // base: '/social-network/',
+      base: '/DEV001-social-network-24-7/',
       build: {
         minify: false,
         rollupOptions: {
