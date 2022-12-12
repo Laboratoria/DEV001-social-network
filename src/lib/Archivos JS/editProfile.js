@@ -1,10 +1,7 @@
+/* eslint-disable no-undef */
 // import { async } from 'regenerator-runtime';
 // eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../../main';
-
-import {
-  functionSaveTaskProfile,
-} from './index.js';
 
 export const editProfile = () => {
   const user = JSON.parse(localStorage.getItem('user'));
@@ -90,15 +87,10 @@ export const editProfile = () => {
   saveChanges.addEventListener('click', (e) => {
     e.preventDefault();
 
-    const userDescription = editDescription.value;
-    const nameUser = editName.value;
-    const idUser = user.uid;
-
     if (editName.value === '' || editDescription.value === '') {
       alert('Falta completar tu información');
       onNavigate('/editProfile');
     } else {
-      functionSaveTaskProfile(userDescription, nameUser, idUser);
       onNavigate('/profile');
     }
   });

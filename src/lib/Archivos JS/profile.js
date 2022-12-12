@@ -10,6 +10,7 @@ export const profile = () => {
   }
   const user = JSON.parse(localStorage.getItem('user'));
   // console.log(user.photoURL);
+
   let photo;
   if (user) {
     photo = user.photoURL || './lib/img/avatar-1.png';
@@ -63,9 +64,9 @@ export const profile = () => {
   p2.className = 'text-subtitle2';
   p3.textContent = 'Email';
   p3.className = 'text-subtitle2';
-  p4.textContent = user ? user.displayName : 'prueba';
+  p4.textContent = user ? user.displayName : 'profile';
   p4.className = 'text-subtitle3';
-  p5.textContent = 'Web Developer';
+  p5.textContent = 'Soy desarrolladora';
   p5.className = 'text-subtitle4';
   p6.textContent = user ? user.email : 'prueba@gmail.com';
   p6.className = 'text-subtitle3';

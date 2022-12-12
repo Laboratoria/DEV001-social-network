@@ -316,9 +316,6 @@ export const landingPage = () => {
       showPostDiv.innerHTML = html;
 
       data.forEach((doc) => {
-        // const task = doc.data();
-        // console.log(doc);
-        // console.log(user.uid);
         if (doc[0].idUser === user.uid) {
           // Boton para confirmar eliminación de cometarios del usuario.
           const btnsDeleteConfirmation = showPostDiv.querySelectorAll('.class-delete');
@@ -425,7 +422,7 @@ export const landingPage = () => {
     // console.log(valueOption);
   });
 
-  // Boton para enviar cambios al formulario - cometarios del usuario.
+  // Boton para enviar cambios al formulario - comentarios del usuario.
   homeDiv3.addEventListener('submit', async (e) => {
     e.preventDefault();
 
