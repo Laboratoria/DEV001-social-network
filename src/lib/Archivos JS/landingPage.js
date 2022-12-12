@@ -317,7 +317,7 @@ export const landingPage = () => {
 
       data.forEach((doc) => {
         if (doc[0].idUser === user.uid) {
-          // Boton para confirmar eliminación de cometarios del usuario.
+          // Boton para confirmar eliminación de comentarios del usuario.
           const btnsDeleteConfirmation = showPostDiv.querySelectorAll('.class-delete');
           btnsDeleteConfirmation.forEach((btn) => {
             btn.addEventListener('click', () => {
@@ -349,13 +349,15 @@ export const landingPage = () => {
         }
       });
 
-      // Boton para eliminar cometarios del usuario.
-      const btnsDelete = showConfirmationDiv.querySelectorAll('.buttonYes');
+      // Boton para eliminar comentarios del usuario.
+      /* const btnsDelete = showPostDiv.querySelectorAll('.class-delete');
       btnsDelete.forEach((btn) => {
+        console.log('si se ingresando');
         btn.addEventListener('click', ({ target: { dataset } }) => {
+          console.log('si se esta eliminando');
           functionDeleteTask(dataset.id);
         });
-      });
+      }); */
 
       // Boton para editar comentarios del usuario.
       const btnsEdit = showPostDiv.querySelectorAll('.class-edit');
