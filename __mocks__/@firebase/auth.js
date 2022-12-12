@@ -12,3 +12,5 @@ export const GoogleAuthProvider = jest.fn(() => Promise.resolve());
 
 // eslint-disable-next-line max-len
 export const signInWithPopup = jest.fn((auth, provider) => Promise.resolve({ user: { provider } }));
+
+export const signOut = jest.fn(() => Promise.resolve());

@@ -5,10 +5,26 @@
 // import { async } from "regenerator-runtime";
 
 jest.mock('firebase/auth');
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
+jest.mock('firebase/firestore');
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  // GoogleAuthProvider,
+  signInWithPopup,
+  signOut,
+} from 'firebase/auth';
+import {
+  addDoc,
+  getDoc,
+  onSnapshot,
+  deleteDoc,
+  updateDoc,
+  collection,
+  // db,
+} from 'firebase/firestore';
 
 import {
-  functionRegister, functionLogin, functionRegisterGoogle, functionGetTask,
+  functionRegister, functionLogin, functionRegisterGoogle, functionGetTask, functionOnGetTask,
   functionSignOut, functionDeleteTask, functionGetTask2, functionUpdateTask, functionSaveTask,
 } from '../src/lib/Archivos JS/index.js';
 
@@ -30,18 +46,18 @@ describe('myFunctionRegister', () => {
     functionRegister(email, password);
     expect(createUserWithEmailAndPassword).toHaveBeenCalled();
   });
+});
 
-  it('debería retornar el error "La contraseña debe tener al menos 6 carácteres"', () => {
-    createUserWithEmailAndPassword.mockRejectedValue(new Error('La contraseña debe tener al menos 6 carácteres'));
-    functionRegister('valeriamurguia98@gmail.com', 'val').catch((error) => {
-      expect(error.message).toBe('La contraseña debe tener al menos 6 carácteres');
-    });
+it('debería retornar el error "La contraseña debe tener al menos 6 carácteres"', () => {
+  createUserWithEmailAndPassword.mockRejectedValue(new Error('La contraseña debe tener al menos 6 carácteres'));
+  functionRegister('valeriamurguia98@gmail.com', 'val').catch((error) => {
+    expect(error.message).toBe('La contraseña debe tener al menos 6 carácteres');
   });
-  it('debería retornar el error "Debes ingresar un correo válido"', () => {
-    createUserWithEmailAndPassword.mockRejectedValue(new Error('Debes ingresar un correo válido'));
-    functionRegister('valeriamurguia98@gmail', 'vale234').catch((error) => {
-      expect(error.message).toBe('Debes ingresar un correo válido');
-    });
+});
+it('debería retornar el error "Debes ingresar un correo válido"', () => {
+  createUserWithEmailAndPassword.mockRejectedValue(new Error('Debes ingresar un correo válido'));
+  functionRegister('valeriamurguia98@gmail', 'vale234').catch((error) => {
+    expect(error.message).toBe('Debes ingresar un correo válido');
   });
 });
 
@@ -87,26 +103,9 @@ describe('myFunctionSaveTask', () => {
   it('debería ser una función', () => {
     expect(typeof functionSaveTask).toBe('function');
   });
-});
-
-// Test a functionOnGetTask
-describe('myFunctionGetTask', () => {
-  it('debería ser una función', () => {
-    expect(typeof functionGetTask).toBe('function');
-  });
-});
-
-// Test a functionSignOut
-describe('myFunctionSignOut', () => {
-  it('debería ser una función', () => {
-    expect(typeof functionSignOut).toBe('function');
-  });
-});
-
-// Test a functionDeleteTask
-describe('myFunctionDeleteTask', () => {
-  it('debería ser una función', () => {
-    expect(typeof functionDeleteTask).toBe('function');
+  it('deberia llamar correctamente addDoc', () => {
+    functionSaveTask(addDoc);
+    expect(addDoc).toBeCalled();
   });
 });
 
@@ -115,48 +114,71 @@ describe('myFunctionGetTask2', () => {
   it('debería ser una función', () => {
     expect(typeof functionGetTask2).toBe('function');
   });
+  it('deberia llamar correctamente getDoc', () => {
+    functionGetTask2(getDoc);
+    expect(getDoc).toBeCalled();
+  });
 });
+// Test a functionOnGetTask
+describe('myFunctionOnGetTask', () => {
+  it('debería ser una función', () => {
+    expect(typeof functionOnGetTask).toBe('function');
+  });
+  it('deberia llamar correctamente onSnapshot', () => {
+    functionOnGetTask(onSnapshot);
+    expect(onSnapshot).toBeCalled();
+  });
+});
+// Test a collection
+describe('collection', () => {
+  it('debería ser una función', () => {
+    expect(typeof collection).toBe('function');
+  });
+});
+
+// Test a functionSignOut
+describe('myFunctionSignOut', () => {
+  it('debería ser una función', () => {
+    expect(typeof functionSignOut).toBe('function');
+  });
+  it('deberia llamar correctamente signOut', () => {
+    functionSignOut(signOut);
+    expect(signOut).toBeCalled();
+  });
+});
+
+// Test a functionDeleteTask
+describe('myFunctionDeleteTask', () => {
+  it('debería ser una función', () => {
+    expect(typeof functionDeleteTask).toBe('function');
+  });
+  it('deberia llamar correctamente deleteDoc', () => {
+    functionDeleteTask(deleteDoc);
+    expect(deleteDoc).toBeCalled();
+  });
+});
+
+// Test a functionGetTask2
+// describe('myFunctionGetTask2', () => {
+//   it('debería ser una función', () => {
+//     expect(typeof functionGetTask2).toBe('function');
+//   });
+// });
 
 // Test a functionUpdateTask
 describe('myFunctionUpdateTask', () => {
   it('debería ser una función', () => {
     expect(typeof functionUpdateTask).toBe('function');
+  });
+  it('deberia llamar correctamente updateDoc', () => {
+    functionUpdateTask(updateDoc);
+    expect(updateDoc).toBeCalled();
   });
 });
 
 // Test a functionGetTask
-
-// Test a functionOnGetTask
 describe('myFunctionGetTask', () => {
   it('debería ser una función', () => {
     expect(typeof functionGetTask).toBe('function');
-  });
-});
-
-// Test a functionSignOut
-describe('myFunctionSignOut', () => {
-  it('debería ser una función', () => {
-    expect(typeof functionSignOut).toBe('function');
-  });
-});
-
-// Test a functionDeleteTask
-describe('myFunctionDeleteTask', () => {
-  it('debería ser una función', () => {
-    expect(typeof functionDeleteTask).toBe('function');
-  });
-});
-
-// Test a functionGetTask2
-describe('myFunctionGetTask2', () => {
-  it('debería ser una función', () => {
-    expect(typeof functionGetTask2).toBe('function');
-  });
-});
-
-// Test a functionUpdateTask
-describe('myFunctionUpdateTask', () => {
-  it('debería ser una función', () => {
-    expect(typeof functionUpdateTask).toBe('function');
   });
 });
