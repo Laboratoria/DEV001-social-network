@@ -53,7 +53,8 @@ export const signUp = (onNavigate) => {
     }
     if (userPass === '') {
       alert('Please insert your password');
-    } else {
+    }
+    else if(name !== '' && userEmail !=='' && userPass !== '') {
       createUserWithEmailAndPassword(auth, userEmail, userPass)
         .then((userCredential) => {
         // Signed in
