@@ -349,16 +349,6 @@ export const landingPage = () => {
         }
       });
 
-      // Boton para eliminar comentarios del usuario.
-      /* const btnsDelete = showPostDiv.querySelectorAll('.class-delete');
-      btnsDelete.forEach((btn) => {
-        console.log('si se ingresando');
-        btn.addEventListener('click', ({ target: { dataset } }) => {
-          console.log('si se esta eliminando');
-          functionDeleteTask(dataset.id);
-        });
-      }); */
-
       // Boton para editar comentarios del usuario.
       const btnsEdit = showPostDiv.querySelectorAll('.class-edit');
 
