@@ -22,9 +22,9 @@ export const home = () => {
   buttonLogin.className = 'buttonLogin';
   containerElements.className = 'container-home';
   containerImg.className = 'container-img';
-  imgLogo.src = './lib/img/logo-24-7.png';
+  imgLogo.src = 'public/img/logo-24-7.png';
   imgLogo.className = 'logo-24-7';
-  imgwelcome.src = './lib/img/img-welcome.png';
+  imgwelcome.src = './img-welcome.png';
   imgwelcome.className = 'img-welcome';
   imgTop.src = './lib/img/collage-1.png';
   imgTop.className = 'img-top';

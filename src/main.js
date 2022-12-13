@@ -52,15 +52,15 @@ export const onNavigate = (pathname, routesList = routes) => {
   }
 };
 
-// export const getPath = (path) => {
-//   const publicUrlPath = /DEV001-social-network-24-7(.*)/;
-//   const match = (publicUrlPath).exec(path);
-//   // in preview mode, we are in prod build, but previewing locally so url is localhost
-//   return (import.meta.env.PROD && match && match.length === 2) ? match[1] : path;
-// }
+export const getPath = (path) => {
+  const publicUrlPath = /DEV001-social-network-24-7(.*)/;
+  const match = (publicUrlPath).exec(path);
+  // in preview mode, we are in prod build, but previewing locally so url is localhost
+  return (import.meta.env.PROD && match && match.length === 2) ? match[1] : path;
+}
 
 // onpopstate, se dispara realizando una acción en el navegador como volver
 window.onpopstate = () => {
-  onNavigate(window.location.pathname);
+  onNavigate(getPath(window.location.pathname));
 };
-window.addEventListener('load', () => onNavigate(window.location.pathname));
+window.addEventListener('load', () => onNavigate(getPath(window.location.pathname)));
