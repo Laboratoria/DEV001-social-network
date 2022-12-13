@@ -1,5 +1,5 @@
 import { signOut } from 'firebase/auth';
-import { auth } from '../lib/Firebase.js';
+import { auth } from '../lib/Auth';
 
 export const Wall = (onNavigate) => {
   const wallDiv = document.createElement('div');
@@ -17,7 +17,6 @@ export const Wall = (onNavigate) => {
   buttonLogout.textContent = 'cerrar sesión';
   buttonLogout.addEventListener('click', async () => {
     await signOut(auth);
-    // console.log('funciona!');
     onNavigate('/');
   });
 

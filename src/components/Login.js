@@ -1,6 +1,5 @@
 import { signInWithPopup } from 'firebase/auth';
-import { provider, auth } from '../lib/Firebase.js';
-import { signUp } from '../lib/Auth.js';
+import { signUp, provider, auth } from '../lib/Auth.js';
 
 export const Login = (onNavigate) => {
   const loginDiv = document.createElement('div');
@@ -55,6 +54,15 @@ export const Login = (onNavigate) => {
     const userPass = loginPass.value;
     signUp(userMail, userPass, onNavigate);
   });
-  loginDiv.append(textoLogin, loginMail, loginPass, errorLogin, buttonLogin, buttonGoogle, buttonHome, registerLink);
+  loginDiv.append(
+    textoLogin,
+    loginMail,
+    loginPass,
+    errorLogin,
+    buttonLogin,
+    buttonGoogle,
+    buttonHome,
+    registerLink,
+  );
   return loginDiv;
 };

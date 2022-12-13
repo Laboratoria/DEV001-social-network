@@ -1,5 +1,12 @@
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
-import { auth } from './Firebase.js';
+import { signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
+import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider } from './Imports.js';
+import { app } from './Firebase.js';
+
+// Initialize Firebase Authentication and get a reference to the service
+export const auth = getAuth(app);
+
+// Inicia el autentificador con google
+export const provider = new GoogleAuthProvider();
 
 // CREAR USUARIO CON EMAIL
 export const createUser = (userMail, userPass) => {
@@ -7,6 +14,7 @@ export const createUser = (userMail, userPass) => {
     .then((userCredential) => {
     // Signed in
       const user = userCredential.user;
+      console.log('welcome ', user);
       // ...
     })
     .catch((error) => {

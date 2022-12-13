@@ -15,12 +15,13 @@
     "eslint": "eslint --ext .js src/ test/",
     "stylelint": "stylelint --aei src/**/*.css",
     "pretest0": "npm run htmlhint && npm run eslint && npm run stylelint",
-    "test": "jest --coverage",
+    "test": "jest --coverage --watch",
     "start": "npm run dev",
     "dev": "vite dev src",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy": "./deploy.sh"
+    "deploy": "./deploy.sh",
+    "testing": "jest -- watch --coverage"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.19.4",

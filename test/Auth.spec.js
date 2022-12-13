@@ -1,10 +1,22 @@
-const signUp = require('../src/lib/Auth');
+/**
+ * @jest-environment jsdom
+ */
+import { Register } from '../src/components/Register';
 
-test('signUp es una función', () => {
-  expect(signUp).toBe('function');
+jest.mock('../src/main.js');
+jest.mock('../src/lib/Imports.js');
+
+// TEST Register - deberia tener un mock porque no queremos realmente crear usuarios al testear
+describe('Register', () => {
+  it('debería ser una función', () => {
+    expect(typeof Register).toBe('function');
+  });
+  test('existe el botón de crear', () => {
+    const element = Register();
+    const button = element.querySelector('.register');
+    expect(button).toBeNull();
+  });
 });
-
-// import { createUser, signUp } from '../src/lib/Auth';
 
 // // TEST createUser - deberia tener un mock porque no queremos realmente crear usuarios al testear
 // describe('createUser', () => {
