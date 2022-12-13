@@ -315,45 +315,29 @@ export const landingPage = () => {
 
       showPostDiv.innerHTML = html;
 
-      data.forEach((doc) => {
-        if (doc[0].idUser === user.uid) {
-          // Boton para confirmar eliminación de cometarios del usuario.
-          const btnsDeleteConfirmation = showPostDiv.querySelectorAll('.class-delete');
-          btnsDeleteConfirmation.forEach((btn) => {
-            btn.addEventListener('click', () => {
-              // console.log('¿Borrar posts?');
-              showConfirmationDiv.classList.remove('container-divPost');
-              showConfirmationDiv.classList.add('container-confirmationDiv');
-              showConfirmationDiv.innerHTML = `
-                <p> ¿Borrar posts? </p>
-                <div class='container-confirmationBts'>
-                  <button id='buttonYes' data-id='${doc[1].id}' class='buttonYes'> Sí </button> <button id='buttonNo' class='buttonNo'> No </button>
-                </div>`;
-              showConfirmationDiv.style.display = 'block';
-
-              // Boton para cerrar confirmación del usuario
-              const closeConfirmation = document.getElementById('buttonNo');
-              closeConfirmation.addEventListener('click', () => {
-                showConfirmationDiv.style.display = 'none';
-              });
-
-              // Boton para eliminar cometarios del usuario.
-              const btnsDelete = document.getElementById('buttonYes');
-              btnsDelete.addEventListener('click', ({ target: { dataset } }) => {
-                // console.log(dataset.id);
-                functionDeleteTask(dataset.id);
-                showConfirmationDiv.style.display = 'none';
-              });
-            });
-          });
-        }
-      });
-
-      // Boton para eliminar cometarios del usuario.
-      const btnsDelete = showConfirmationDiv.querySelectorAll('.buttonYes');
+      // Boton para eliminar comentarios del usuario.
+      const btnsDelete = showPostDiv.querySelectorAll('.class-delete');
       btnsDelete.forEach((btn) => {
+        console.log('si se ingresando');
         btn.addEventListener('click', ({ target: { dataset } }) => {
-          functionDeleteTask(dataset.id);
+          console.log('si se esta eliminando');
+          showConfirmationDiv.classList.remove('container-divPost');
+          showConfirmationDiv.classList.add('container-confirmationDiv');
+          showConfirmationDiv.innerHTML = `
+              <p> ¿Borrar posts? </p>
+              <div class='container-confirmationBts'>
+                <button id='buttonYes' class='buttonYes'> Sí </button> <button id='buttonNo' class='buttonNo'> No </button>
+              </div>`;
+          showConfirmationDiv.style.display = 'block';
+          const buttonYes = document.querySelector('.buttonYes');
+          buttonYes.addEventListener('click', () => {
+            functionDeleteTask(dataset.id);
+            showConfirmationDiv.style.display = 'none';
+          });
+          const buttonNo = document.querySelector('.buttonNo');
+          buttonNo.addEventListener('click', () => {
+            showConfirmationDiv.style.display = 'none';
+          });
         });
       });
 
