@@ -318,9 +318,9 @@ export const landingPage = () => {
       // Boton para eliminar comentarios del usuario.
       const btnsDelete = showPostDiv.querySelectorAll('.class-delete');
       btnsDelete.forEach((btn) => {
-        console.log('si se ingresando');
+        // console.log('si se ingresando');
         btn.addEventListener('click', ({ target: { dataset } }) => {
-          console.log('si se esta eliminando');
+          // console.log('si se esta eliminando');
           showConfirmationDiv.classList.remove('container-divPost');
           showConfirmationDiv.classList.add('container-confirmationDiv');
           showConfirmationDiv.innerHTML = `

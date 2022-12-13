@@ -2,10 +2,6 @@
 let counter = 0;
 
 export const carousel = (iconRigth, iconLeft, arrayClassSlider) => {
-  /* console.log(iconRigth);
-  console.log(iconLeft);
-  console.log(arrayClassSlider); */
-
   iconRigth.addEventListener('click', (e) => {
     e.preventDefault();
     // eslint-disable-next-line no-plusplus

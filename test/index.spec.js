@@ -119,6 +119,7 @@ describe('myFunctionGetTask2', () => {
     expect(getDoc).toBeCalled();
   });
 });
+
 // Test a functionOnGetTask
 describe('myFunctionOnGetTask', () => {
   it('debería ser una función', () => {
@@ -129,6 +130,7 @@ describe('myFunctionOnGetTask', () => {
     expect(onSnapshot).toBeCalled();
   });
 });
+
 // Test a collection
 describe('collection', () => {
   it('debería ser una función', () => {
