@@ -23,7 +23,7 @@ routes = {
   '/wall': Wall(onNavigate),
 };
 
-const components = () => routes[window.location.pathname];
+export const components = () => routes[window.location.pathname];
 
 window.onpopstate = () => {
   rootDiv.removeChild(rootDiv.firstChild);

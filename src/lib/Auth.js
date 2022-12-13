@@ -49,3 +49,7 @@ export const signUp = (userMail, userPass, onNavigate) => {
       }
     });
 };
+
+// INGRESAR CON GOOGLE
+
+// FUNCIÓN DE SIGNOUT

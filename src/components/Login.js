@@ -38,7 +38,6 @@ export const Login = (onNavigate) => {
   });
 
   buttonGoogle.addEventListener('click', async () => {
-    // const provider = new GoogleAuthProvider();
     try {
       const credentials = await signInWithPopup(auth, provider);
       onNavigate('/wall');
@@ -51,11 +50,10 @@ export const Login = (onNavigate) => {
     onNavigate('/');
   });
 
-  buttonLogin.addEventListener('click', () => { // aquí comienza la función que tenemos que sacar y nombrar para luego test
+  buttonLogin.addEventListener('click', () => {
     const userMail = loginMail.value;
     const userPass = loginPass.value;
     signUp(userMail, userPass, onNavigate);
-    // const auth = getAuth();
   });
   loginDiv.append(textoLogin, loginMail, loginPass, errorLogin, buttonLogin, buttonGoogle, buttonHome, registerLink);
   return loginDiv;
