@@ -36,20 +36,37 @@ export const signIn = (onNavigate) => {
     /*     onNavigate('/'); */
     const userEmail = inputEmail.value;
     const userPass = inputPass.value;
-    const result = signInWithEmailAndPassword(auth, userEmail, userPass)
-      .then((userCredential) => {
+
+    if (userEmail === '') {
+      alert('Please insert your email');
+    }
+    if (userPass === '') {
+      alert('Please insert your password');
+    } else if (userEmail !== '' && userPass !== '') {
+      signInWithEmailAndPassword(auth, userEmail, userPass)
+        .then((userCredential) => {
         // Signed in
-        const user = userCredential.user;
-        console.log(user);
+          const user = userCredential.user;
+          console.log(user);
+          onNavigate('/feed');
         // ...
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // ..
-      });
-    if (result !== 'error') {
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          /*  const errorMessage = error.message; */
+          if (errorCode.includes('auth/user-not-found')) {
+            alert('This email is not registered');
+          }
+          if (errorCode.includes('auth/wrong-password')) {
+            alert('Wrong password');
+          }
+          if (errorCode) {
+            alert('There is something wrong, please check again');
+          }
+        });
+      /*     if (result !== 'error') {
       onNavigate('/feed');
+    } */
     }
   });
 
