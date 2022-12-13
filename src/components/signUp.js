@@ -49,12 +49,10 @@ export const signUp = (onNavigate) => {
     }
     if (userEmail === '') {
       alert('Please insert your email');
-      // onNavigate('/signUp');
     }
     if (userPass === '') {
       alert('Please insert your password');
-    }
-    else if(name !== '' && userEmail !=='' && userPass !== '') {
+    } else if (name !== '' && userEmail !== '' && userPass !== '') {
       createUserWithEmailAndPassword(auth, userEmail, userPass)
         .then((userCredential) => {
         // Signed in
@@ -74,7 +72,7 @@ export const signUp = (onNavigate) => {
           }
           if (errorCode.includes('auth/weak-password')) {
             alert('the password must have at least six characters');
-          } 
+          }
           // // else if (errorCode) {
           // //   alert('There is something wrong, please check again');
           // }
