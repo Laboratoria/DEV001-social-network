@@ -1,9 +1,5 @@
 import { getAuth } from 'firebase/auth';
-import // saveTask,
-// onGetTask,
-// getTask2,
-// updateTask,
-'./firebase.js';
+import './firebase.js';
 // eslint-disable-next-line import/no-cycle, import/no-cycle
 import { onNavigate } from '../../main';
 import { carousel } from './carousel.js';
@@ -345,52 +341,6 @@ export const landingPage = () => {
         });
       });
 
-      // data.forEach((doc) => {
-      //   // const task = doc.data();
-      //   // console.log(doc);
-      //   // console.log(user.uid);
-      //   if (doc[0].idUser === user.uid) {
-      //     // Boton para confirmar eliminación de cometarios del usuario.
-      //     const btnsDeleteConfirmation = showPostDiv.querySelectorAll('.class-delete');
-      //     btnsDeleteConfirmation.forEach((btn) => {
-      //       btn.addEventListener('click', () => {
-      //         // console.log('¿Borrar posts?');
-      //         showConfirmationDiv.classList.remove('container-divPost');
-      //         showConfirmationDiv.classList.add('container-confirmationDiv');
-      //         showConfirmationDiv.innerHTML = `
-      //           <p> ¿Borrar posts? </p>
-      //           <div class='container-confirmationBts'>
-      // eslint-disable-next-line max-len
-      //             <button id='buttonYes' data-id='${doc[1].id}' class='buttonYes'> Sí </button> <button id='buttonNo' class='buttonNo'> No </button>
-      //           </div>`;
-      //         showConfirmationDiv.style.display = 'block';
-
-      //         // Boton para cerrar confirmación del usuario
-      //         const closeConfirmation = document.getElementById('buttonNo');
-      //         closeConfirmation.addEventListener('click', () => {
-      //           showConfirmationDiv.style.display = 'none';
-      //         });
-
-      //         // Boton para eliminar cometarios del usuario.
-      //         const btnsDelete = document.getElementById('buttonYes');
-      //         btnsDelete.addEventListener('click', ({ target: { dataset } }) => {
-      //           // console.log(dataset.id);
-      //           functionDeleteTask(dataset.id);
-      //           showConfirmationDiv.style.display = 'none';
-      //         });
-      //       });
-      //     });
-      //   }
-      // });
-
-      // // Boton para eliminar cometarios del usuario.
-      // const btnsDelete = showConfirmationDiv.querySelectorAll('.buttonYes');
-      // btnsDelete.forEach((btn) => {
-      //   btn.addEventListener('click', ({ target: { dataset } }) => {
-      //     functionDeleteTask(dataset.id);
-      //   });
-      // });
-
       // Boton para editar comentarios del usuario.
       const btnsEdit = showPostDiv.querySelectorAll('.class-edit');
 
@@ -445,21 +395,18 @@ export const landingPage = () => {
     switch (selectCategory.value) {
       case 'social':
         valueOption = 'social';
-        // document.querySelector('#modal2').style.display = 'flex';
         break;
       case 'emocional':
         valueOption = 'emocional';
-        // document.querySelector('#modal2').style.display = 'flex';
         break;
       case 'salud':
         valueOption = 'salud';
-        // document.querySelector('#modal2').style.display = 'flex';
         break;
     }
     // console.log(valueOption);
   });
 
-  // Boton para enviar cambios al formulario - cometarios del usuario.
+  // Boton para enviar cambios al formulario - comentarios del usuario.
   homeDiv3.addEventListener('submit', async (e) => {
     e.preventDefault();
 
