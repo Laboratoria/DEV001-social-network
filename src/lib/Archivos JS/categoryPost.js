@@ -26,15 +26,15 @@ export const categoryPost = () => {
   aboutContent.className = 'containerAboutThePage';
   containerHeader.className = 'containerHeader';
   avatarIcon.referrerPolicy = 'no-referrer';
-  avatarIcon.src = user ? user.photoURL : './lib/img/avatar-1.png';
+  avatarIcon.src = user ? user.photoURL : 'https://i.postimg.cc/Wz1LKmq0/avatar-1.png';
   avatarIcon.className = 'avatarIcon-class';
-  iconMenu.src = './lib/img/menu-icon-8.png';
+  iconMenu.src = 'https://i.postimg.cc/gJGfXyD1/menu-icon-8.png';
   iconMenu.className = 'icon-menu';
   greeting.textContent = user ? user.displayName : 'prueba';
   greeting.className = 'class-greeting';
   menuDisplayed.className = 'menu-desplegable';
   menuDisplayed.id = 'menu-desplegable-id';
-  imgBackground.src = './lib/img/img-flw.png';
+  imgBackground.src = 'https://i.postimg.cc/02NPHv7h/img-flw.png';
   imgBackground.className = 'img-background';
   containerLanding.className = 'container-landing-post';
   container1.className = 'post';
@@ -57,7 +57,7 @@ export const categoryPost = () => {
         <li><a class='option' id='option1'>Mi Perfil</a></li>
         <li><a class='option' id='option2'>Contáctanos</a></li>
         <li><a class='option' id='option3'>Cerrar Sesión</a></li>
-        <img src='./lib/img/icon-close.png' alt='close' class='close-button' id='close-button'>
+        <img src='https://i.postimg.cc/mg8dpxNp/icon-close.png' alt='close' class='close-button' id='close-button'>
         </nav>`;
     menuDisplayed.innerHTML = options;
 
@@ -104,7 +104,7 @@ export const categoryPost = () => {
       html += `
         <div class = 'class-estructuraPost-salud'>
           <div class = 'img-post'>
-            <img src='./lib/img/img-women.png' alt='img-category' class='img-category'>
+            <img src='https://i.postimg.cc/kgKJWcQ5/img-women.png' alt='img-category' class='img-category'>
           </div>
             <div class = 'post'>
               <h2 class='category'>${doc[0].category}</h2>
@@ -113,7 +113,7 @@ export const categoryPost = () => {
                 <h3 class='task-nameUser-social'>${doc[0].nameUser}</h3>
                 <h3 class='task-date-social'>${date.toLocaleDateString()}</h3>
               </div>
-              <img src='./lib/img/adorno-comentarios.png' alt='img-adorno' class='img-adorno'>
+              <img src='https://i.postimg.cc/7LhKpBKH/adorno-comentarios.png' alt='img-adorno' class='img-adorno'>
           </div>
         </div>`;
     });
