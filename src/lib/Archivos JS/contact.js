@@ -24,7 +24,8 @@ export const contact = () => {
   const silviaName = document.createElement('p');
   const silviaDescription = document.createElement('p');
   const silviaContact = document.createElement('div');
-  const silviaLinkedIn = document.createElement('img');
+  const silviaLinkedIn = document.createElement('a');
+  const imgSilviaLinkedIn = document.createElement('img');
   const silviaGithub = document.createElement('a');
   const imgSilviaGithub = document.createElement('img');
   const silviaMail = document.createElement('img');
@@ -36,7 +37,8 @@ export const contact = () => {
   const gabrielaName = document.createElement('p');
   const gabrielaDescription = document.createElement('p');
   const gabrielaContact = document.createElement('div');
-  const gabrielaLinkedIn = document.createElement('img');
+  const gabrielaLinkedIn = document.createElement('a');
+  const imgGabrielaLinkedIn = document.createElement('img');
   const gabrielaGithub = document.createElement('a');
   const imgGabrielaGithub = document.createElement('img');
   const gabrielaMail = document.createElement('img');
@@ -48,7 +50,8 @@ export const contact = () => {
   const valeriaName = document.createElement('p');
   const valeriaDescription = document.createElement('p');
   const valeriaContact = document.createElement('div');
-  const valeriaLinkedIn = document.createElement('img');
+  const valeriaLinkedIn = document.createElement('a');
+  const imgvaleriaLinkedIn = document.createElement('img');
   const valeriaGithub = document.createElement('a');
   const imgValeriaGithub = document.createElement('img');
   const valeriaMail = document.createElement('img');
@@ -81,8 +84,9 @@ export const contact = () => {
   gabrielaDescription.textContent = 'FRONT-END DEVELOPER';
   gabrielaDescription.className = 'class-cardsDescription';
   gabrielaContact.className = 'class-contactDiv';
-  gabrielaLinkedIn.className = 'class-linkedIn';
-  gabrielaLinkedIn.src = 'https://res.cloudinary.com/dfio49epx/image/upload/v1670978490/imagenes-24-7-repositorio/contact-linkedin_bvqpu9.png';
+  imgGabrielaLinkedIn.className = 'class-linkedIn';
+  imgGabrielaLinkedIn.src = 'https://res.cloudinary.com/dfio49epx/image/upload/v1670978490/imagenes-24-7-repositorio/contact-linkedin_bvqpu9.png';
+  gabrielaLinkedIn.href = 'https://www.linkedin.com/in/gabriela-pzambrano/';
   gabrielaLinkedIn.id = 'gabriela-linkedIn';
   imgGabrielaGithub.className = 'class-github';
   gabrielaGithub.id = 'gabriela-github';
@@ -102,8 +106,9 @@ export const contact = () => {
   silviaDescription.textContent = 'FRONT-END DEVELOPER';
   silviaDescription.className = 'class-cardsDescription';
   silviaContact.className = 'class-contactDiv';
-  silviaLinkedIn.className = 'class-linkedIn';
-  silviaLinkedIn.src = 'https://res.cloudinary.com/dfio49epx/image/upload/v1670978490/imagenes-24-7-repositorio/contact-linkedin_bvqpu9.png';
+  imgSilviaLinkedIn.className = 'class-linkedIn';
+  silviaLinkedIn.href = 'https://www.linkedin.com/in/silvia-falcon-7abb0423b/';
+  imgSilviaLinkedIn.src = 'https://res.cloudinary.com/dfio49epx/image/upload/v1670978490/imagenes-24-7-repositorio/contact-linkedin_bvqpu9.png';
   silviaLinkedIn.id = 'silvia-linkedIn';
   imgSilviaGithub.className = 'class-github';
   imgSilviaGithub.src = 'https://res.cloudinary.com/dfio49epx/image/upload/v1670978490/imagenes-24-7-repositorio/contact-github_kzaer1.png';
@@ -123,8 +128,9 @@ export const contact = () => {
   valeriaDescription.textContent = 'FRONT-END DEVELOPER';
   valeriaDescription.className = 'class-cardsDescription';
   valeriaContact.className = 'class-contactDiv';
-  valeriaLinkedIn.className = 'class-linkedIn';
-  valeriaLinkedIn.src = 'https://res.cloudinary.com/dfio49epx/image/upload/v1670978490/imagenes-24-7-repositorio/contact-linkedin_bvqpu9.png';
+  imgvaleriaLinkedIn.className = 'class-linkedIn';
+  imgvaleriaLinkedIn.src = 'https://res.cloudinary.com/dfio49epx/image/upload/v1670978490/imagenes-24-7-repositorio/contact-linkedin_bvqpu9.png';
+  valeriaLinkedIn.href = 'https://www.linkedin.com/in/valeriamurguiag/';
   imgValeriaGithub.src = 'https://res.cloudinary.com/dfio49epx/image/upload/v1670978490/imagenes-24-7-repositorio/contact-github_kzaer1.png';
   valeriaGithub.href = 'https://github.com/valeriamurguiag';
   valeriaLinkedIn.id = 'valeria-linkedIn';
@@ -157,6 +163,7 @@ export const contact = () => {
   gabrielaInfoDiv.appendChild(gabrielaDescription);
   gabrielaDiv.appendChild(gabrielaContact);
   gabrielaContact.appendChild(gabrielaLinkedIn);
+  gabrielaLinkedIn.appendChild(imgGabrielaLinkedIn);
   gabrielaContact.appendChild(gabrielaGithub);
   gabrielaGithub.appendChild(imgGabrielaGithub);
   gabrielaContact.appendChild(gabrielaMail);
@@ -168,6 +175,7 @@ export const contact = () => {
   silviaInfoDiv.appendChild(silviaDescription);
   silviaDiv.appendChild(silviaContact);
   silviaContact.appendChild(silviaLinkedIn);
+  silviaLinkedIn.appendChild(imgSilviaLinkedIn);
   silviaContact.appendChild(silviaGithub);
   silviaGithub.appendChild(imgSilviaGithub);
   silviaContact.appendChild(silviaMail);
@@ -179,6 +187,7 @@ export const contact = () => {
   valeriaInfoDiv.appendChild(valeriaDescription);
   valeriaDiv.appendChild(valeriaContact);
   valeriaContact.appendChild(valeriaLinkedIn);
+  valeriaLinkedIn.appendChild(imgvaleriaLinkedIn);
   valeriaContact.appendChild(valeriaGithub);
   valeriaGithub.appendChild(imgValeriaGithub);
   valeriaContact.appendChild(valeriaMail);

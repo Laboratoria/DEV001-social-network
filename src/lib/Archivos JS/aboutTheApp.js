@@ -141,7 +141,7 @@ export const aboutTheApp = () => {
         <li><a class='option' id='option1'>Mi Perfil</a></li>
         <li><a class='option' id='option2'>Contáctanos</a></li>
         <li><a class='option' id='option3'>Cerrar Sesión</a></li>
-        <img src='https://res.cloudinary.com/dfio49epx/image/upload/v1670978492/imagenes-24-7-repositorio/icon-close_roe9hf.png" alt="close" class="close-button" id="close-button' class='close-button' id='close-button'>
+        <img src='https://res.cloudinary.com/dfio49epx/image/upload/v1670978492/imagenes-24-7-repositorio/icon-close_roe9hf.png'alt="close" class="close-button" id="close-button">
         </nav>`;
     menuDisplayed.innerHTML = options;
 
