@@ -315,6 +315,30 @@ export const landingPage = () => {
 
       showPostDiv.innerHTML = html;
 
+      // Boton para likear comentarios del usuario.
+      const btnsLike = document.querySelectorAll('.class-like');
+
+      btnsLike.forEach((btn) => {
+        // eslint-disable-next-line consistent-return
+        btn.addEventListener('click', async ({ target: { dataset } }) => {
+          const doc = await functionGetTask2(dataset.id);
+          const task = doc.data();
+          id = doc.id;
+
+          if (!task.likes.includes(user.uid)) {
+            const newLikes = [...task.likes, user.uid];
+            functionUpdateTask(id, {
+              likes: newLikes,
+            });
+          } else {
+            const filterUsers = task.likes.filter((el) => el !== user.uid);
+            functionUpdateTask(id, {
+              likes: filterUsers,
+            });
+          }
+        });
+      });
+
       // Boton para eliminar comentarios del usuario.
       const btnsDelete = showPostDiv.querySelectorAll('.class-delete');
       btnsDelete.forEach((btn) => {
@@ -358,40 +382,6 @@ export const landingPage = () => {
           editStatus = true;
           id = doc.id;
           saveChanges.innerText = 'Guardar cambios';
-        });
-      });
-
-      // Boton para likear comentarios del usuario.
-      const btnsLike = document.querySelectorAll('.class-like');
-
-      btnsLike.forEach((btn) => {
-        // eslint-disable-next-line consistent-return
-        btn.addEventListener('click', async ({ target: { dataset } }) => {
-          try {
-            const doc = await functionGetTask2(dataset.id);
-            const task = doc.data();
-            id = doc.id;
-
-            if (doc !== undefined) {
-              try {
-                if (!task.likes.includes(user.uid)) {
-                  const newLikes = [...task.likes, user.uid];
-                  functionUpdateTask(id, {
-                    likes: newLikes,
-                  });
-                } else {
-                  const filterUsers = task.likes.filter((el) => el !== user.uid);
-                  functionUpdateTask(id, {
-                    likes: filterUsers,
-                  });
-                }
-              } catch (err) {
-                return err;
-              }
-            }
-          } catch (err) {
-            return err;
-          }
         });
       });
     });
