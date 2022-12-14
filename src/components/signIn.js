@@ -14,7 +14,7 @@ export const signIn = (onNavigate) => {
   const btnGoogle = document.createElement('button');
   const logo = document.createElement('img');
 
-  hdiv.className = 'hdiv';
+  hdiv.className = 'hdivSignIn';
   inputEmail.placeholder = 'example@youremail.com';
   inputEmail.type = 'email';
   inputEmail.required = 'true';
@@ -29,7 +29,7 @@ export const signIn = (onNavigate) => {
   btnBack.textContent = 'Back';
   title.textContent = 'Welcome!';
   title.className = 'title';
-  btnGoogle.innerHTML = '<img class="img-google" src="https://icones.pro/wp-content/uploads/2021/02/google-icone-symbole-logo-png-150x150.png" /> Sign In with Google';
+  btnGoogle.innerHTML = '<img class="img-google" src="./lib/archivo_css/Imagenes/SocialGoogle.png" /> Sign Up with Google';
   logo.src = './lib/archivo_css/Imagenes/Logo.png';
 
   btn.addEventListener('click', async () => {

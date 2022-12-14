@@ -1,5 +1,6 @@
 export const feed = (onNavigate) => {
   const hdiv = document.createElement('div');
+  const header = document.createElement('header');
   const nav = document.createElement('nav');
   const title = document.createElement('h2');
   const btnLogOut = document.createElement('button');
@@ -9,8 +10,11 @@ export const feed = (onNavigate) => {
   const logOutIcon = document.createElement('i');
 
   hdiv.className = 'hdivFeed';
+  nav.className = 'nav';
+  header.className = 'header';
   postForm.id = 'postForm';
   title.textContent = 'Welcome...';
+  title.className = 'tituloFeed';
   logOutIcon.class = 'bx bx-log-out';
   postSpace.placeholder = "What's on your mind?";
   postSpace.className = 'postSpace';
@@ -20,6 +24,8 @@ export const feed = (onNavigate) => {
   btnLogOut.className = 'btnPost';
   btnLogOut.textContent = 'Log Out';
 
+ 
+  header.append(nav);
   hdiv.append(nav, postForm);
   btnLogOut.append(logOutIcon);
   nav.append(title, btnLogOut);
