@@ -43,15 +43,15 @@ export const profile = () => {
   homeDiv.className = 'container';
   container.className = 'container-im-and-register';
   containerImg.className = 'container-img';
-  titleImg.src = './lib/img/flowers1.png';
+  titleImg.src = 'https://i.postimg.cc/yxGgt3xw/flowers1.png';
   titleImg.className = 'img-title';
   title.textContent = 'Mi Perfil';
   title.className = 'title-register';
-  imgwelcome.src = './lib/img/Women-cel.png';
+  imgwelcome.src = 'https://i.postimg.cc/Xq2jDRHq/Women-cel.png';
   imgwelcome.className = 'img-welcome-2';
-  imgTop.src = './lib/img/collage-3.png';
+  imgTop.src = 'https://i.postimg.cc/YSx4ksjN/collage-3.png';
   imgTop.className = 'img-top-2';
-  imgBottom.src = './lib/img/collage-5.png';
+  imgBottom.src = 'https://i.postimg.cc/qRn7mDyH/collage-5.png';
   imgBottom.className = 'img-bottom-2';
   containerRegister.className = 'container-register';
   p.textContent = 'Usuario';
@@ -92,14 +92,14 @@ export const profile = () => {
   homeDiv2.appendChild(p);
   homeDiv2.appendChild(p4);
   containerRegister.appendChild(homeDiv2);
-  homeDiv3.appendChild(p2);
-  homeDiv3.appendChild(p5);
+  // homeDiv3.appendChild(p2);
+  // homeDiv3.appendChild(p5);
   containerRegister.appendChild(homeDiv3);
   homeDiv4.appendChild(p3);
   homeDiv4.appendChild(p6);
   containerRegister.appendChild(homeDiv4);
   homeDiv5.appendChild(btnHome);
-  homeDiv5.appendChild(btnEdit);
+  // homeDiv5.appendChild(btnEdit);
   containerRegister.appendChild(homeDiv5);
 
   btnEdit.addEventListener('click', () => onNavigate('/editProfile'));
