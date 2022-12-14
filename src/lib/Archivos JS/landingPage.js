@@ -70,7 +70,7 @@ export const landingPage = () => {
   showConfirmationDiv.className = 'container-divPost';
   titlePost.textContent = 'Comparte con Nosotras:';
   titlePost.className = 'subtitle-post';
-  imgBackground.src = './lib/img/img-flw.png';
+  imgBackground.src = 'https://i.postimg.cc/02NPHv7h/img-flw.png';
   imgBackground.className = 'img-background';
   titleSelect.textContent = 'Selecciona una categoría:';
   titleSelect.className = 'title-categoría';
@@ -119,21 +119,21 @@ export const landingPage = () => {
   containerPosts.className = 'containerPosts';
   showPostDiv.className = 'containerPosts2';
   avatarIcon.referrerPolicy = 'no-referrer';
-  avatarIcon.src = user ? user.photoURL : './lib/img/avatar-1.png';
+  avatarIcon.src = user ? user.photoURL : 'https://i.postimg.cc/Wz1LKmq0/avatar-1.png';
   avatarIcon.className = 'avatarIcon-class';
-  iconMenu.src = './lib/img/menu-icon-8.png';
+  iconMenu.src = 'https://i.postimg.cc/gJGfXyD1/menu-icon-8.png';
   iconMenu.className = 'icon-menu';
   greeting.textContent = user ? user.displayName : 'prueba';
   greeting.className = 'class-greeting';
   imgSlider1.className = 'slider';
-  slider1.src = './lib/img/slider-1.png';
+  slider1.src = 'https://i.postimg.cc/k5vHm6ms/slider-1.png';
   slider1.className = 'slider-img';
   slider1.id = 'imgSlider1';
   imgSlider2.className = 'slider';
-  slider2.src = './lib/img/slider-2.png';
+  slider2.src = 'https://i.postimg.cc/9fCxJm77/slider-2.png';
   slider2.className = 'slider-img';
   imgSlider3.className = 'slider';
-  slider3.src = './lib/img/slider-3.png';
+  slider3.src = 'https://i.postimg.cc/s2mTLkY0/slider-3.png';
   slider3.className = 'slider-img';
   divSlider.className = 'imgSlider';
   divSlider.id = 'imgSlider-container';
@@ -147,11 +147,11 @@ export const landingPage = () => {
   saludDiv.className = 'class-categories';
   socialDiv.className = 'class-categories';
   emocionalDiv.className = 'class-categories';
-  imgSalud.src = './lib/img/saludIcon.png';
+  imgSalud.src = 'https://i.postimg.cc/kMLPwSXR/salud-Icon.png';
   imgSalud.className = 'class-categories-icons';
-  imgSocial.src = './lib/img/socialIcon.png';
+  imgSocial.src = 'https://i.postimg.cc/xTHDZdcx/social-Icon.png';
   imgSocial.className = 'class-categories-icons';
-  imgEmocional.src = './lib/img/emocionalIcon.png';
+  imgEmocional.src = 'https://i.postimg.cc/mgsfWG9b/emocional-Icon.png';
   imgEmocional.className = 'class-categories-icons';
   pSalud.textContent = 'Salud';
   pSalud.className = 'text-categories';
@@ -163,7 +163,7 @@ export const landingPage = () => {
   estructuraPost.classList = 'class-estructuraPost';
   postDiv.classList = 'class-postDiv';
   imgPostDiv.classList = 'class-post-emocional';
-  imgPost.src = './lib/img/meditando.png';
+  imgPost.src = 'https://i.postimg.cc/W4NBt6SC/meditando.png';
   imgPost.className = 'class-imgPost';
   postAuthor.textContent = user ? user.displayName : 'prueba';
   postAuthor.className = 'class-postAuthor';
@@ -174,11 +174,11 @@ export const landingPage = () => {
   likeDiv.className = 'class-like';
   editDiv.className = 'class-edit';
   deleteDiv.className = 'class-delete';
-  likeImg.src = './lib/img/like-icon.png';
+  likeImg.src = 'https://i.postimg.cc/JhY20wsH/like-icon.png';
   likeImg.className = 'class-likeImg';
-  editImg.src = './lib/img/edit-icon.png';
+  editImg.src = 'https://i.postimg.cc/QtRYgpkX/edit-icon.png';
   editImg.className = 'class-editImg';
-  deleteImg.src = './lib/img/delete-icon.png';
+  deleteImg.src = 'https://i.postimg.cc/L6F0n38D/delete-icon.png';
   deleteImg.className = 'class-deleteImg';
   likeText.textContent = 'Me gusta';
   editText.textContent = 'Editar';
@@ -231,7 +231,7 @@ export const landingPage = () => {
       <li><a class='option' id='option1'>Mi Perfil</a></li>
       <li><a class='option' id='option2'>Contáctanos</a></li>
       <li><a class='option' id='option3'>Cerrar Sesión</a></li>
-      <img src='./lib/img/icon-close.png' alt='close' class='close-button' id='close-button'>
+      <img src='https://i.postimg.cc/mg8dpxNp/icon-close.png' alt='close' class='close-button' id='close-button'>
       </nav>`;
     menuDisplayed.innerHTML = options;
 
@@ -292,9 +292,9 @@ export const landingPage = () => {
             <p>${doc[0].editdescription}</p>
             <h3 class='task-nameUser'>${doc[0].nameUser}</h3>
             <h3 class='task-date'>${date.toLocaleDateString()}</h3>
-            <img src='./lib/img/adorno-comentarios.png' alt='img-adorno' class='img-adorno'>
+            <img src='https://i.postimg.cc/7LhKpBKH/adorno-comentarios.png' alt='img-adorno' class='img-adorno'>
             <section class='class-optionsDiv2'>
-              <div class='class-like' data-id= '${doc[1].id}' ><img class= 'class-likeImg' src = ${doc[0].likes.includes(user.uid) ? './lib/img/like-icon.png' : './lib/img/no-like.png'}> 'Me gusta'  <span class= 'count-likes'>${doc[0].likes.length}</span></div>
+              <div class='class-like' data-id= '${doc[1].id}' ><img class= 'class-likeImg' src = ${doc[0].likes.includes(user.uid) ? 'https://i.postimg.cc/JhY20wsH/like-icon.png' : 'https://i.postimg.cc/9QFb785d/no-like.png'}> 'Me gusta'  <span class= 'count-likes'>${doc[0].likes.length}</span></div>
               <button class= 'class-edit' data-id= '${doc[1].id}'> Editar </>
               <button class= 'class-delete' data-id= '${doc[1].id}'> Eliminar </button>
             </section>
@@ -305,9 +305,9 @@ export const landingPage = () => {
             <p>${doc[0].editdescription}</p>
             <h3 class='task-nameUser'>${doc[0].nameUser}</h3>
             <h3 class='task-date'>${date.toLocaleDateString()}</h3>
-            <img src='./lib/img/adorno-comentarios.png' alt='img-adorno' class='img-adorno'>
+            <img src='https://i.postimg.cc/7LhKpBKH/adorno-comentarios.png' alt='img-adorno' class='img-adorno'>
             <section class='class-optionsDiv'>
-              <div class='class-like' data-id= '${doc[1].id}'><img class= 'class-likeImg' src = ${doc[0].likes.includes(user.uid) ? './lib/img/like-icon.png' : './lib/img/no-like.png'}> ${'Me gusta'}<span class= 'count-likes'>${doc[0].likes.length}</span></div>
+              <div class='class-like' data-id= '${doc[1].id}'><img class= 'class-likeImg' src = ${doc[0].likes.includes(user.uid) ? 'https://i.postimg.cc/JhY20wsH/like-icon.png' : 'https://i.postimg.cc/9QFb785d/no-like.png'}> ${'Me gusta'}<span class= 'count-likes'>${doc[0].likes.length}</span></div>
             </section>
             </div>`;
         }

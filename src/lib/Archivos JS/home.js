@@ -22,13 +22,13 @@ export const home = () => {
   buttonLogin.className = 'buttonLogin';
   containerElements.className = 'container-home';
   containerImg.className = 'container-img';
-  imgLogo.src = './lib/img/logo-24-7.png';
+  imgLogo.src = 'https://i.postimg.cc/tgqmDHz6/logo-24-7.png';
   imgLogo.className = 'logo-24-7';
-  imgwelcome.src = './lib/img/img-welcome.png';
+  imgwelcome.src = 'https://i.postimg.cc/d03k995J/img-welcome.png';
   imgwelcome.className = 'img-welcome';
-  imgTop.src = './lib/img/collage-1.png';
+  imgTop.src = 'https://i.postimg.cc/bYkGLr9S/collage-1.png';
   imgTop.className = 'img-top';
-  imgBottom.src = './lib/img/collage-5.png';
+  imgBottom.src = 'https://i.postimg.cc/qRn7mDyH/collage-5.png';
   imgBottom.className = 'img-bottom-2';
   description.textContent = '"24/7 es una red social para todas las mujeres en Latinoamérica. Una herramienta en donde pueden '
   + 'encontrar recursos sobre seguridad, apoyo emocional y salud sexual. Una red de apoyo que está para nosotras 24/7"';

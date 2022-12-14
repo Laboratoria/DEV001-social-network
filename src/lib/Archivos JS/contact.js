@@ -187,7 +187,7 @@ export const contact = () => {
   iconMenu.addEventListener('click', () => {
     menuDisplayed.style.display = 'flex';
     const options = `<nav class="menu-nav2">
-      <li><a class="option" id="option4">Ir al home</a></li>
+      <li><a class="option" id="option4">Ir al Home</a></li>
       <li><a class="option" id="option1">Mi Perfil</a></li>
       <li><a class="option" id="option3">Cerrar Sesión</a></li>
       <img src="https://res.cloudinary.com/dfio49epx/image/upload/v1670978492/imagenes-24-7-repositorio/icon-close_roe9hf.png" alt="close" class="close-button" id="close-button">
