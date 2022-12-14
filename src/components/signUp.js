@@ -32,7 +32,7 @@ export const signUp = (onNavigate) => {
   btnBack2.textContent = 'Back';
   title.textContent = 'Welcome!';
   title.className = 'title';
-  btnGoogle.innerHTML = '<img class="img-google" src="https://icones.pro/wp-content/uploads/2021/02/google-icone-symbole-logo-png-150x150.png" /> Sign Up with Google';
+  btnGoogle.innerHTML = '<img class="img-google" src="./lib/archivo_css/Imagenes/SocialGoogle.png" /> Sign Up with Google';
   logo.src = './lib/archivo_css/Imagenes/Logo.png';
   logo.className = 'logo';
   userName.type = 'text';
