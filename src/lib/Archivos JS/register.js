@@ -85,7 +85,7 @@ export const register = () => {
   inputPassword.className = 'input-register';
   inputPassword.required = 'true';
   inputPassword.placeholder = 'Ingresa tu contraseña:';
-  regresar.innerHTML = '¿Ya tienes cuenta? <a href> Iniciar sesión </a>';
+  regresar.innerHTML = '¿Ya tienes cuenta? <a href=""> Iniciar sesión </a>';
   regresar.className = 'link-login';
   buttonSend.textContent = 'Registrarme';
   buttonSend.className = 'buttonRegister';

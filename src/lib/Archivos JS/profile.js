@@ -102,7 +102,7 @@ export const profile = () => {
   // homeDiv5.appendChild(btnEdit);
   containerRegister.appendChild(homeDiv5);
 
-  btnEdit.addEventListener('click', () => onNavigate('/editProfile'));
+  // btnEdit.addEventListener('click', () => onNavigate('/editProfile'));
 
   btnHome.addEventListener('click', () => onNavigate('/landingPage'));
 
