@@ -137,7 +137,7 @@ export const aboutTheApp = () => {
   iconMenu.addEventListener('click', () => {
     menuDisplayed.style.display = 'flex';
     const options = `<nav class='menu-nav'>
-        <li><a class="option" id="option4">Ir al home</a></li>
+        <li><a class="option" id="option4">Ir al Home</a></li>
         <li><a class='option' id='option1'>Mi Perfil</a></li>
         <li><a class='option' id='option2'>Contáctanos</a></li>
         <li><a class='option' id='option3'>Cerrar Sesión</a></li>

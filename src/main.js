@@ -9,7 +9,7 @@ import { profile } from './lib/Archivos JS/profile.js';
 // eslint-disable-next-line import/no-cycle
 import { landingPage } from './lib/Archivos JS/landingPage.js';
 // eslint-disable-next-line import/no-cycle
-import { editProfile } from './lib/Archivos JS/editProfile.js';
+// import { editProfile } from './lib/Archivos JS/editProfile.js';
 // eslint-disable-next-line import/no-cycle
 import { contact } from './lib/Archivos JS/contact.js';
 // eslint-disable-next-line import/no-cycle
@@ -27,12 +27,12 @@ import { categoryPost } from './lib/Archivos JS/categoryPost.js';
   rootDiv.appendChild(routes[pathname](onNavigate));
 }; */
 
-const routes = {
+export const routes = {
   '/': home,
   '/login': login,
   '/register': register,
   '/profile': profile,
-  '/editProfile': editProfile,
+  // '/editProfile': editProfile,
   '/landingPage': landingPage,
   '/contact': contact,
   '/aboutTheApp': aboutTheApp,
