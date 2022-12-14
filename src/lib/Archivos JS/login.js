@@ -55,7 +55,7 @@ export const login = () => {
   inputPassword.className = 'input-register input-password';
   inputPassword.required = 'true';
   inputPassword.placeholder = 'Ingresa tu contraseña:';
-  regresar.innerHTML = '¿No tienes cuenta? <a href> Regístrate </a>';
+  regresar.innerHTML = '¿No tienes cuenta? <a href=""> Regístrate </a>';
   regresar.className = 'link-login';
   buttonGoogle.innerHTML = '<img class="img-google" src="https://icones.pro/wp-content/uploads/2021/02/google-icone-symbole-logo-png-150x150.png" /> Iniciar Sesión con Google';
   buttonGoogle.className = 'button-google';

@@ -27,7 +27,7 @@ import { categoryPost } from './lib/Archivos JS/categoryPost.js';
   rootDiv.appendChild(routes[pathname](onNavigate));
 }; */
 
-const routes = {
+export const routes = {
   '/': home,
   '/login': login,
   '/register': register,
