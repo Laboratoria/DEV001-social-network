@@ -40,20 +40,20 @@ export const aboutTheApp = () => {
   aboutContent.className = 'containerAboutThePage';
   containerHeader.className = 'containerHeader';
   avatarIcon.referrerPolicy = 'no-referrer';
-  avatarIcon.src = user ? user.photoURL : './lib/img/avatar-1.png';
+  avatarIcon.src = user ? user.photoURL : 'https://res.cloudinary.com/dfio49epx/image/upload/v1670978496/imagenes-24-7-repositorio/avatar-3_oxp8fh.png';
   avatarIcon.className = 'avatarIcon-class';
-  iconMenu.src = './lib/img/menu-icon-8.png';
+  iconMenu.src = 'https://res.cloudinary.com/dfio49epx/image/upload/v1670978495/imagenes-24-7-repositorio/menu-icon-8_ng6ov9.png';
   iconMenu.className = 'icon-menu';
   greeting.textContent = user ? user.displayName : 'prueba';
   greeting.className = 'class-greeting';
   menuDisplayed.className = 'menu-desplegable';
   menuDisplayed.id = 'menu-desplegable-id';
-  imgBackground.src = './lib/img/img-flw.png';
+  imgBackground.src = 'https://res.cloudinary.com/dfio49epx/image/upload/v1670978493/imagenes-24-7-repositorio/img-flw_d1m2v6.png';
   imgBackground.className = 'img-background';
   containerLanding.className = 'container-landing2';
   container1.className = 'container-landing3';
   containerElements.className = 'container-home';
-  imgLogo.src = './lib/img/logo-24-7.png';
+  imgLogo.src = 'https://res.cloudinary.com/dfio49epx/image/upload/v1670978495/imagenes-24-7-repositorio/logo-24-7_bbyb9i.png';
   imgLogo.className = 'logo-24-7-2';
   description.textContent = '"24/7 es una red social para todas las mujeres en Latinoamérica. Una herramiento en la que pueden '
   + ' encontrar recursos sobre seguridad, salud, apoyo emocional, y mucho más. Una red de apoyo que estará ahí para nosotras, '
@@ -62,7 +62,7 @@ export const aboutTheApp = () => {
   description2.textContent = '"Creado por mujeres, para mujeres. 🤍"';
   description2.className = 'text-description';
   containerImg.className = 'container-imgWomen';
-  imgwelcome.src = './lib/img/img-aboutTheApp2.png';
+  imgwelcome.src = 'https://res.cloudinary.com/dfio49epx/image/upload/v1670978493/imagenes-24-7-repositorio/img-aboutTheApp2_kxu5dy.png';
   imgwelcome.className = 'img-welcome3';
   container2.className = 'container-landing3';
   containerElements2.className = 'container-home';
@@ -78,7 +78,7 @@ export const aboutTheApp = () => {
   `;
   description4.className = 'text-description';
   containerImg2.className = 'container-imgWomen';
-  imgwelcome2.src = './lib/img/img-aboutTheApp.png';
+  imgwelcome2.src = 'https://res.cloudinary.com/dfio49epx/image/upload/v1670978493/imagenes-24-7-repositorio/img-aboutTheApp_nmpkmz.png';
   imgwelcome2.className = 'img-welcome4';
 
   container3.className = 'container-landing3';
@@ -100,7 +100,7 @@ export const aboutTheApp = () => {
   `;
   description6.className = 'text-description';
   containerImg3.className = 'container-imgWomen';
-  imgwelcome3.src = './lib/img/img-aboutTheApp3.png';
+  imgwelcome3.src = 'https://res.cloudinary.com/dfio49epx/image/upload/v1670978493/imagenes-24-7-repositorio/img-aboutTheApp3_jfq8yd.png';
   imgwelcome3.className = 'img-welcome5';
 
   // Añadiendo hijos
@@ -141,7 +141,7 @@ export const aboutTheApp = () => {
         <li><a class='option' id='option1'>Mi Perfil</a></li>
         <li><a class='option' id='option2'>Contáctanos</a></li>
         <li><a class='option' id='option3'>Cerrar Sesión</a></li>
-        <img src='./lib/img/icon-close.png' alt='close' class='close-button' id='close-button'>
+        <img src='https://res.cloudinary.com/dfio49epx/image/upload/v1670978492/imagenes-24-7-repositorio/icon-close_roe9hf.png" alt="close" class="close-button" id="close-button' class='close-button' id='close-button'>
         </nav>`;
     menuDisplayed.innerHTML = options;
 

@@ -59,7 +59,8 @@ export const getPath = (path) => {
   return (import.meta.env.PROD && match && match.length === 2) ? match[1] : path; //eslint-disable-line
 }
 
-// onpopstate, se dispara realizando una acción en el navegador como volver
+// onpopstate, es un evento de windows que se dispara
+// realizando una acción en el navegador como volver.
 window.onpopstate = () => {
   onNavigate(getPath(window.location.pathname));
 };

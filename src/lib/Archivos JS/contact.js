@@ -55,13 +55,13 @@ export const contact = () => {
 
   // Asignación de clases
   contactDiv.className = 'container-contactDiv';
-  imgBackground.src = './lib/img/img-flw.png';
+  imgBackground.src = 'https://res.cloudinary.com/dfio49epx/image/upload/v1670978493/imagenes-24-7-repositorio/img-flw_d1m2v6.png';
   imgBackground.className = 'img-background';
   containerHeader.className = 'containerHeader';
   avatarIcon.referrerPolicy = 'no-referrer';
-  avatarIcon.src = user ? user.photoURL : './lib/img/avatar-1.png';
+  avatarIcon.src = user ? user.photoURL : 'https://res.cloudinary.com/dfio49epx/image/upload/v1670978496/imagenes-24-7-repositorio/avatar-3_oxp8fh.png';
   avatarIcon.className = 'avatarIcon-class';
-  iconMenu.src = './lib/img/menu-icon-8.png';
+  iconMenu.src = 'https://res.cloudinary.com/dfio49epx/image/upload/v1670978495/imagenes-24-7-repositorio/menu-icon-8_ng6ov9.png';
   iconMenu.className = 'icon-menu';
   greeting.textContent = user ? user.displayName : 'prueba';
   greeting.className = 'class-greeting';
@@ -74,7 +74,7 @@ export const contact = () => {
   gabrielaDiv.className = 'class-cardsDiv';
   gabrielaImgDiv.className = 'class-cardsImgDiv';
   gabrielaImg.className = 'class-cardsImg';
-  gabrielaImg.src = './lib/img/contacto-Gaby.jpg';
+  gabrielaImg.src = 'https://res.cloudinary.com/dfio49epx/image/upload/v1670978491/imagenes-24-7-repositorio/contacto-Gaby_tijjyd.jpg';
   gabrielaInfoDiv.className = 'class-cardsInfoDiv';
   gabrielaName.textContent = 'Gabriela Zambrano';
   gabrielaName.className = 'class-nameCards';
@@ -82,20 +82,20 @@ export const contact = () => {
   gabrielaDescription.className = 'class-cardsDescription';
   gabrielaContact.className = 'class-contactDiv';
   gabrielaLinkedIn.className = 'class-linkedIn';
-  gabrielaLinkedIn.src = './lib/img/contact-linkedin.png';
+  gabrielaLinkedIn.src = 'https://res.cloudinary.com/dfio49epx/image/upload/v1670978490/imagenes-24-7-repositorio/contact-linkedin_bvqpu9.png';
   gabrielaLinkedIn.id = 'gabriela-linkedIn';
   imgGabrielaGithub.className = 'class-github';
   gabrielaGithub.id = 'gabriela-github';
-  imgGabrielaGithub.src = './lib/img/contact-github.png';
+  imgGabrielaGithub.src = 'https://res.cloudinary.com/dfio49epx/image/upload/v1670978490/imagenes-24-7-repositorio/contact-github_kzaer1.png';
   gabrielaGithub.href = 'https://github.com/Ruth-Gabriela';
   gabrielaMail.className = 'class-mail';
-  gabrielaMail.src = './lib/img/contact-mail.png';
+  gabrielaMail.src = 'https://res.cloudinary.com/dfio49epx/image/upload/v1670978490/imagenes-24-7-repositorio/contact-mail_rvgpog.png';
   gabrielaMail.id = 'gabriela-mail';
 
   silviaDiv.className = 'class-cardsDiv';
   silviaImgDiv.className = 'class-cardsImgDiv';
   silviaImg.className = 'class-cardsImg';
-  silviaImg.src = './lib/img/foto-silvia.jpg';
+  silviaImg.src = 'https://res.cloudinary.com/dfio49epx/image/upload/v1670978492/imagenes-24-7-repositorio/foto-silvia_ygisgq.jpg';
   silviaInfoDiv.className = 'class-cardsInfoDiv';
   silviaName.textContent = 'Silvia Falcón';
   silviaName.className = 'class-nameCards';
@@ -103,20 +103,20 @@ export const contact = () => {
   silviaDescription.className = 'class-cardsDescription';
   silviaContact.className = 'class-contactDiv';
   silviaLinkedIn.className = 'class-linkedIn';
-  silviaLinkedIn.src = './lib/img/contact-linkedin.png';
+  silviaLinkedIn.src = 'https://res.cloudinary.com/dfio49epx/image/upload/v1670978490/imagenes-24-7-repositorio/contact-linkedin_bvqpu9.png';
   silviaLinkedIn.id = 'silvia-linkedIn';
   imgSilviaGithub.className = 'class-github';
-  imgSilviaGithub.src = './lib/img/contact-github.png';
+  imgSilviaGithub.src = 'https://res.cloudinary.com/dfio49epx/image/upload/v1670978490/imagenes-24-7-repositorio/contact-github_kzaer1.png';
   silviaGithub.href = 'https://github.com/SilviBibi';
   silviaGithub.id = 'silvia-github';
   silviaMail.className = 'class-mail';
-  silviaMail.src = './lib/img/contact-mail.png';
+  silviaMail.src = 'https://res.cloudinary.com/dfio49epx/image/upload/v1670978490/imagenes-24-7-repositorio/contact-mail_rvgpog.png';
   silviaMail.id = 'silvia-mail';
 
   valeriaDiv.className = 'class-cardsDiv';
   valeriaImgDiv.className = 'class-cardsImgDiv';
   valeriaImg.className = 'class-cardsImg';
-  valeriaImg.src = './lib/img/contacto-valeria.png';
+  valeriaImg.src = 'https://res.cloudinary.com/dfio49epx/image/upload/v1670978491/imagenes-24-7-repositorio/contacto-valeria_qlfmuy.png';
   valeriaInfoDiv.className = 'class-cardsInfoDiv';
   valeriaName.textContent = 'Valeria Murguía';
   valeriaName.className = 'class-nameCards';
@@ -124,14 +124,14 @@ export const contact = () => {
   valeriaDescription.className = 'class-cardsDescription';
   valeriaContact.className = 'class-contactDiv';
   valeriaLinkedIn.className = 'class-linkedIn';
-  valeriaLinkedIn.src = './lib/img/contact-linkedin.png';
-  imgValeriaGithub.src = './lib/img/contact-github.png';
+  valeriaLinkedIn.src = 'https://res.cloudinary.com/dfio49epx/image/upload/v1670978490/imagenes-24-7-repositorio/contact-linkedin_bvqpu9.png';
+  imgValeriaGithub.src = 'https://res.cloudinary.com/dfio49epx/image/upload/v1670978490/imagenes-24-7-repositorio/contact-github_kzaer1.png';
   valeriaGithub.href = 'https://github.com/valeriamurguiag';
   valeriaLinkedIn.id = 'valeria-linkedIn';
   imgValeriaGithub.className = 'class-github';
   valeriaGithub.id = 'valeria-github';
   valeriaMail.className = 'class-mail';
-  valeriaMail.src = './lib/img/contact-mail.png';
+  valeriaMail.src = 'https://res.cloudinary.com/dfio49epx/image/upload/v1670978490/imagenes-24-7-repositorio/contact-mail_rvgpog.png';
   valeriaMail.id = 'valeria-mail';
 
   // Añadiendo hijos
@@ -190,7 +190,7 @@ export const contact = () => {
       <li><a class="option" id="option4">Ir al Home</a></li>
       <li><a class="option" id="option1">Mi Perfil</a></li>
       <li><a class="option" id="option3">Cerrar Sesión</a></li>
-      <img src="./lib/img/icon-close.png" alt="close" class="close-button" id="close-button">
+      <img src="https://res.cloudinary.com/dfio49epx/image/upload/v1670978492/imagenes-24-7-repositorio/icon-close_roe9hf.png" alt="close" class="close-button" id="close-button">
       </nav>`;
     menuDisplayed.innerHTML = options;
 
