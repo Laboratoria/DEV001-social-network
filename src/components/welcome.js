@@ -12,7 +12,7 @@ export const welcome = (onNavigate) => {
   btnSignUp.className = 'btnSignUp';
   title.className = 'titleWelcome';
   divWelcome.className = 'divWelcome';
-  divTitle.className ='divTitle';
+  divTitle.className ='divTitleW';
   logo.className = 'logo';
   btnSignIn.textContent = 'Sign In';
   btnSignUp.textContent = 'Sign Up';
