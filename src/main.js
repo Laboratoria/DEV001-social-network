@@ -59,7 +59,8 @@ export const onNavigate = (pathname, routesList = routes) => {
 //   return (import.meta.env.PROD && match && match.length === 2) ? match[1] : path;
 // }
 
-// onpopstate, se dispara realizando una acción en el navegador como volver
+// onpopstate, es un evento de windows que se dispara
+// realizando una acción en el navegador como volver.
 window.onpopstate = () => {
   onNavigate(window.location.pathname);
 };

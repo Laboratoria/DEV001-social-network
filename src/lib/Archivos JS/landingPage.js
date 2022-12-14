@@ -365,20 +365,32 @@ export const landingPage = () => {
       const btnsLike = document.querySelectorAll('.class-like');
 
       btnsLike.forEach((btn) => {
+        // eslint-disable-next-line consistent-return
         btn.addEventListener('click', async ({ target: { dataset } }) => {
-          const doc = await functionGetTask2(dataset.id);
-          const task = doc.data();
-          id = doc.id;
-          if (!task.likes.includes(user.uid)) {
-            const newLikes = [...task.likes, user.uid];
-            functionUpdateTask(id, {
-              likes: newLikes,
-            });
-          } else {
-            const filterUsers = task.likes.filter((el) => el !== user.uid);
-            functionUpdateTask(id, {
-              likes: filterUsers,
-            });
+          try {
+            const doc = await functionGetTask2(dataset.id);
+            const task = doc.data();
+            id = doc.id;
+
+            if (doc !== undefined) {
+              try {
+                if (!task.likes.includes(user.uid)) {
+                  const newLikes = [...task.likes, user.uid];
+                  functionUpdateTask(id, {
+                    likes: newLikes,
+                  });
+                } else {
+                  const filterUsers = task.likes.filter((el) => el !== user.uid);
+                  functionUpdateTask(id, {
+                    likes: filterUsers,
+                  });
+                }
+              } catch (err) {
+                return err;
+              }
+            }
+          } catch (err) {
+            return err;
           }
         });
       });
