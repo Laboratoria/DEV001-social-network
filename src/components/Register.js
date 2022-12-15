@@ -20,6 +20,7 @@ export const Register = (onNavigate) => {
 
   const buttonSend = document.createElement('button');
   buttonSend.textContent = 'CREAR USUARIO';
+  buttonSend.classList.add('register');
 
   const buttonHome = document.createElement('button');
   buttonHome.textContent = 'VOLVER AL INICIO';
@@ -30,8 +31,7 @@ export const Register = (onNavigate) => {
   buttonSend.addEventListener('click', () => {
     const userMail = registerMail.value;
     const userPass = registerPass.value;
-    createUser(userMail, userPass);
-    onNavigate('/login');
+    createUser(userMail, userPass, onNavigate);
   });
 
   homeDiv.append(textoRegister, registerMail, registerPass, errorSpace, buttonSend, buttonHome);

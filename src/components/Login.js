@@ -1,5 +1,4 @@
-import { signInWithPopup } from 'firebase/auth';
-import { signUp, provider, auth } from '../lib/Auth.js';
+import { signUp, signInGoogle } from '../lib/Auth.js';
 
 export const Login = (onNavigate) => {
   const loginDiv = document.createElement('div');
@@ -36,13 +35,8 @@ export const Login = (onNavigate) => {
     onNavigate('/register');
   });
 
-  buttonGoogle.addEventListener('click', async () => {
-    try {
-      const credentials = await signInWithPopup(auth, provider);
-      onNavigate('/wall');
-    } catch (error) {
-      console.log(error);
-    }
+  buttonGoogle.addEventListener('click', () => {
+    signInGoogle();
   });
 
   buttonHome.addEventListener('click', () => {
@@ -54,6 +48,7 @@ export const Login = (onNavigate) => {
     const userPass = loginPass.value;
     signUp(userMail, userPass, onNavigate);
   });
+
   loginDiv.append(
     textoLogin,
     loginMail,
