@@ -3,6 +3,7 @@ import { Home } from './lib/Home.js';
 import { Register } from './lib/Register.js';
 import { Login } from './lib/Login.js';
 
+
 const rootDiv = document.getElementById('root');
 let routes = {};
 
