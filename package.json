@@ -14,13 +14,14 @@
     "htmlhint": "htmlhint dist/*.html ",
     "eslint": "eslint --ext .js src/ test/",
     "stylelint": "stylelint --aei src/**/*.css",
-    "pretest": "npm run htmlhint && npm run eslint && npm run stylelint",
-    "test": "jest --coverage",
+    "pretest0": "npm run htmlhint && npm run eslint && npm run stylelint",
+    "test": "jest --coverage --watch",
     "start": "npm run dev",
     "dev": "vite dev src",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy": "./deploy.sh"
+    "deploy": "./deploy.sh",
+    "testing": "jest -- watch --coverage"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.19.4",
@@ -37,5 +38,20 @@
   },
   "engines": {
     "node": ">=16.x"
-  }
+  },
+  "dependencies": {
+    "firebase": "^9.14.0"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RosarioHA/DEV001-social-network.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/RosarioHA/DEV001-social-network/issues"
+  },
+  "homepage": "https://github.com/RosarioHA/DEV001-social-network#readme"
 }
