@@ -1,5 +1,5 @@
 export const feed = (onNavigate) => {
-  const hdiv = document.createElement('div');
+  const divFeed = document.createElement('div');
   const header = document.createElement('header');
   const nav = document.createElement('nav');
   const title = document.createElement('h2');
@@ -9,7 +9,7 @@ export const feed = (onNavigate) => {
   const btnSave = document.createElement('button');
   const logOutIcon = document.createElement('i');
 
-  hdiv.className = 'hdivFeed';
+  divFeed.className = 'divFeed';
   nav.className = 'nav';
   header.className = 'header';
   postForm.id = 'postForm';
@@ -26,7 +26,7 @@ export const feed = (onNavigate) => {
 
  
   header.append(nav);
-  hdiv.append(nav, postForm);
+  divFeed.append(nav, postForm);
   btnLogOut.append(logOutIcon);
   nav.append(title, btnLogOut);
   postForm.append(postSpace, btnSave);
@@ -56,5 +56,5 @@ export const feed = (onNavigate) => {
   //     onNavigate('/');
   //   });
 
-  return hdiv;
+  return divFeed;
 };

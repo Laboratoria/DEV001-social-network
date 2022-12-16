@@ -1,0 +1,59 @@
+/*------- WELCOME------*/
+.divWelcome{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    color:var(--white);
+    background: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.6));
+    width: 300px;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px #230704;
+}
+
+.introText{
+    text-align: center;
+    margin: 1em 0;
+}
+
+.btnSignIn {
+    background-color: var(--cape-palliser);
+    border-style: none;
+    border-radius: 18px;
+    padding: 8px 40px;
+    font-size: 15px;
+    color: var(--white);
+    min-width: 13rem;
+    border-radius: 3px;
+    cursor: pointer;
+    margin: 1em 0;
+    letter-spacing: 1px;
+    opacity: 0.9;
+}
+.btnSignIn:hover{
+    opacity: 1;
+    }
+.btnSignUp {
+    background-color: var(--wood-bark);
+    border-style: none;
+    border-radius: 18px;
+    padding: 8px 40px;
+    font-size: 15px;
+    color: var(--white);
+    min-width: 13rem;
+    border-radius: 3px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    opacity: 0.8;
+}
+
+.btnSignUp:hover{
+opacity: 1;
+}
+
+/**------- WELCOME Responsive ------*/
