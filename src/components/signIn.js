@@ -2,7 +2,6 @@
 import {
   signInWithEmailAndPassword, getAuth, signInWithPopup, GoogleAuthProvider,
 } from 'firebase/auth';
-import { documentId } from 'firebase/firestore';
 import { auth, provider } from '../lib/firebase';
 
 export const signIn = (onNavigate) => {
