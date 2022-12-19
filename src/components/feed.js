@@ -1,5 +1,4 @@
-import { collection, addDoc, getDocs } from 'firebase/firestore';
-import { db } from '../lib/firebase.js';
+import { getTasks, saveTask } from '../lib/firebase.js';
 
 export const feed = (onNavigate) => {
   const hdiv = document.createElement('div');
@@ -35,68 +34,25 @@ export const feed = (onNavigate) => {
   postForm.append(postSpace, btnSave);
   btnLogOut.append(logOutIcon);
 
+  const posts = [];
   window.addEventListener('DOMContentLoaded', async () => {
-    const getTasks = () => getDocs(collection(db, 'post'));
     const querySnapshot = await getTasks();
     console.log(querySnapshot);
 
     querySnapshot.forEach((doc) => {
-      console.log(doc.data());
+      posts.push(doc.data());
     });
   });
+
+  // const showPosts =
 
   postForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    const myPost = postForm.postSpace;
-    console.log(myPost.value);
-    // saveTask(myPost);
-    // return
-    // addDoc(collection(db, 'post', { content: postSpace.value })).then((result) => {
-    //   console.log(result);
-    // }).catch((error) => {
-    //   console.log(error);
-    // });
-
-    addDoc(collection(db, 'posts'), {
-      content: postSpace.value,
-    }).then((result) => {
-      console.log(result);
-    }).catch((error) => {
-      console.log(error);
-    });
+    saveTask(postSpace);
 
     postForm.reset();
   });
-
-  //   const posts = await loadPosts();
-  //   console.log(posts);
-  //   const postsList = document.getElementById('root');
-
-  //   posts.forEach((post) => {
-  //     postsList.innerHTML += `
-  //       <li>
-  //       ${post.content}
-  //       </li>
-  //       `;
-  //   });
-  // });
-
-  // btnSave.addEventListener('click', (e) => {
-  //   e.preventDefault();
-  //   savePost(postSpace.value);
-  // });
-
-  // btnSave.addEventListener('click', (e) => {
-  //   e.preventDefault();
-  //   if (postSpace.value !== '') {
-  //     savePosts(postForm.content.value);
-  //     // savePosts.innerHTML = postSpace.value;
-  //     // alert(postSpace.value)
-  //   } else {
-  //     return alert('Error: Su publicación esta vacia');
-  //   }
-  // });
 
   // const showPosts = async () => {
   //   const posts = await loadPost();
