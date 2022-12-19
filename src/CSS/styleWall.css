@@ -1,0 +1,97 @@
+body {
+    background-image: url(https://images.squarespace-cdn.com/content/v1/5456aa00e4b0750e1090a911/1602014146668-ZW29CNY2X8DN0PCE4FMJ/Hiker.gif?format=750w);
+    background-size: contain;
+    background-position: center;
+    background-blend-mode: screen;
+}
+#root{    
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+.contenedorWall{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+}
+.menu{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 2px solid #1fd1b5;
+    width: 100%;
+    margin-top: 2px;
+    background-color:#e5efed;
+}
+.logoW {
+    border-radius: 40px;
+    width: 90px;
+    height: 50px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.btnCerrarSesión {
+    background-color: #ef6973;
+    text-decoration: none;
+    width: 15%;
+    height: 35px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    border: 1px solid #1fd1b5;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.btnCerrarSesión:hover {
+    background-color: #1fd1b5;
+    color: #ef6973;
+}
+
+.containerPost {
+    width: 50%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 2px solid #1fd1b5;
+    padding: 10px;
+    background-image: "src: images/cactus.jpeg";
+}
+.inputPost {
+    width: 100%;
+    height: 20vh;
+    border-radius: 10px;
+    border: 2px solid #1fd1b5;
+    font-weight: bold;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.btnPublicar {
+    background-color: #ef6973;
+    text-decoration: none;
+    width: 20%;
+    height: 35px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    border: 1px solid #1fd1b5;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    margin-left: 370px;
+}
+
+.btnPublicar :hover {
+    background-color: #1fd1b5;
+    color: #ef6973;
+}

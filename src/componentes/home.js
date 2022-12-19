@@ -1,19 +1,48 @@
-// eslint-disable-next-line import/no-unresolved
-// import { createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js';
-// import { auth } from '../app/firebase.js';
-export const Home = () => `
-<div class="containerForm">
-<div id="loginForm">
-  <p class="texto1">Ingresa al sitio</p>
-  <input type="text" class="input" id="loginEmail" placeholder=" Correo Electrónico" required>
-  <input type="password" class="input" id="loginPassword" placeholder=" Contraseña" required>
-  <button class="btnLogin " id="buttonLogin" type="submit" role="link">Iniciar Sesión</button>
-  <p class="texto2"> ---- o ---- </p>
-  <button class="btnGoogle" id="buttonGoogle" type="button" id="buttonGoogle">
-  <img class="buttonGoogle-img" src="https://assets.stickpng.com/images/5847f9cbcef1014c0b5e48c8.png"> Continuar
-  con Google
-  </button>
-  <p class="texto3">¿Aún no tienes una cuenta? <a  id="a" href = '/register' class="linkRegister" >Regístrate</a></p>
+import {
+  login,
+  loginWithGoogle,
+} from '../lib/auth';
+
+export const eventoLogin = (changeHashFn) => {
+  const btnLogin = document.getElementById('buttonLogin');
+  btnLogin.addEventListener('click', () => {
+    const email = document.getElementById('Email').value;
+    const password = document.getElementById('Password').value;
+    login(email, password, changeHashFn);
+  });
+};
+export const logWithGoogle = (changeHashFn) => {
+  const btnGoogle = document.getElementById('buttonGoogle');
+  btnGoogle.addEventListener('click', () => {
+    loginWithGoogle(changeHashFn);
+  });
+};
+
+export const Home = (rootDiv, changeHashFn) => {
+  const template = `<div class="containerForm">
+  <div class="loginForm" id="loginForm">
+    <img class="logo" src="images/logo2.jpeg">
+    <div class="texto1">
+      <p>Ingresa al sitio</p>
+    </div>
+    <input type="text" class="input" id="Email" placeholder=" Correo Electrónico" required>
+    <input type="password" class="input" id="Password" placeholder=" Contraseña" required>
+    <button class="btnLogin " id="buttonLogin" type="submit" role="link">Iniciar Sesión</button>
+    <div class="texto2">
+      <p> ---- o ---- </p>
+      </p>
+    </div>
+    <button class="btnGoogle" id="buttonGoogle" type="button" id="buttonGoogle">
+      <img class="buttonGoogle-img" src="https://assets.stickpng.com/images/5847f9cbcef1014c0b5e48c8.png"> Continuar
+      con Google
+    </button>
+    <div class="texto3">
+      <p>¿Aún no tienes una cuenta? <a id="a" href='/register' class="linkRegister">Regístrate</a></p>
+    </div>
+  </div>
 </div>
-</div>
-</div>`;
+</div`;
+  rootDiv.innerHTML = template;
+  eventoLogin(changeHashFn);
+  logWithGoogle(changeHashFn);
+};
