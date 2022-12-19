@@ -28,7 +28,8 @@ export const contact = () => {
   const imgSilviaLinkedIn = document.createElement('img');
   const silviaGithub = document.createElement('a');
   const imgSilviaGithub = document.createElement('img');
-  const silviaMail = document.createElement('img');
+  const silviaMail = document.createElement('a');
+  const imgsilviaMail = document.createElement('img');
 
   const gabrielaDiv = document.createElement('div');
   const gabrielaImgDiv = document.createElement('div');
@@ -114,9 +115,10 @@ export const contact = () => {
   imgSilviaGithub.src = 'https://res.cloudinary.com/dfio49epx/image/upload/v1670978490/imagenes-24-7-repositorio/contact-github_kzaer1.png';
   silviaGithub.href = 'https://github.com/SilviBibi';
   silviaGithub.id = 'silvia-github';
-  silviaMail.className = 'class-mail';
-  silviaMail.src = 'https://res.cloudinary.com/dfio49epx/image/upload/v1670978490/imagenes-24-7-repositorio/contact-mail_rvgpog.png';
+  imgsilviaMail.className = 'class-mail';
+  imgsilviaMail.src = 'https://res.cloudinary.com/dfio49epx/image/upload/v1670978490/imagenes-24-7-repositorio/contact-mail_rvgpog.png';
   silviaMail.id = 'silvia-mail';
+  silviaMail.href = 'mailto:<nowiki>ruth.gabriela.pz@gmail.com?'; // 'mailto:<nowiki>agentavery@sample.com?';
 
   valeriaDiv.className = 'class-cardsDiv';
   valeriaImgDiv.className = 'class-cardsImgDiv';
@@ -179,6 +181,7 @@ export const contact = () => {
   silviaContact.appendChild(silviaGithub);
   silviaGithub.appendChild(imgSilviaGithub);
   silviaContact.appendChild(silviaMail);
+  silviaMail.appendChild(imgsilviaMail);
 
   valeriaDiv.appendChild(valeriaImgDiv);
   valeriaImgDiv.appendChild(valeriaImg);
