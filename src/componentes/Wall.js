@@ -1,4 +1,4 @@
-import { CerrarSesión } from '../lib/auth';
+import { CerrarSesión } from '../App/auth';
 
 export const logWithGoogle = (changeHashFn) => {
   const btnCerrarSesion = document.getElementById('btnCerrarSesión');

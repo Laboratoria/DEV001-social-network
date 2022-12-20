@@ -1,7 +1,7 @@
 import {
   login,
   loginWithGoogle,
-} from '../lib/auth';
+} from '../App/auth';
 
 export const eventoLogin = (changeHashFn) => {
   const btnLogin = document.getElementById('buttonLogin');

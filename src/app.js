@@ -1,7 +1,7 @@
 import { Home } from './componentes/Home';
 import { Register } from './componentes/Register';
 import { Wall } from './componentes/Wall';
-import { goTo } from './lib/routes';
+import { goTo } from './App/routes';
 import { NotFound } from './componentes/404';
 import { Post } from './componentes/Post';
 
