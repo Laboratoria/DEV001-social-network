@@ -5,39 +5,42 @@ import {
 import { auth, provider } from '../lib/firebase';
 
 export const signUp = (onNavigate) => {
-  const hdiv = document.createElement('div');
-  const title = document.createElement('h2');
+  const divSignUp = document.createElement('div');
+  const title = document.createElement('p');
   const userName = document.createElement('input');
-
   const inputEmail = document.createElement('input');
   const inputPass = document.createElement('input');
   const btnSignUp = document.createElement('button');
   const btnBack2 = document.createElement('button');
+  const o = document.createElement('p');
   const btnGoogle = document.createElement('button');
   const logo = document.createElement('img');
 
-  hdiv.className = 'hdivSignUp';
+  divSignUp.className = 'divSignUp';
+  logo.src = './lib/archivo_css/Imagenes/Logo.png';
+  title.textContent = 'Create your account';
+  title.className = 'introSignUp';
   inputEmail.placeholder = 'example@youremail.com';
+  userName.type = 'text';
+  userName.placeholder = 'Your Name';
+  userName.className = 'inputSignUp';
   inputEmail.type = 'email';
   inputEmail.required = 'true';
-
   inputEmail.className = 'inputSignUp';
   inputPass.placeholder = '*******';
   inputPass.type = 'password';
   inputPass.required = 'true';
-  btnSignUp.className = 'btnSignIn';
-  btnBack2.className = 'btnBack2';
-  btnGoogle.className = 'btnGoogle';
+  inputPass.className = 'inputSignUp';
   btnSignUp.textContent = 'Sign Up';
+  btnSignUp.className = 'btnSignIn';
   btnBack2.textContent = 'Back';
-  title.textContent = 'Welcome!';
-  title.className = 'title';
+  btnBack2.className = 'btnBack';
+  o.textContent = 'or';
+  o.className = 'introSignUp';
+  btnGoogle.className = 'btnGoogle';
   btnGoogle.innerHTML = '<img class="img-google" src="./lib/archivo_css/Imagenes/SocialGoogle.png" /> Sign Up with Google';
-  logo.src = './lib/archivo_css/Imagenes/Logo.png';
-  logo.className = 'logo';
-  userName.type = 'text';
-  userName.placeholder = 'Your Name';
 
+  /* Evento para crear cuenta */
   btnSignUp.addEventListener('click', async () => {
     /*     onNavigate('/'); */
     const userEmail = inputEmail.value;
@@ -112,7 +115,7 @@ export const signUp = (onNavigate) => {
     onNavigate('/');
   });
 
-  hdiv.append(title, logo, userName, inputEmail, inputPass, btnSignUp, btnBack2, btnGoogle);
+  divSignUp.append(logo, title, userName, inputEmail, inputPass, btnSignUp, btnBack2, o, btnGoogle);
 
-  return hdiv;
+  return divSignUp;
 };

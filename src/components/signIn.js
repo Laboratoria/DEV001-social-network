@@ -5,32 +5,36 @@ import {
 import { auth, provider } from '../lib/firebase';
 
 export const signIn = (onNavigate) => {
-  const hdiv = document.createElement('div');
-  const title = document.createElement('h2');
+  const divSignIn = document.createElement('div');
+  const title = document.createElement('p');
   const inputEmail = document.createElement('input');
   const inputPass = document.createElement('input');
   const btn = document.createElement('button');
   const btnBack = document.createElement('button');
+  const or = document.createElement('p')
   const btnGoogle = document.createElement('button');
   const logo = document.createElement('img');
 
-  hdiv.className = 'hdivSignIn';
+  divSignIn.className = 'divSignIn';
+  title.textContent = 'Welcome to your account';
+  title.className = 'introSignIn';
+  logo.src = './lib/archivo_css/Imagenes/Logo.png';
   inputEmail.placeholder = 'example@youremail.com';
   inputEmail.type = 'email';
   inputEmail.required = 'true';
+  inputEmail.className = 'inputSignIn';
   inputPass.placeholder = '*******';
   inputPass.type = 'password';
   inputPass.required = 'true';
-  hdiv.className = 'hdivSignIn';
+  inputPass.className = 'inputSignIn';
   btn.className = 'btnSignIn';
-  btnBack.className = 'btnBack';
-  btnGoogle.className = 'btnGoogle';
   btn.textContent = 'Sign In';
+  btnBack.className = 'btnBack';
   btnBack.textContent = 'Back';
-  title.textContent = 'Welcome!';
-  title.className = 'title';
-  btnGoogle.innerHTML = '<img class="img-google" src="./lib/archivo_css/Imagenes/SocialGoogle.png" /> Sign Up with Google';
-  logo.src = './lib/archivo_css/Imagenes/Logo.png';
+  or.textContent = 'or';
+  or.className = 'introSignIn';
+  btnGoogle.className = 'btnGoogle';
+  btnGoogle.innerHTML = '<img class="img-google" src="./lib/archivo_css/Imagenes/SocialGoogle.png" /> Sign in with Google';
 
   btn.addEventListener('click', async () => {
     /*     onNavigate('/'); */
@@ -98,7 +102,7 @@ export const signIn = (onNavigate) => {
     onNavigate('/');
   });
 
-  hdiv.append(title, logo, inputEmail, inputPass, btn, btnBack, btnGoogle);
+  divSignIn.append(logo, title, inputEmail, inputPass, btn, btnBack, or, btnGoogle);
 
-  return hdiv;
+  return divSignIn;
 };

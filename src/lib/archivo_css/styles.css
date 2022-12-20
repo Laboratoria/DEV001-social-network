@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i");
+
+/**------- INICIO CONFIGURACIÓN GENERAL PARA EMPEZAR ------*/
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+    text-decoration: none; 
+    /*Para quitar las letras subrayadas*/
+}
+
+/*------------- Paleta de colores ------*/
+:root {
+    --whiskey: #d19f6f;
+    --wood-bark: #230704;
+    --bull-shot: #834923;
+    --redwood: #56260f;
+    --cape-palliser: #946d47;
+    --fiery-orange: #a44b12;
+    --lunar-green: #39483f;
+    --mine-shaft: #383334;
+    --sand-dune: #856464;
+    --white: #FFFFFF;
+    --bg-whithe: rgba(255, 255, 255, 0.3);
+    --br: 5px;
+    --border: solid 1px rgba(255, 255, 255, 0.5);
+
+}
+
+body{
+    background: url(../archivo_css/Imagenes/wallpaper.jpg) no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}

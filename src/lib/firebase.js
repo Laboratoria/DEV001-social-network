@@ -3,7 +3,9 @@ import { initializeApp } from 'firebase/app';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
-import { getFirestore } from 'firebase/firestore';
+import {
+  getFirestore, collection, addDoc, getDocs,
+} from 'firebase/firestore';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -22,7 +24,16 @@ const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 
 // Initialize Cloud Firestore and get a reference to the service
-const db = getFirestore(app);
+export const db = getFirestore(app);
+export const saveTask = (postSpace) => {
+  console.log(postSpace.value);
+  return addDoc(collection(db, 'posts'), { content: postSpace.value, date: new Date() }).then((result) => {
+    console.log(result);
+  }).catch((error) => {
+    console.log(error);
+  });
+};
+export const getTasks = () => getDocs(collection(db, 'posts'));
 
-// Constante para inicializar inicio de sesión con Google 
+// Constante para inicializar inicio de sesión con Google
 export const provider = new GoogleAuthProvider();

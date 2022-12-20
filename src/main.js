@@ -1,3 +1,4 @@
+/* ROUTER */
 // Este es el punto de entrada de tu aplicacion (aqui va la lógica de lo que se imprime en pantalla)
 import { welcome } from './components/welcome.js';
 // eslint-disable-next-line import/named
