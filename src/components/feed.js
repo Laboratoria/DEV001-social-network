@@ -1,4 +1,6 @@
-import { getTasks, saveTask } from '../lib/firebase.js';
+import {
+  saveTask, onGetTasks, deleteTask, getTask, updateTask,
+} from '../lib/firebase.js';
 
 export const feed = (onNavigate) => {
   const hdiv = document.createElement('div');
@@ -27,20 +29,55 @@ export const feed = (onNavigate) => {
   btnSave.id = 'btnSave';
   btnLogOut.className = 'btnPost';
   btnLogOut.textContent = 'Log Out';
+  postList.className = 'postList';
 
   header.append(nav);
   nav.append(title, btnLogOut);
-  hdiv.append(nav, postForm);
+  hdiv.append(nav, postForm, postList);
   postForm.append(postSpace, btnSave);
   btnLogOut.append(logOutIcon);
 
-  const posts = [];
-  window.addEventListener('DOMContentLoaded', async () => {
-    const querySnapshot = await getTasks();
-    console.log(querySnapshot);
+  let editStatus = false;
+  let id = '';
 
-    querySnapshot.forEach((doc) => {
-      posts.push(doc.data());
+  window.addEventListener('DOMContentLoaded', async () => {
+    onGetTasks((querySnapshot) => {
+      let html = '';
+
+      querySnapshot.forEach((doc) => {
+        const showPosts = doc.data();
+        html += `
+        <div>
+        <p>${showPosts.content}</p>
+        <button class='btn-delete' data-id='${doc.id}'>Delete</button>
+        <button class='btn-edit' data-id='${doc.id}'>Edit</button>
+        </div>
+      `;
+        // console.log(showPosts);
+      });
+      postList.innerHTML = html;
+      const btnsDelete = postList.querySelectorAll('.btn-delete');
+      btnsDelete.forEach((btn) => {
+        btn.addEventListener('click', ({ target: { dataset } }) => {
+          deleteTask(dataset.id);
+        });
+      });
+
+      const btnsEdit = postList.querySelectorAll('.btn-edit');
+      btnsEdit.forEach((btn) => {
+        btn.addEventListener('click', async ({ target: { dataset } }) => {
+          const doc = await getTask(dataset.id);
+          const post = doc.data();
+
+          postForm.postSpace.value = post.content;
+
+          editStatus = true;
+          id = doc.id;
+
+          // El contenido del botón no cambia a Post luego de editar. LLEVAR A DUDAS RÁPIDAS∏
+          postForm.btnSave.innerText = 'Update';
+        });
+      });
     });
   });
 
@@ -49,22 +86,17 @@ export const feed = (onNavigate) => {
   postForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    saveTask(postSpace);
+    const postNewContent = postForm.postSpace;
+
+    if (!editStatus) {
+      saveTask(postSpace.value);
+    } else {
+      updateTask(id, { content: postNewContent.value });
+      editStatus = false;
+    }
 
     postForm.reset();
   });
-
-  // const showPosts = async () => {
-  //   const posts = await loadPost();
-
-  //   posts.forEach((post) => {
-  //     postsList.innerHTML += `
-  //       <li>${post.post}</li>
-  //       `;
-  //   });
-  // };
-
-  // showPosts();
 
   btnLogOut.addEventListener('click', () => {
     onNavigate('/');
