@@ -1,0 +1,67 @@
+.contenedorRegister {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cuadroTransparente2 {
+    position: absolute;
+    width: 420px;
+    height: 723px;
+    left: 115px;
+    top: 48px;
+    background: rgba(0, 0, 0, 0.61);
+    mix-blend-mode: normal;
+    backdrop-filter: blur(2.5px);
+    /* Note: backdrop-filter has minimal browser support */
+    border-radius: 25px;
+    z-index: -1;
+    align-items: center;
+}
+
+.botonregistro {
+    color: white;
+    background: linear-gradient(180deg, rgba(177, 0, 53, 0.93) 0%, #0A0305 86.24%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    height: 45px;
+    width: 170px;
+    align-self: center;
+    position: absolute;
+    margin-top: 70%;
+    font-family: 'Hanken Grotesk', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    border: none;
+}
+
+.botonregistro:active {
+    background: linear-gradient(180deg, rgba(227, 56, 107, 0.93) 0%, #0A0305 86.24%);
+}
+
+.salida1 {
+    color: white;
+    background: linear-gradient(180deg, rgba(177, 0, 53, 0.93) 0%, #0A0305 86.24%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    height: 45px;
+    width: 200px;
+    align-self: center;
+    position: absolute;
+    margin-top: 100%;
+    font-family: 'Hanken Grotesk', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    border: none;
+}
+
+.salida1:active {
+    background: linear-gradient(180deg, rgba(227, 56, 107, 0.93) 0%, #0A0305 86.24%);
+}
+
+.fondoRegister {
+    background-size: cover;
+    z-index: -2;
+    max-width: 100%;
+    height: auto;
+}

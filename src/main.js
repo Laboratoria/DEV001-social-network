@@ -2,6 +2,7 @@
 import { Home } from './lib/Home.js';
 import { Register } from './lib/Register.js';
 import { Login } from './lib/Login.js';
+import { Wall } from '/lib/Wall.js';
 
 
 const rootDiv = document.getElementById('root');
@@ -30,6 +31,7 @@ routes = {
     '/': Home(onNavigate),
     '/register': Register(onNavigate),
     '/login': Login(onNavigate),
+    '/wall': Wall(onNavigate),
 };
 
 

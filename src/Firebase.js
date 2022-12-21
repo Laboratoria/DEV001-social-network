@@ -1,7 +1,7 @@
  // Import the functions you need from the SDKs you need
  import { initializeApp } from "firebase/app";
  import { getAnalytics } from "firebase/analytics";
- import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
  // TODO: Add SDKs for Firebase products that you want to use
  // https://firebase.google.com/docs/web/setup#available-libraries
@@ -22,11 +22,22 @@
  const app = initializeApp(firebaseConfig);
  const analytics = getAnalytics(app);
  const auth = getAuth(app);
+ const provider = new GoogleAuthProvider();
 
 
 
- export const registrarUsuario = (email, contraseña) => {
-     return createUserWithEmailAndPassword(auth, email, contraseña);
+ export const registrarUsuario = (email, contraseña) => { //usamos mail y contraseña porque no están en Firebase
+     return createUserWithEmailAndPassword(auth, email, contraseña); //debe contener tal cual el nombre de los parámetros de arriba
+ }
+
+
+ export const loginUsuario = (email, contraseña) => {
+     return signInWithEmailAndPassword(auth, email, contraseña);
+ }
+
+
+ export const registroGoogle = () => {
+     return signInWithPopup(auth, provider);
  }
 
 
