@@ -1,7 +1,11 @@
 /* --------------- PANTALLA 4 ESTILOS FEED------------ */
-.divFeed body {
-    background-color: #856464;
-    
+
+#postForm{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+margin-top: 30px;
 }
 .divFeed{
     display: flex;
@@ -10,6 +14,8 @@
     gap: 30px;
     width: 100%;
     position: absolute;
+    background:black;
+    height: auto;
 }
 .tituloFeed{
     color: white;
@@ -44,8 +50,36 @@
 }
 
 .postList {
-    color: white;
+    color: black;
+    display: grid;
+    grid-template-columns: minmax(200px, 1fr);
+    grid-auto-rows: minmax(100px, auto);
+    grid-gap: 20px;
+    margin: 0px 40px;
+    
+    
 }
-/* .btnPost{
+
+.eachPost{
+    background: linear-gradient(#f9f8f8,rgb(248, 248, 248));
+    opacity: 0.9;
+    width: auto;
+    padding: 15px;
+    margin: 0px 50px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px #fdfcfc;
+    position: relative;
+    top:50%;
+    left: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+};
+
+span{
+    display: flex;
+    flex-direction: row;
+}
 
 
