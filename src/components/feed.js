@@ -47,10 +47,12 @@ export const feed = (onNavigate) => {
       querySnapshot.forEach((doc) => {
         const showPosts = doc.data();
         html += `
-        <div>
+        <div class = 'eachPost'>
         <p>${showPosts.content}</p>
+        <span>
         <button class='btn-delete' data-id='${doc.id}'>Delete</button>
         <button class='btn-edit' data-id='${doc.id}'>Edit</button>
+        </span>
         </div>
       `;
         // console.log(showPosts);
@@ -89,7 +91,7 @@ export const feed = (onNavigate) => {
     const postNewContent = postForm.postSpace;
 
     if (!editStatus) {
-      saveTask(postSpace.value);
+      saveTask(postSpace);
     } else {
       updateTask(id, { content: postNewContent.value });
       editStatus = false;
