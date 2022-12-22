@@ -27,9 +27,9 @@ export const auth = getAuth(app);
 export const db = getFirestore(app);
 
 // Crea colección y documentos
-export const saveTask = (postSpace) => {
+export const saveTask = (postSpace, currentDate) => {
   console.log(postSpace.value);
-  return addDoc(collection(db, 'posts'), { content: postSpace.value, date: new Date() }).then((result) => {
+  return addDoc(collection(db, 'posts'), { content: postSpace.value, date: currentDate }).then((result) => {
     console.log(result);
   }).catch((error) => {
     console.log(error);
