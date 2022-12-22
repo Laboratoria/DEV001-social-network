@@ -1,3 +1,4 @@
+
 import {
   saveTask, onGetTasks, deleteTask, getTask, updateTask,
 } from '../lib/firebase.js';
@@ -43,19 +44,29 @@ export const feed = (onNavigate) => {
   window.addEventListener('DOMContentLoaded', async () => {
     onGetTasks((querySnapshot) => {
       let html = '';
-
       querySnapshot.forEach((doc) => {
         const showPosts = doc.data();
+        const time = showPosts.date.seconds;
+
+        const date = new Date(time * 1000);
+        const datePost = `${date.getDate()
+        }/${date.getMonth() + 1
+        }/${date.getFullYear()
+        } ${date.getHours()
+        }:${date.getMinutes()
+        }:${date.getSeconds()}`;
+
         html += `
         <div class = 'eachPost'>
         <p>${showPosts.content}</p>
+         <p class='date'> ${datePost} </p>
         <span>
         <button class='btn-delete' data-id='${doc.id}'>Delete</button>
         <button class='btn-edit' data-id='${doc.id}'>Edit</button>
         </span>
         </div>
       `;
-        // console.log(showPosts);
+       
       });
       postList.innerHTML = html;
       const btnsDelete = postList.querySelectorAll('.btn-delete');
@@ -87,11 +98,11 @@ export const feed = (onNavigate) => {
 
   postForm.addEventListener('submit', (e) => {
     e.preventDefault();
-
+  const currentDate = new Date();
     const postNewContent = postForm.postSpace;
 
     if (!editStatus) {
-      saveTask(postSpace);
+      saveTask(postSpace, currentDate);
     } else {
       updateTask(id, { content: postNewContent.value });
       editStatus = false;
