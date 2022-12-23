@@ -1,8 +1,4 @@
-/* import { onNavigate } from '../main.js'; */
-import {
-  createUserWithEmailAndPassword, getAuth, signInWithPopup, GoogleAuthProvider,
-} from 'firebase/auth';
-import { auth, provider } from '../lib/firebase';
+import { funtionSignUp, funtionUserGoogle } from '../lib/index';
 
 export const signUp = (onNavigate) => {
   const divSignUp = document.createElement('div');
@@ -42,73 +38,36 @@ export const signUp = (onNavigate) => {
 
   /* Evento para crear cuenta */
   btnSignUp.addEventListener('click', async () => {
-    /*     onNavigate('/'); */
-    const userEmail = inputEmail.value;
-    const userPass = inputPass.value;
+    const email = inputEmail.value;
+    const password = inputPass.value;
     const name = userName.value;
+    const result = await funtionSignUp(name, email, password);
+    if (typeof (result) === 'object') {
+      const user = result.user;
+      console.log(user);
+      onNavigate('/feed');
+    } else {
+      alert('Please complete information');
+    }
 
-    if (name === '') {
+  /*   if (name === '') {
       alert('Please insert your name');
     }
-    if (userEmail === '') {
+    if (email === '') {
       alert('Please insert your email');
     }
-    if (userPass === '') {
+    if (password === '') {
       alert('Please insert your password');
-    } else if (name !== '' && userEmail !== '' && userPass !== '') {
-      createUserWithEmailAndPassword(auth, userEmail, userPass)
-        .then((userCredential) => {
-        // Signed in
-          const user = userCredential.user;
-          console.log(user);
-          onNavigate('/feed');
-        // ...
-        })
-        .catch((error) => {
-          const errorCode = error.code;
-          // const errorMessage = error.message;
-          if (errorCode.includes('auth/email-already-in-use')) {
-            alert('This email is already in use');
-          }
-          if (errorCode.includes('auth/invalid-email')) {
-            alert('Invalid email');
-          }
-          if (errorCode.includes('auth/weak-password')) {
-            alert('the password must have at least six characters');
-          }
-          // // else if (errorCode) {
-          // //   alert('There is something wrong, please check again');
-          // }
-        });
-    // if (result !== 'error') {
-    //   onNavigate('/feed');
-    // }
-    }
+    } else if (name !== '' && email !== '' && password !== '') {
+
+    } */
   });
 
-  btnGoogle.addEventListener('click', () => {
-    const auth = getAuth();
-    signInWithPopup(auth, provider)
-      .then((result) => {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
-        // The signed-in user info.
-        const user = result.user;
-        console.log(user);
-        onNavigate('/feed');
-        // ...
-      }).catch((error) => {
-        // Handle Errors here.
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorMessage);
-        // The email of the user's account used.
-        const email = error.customData.email;
-        // The AuthCredential type that was used.
-        const credential = GoogleAuthProvider.credentialFromError(error);
-        // ...
-      });
+  btnGoogle.addEventListener('click', async () => {
+    const resultGoogle = await funtionUserGoogle();
+    if (resultGoogle !== 'error') {
+      onNavigate('/feed');
+    }
   });
 
   btnBack2.addEventListener('click', () => {
