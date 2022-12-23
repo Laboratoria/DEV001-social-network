@@ -8,7 +8,7 @@ import {
   getAuth, createUserWithEmailAndPassword, updateProfile, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword,
 } from 'firebase/auth';
 import {
-  getFirestore, collection, addDoc, getDocs, deleteDoc, onSnapshot, doc, getDoc, updateDoc,
+  getFirestore, collection, addDoc, getDocs, deleteDoc, onSnapshot, doc, getDoc, updateDoc, orderBy, query,
 } from 'firebase/firestore';
 
 import { app } from './firebase';
@@ -106,7 +106,11 @@ export const currentUserInfo = () => auth.currentUser;
 export const getTasks = () => getDocs(collection(db, 'posts'));
 
 // Publica los documentos en el momento
-export const onGetTasks = (callback) => onSnapshot(collection(db, 'posts'), callback);
+/* export const onGetTasks = (querySnapShot, callback) => onSnapshot(collection(db, 'posts'), callback); */
+export const onGetTasks = (querySnapshot) => {
+  const queryPost = query(collection(db, 'posts'), orderBy('date', 'desc'));
+  onSnapshot(queryPost, querySnapshot);
+};
 
 // Elimina los documentos
 export const deleteTask = (id) => deleteDoc(doc(db, 'posts', id));
