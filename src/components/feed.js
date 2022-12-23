@@ -1,7 +1,7 @@
-
+import { onAuthStateChanged, signOut } from 'firebase/auth';
 import {
-  saveTask, onGetTasks, deleteTask, getTask, updateTask,
-} from '../lib/firebase.js';
+  saveTask, onGetTasks, deleteTask, getTask, updateTask, auth, currentUserInfo,
+} from '../lib/index';
 
 export const feed = (onNavigate) => {
   const hdiv = document.createElement('div');
@@ -14,6 +14,8 @@ export const feed = (onNavigate) => {
   const btnSave = document.createElement('button');
   const logOutIcon = document.createElement('i');
   const postList = document.createElement('div');
+
+  console.log(JSON.parse(localStorage.getItem('user')));
 
   hdiv.className = 'hdivFeed';
   nav.className = 'nav';
@@ -42,6 +44,11 @@ export const feed = (onNavigate) => {
   let id = '';
 
   window.addEventListener('DOMContentLoaded', async () => {
+/*     onAuthStateChanged(auth, user =>{
+      console.log(document.getElementById('postForm'));
+      console.log(user)
+    }); */
+
     onGetTasks((querySnapshot) => {
       let html = '';
       querySnapshot.forEach((doc) => {
@@ -58,15 +65,15 @@ export const feed = (onNavigate) => {
 
         html += `
         <div class = 'eachPost'>
+        <p>${showPosts.user}</p>
         <p>${showPosts.content}</p>
-         <p class='date'> ${datePost} </p>
         <span>
         <button class='btn-delete' data-id='${doc.id}'>Delete</button>
         <button class='btn-edit' data-id='${doc.id}'>Edit</button>
         </span>
+        <p class='date'> ${datePost} </p>
         </div>
       `;
-       
       });
       postList.innerHTML = html;
       const btnsDelete = postList.querySelectorAll('.btn-delete');
@@ -98,11 +105,11 @@ export const feed = (onNavigate) => {
 
   postForm.addEventListener('submit', (e) => {
     e.preventDefault();
-  const currentDate = new Date();
+    const currentDate = new Date();
     const postNewContent = postForm.postSpace;
 
     if (!editStatus) {
-      saveTask(postSpace, currentDate);
+      saveTask(postSpace, currentDate, currentUserInfo().displayName);
     } else {
       updateTask(id, { content: postNewContent.value });
       editStatus = false;
@@ -112,7 +119,13 @@ export const feed = (onNavigate) => {
   });
 
   btnLogOut.addEventListener('click', () => {
-    onNavigate('/');
+    signOut(auth).then(() => {
+      // Sign-out successful.
+      onNavigate('/');
+    }).catch((error) => {
+      // An error happened.
+      console.log('error');
+    });
   });
 
   return hdiv;
