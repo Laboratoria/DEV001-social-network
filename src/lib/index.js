@@ -8,7 +8,7 @@ import {
   getAuth, createUserWithEmailAndPassword, updateProfile, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword,
 } from 'firebase/auth';
 import {
-  getFirestore, collection, addDoc, getDocs, deleteDoc, onSnapshot, doc, getDoc, updateDoc,
+  getFirestore, collection, addDoc, getDocs, deleteDoc, onSnapshot, doc, getDoc, updateDoc, orderBy, query,
 } from 'firebase/firestore';
 
 import { app } from './firebase';
@@ -91,9 +91,11 @@ export const funtionUserGoogle = async () => {
 /* -----FUNCIONES PARA EL MURO-----*/
 
 // Crea colección y documentos
-export const saveTask = (postSpace, currentDate, name) => {
+export const saveTask = (postSpace, currentDate, name, uid) => {
   console.log(postSpace.value);
-  return addDoc(collection(db, 'posts'), { content: postSpace.value, date: currentDate, user: name }).then((result) => {
+  return addDoc(collection(db, 'posts'), {
+    content: postSpace.value, date: currentDate, user: name, uid,
+  }).then((result) => {
     console.log(result);
   }).catch((error) => {
     console.log(error);
@@ -101,12 +103,15 @@ export const saveTask = (postSpace, currentDate, name) => {
 };
 export const currentUserInfo = () => auth.currentUser;
 
-
 // Obtiene documentos que se van a publicar
 export const getTasks = () => getDocs(collection(db, 'posts'));
 
 // Publica los documentos en el momento
-export const onGetTasks = (callback) => onSnapshot(collection(db, 'posts'), callback);
+/* export const onGetTasks = (querySnapShot, callback) => onSnapshot(collection(db, 'posts'), callback); */
+export const onGetTasks = (querySnapshot) => {
+  const queryPost = query(collection(db, 'posts'), orderBy('date', 'desc'));
+  onSnapshot(queryPost, querySnapshot);
+};
 
 // Elimina los documentos
 export const deleteTask = (id) => deleteDoc(doc(db, 'posts', id));

@@ -68,8 +68,8 @@ export const feed = (onNavigate) => {
         <p>${showPosts.user}</p>
         <p>${showPosts.content}</p>
         <span>
-        <button class='btn-delete' data-id='${doc.id}'>Delete</button>
-        <button class='btn-edit' data-id='${doc.id}'>Edit</button>
+        ${currentUserInfo().uid === showPosts.uid ? `<button class='btn-delete' data-id='${doc.id}'>Delete</button>` : ''}
+        ${currentUserInfo().uid === showPosts.uid ? `<button class='btn-edit' data-id='${doc.id}'>Edit</button>` : ''}
         </span>
         <p class='date'> ${datePost} </p>
         </div>
@@ -109,7 +109,7 @@ export const feed = (onNavigate) => {
     const postNewContent = postForm.postSpace;
 
     if (!editStatus) {
-      saveTask(postSpace, currentDate, currentUserInfo().displayName);
+      saveTask(postSpace, currentDate, currentUserInfo().displayName, currentUserInfo().uid);
     } else {
       updateTask(id, { content: postNewContent.value });
       editStatus = false;
