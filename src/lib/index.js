@@ -91,16 +91,17 @@ export const funtionUserGoogle = async () => {
 /* -----FUNCIONES PARA EL MURO-----*/
 
 // Crea colección y documentos
-export const saveTask = (postSpace, currentDate, name) => {
+export const saveTask = (postSpace, currentDate, name, uid) => {
   console.log(postSpace.value);
-  return addDoc(collection(db, 'posts'), { content: postSpace.value, date: currentDate, user: name }).then((result) => {
+  return addDoc(collection(db, 'posts'), {
+    content: postSpace.value, date: currentDate, user: name, uid,
+  }).then((result) => {
     console.log(result);
   }).catch((error) => {
     console.log(error);
   });
 };
 export const currentUserInfo = () => auth.currentUser;
-
 
 // Obtiene documentos que se van a publicar
 export const getTasks = () => getDocs(collection(db, 'posts'));
