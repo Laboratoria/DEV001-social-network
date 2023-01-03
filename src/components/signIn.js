@@ -15,6 +15,7 @@ export const signIn = (onNavigate) => {
   title.textContent = 'Welcome to your account';
   title.className = 'introSignIn';
   logo.src = './lib/archivo_css/Imagenes/Logo.png';
+  logo.className = 'logo';
   inputEmail.placeholder = 'example@youremail.com';
   inputEmail.type = 'email';
   inputEmail.required = 'true';
