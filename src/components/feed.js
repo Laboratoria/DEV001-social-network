@@ -1,4 +1,4 @@
-import { onAuthStateChanged, signOut } from 'firebase/auth';
+import { signOut } from 'firebase/auth';
 import {
   saveTask, onGetTasks, deleteTask, getTask, updateTask, auth, currentUserInfo,
 } from '../lib/index';
@@ -14,6 +14,8 @@ export const feed = (onNavigate) => {
   const btnSave = document.createElement('button');
   const logOutIcon = document.createElement('i');
   const postList = document.createElement('div');
+  const appName = document.createElement('h2'); // modificado
+  const welcomeText = document.createElement('div'); // modificado
 
   console.log(JSON.parse(localStorage.getItem('user')));
 
@@ -21,7 +23,7 @@ export const feed = (onNavigate) => {
   nav.className = 'nav';
   header.className = 'header';
   postForm.id = 'postForm';
-  title.textContent = 'Welcome...';
+  title.textContent = 'Welcome to'; // modificado
   title.className = 'tituloFeed';
   logOutIcon.class = 'bx bx-log-out';
   postSpace.placeholder = "What's on your mind?";
@@ -30,12 +32,16 @@ export const feed = (onNavigate) => {
   btnSave.textContent = 'Post';
   btnSave.className = 'btnSave';
   btnSave.id = 'btnSave';
-  btnLogOut.className = 'btnPost';
+  btnLogOut.className = 'btnLogout'; // modificado
   btnLogOut.textContent = 'Log Out';
   postList.className = 'postList';
+  appName.textContent = 'FESTIFAN'; // modificado
+  appName.className = 'appName'; // modificado
+  welcomeText.className = 'welcomeText'; // modificado
 
+  welcomeText.append(title, appName); // modificado
   header.append(nav);
-  nav.append(title, btnLogOut);
+  nav.append(welcomeText, btnLogOut); // modificado
   hdiv.append(nav, postForm, postList);
   postForm.append(postSpace, btnSave);
   btnLogOut.append(logOutIcon);
@@ -44,7 +50,7 @@ export const feed = (onNavigate) => {
   let id = '';
 
   window.addEventListener('DOMContentLoaded', async () => {
-/*     onAuthStateChanged(auth, user =>{
+    /*     onAuthStateChanged(auth, user =>{
       console.log(document.getElementById('postForm'));
       console.log(user)
     }); */
@@ -63,15 +69,21 @@ export const feed = (onNavigate) => {
         }:${date.getMinutes()
         }:${date.getSeconds()}`;
 
+        // modifiqué clases de user, content y date, span_btns, user_content
+
         html += `
         <div class = 'eachPost'>
-        <p>${showPosts.user}</p>
-        <p>${showPosts.content}</p>
-        <span>
+        <span class='user_content'>
+        <p class='eachPost_user'>${showPosts.user}</p> 
+        <p class='eachPost_content'>${showPosts.content}</p>
+        </span>
+        <span class='btn_date'>
+        <span class='span_btns'>
         ${currentUserInfo().uid === showPosts.uid ? `<button class='btn-delete' data-id='${doc.id}'>Delete</button>` : ''}
         ${currentUserInfo().uid === showPosts.uid ? `<button class='btn-edit' data-id='${doc.id}'>Edit</button>` : ''}
         </span>
-        <p class='date'> ${datePost} </p>
+        <span class='eachPost_date'><p class='p_date'> ${datePost} </p></span>
+        </span>
         </div>
       `;
       });
@@ -124,7 +136,7 @@ export const feed = (onNavigate) => {
       onNavigate('/');
     }).catch((error) => {
       // An error happened.
-      console.log('error');
+      console.log(error);
     });
   });
 

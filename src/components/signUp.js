@@ -14,6 +14,7 @@ export const signUp = (onNavigate) => {
 
   divSignUp.className = 'divSignUp';
   logo.src = './lib/archivo_css/Imagenes/Logo.png';
+  logo.className = 'logo';
   title.textContent = 'Create your account';
   title.className = 'introSignUp';
   inputEmail.placeholder = 'example@youremail.com';
@@ -28,7 +29,7 @@ export const signUp = (onNavigate) => {
   inputPass.required = 'true';
   inputPass.className = 'inputSignUp';
   btnSignUp.textContent = 'Sign Up';
-  btnSignUp.className = 'btnSignIn';
+  btnSignUp.className = 'btnSignUp';
   btnBack2.textContent = 'Back';
   btnBack2.className = 'btnBack';
   o.textContent = 'or';
