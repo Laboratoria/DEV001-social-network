@@ -1,52 +1,77 @@
 /* --------------- PANTALLA 4 ESTILOS FEED------------ */
 
-#postForm{
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-margin-top: 30px;
+.nav {
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: #230704;
 }
-.divFeed{
+
+.welcomeText {
+    color: white;
+    display: flex;
+    margin-left: 15px;
+}
+
+.appName {
+    margin-left: 6px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: italic;
+}
+
+.btnLogout {
+    border: none;
+    background: none;
+    color: white;
+    margin-right: 15px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.hdivFeed {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 30px;
     width: 100%;
     position: absolute;
-    background:black;
+    background: #1E1E1E;
     height: auto;
 }
-.tituloFeed{
+
+#postForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px #946D47;
+    background-color: #56260f;
     color: white;
-}
-.postSpace {
-    /* margin: top 30%; */
-    width: 200px;
-    padding-bottom: 100px;
     border-radius: 5px;
 }
-/* .btnPost{
-    background-color: yellow;
-    
-} */
+
+.postSpace {
+    /* margin: top 30%; */
+    width: 300px;
+    height: 80px;
+    padding-bottom: 100px;
+    border: transparent;
+    background-color: transparent;
+    color: white;
+}
+
 .btnSave {
-    background-color: var(--wood-bark);
-    position: center;
-    border-color: var(--white);
-    border-style: solid;
+    background-color: #946D47;
+    border: solid 1px white;
     border-radius: 10px;
     padding: 5px 5px;
-    font-size: 10px;
+    font-size: 13px;
     color: var(--white);
-    width: 150px;
-}
-.nav{
-    display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        background-color: #230704;      
+    width: 70px;
+    cursor: pointer;
+    margin: 0px -205px 10px 0px;
 }
 
 .postList {
@@ -55,31 +80,131 @@ margin-top: 30px;
     grid-template-columns: minmax(200px, 1fr);
     grid-auto-rows: minmax(100px, auto);
     grid-gap: 20px;
-    margin: 0px 40px;
-    
-    
+    /* margin: 0px 50px; */
+    position: relative;
+    top: 50%;
+    left: auto;
+
 }
 
-.eachPost{
-    background: linear-gradient(#f9f8f8,rgb(248, 248, 248));
+.eachPost {
+    background: #230704;
     opacity: 0.9;
-    width: auto;
-    padding: 15px;
-    margin: 0px 50px;
-    border-radius: 10px;
-    box-shadow: 1px 1px 1px #fdfcfc;
-    position: relative;
-    top:50%;
-    left: auto;
+    width: 300px;
+    height: fit-content;
+    color: white;
+    border: solid 1px #946D47;
+    /* padding: 15px; */
+    margin: 10px 10px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px #56260f;
+    /* top:50%; */
+    /* left: auto; */
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
-};
-
-span{
-    display: flex;
-    flex-direction: row;
 }
 
+;
 
+.user_content {
+    text-align: left;
+    height: fit-content;
+    width: 300px;
+}
+
+.eachPost_user {
+    color: #D19F6F;
+    font-weight: bolder;
+    -webkit-text-stroke: #A44B12;
+    height: 30px;
+    margin: 5px 0px 0px 15px;
+    width: 300px;
+}
+
+.eachPost_content {
+    margin: 5px 15px 0px 15px;
+    height: fit-content;
+}
+
+.btn_date {
+    display: flex;
+    justify-content: space-between;
+    width: inherit;
+    height: 20px;
+}
+
+.span_btns {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+}
+
+.eachPost_date {
+    text-align: right;
+    width: 50%;
+    /* height: 20px; */
+    margin: 0px 5px 0px 0px;
+    font-weight: lighter;
+    font-size: 11px;
+}
+
+.p_date {
+    height: fit-content;
+}
+
+.btn-delete,
+.btn-edit {
+    height: fit-content;
+    border: none;
+    background: none;
+    color: white;
+    cursor: pointer;
+    margin: 0px 7px 5px 5px;
+    font-size: 13px;
+}
+
+/* .btn-delete,
+.btn-edit :hover {
+    height: fit-content;
+    border: none;
+    background: none;
+    color: #A44B12;
+    background-color: #946D47;
+} */
+
+@media (min-width: 1281px) {
+
+
+    .postSpace {
+        width: 600px;
+    }
+
+    .btnSave {
+        margin: 0px -500px 5px 0px;
+    }
+
+    .eachPost {
+        width: 600px;
+    }
+
+    .user_content {
+        width: 600px;
+    }
+
+    .eachPost_user {
+        margin: 5px 0px 0px 5px;
+        width: 600px;
+    }
+
+    .eachPost_content {
+        margin: 5px 10px 0px 7px;
+        height: fit-content;
+    }
+
+    .span_btns {
+        margin-left: 3px;
+    }
+
+}
