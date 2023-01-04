@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+/* eslint-disable no-alert */
 /* eslint-disable max-len */
 /* -----FUNCIONES PURAS FIREBASE -----*/
 

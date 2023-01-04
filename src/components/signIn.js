@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 import { funtionSignIn, funtionUserGoogle } from '../lib/index';
 
 export const signIn = (onNavigate) => {

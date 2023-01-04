@@ -20,6 +20,7 @@ export const onNavigate = (pathname) => {
   root.removeChild(root.firstChild);
   root.appendChild(routes[pathname]);
 };
+
 routes = {
   '/': welcome(onNavigate),
   '/signIn': signIn(onNavigate),

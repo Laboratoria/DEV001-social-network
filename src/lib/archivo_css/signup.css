@@ -72,7 +72,7 @@
 }
 
 /**------- SIGNIN Responsive ------*/
-@media only screen and (maxwidt67h:300px) {
+@media only screen and (max-width:300px) {
     .divSignUp {
         width: 80%;
         padding: 15%;
@@ -94,19 +94,18 @@
         font-size: 1em;
         min-width: 13rem;
     }
-}
-
-.introSignUp {
-    text-align: center;
-    margin: 1em 0;
-    font-size: 2vh;
-}
-
-.inputSignUp {
-    padding: 1%;
-    font-size: 1.3vh;
-    min-width: 10rem;
-    margin: .7em;
+    .introSignUp {
+        text-align: center;
+        margin: 1em 0;
+        font-size: 2vh;
+    }
+    
+    .inputSignUp {
+        padding: 1%;
+        font-size: 1.3vh;
+        min-width: 10rem;
+        margin: .7em;
+    }
 }
 
 @media only screen and (min-width:577px) {
@@ -136,18 +135,18 @@
         font-size: 1.8vh;
         min-width: 13rem;
     }
-}
 
-.logo {
-    width: 60%;
-    height: 60%;
-}
-
-.inputSignUp {
-    padding: 1%;
-    font-size: 1.8vh;
-    min-width: 13rem;
-    margin: .7em;
+    .logo {
+        width: 60%;
+        height: 60%;
+    }
+    
+    .inputSignUp {
+        padding: 1%;
+        font-size: 1.8vh;
+        min-width: 13rem;
+        margin: .7em;
+    }
 }
 
 @media only screen and (min-width:1023px) {

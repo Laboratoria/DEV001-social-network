@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { signOut } from 'firebase/auth';
 import {
   saveTask, onGetTasks, deleteTask, getTask, updateTask, auth, currentUserInfo,
@@ -17,7 +18,7 @@ export const feed = (onNavigate) => {
   const appName = document.createElement('h2'); // modificado
   const welcomeText = document.createElement('div'); // modificado
 
-  console.log(JSON.parse(localStorage.getItem('user')));
+  /*  console.log(JSON.parse(localStorage.getItem('user'))); */
 
   hdiv.className = 'hdivFeed';
   nav.className = 'nav';
@@ -132,6 +133,7 @@ export const feed = (onNavigate) => {
 
   btnLogOut.addEventListener('click', () => {
     signOut(auth).then(() => {
+      postList.remove();
       // Sign-out successful.
       onNavigate('/');
     }).catch((error) => {
