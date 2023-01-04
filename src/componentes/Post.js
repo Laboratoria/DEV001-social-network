@@ -6,10 +6,12 @@ import {
 import {
   app,
 } from '../App/firebase';
-import {
-  deletePost,
-} from '../App/public';
 
+/* Editar Post funcionalidad del botón
+const editarPost = () => {
+  const btn = document.getElementById('btnEditar');
+};
+*/
 const db = getFirestore(app);
 export const Post = async (rootDiv) => {
   onSnapshot(collection(db, 'posts'), (querySnapshot) => {
@@ -17,25 +19,19 @@ export const Post = async (rootDiv) => {
       const post = doc.data();
       const content = post.content;
       console.log(content);
-      rootDiv.insertAdjacentHTML('afterbegin', `<div id= "mostrandoPosts" class="mostrandoPosts">
+      rootDiv.insertAdjacentHTML('afterbegin', `
+  <div class="mostrandoPosts">
       <p id="contenedores" >${content}</p>
-
-      <button class="btnEditar" id="btnEditar"  type="button" > Editar Post </button>
-      <button class="btnEliminar" id="btnELiminar"  type="button" > Eliminar Post </button>
-   
+      <section class= "botones>
+      <button class="btnEditar " id="btnEditar"  type="button" > Editar Post </button>
+      <button class="btnEliminar " id="btnEliminarr"  type="button" > Eliminar Post </button>
+      </section>
   </div>`);
     });
   });
-  const btnDelete = rootDiv.querySelectorAll('#btnELiminar');
-  console.log(btnDelete);
-  console.log(deletePost);
-  btnDelete.forEach((button) => {
-    button.addEventListener('click', () => {
-      alert('Ok');
-      if (confirm('Deseas eliminar este contenido?')) {
-        alert('Ok');
-        deletePost(button.value);
-      }
-    });
-  });
 };
+
+/* const btnsDelete = divPost.querySelectorAll(‘.btnDelete’);
+btnsDelete.forEach((btn) => {
+  btn.addEventListener('click’, ({
+    alert(Ok); */
