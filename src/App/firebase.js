@@ -1,7 +1,8 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
 // Follow this pattern to import other Firebase services
-import { getAuth } from 'firebase/auth';
+import { getAuth, signOut } from 'firebase/auth';
+
 // import { } from 'firebase/<service>';
 // TODO: Replace the following with your app's Firebase project configuration
 const firebaseConfig = {
@@ -16,6 +17,7 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 export const auth = getAuth(app);
+export const cerrarS = signOut(auth);
 
 // Get a list of cities from your database
 async function getCities(db) {

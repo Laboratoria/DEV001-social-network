@@ -1,7 +1,7 @@
 import {
   login,
   loginWithGoogle,
-} from '../lib/auth';
+} from '../App/auth';
 
 export const eventoLogin = (changeHashFn) => {
   const btnLogin = document.getElementById('buttonLogin');
@@ -41,6 +41,10 @@ export const Home = (rootDiv, changeHashFn) => {
     </div>
   </div>
 </div>
+<footer class="footer">
+  <p>Copyright &copy; 2022 <a target="_blank" href="https://github.com/Januha88">Januhary González</a> and <a
+      href="https://github.com/PameSegovia" target="_blank">Pamela Segovia</a> </p>
+</footer>
 </div`;
   rootDiv.innerHTML = template;
   eventoLogin(changeHashFn);
