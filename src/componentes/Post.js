@@ -1,53 +1,47 @@
-import { collection, addDoc } from 'firebase/firestore/lite';
-import { db } from '../App/firebase';
+import {
+  collection,
+  onSnapshot,
+  getFirestore,
+  updateDoc,
+} from 'firebase/firestore';
+import {
+  app,
+} from '../App/firebase';
+import {
+  guardarPost,
+} from '../App/public';
 
-// Add a new document in collection "cities"
-// const guardarPost es una promesa ya que estoy retornando el addDoc que retorna una promesa
-const guardarPost = (ownerId, contenido) => addDoc(collection(db, 'posts'), {
-  content: contenido,
-  likes: 0,
-  ownerId,
-});
-const onClickPublicar = () => {
-  const btn = document.getElementById('btnPublicar');
-  const textarea = document.getElementById('contenido');
-  const mensajeCargando = document.getElementById('mensajeCargando');
-  btn.addEventListener('click', () => {
-    const ownerId = 'a';
-    const contenido = textarea.value;
-    // aqui estoy habilitando el mensaje "Cargando..."
-    mensajeCargando.hidden = false;
-    btn.disabled = true;
-    textarea.disabled = true;
-    guardarPost(ownerId, contenido)
-      .then(() => {
-        // aqui estoy limpiando el input cuando se envíe el post sin error
-        textarea.value = '';
-        alert('¡El Post fuen guardado exitosamente!');
-      })
-      .catch(() => {
-        alert('¡Hubo un error, el post no se ha podido guardar!');
-      })
-      // es opcional
-      .finally(() => {
-        // aqui se desactiva el mensaje "cargando..."
-        mensajeCargando.hidden = true;
-        btn.disabled = false;
-        textarea.disabled = false;
-      });
+const db = getFirestore(app);
+export const Post = (rootDiv) => {
+  onSnapshot(collection(db, 'posts'), (querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+      const post = doc.data();
+      const content = post.content;
+
+      rootDiv.insertAdjacentHTML('afterbegin', `
+  <div class="mostrandoPosts">
+      <textarea readonly  data-doc-id="${doc.id}" id="${doc.id}" >${content}</textarea>
+      <section class= "botones>
+      <i class="fa-regular fa-pen"></i>
+      <button class="btnEditar"  data-doc-id="${doc.id}" id="btnEditar"  type="button" > Editar Post </button>
+      <button class="btnEditar"  data-doc-id="${doc.id}" id="btnEditar"  type="button" > Cancelar Edición </button>
+      <button class="btnEditar"  data-doc-id="${doc.id}" id="btnEditar"  type="button" > Actualizar </button>
+      <button class="btnEliminar "data-doc-id="${doc.id}" id="btnEliminarr"  type="button" > Eliminar Post </button>
+      </section>
+  </div>`);
+    });
   });
 };
 
-export const Post = (rootDiv) => {
-  const templateW = `<div class="container-Post">
-            <img class="logoR" src="images/logo2.jpeg">
-            <div id="post">
-            <h2 id="mensajeCargando" hidden>Cargando...</h2>
-              <textarea name="textarea" rows ="50" cols="50" class="inputR" id="contenido" placeholder="Recomienda aquí tu sendero favorito"></textarea>
-             <button class="btnPublicar " id="btnPublicar"  type="button" > Publicar </button>
-             <a  id="a" href = '/wall' class="volver" >Volver al Inicio</a></p>
-            </div>
-          </div>`;
-  rootDiv.innerHTML = templateW;
-  onClickPublicar();
+/* Editar Post funcionalidad del botón
+const editar = () => {
+  const btn = document.getElementById('btnEditar');
+
 };
+
+  ('click',event) => {
+  const btnRef = event.target;
+  const id = btnRef.dataset.docId;
+  const textarea = document.getElementById(id);
+};
+*/

@@ -6,7 +6,7 @@ import { NotFound } from './componentes/404';
 import { Post } from './componentes/Post';
 
 const routes = {
-  '/home': Home,
+  '/': Home,
   '/register': Register,
   '/404': NotFound,
   '/wall': Wall,

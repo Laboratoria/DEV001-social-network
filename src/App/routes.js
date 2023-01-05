@@ -6,7 +6,6 @@ export function goTo(pathname) {
   location.hash = `#${pathname}`;
 }
 
-
 /*
   if (routes[path] === undefined) {
     path = '/home';

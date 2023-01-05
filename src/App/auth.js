@@ -77,4 +77,3 @@ export const CerrarSesión = () => {
       alert('An error happened');
     });
 };
-
