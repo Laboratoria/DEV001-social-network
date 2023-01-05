@@ -1,10 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600&display=swap');
-.contenedorHome {
+.cuadroTransparente {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
+    padding: 45%;
+    z-index: -1;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.46);
+    mix-blend-mode: normal;
+    backdrop-filter: blur(2.5px);
+    /* Note: backdrop-filter has minimal browser support */
+    border-radius: 25px;
+    position: absolute;
 }
 
 .logoHome {
@@ -81,24 +91,26 @@
     background: linear-gradient(180deg, rgba(227, 56, 107, 0.93) 0%, #0A0305 86.24%);
 }
 
-.cuadroTransparente {
-    position: absolute;
-    width: 420px;
-    height: 723px;
-    left: 115px;
-    top: 48px;
-    background: rgba(0, 0, 0, 0.46);
-    mix-blend-mode: normal;
-    backdrop-filter: blur(2.5px);
-    /* Note: backdrop-filter has minimal browser support */
-    border-radius: 25px;
-    z-index: -1;
-    align-items: center;
-}
-
 .fondoHome {
     background-size: cover;
     z-index: -2;
-    max-width: 100%;
-    height: auto;
+    height: 100vh;
+    justify-content: center;
+}
+
+.contenedorHome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+}
+
+@media only screen and (min-width:722px) {
+    .fondoHome {
+        background-size: cover;
+        z-index: -2;
+        width: 100%;
+        height: auto;
+    }
 }

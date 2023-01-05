@@ -2,7 +2,7 @@
  import { initializeApp } from "firebase/app";
  import { getAnalytics } from "firebase/analytics";
  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-
+ import { onSnapshot, query, getFirestore, collection, addDoc } from "firebase/firestore";
  // TODO: Add SDKs for Firebase products that you want to use
  // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -23,8 +23,17 @@
  const analytics = getAnalytics(app);
  const auth = getAuth(app);
  const provider = new GoogleAuthProvider();
+ const db = getFirestore(app);
 
-
+ export const subscribeCollection = () => {
+     const q = query(collection(db, "Post"));
+     const unsubscribe = onSnapshot(q, (querySnapshot) => {
+         querySnapshot.forEach((doc) => {
+             console.log(doc.data());
+         });
+     });
+ }
+ subscribeCollection();
 
  export const registrarUsuario = (email, contraseña) => { //usamos mail y contraseña porque no están en Firebase
      return createUserWithEmailAndPassword(auth, email, contraseña); //debe contener tal cual el nombre de los parámetros de arriba
@@ -40,6 +49,46 @@
      return signInWithPopup(auth, provider);
  }
 
+ export const publicarPost = (postValue) => {
+     const user = auth.currentUser;
+     console.log(user);
+     const docRef = addDoc(collection(db, "Post"), {
+         contenidoPost: postValue,
+         nombreUsuario: user.displayName,
+         email: user.email,
+         date: new Date(),
+
+     });
+     return docRef;
+ }
 
 
- // onAuthStateChanged LO UTILIZARÉ EN EL LOGIN Y LOGOUT
+ //el displayName sólo funciona con Google
+
+
+ //  export const obtenerUsuario = ('Post', uid) => {
+ //     addDoc(collection(db,'Post'), {
+ //         contenidoPost: postValue, uid
+ //     })
+ //  }
+
+
+ //  export const obtenerUsuario = (auth, (user) => {
+ //      if (user) {
+ //          user.email;
+ //          // ...
+ //      } else {
+ //          // User is signed out
+ //          // ...
+ //      }
+ //  });
+
+
+
+ //  export const publicarPost = (postValue, idAutor) => {
+ //     const docRef = addDoc(collection(db, "Post"), {
+ //         contenidoPost: postValue,
+ //         idAutor: idAutor,
+ //     });
+ //     return docRef;
+ // }

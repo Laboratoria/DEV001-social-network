@@ -61,6 +61,7 @@ export const Register = (onNavigate) => {
         let contraseña = document.getElementsByClassName('password')[0].value;
 
         registrarUsuario(email, contraseña).then((exito) => {
+            // obtenerUsuario(user.email);
             console.log(exito);
 
             onNavigate('/wall');
@@ -68,7 +69,9 @@ export const Register = (onNavigate) => {
         }).catch((error) => {
             console.log(error);
             const registerError = document.createElement('p');
+            registerError.innerHTML = ''; //NO PUEDO LIMPIAR EL MENSAJE ANTES
             registerError.className = 'error';
+
             registerError.textContent = 'Algo ha salido mal, inténtelo de nuevo';
 
             HomeDiv.appendChild(registerError);

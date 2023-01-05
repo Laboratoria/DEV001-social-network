@@ -1,6 +1,12 @@
 export const Home = (onNavigate) => {
     const HomeDiv = document.createElement('div');
     HomeDiv.className = 'contenedorHome';
+
+    //CUADRO TRANSPARENTE
+    const cuadroDiv = document.createElement('div');
+    cuadroDiv.className = 'cuadroTransparente';
+    HomeDiv.appendChild(cuadroDiv);
+
     const buttonRegister = document.createElement('button');
     const buttonLogin = document.createElement('button');
 
@@ -14,45 +20,44 @@ export const Home = (onNavigate) => {
     //Al darle click al botón registro se ejecuta el onNavigate (register)
     buttonLogin.addEventListener('click', () => onNavigate('/login'));
 
-    HomeDiv.appendChild(buttonRegister);
-    HomeDiv.appendChild(buttonLogin);
+    cuadroDiv.appendChild(buttonRegister);
+    cuadroDiv.appendChild(buttonLogin);
 
     //LOGO
     const logoHome = document.createElement('img');
     logoHome.src = '../Imagenes/Logo.png';
     logoHome.className = 'logoHome';
-    HomeDiv.appendChild(logoHome);
+    cuadroDiv.appendChild(logoHome);
 
     //Frase Bajada
     const frase = document.createElement('p');
     frase.className = 'frase';
     frase.textContent = 'Tu red social especializada en Manga'
-    HomeDiv.appendChild(frase);
+    cuadroDiv.appendChild(frase);
 
     //Bienvenid@
     const frase2 = document.createElement('p');
     frase2.className = 'frase2';
     frase2.textContent = '¡ Bienvenid@ !'
-    HomeDiv.appendChild(frase2);
+    cuadroDiv.appendChild(frase2);
 
     //¿Qué deseas hacer?
     const frase3 = document.createElement('p');
     frase3.className = 'frase3';
     frase3.textContent = '¿Qué deseas hacer?'
-    HomeDiv.appendChild(frase3);
-
-
-
-    //CUADRO TRANSPARENTE
-    const cuadroDiv = document.createElement('div');
-    cuadroDiv.className = 'cuadroTransparente';
-    HomeDiv.appendChild(cuadroDiv);
+    cuadroDiv.appendChild(frase3);
 
     //FONDO
     const fondoHome = document.createElement('img');
     fondoHome.src = '../Imagenes/Home.jpg';
     fondoHome.className = 'fondoHome';
     HomeDiv.appendChild(fondoHome);
+
+    // //FONDO ESCRITORIO
+    // const fondoEscritorio = document.createElement('img');
+    // fondoHome.src = '../Imagenes/HomeEscritorio.jpg';
+    // fondoHome.className = 'fondoHomeEscritorio';
+    // HomeDiv.appendChild(fondoEscritorio);
 
 
     return HomeDiv;
