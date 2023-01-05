@@ -13,6 +13,7 @@ const db = getFirestore(app);
 
 export const Post = (rootDiv) => {
   onSnapshot(collection(db, 'posts'), (querySnapshot) => {
+    rootDiv.innerHTML = '';
     querySnapshot.forEach((doc) => {
       const post = doc.data();
       // console.log(doc.id);
@@ -35,8 +36,13 @@ export const Post = (rootDiv) => {
     btnsDelete.forEach((btn) => {
       btn.addEventListener('click', ({ target: { dataset } }) => {
         console.log(dataset.id);
-        deletePost(dataset.id);
+        deletePost(dataset.id)
+          .then(() => {
 
+          })
+          .catch((error) => {
+            console.log(error);
+          });
       });
     });
   });
