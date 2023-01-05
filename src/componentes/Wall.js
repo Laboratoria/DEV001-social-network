@@ -24,11 +24,12 @@ const onClickPublicar = () => {
   btn.addEventListener('click', () => {
     const ownerId = 'a';
     const contenido = textarea.value;
+    const datePost = new Date();
     // aqui estoy habilitando el mensaje "Cargando..."
     mensajeCargando.hidden = false;
     btn.disabled = true;
     textarea.disabled = true;
-    guardarPost(ownerId, contenido)
+    guardarPost(ownerId, contenido, datePost)
       .then(() => {
         // aqui estoy limpiando el input cuando se envíe el post sin error
         textarea.value = '';
