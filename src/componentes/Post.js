@@ -16,15 +16,10 @@ export const Post = (rootDiv) => {
     rootDiv.innerHTML = '';
     querySnapshot.forEach((doc) => {
       const post = doc.data();
-      // console.log(doc.id);
       const content = post.content;
-      // console.log(content);
-      // const fecha = post.datePost;
-      // console.log(fecha);
-      // const objectoAccion = new Date(fecha * 1000);
-      // console.log(objectoAccion);
       rootDiv.insertAdjacentHTML('afterbegin', `
   <div class="mostrandoPosts">
+      <p id="contUser" ></p>
       <p id="contenedores" >${content}</p>
       <section class= "botones>
       <button class="btnEditar " id="btnEditar"  type="button" > Editar Post </button>
@@ -36,13 +31,13 @@ export const Post = (rootDiv) => {
     btnsDelete.forEach((btn) => {
       btn.addEventListener('click', ({ target: { dataset } }) => {
         console.log(dataset.id);
-        deletePost(dataset.id)
-          .then(() => {
+        deletePost(dataset.id);
+        /* .then(() => {
 
           })
           .catch((error) => {
             console.log(error);
-          });
+          }); */
       });
     });
   });

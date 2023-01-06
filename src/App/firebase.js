@@ -18,7 +18,7 @@ export const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 export const auth = getAuth(app);
 export const cerrarS = signOut(auth);
-
+export const currentUser = () => auth.currentUser;
 // Get a list of cities from your database
 async function getCities(db) {
   const citiesCol = collection(db, 'cities', id);
