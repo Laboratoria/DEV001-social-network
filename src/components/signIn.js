@@ -1,5 +1,5 @@
 /* eslint-disable no-alert */
-import { funtionSignIn, funtionUserGoogle } from '../lib/index';
+import { functionSignIn, functionUserGoogle } from '../lib/index';
 
 export const signIn = (onNavigate) => {
   const divSignIn = document.createElement('div');
@@ -38,17 +38,20 @@ export const signIn = (onNavigate) => {
     /*     onNavigate('/'); */
     const email = inputEmail.value;
     const password = inputPass.value;
-    const resultSignIn = await funtionSignIn(email, password);
-    if (typeof (resultSignIn) === 'object') {
-      localStorage.setItem('user', JSON.stringify(resultSignIn));
+    const resultSignIn = await functionSignIn(email, password);
+    if (resultSignIn === 'auth/user-not-found') {
+      alert('This email is not registered');
+    } else if (resultSignIn === 'auth/wrong-password') {
+      alert('Wrong password');
+    } else if (resultSignIn === 'auth/invalid-email') {
+      alert('This email is invalid');
+    } else if (typeof (resultSignIn) === 'object') {
       onNavigate('/feed');
-    } else {
-      alert('Please complete information');
     }
   });
 
   btnGoogle.addEventListener('click', async () => {
-    const resultGoogle = await funtionUserGoogle();
+    const resultGoogle = await functionUserGoogle();
     if (resultGoogle !== 'error') {
       onNavigate('/feed');
     }

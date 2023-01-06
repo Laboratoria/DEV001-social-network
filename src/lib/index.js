@@ -7,19 +7,13 @@
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 import {
-  getAuth, createUserWithEmailAndPassword, updateProfile, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword,
+  createUserWithEmailAndPassword, updateProfile, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword, signOut,
 } from 'firebase/auth';
 import {
-  getFirestore, collection, addDoc, getDocs, deleteDoc, onSnapshot, doc, getDoc, updateDoc, orderBy, query,
+  collection, addDoc, getDocs, deleteDoc, onSnapshot, doc, getDoc, updateDoc, orderBy, query,
 } from 'firebase/firestore';
 
-import { app } from './firebase';
-
-// Initialize Firebase Authentication and get a reference to the service
-export const auth = getAuth(app);
-
-// Initialize Cloud Firestore and get a reference to the service
-export const db = getFirestore(app);
+import { auth, db } from './firebase.js';
 
 // Import the functions you need from the SDKs you need
 
@@ -28,7 +22,7 @@ export const db = getFirestore(app);
 // Creación de usuario con email y contraseña
 // Con la función updateProfile se rescato el nombre de usuario en el registro
 
-export const funtionSignUp = async (name, email, password) => {
+export const functionSignUp = async (name, email, password) => {
   try {
     const newUser = await createUserWithEmailAndPassword(auth, email, password);
     if (name !== '') {
@@ -39,45 +33,25 @@ export const funtionSignUp = async (name, email, password) => {
     return newUser;
   } catch (error) {
     const errorCode = error.code;
-    // const errorMessage = error.message;
-    if (errorCode.includes('auth/email-already-in-use')) {
-      alert('This email is already in use');
-    }
-    if (errorCode.includes('auth/invalid-email')) {
-      alert('Invalid email');
-    }
-    if (errorCode.includes('auth/weak-password')) {
-      alert('the password must have at least six characters');
-    }
-    return 'error';
+    return errorCode;
   }
 };
 
 /* -----CREAMOS FUNCIONES PARA EL INGRESO -----*/
 // Ingreso con email y contraseña
-export const funtionSignIn = async (email, password) => {
+export const functionSignIn = async (email, password) => {
   try {
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
     console.log(userCredential.user);
     return userCredential.user;
   } catch (error) {
     const errorCode = error.code;
-    /*  const errorMessage = error.message; */
-    if (errorCode.includes('auth/user-not-found')) {
-      alert('This email is not registered');
-    }
-    if (errorCode.includes('auth/wrong-password')) {
-      alert('Wrong password');
-    }
-    if (errorCode) {
-      alert('There is something wrong, please check again');
-    }
-    return 'error';
+    return errorCode;
   }
 };
 /* -----REGISTRO E INGRESO CON GOOGLE-----*/
 
-export const funtionUserGoogle = async () => {
+export const functionUserGoogle = async () => {
   const provider = new GoogleAuthProvider();
   try {
     const userGoogle = await signInWithPopup(auth, provider);
@@ -88,6 +62,10 @@ export const funtionUserGoogle = async () => {
     const errorCode = error.code;
     return errorCode;
   }
+};
+/* -----FUNCION DE SIGN OUT-----*/
+export const functionSignOut = async () => {
+  await signOut(auth);
 };
 
 /* -----FUNCIONES PARA EL MURO-----*/
@@ -105,7 +83,7 @@ export const saveTask = (postSpace, currentDate, name, uid) => {
 };
 export const currentUserInfo = () => auth.currentUser;
 
-// Obtiene documentos que se van a publicar
+// Obtiene documentos que se van a publicar (plural)
 export const getTasks = () => getDocs(collection(db, 'posts'));
 
 // Publica los documentos en el momento
