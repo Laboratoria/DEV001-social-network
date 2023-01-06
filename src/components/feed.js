@@ -1,7 +1,9 @@
-import { signOut } from 'firebase/auth';
+/* eslint-disable no-alert */
+/* eslint-disable no-console */
 import {
-  saveTask, onGetTasks, deleteTask, getTask, updateTask, auth, currentUserInfo,
+  saveTask, onGetTasks, deleteTask, getTask, updateTask, currentUserInfo, functionSignOut,
 } from '../lib/index';
+/* import { auth } from '../lib/firebase'; */
 
 export const feed = (onNavigate) => {
   const hdiv = document.createElement('div');
@@ -17,7 +19,7 @@ export const feed = (onNavigate) => {
   const appName = document.createElement('h2'); // modificado
   const welcomeText = document.createElement('div'); // modificado
 
-  console.log(JSON.parse(localStorage.getItem('user')));
+  /*  console.log(JSON.parse(localStorage.getItem('user'))); */
 
   hdiv.className = 'hdivFeed';
   nav.className = 'nav';
@@ -107,7 +109,7 @@ export const feed = (onNavigate) => {
           id = doc.id;
 
           // El contenido del botón no cambia a Post luego de editar. LLEVAR A DUDAS RÁPIDAS∏
-          postForm.btnSave.innerText = 'Update';
+          /* postForm.btnSave.innerText = 'Update'; */
         });
       });
     });
@@ -115,30 +117,28 @@ export const feed = (onNavigate) => {
 
   // const showPosts =
 
-  postForm.addEventListener('submit', (e) => {
+  postForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const currentDate = new Date();
     const postNewContent = postForm.postSpace;
 
-    if (!editStatus) {
-      saveTask(postSpace, currentDate, currentUserInfo().displayName, currentUserInfo().uid);
-    } else {
-      updateTask(id, { content: postNewContent.value });
+    if (postSpace !== '' && !editStatus) {
+      await saveTask(postSpace, currentDate, currentUserInfo().displayName, currentUserInfo().uid);
+      postForm.reset();
+    } else if (editStatus === true) {
+      await updateTask(id, { content: postNewContent.value });
       editStatus = false;
+      postForm.reset();
+    } else {
+      alert('Type something please');
     }
-
-    postForm.reset();
   });
 
   btnLogOut.addEventListener('click', () => {
-    signOut(auth).then(() => {
-      // Sign-out successful.
-      onNavigate('/');
-    }).catch((error) => {
-      // An error happened.
-      console.log(error);
-    });
+    postList.remove();
+    functionSignOut(); // Sign-out successful.
+    onNavigate('/');
+    window.location.reload();
   });
-
   return hdiv;
 };

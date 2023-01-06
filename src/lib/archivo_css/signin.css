@@ -52,7 +52,6 @@
 .btnBack {
     background-color: var(--redwood);
     border-style: none;
-    border-radius: 18px;
     color: var(--white);
     border-radius: 3px;
     cursor: pointer;

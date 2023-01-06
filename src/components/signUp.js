@@ -1,4 +1,6 @@
-import { funtionSignUp, funtionUserGoogle } from '../lib/index';
+/* eslint-disable no-alert */
+/* eslint-disable no-console */
+import { functionSignUp, functionUserGoogle } from '../lib/index';
 
 export const signUp = (onNavigate) => {
   const divSignUp = document.createElement('div');
@@ -42,8 +44,14 @@ export const signUp = (onNavigate) => {
     const email = inputEmail.value;
     const password = inputPass.value;
     const name = userName.value;
-    const result = await funtionSignUp(name, email, password);
-    if (typeof (result) === 'object') {
+    const result = await functionSignUp(name, email, password);
+    if (result === 'auth/email-already-in-use') {
+      alert('This email is already in use');
+    } else if (result === 'auth/invalid-email') {
+      alert('Invalid email');
+    } else if (result === 'auth/weak-password') {
+      alert('the password must have at least six characters');
+    } else if (typeof result === 'object') {
       const user = result.user;
       console.log(user);
       onNavigate('/feed');
@@ -65,7 +73,7 @@ export const signUp = (onNavigate) => {
   });
 
   btnGoogle.addEventListener('click', async () => {
-    const resultGoogle = await funtionUserGoogle();
+    const resultGoogle = await functionUserGoogle();
     if (resultGoogle !== 'error') {
       onNavigate('/feed');
     }
