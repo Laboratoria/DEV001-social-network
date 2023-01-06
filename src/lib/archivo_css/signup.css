@@ -1,0 +1,189 @@
+/*------- SING UP ------*/
+.divSignUp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--white);
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6));
+    width: 70vw;
+    padding: 5vh;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px #230704;
+    gap: 10px;
+}
+
+.introSignUp {
+    text-align: center;
+    margin: 1em 0;
+    font-size: 2vh;
+}
+
+.inputSignUp {
+    background-color: var(--white);
+    border-style: none;
+    outline: none;
+    padding: 1%;
+    font-size: 1.5vh;
+    min-width: 13rem;
+    margin: .7em;
+}
+
+.btnSignup {
+    background-color: var(--wood-bark);
+    padding: 1%;
+    font-size: 1em;
+    min-width: 13rem;
+}
+
+.btnBack {
+    /* background-color: var(--cape-palliser); */
+    background-color: var(--redwood);
+    color: var(--white);
+    border-style: none;
+    border-radius: 3px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    opacity: 0.8;
+    padding: 1%;
+    font-size: 1em;
+    min-width: 13rem;
+
+}
+
+.btnBack:hover {
+    opacity: 1;
+}
+
+.btnGoogle {
+    background-color: var(--white);
+    border-style: none;
+    color: var(--wood-bark);
+    border-radius: 3px;
+    cursor: pointer;
+    opacity: 0.9;
+    padding: 1%;
+    font-size: 1.5vh;
+    min-width: 10rem;
+}
+
+/**------- SIGNIN Responsive ------*/
+@media only screen and (max-width:300px) {
+    .divSignUp {
+        width: 80%;
+        padding: 15%;
+    }
+
+    .logo {
+        width: 60%;
+        height: 60%;
+    }
+
+    .btnSignUp {
+        padding: 1%;
+        font-size: 1em;
+        min-width: 13rem;
+    }
+
+    .btnBack {
+        padding: 1%;
+        font-size: 1em;
+        min-width: 13rem;
+    }
+    .introSignUp {
+        text-align: center;
+        margin: 1em 0;
+        font-size: 2vh;
+    }
+    
+    .inputSignUp {
+        padding: 1%;
+        font-size: 1.3vh;
+        min-width: 10rem;
+        margin: .7em;
+    }
+}
+
+@media only screen and (min-width:577px) {
+    .divSignUp {
+        width: auto;
+        padding: 8%;
+    }
+
+    .introSignUp {
+        font-size: 2.5vh;
+    }
+
+    .btnSignUp {
+        font-size: 1.1em;
+        padding: 1%;
+        min-width: 15rem;
+    }
+
+    .btnBack {
+        font-size: 1.1em;
+        padding: 1%;
+        min-width: 15rem;
+    }
+
+    .btnGoogle {
+        padding: 2.2%;
+        font-size: 1.8vh;
+        min-width: 13rem;
+    }
+
+    .logo {
+        width: 60%;
+        height: 60%;
+    }
+    
+    .inputSignUp {
+        padding: 1%;
+        font-size: 1.8vh;
+        min-width: 13rem;
+        margin: .7em;
+    }
+}
+
+@media only screen and (min-width:1023px) {
+
+    .divSignUp {
+        width: 25%;
+        padding: 5%;
+    }
+
+    .logo {
+        width: 75%;
+        height: 65%;
+    }
+
+    .inputSignUp {
+
+        padding: 1%;
+        font-size: 1.5vh;
+        min-width: 14rem;
+        margin: .9em;
+    }
+
+    .btnSignUp {
+        padding: 1%;
+        font-size: 1.5em;
+        min-width: 15rem;
+    }
+
+    .btnBack {
+        padding: 1%;
+        font-size: 1.5em;
+        min-width: 15rem;
+    }
+
+    .btnGoogle {
+        padding: 2.5%;
+        font-size: 2vh;
+        min-width: 13rem;
+    }
+}
