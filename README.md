@@ -78,22 +78,28 @@ De las historias de usuario descritas anteriormente se consideró la siguiente *
 ## 4. Prototipo del proyecto
 
 **Prototipo mobile** (captura de figma version mobile)
+![PrototipoMobile](https://user-images.githubusercontent.com/114185794/211085134-0b9dd1d9-593f-48e3-9c8b-ddb09e728f97.PNG)
 
 
 
 
 **Prototipo Desktop** (captura de figma version Desktop)
+![Prototipo2 desktop](https://user-images.githubusercontent.com/114185794/211085188-119fc002-766b-43b5-a50d-a3d4e9e01a2f.PNG)
+
 
 
 
 ## 5. Implementación final
 
 **Versión mobile**
+![VersionMobile](https://user-images.githubusercontent.com/114185794/211085218-d0082339-6012-49ff-9c73-51d55131805c.PNG)
 
 
 
 
 **Versión Desktop**
+![version2 Desktop](https://user-images.githubusercontent.com/114185794/211085283-d387c783-b1a9-4c70-8750-276294d4d76d.png)
+
 
 
 
