@@ -1,7 +1,6 @@
-import { doc } from 'firebase/firestore';
 import {
-  addDoc, collection, getDocs, deleteDoc, updateDoc,
-} from 'firebase/firestore/lite';
+  doc, addDoc, collection, getDocs, deleteDoc, updateDoc
+} from 'firebase/firestore';
 import { app, db } from './firebase';
 
 export class HiGirlAPI {
@@ -17,7 +16,9 @@ export const guardarPost = (ownerId, contenido) => addDoc(collection(db, 'posts'
 });
 
 export const editarPost = async (id, contenido) => {
+  console.log(id);
   const postRef = doc(db, 'posts', id);
+  console.log(postRef);
   await updateDoc(postRef, {
     content: contenido,
   });
