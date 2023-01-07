@@ -1,7 +1,6 @@
 import {
-  addDoc, collection, deleteDoc, doc, getDocs,
+  doc, addDoc, collection, getDocs, deleteDoc, updateDoc
 } from 'firebase/firestore';
-
 import { app, db } from './firebase';
 
 export class HiGirlAPI {
@@ -10,24 +9,21 @@ export class HiGirlAPI {
   }
 }
 
-export const guardarPost = (ownerId, contenido, datePost) => addDoc(collection(db, 'posts'), {
+export const guardarPost = (ownerId, contenido) => addDoc(collection(db, 'posts'), {
   content: contenido,
+  likes: 0,
   ownerId,
-  fecha: datePost,
 });
+
+export const editarPost = async (id, contenido) => {
+  console.log(id);
+  const postRef = doc(db, 'posts', id);
+  console.log(postRef);
+  await updateDoc(postRef, {
+    content: contenido,
+  });
+};
 
 export const obtenerPost = () => getDocs(collection(db, 'posts'));
 
 export const deletePost = (id) => deleteDoc(doc(db, 'posts', id));
-
-/* export const deletePost = async (id, contenido) => {
-  const colRef = collection(db, 'posts', id);
-  await deleteDoc(colRef, {
-    content: contenido,
-  });
-}; */
-
-/* export const deletePost = (id, collectionName) => {
-  const colRef = collection(db, collectionName);
-  return deleteDoc(doc(colRef, id));
-}; */

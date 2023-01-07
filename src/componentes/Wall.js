@@ -48,14 +48,18 @@ const onClickPublicar = () => {
       });
   });
 };
-
 export const Wall = (rootDiv) => {
   const templateWall = `<div class="contenedorWall">
   <div class="menu">
     <img class="logoW" src="images/logo2.jpeg">
     <button class="btnCerrarSesión" id="btnCerrarS" type="button">Cerrar Sesión</button>
     <button class="verPosts" id="verPosts" type="button"> Ver Todos los Posts </button>
+    <button class="verPosts" id="verPosts" type="button"> Ver Todos los Posts </button>
   </div>
+<div class="contenedorW">
+    <h2 id="mensajeCargando" hidden>Cargando...</h2>
+    <textarea name="textarea" rows ="50" cols="50" class="inputPost" id="contenido" placeholder="Recomienda aquí tu sendero favorito"></textarea>
+    <button class="btnPublicar " id="btnPublicar"  type="button" > Publicar </button>
 <div class="contenedorW">
     <h2 id="mensajeCargando" hidden>Cargando...</h2>
     <textarea name="textarea" rows ="50" cols="50" class="inputPost" id="contenido" placeholder="Recomienda aquí tu sendero favorito"></textarea>
@@ -68,6 +72,9 @@ export const Wall = (rootDiv) => {
 </div>
 
 `;
+  rootDiv.innerHTML = templateWall;
+  cambiardeP();
+  onClickPublicar();
   rootDiv.innerHTML = templateWall;
   cambiardeP();
   onClickPublicar();

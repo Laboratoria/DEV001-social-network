@@ -1,4 +1,8 @@
+<<<<<<< HEAD
   #root {
+=======
+#root {
+>>>>>>> ramaJanu
     background-image: url(https://images.squarespace-cdn.com/content/v1/5456aa00e4b0750e1090a911/1602014146668-ZW29CNY2X8DN0PCE4FMJ/Hiker.gif?format=750w);
     background-repeat: no-repeat;
     background-size: cover;
@@ -41,7 +45,11 @@
   .inputPost{
     padding-inline-start: 40px;
     box-sizing: border-box;
+<<<<<<< HEAD
     border: 2px solid #1fd1b5;
+=======
+    border: 2px solid #1FD1B5;
+>>>>>>> ramaJanu
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 14px;
     cursor: pointer;
@@ -53,12 +61,17 @@
     border-radius: 10px;
   }
   .btnPublicar{
+<<<<<<< HEAD
     background-color: #ef6973;
+=======
+    background-color: #EF6973;
+>>>>>>> ramaJanu
     text-decoration: none;
     width: 150px;
     height: 35px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
+<<<<<<< HEAD
     border: 2px solid #1fd1b5;
     color: white;
     font-size: 15px;
@@ -67,12 +80,25 @@
   .btnCerrarSesión,
   .verPosts {
     background-color: #ef6973;
+=======
+    border: 2px solid #1FD1B5;
+    color: white;
+    font-size: 15px;
+  }
+  .btnCerrarSesión,
+  .verPosts {
+    background-color: #EF6973;
+>>>>>>> ramaJanu
     text-decoration: none;
     width: 150px;
     height: 35px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
+<<<<<<< HEAD
     border: 2px solid #1fd1b5;
+=======
+    border: 2px solid #1FD1B5;
+>>>>>>> ramaJanu
     color: white;
     font-size: 15px;
     cursor: pointer;
@@ -83,6 +109,10 @@
   font-size: 12px;
 }
   @media screen and (max-width: 700px) {
+<<<<<<< HEAD
     
   }
   
+=======
+  }
+>>>>>>> ramaJanu

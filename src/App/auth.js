@@ -1,8 +1,12 @@
 import {
   signInWithEmailAndPassword,
   AuthErrorCodes,
+<<<<<<< HEAD
   getAuth,
   signOut,
+=======
+  getAuth, signOut,
+>>>>>>> ramaJanu
   signInWithPopup,
   GoogleAuthProvider,
 } from 'firebase/auth';
@@ -14,8 +18,13 @@ import {
 import {
   goTo,
 } from './routes';
+<<<<<<< HEAD
 
+=======
+// eslint-disable-next-line max-len
+>>>>>>> ramaJanu
 // exportando función de login
+// const auth = getAuth();
 export const login = (email, password, changeHashFn) => {
   signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
     // Signed in
@@ -46,6 +55,11 @@ export const loginWithGoogle = () => {
       const token = credential.accessToken;
       // The signed-in user info.
       const user = result.user;
+<<<<<<< HEAD
+=======
+      console.log(user);
+      console.log('SESION INICIADA');
+>>>>>>> ramaJanu
       goTo('/wall');
       // ...
     })
@@ -62,3 +76,17 @@ export const loginWithGoogle = () => {
       // ...
     });
 };
+<<<<<<< HEAD
+=======
+
+// CERRAR SESIÓN
+export const CerrarSesión = () => {
+  signOut(auth).then(() => {
+    goTo('/home');
+  // Sign-out successful.
+  })
+    .catch((error) => {
+      alert('An error happened');
+    });
+};
+>>>>>>> ramaJanu
