@@ -5,7 +5,7 @@ import {
   guardarPost,
 } from '../App/public';
 import {
-  app, auth,
+  app,
 } from '../App/firebase';
 import { goTo } from '../App/routes';
 
@@ -22,7 +22,6 @@ const onClickPublicar = () => {
   const textarea = document.getElementById('contenido');
   const mensajeCargando = document.getElementById('mensajeCargando');
   btn.addEventListener('click', () => {
-    const user = auth.currentUser;
     const ownerId = 'a';
     const contenido = textarea.value;
     const datePost = new Date();
@@ -30,7 +29,7 @@ const onClickPublicar = () => {
     mensajeCargando.hidden = false;
     btn.disabled = true;
     textarea.disabled = true;
-    guardarPost(ownerId, contenido, datePost, user)
+    guardarPost(ownerId, contenido, datePost)
       .then(() => {
         // aqui estoy limpiando el input cuando se envíe el post sin error
         textarea.value = '';
@@ -66,7 +65,6 @@ export const Wall = (rootDiv) => {
       href="https://github.com/PameSegovia" target="_blank">Pamela Segovia</a> </p>
 </footer>
 </div>
-
 `;
   rootDiv.innerHTML = templateWall;
   cambiardeP();

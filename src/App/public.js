@@ -1,5 +1,5 @@
 import {
-  addDoc, collection, deleteDoc, doc, getDocs,
+  addDoc, collection, deleteDoc, doc, getDoc, getDocs, updateDoc,
 } from 'firebase/firestore';
 
 import { app, db } from './firebase';
@@ -20,14 +20,13 @@ export const obtenerPost = () => getDocs(collection(db, 'posts'));
 
 export const deletePost = (id) => deleteDoc(doc(db, 'posts', id));
 
-/* export const deletePost = async (id, contenido) => {
-  const colRef = collection(db, 'posts', id);
-  await deleteDoc(colRef, {
+export const obtenerDoc = (id) => getDoc(doc(db, 'posts', id));
+
+export const editarPost = async (id, contenido) => {
+  console.log(id);
+  const postRef = doc(db, 'posts', id);
+  console.log(postRef);
+  await updateDoc(postRef, {
     content: contenido,
   });
-}; */
-
-/* export const deletePost = (id, collectionName) => {
-  const colRef = collection(db, collectionName);
-  return deleteDoc(doc(colRef, id));
-}; */
+};

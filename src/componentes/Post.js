@@ -3,14 +3,15 @@ import {
   onSnapshot,
   getFirestore,
 } from 'firebase/firestore';
-
 import {
   app,
 } from '../App/firebase';
-import { deletePost } from '../App/public';
+import {
+  deletePost,
+  editarPost,
+} from '../App/public';
 
 const db = getFirestore(app);
-
 export const Post = (rootDiv) => {
   onSnapshot(collection(db, 'posts'), (querySnapshot) => {
     rootDiv.innerHTML = '';
@@ -19,25 +20,69 @@ export const Post = (rootDiv) => {
       const content = post.content;
       rootDiv.insertAdjacentHTML('afterbegin', `
   <div class="mostrandoPosts">
-      <p id="contUser" ></p>
-      <p id="contenedores" >${content}</p>
+      <textarea disabled class="textareaPost" data-doc-id="${doc.id}" id="${doc.id}" >${content}</textarea>
       <section class= "botones>
-      <button class="btnEditar " id="btnEditar"  type="button" > Editar Post </button>
-      <button class="btnEliminar " data-id="${doc.id}"  type="button" > Eliminar Post </button>
+      <i class="fa-regular fa-pen"></i>
+      <button class="btnEditar"  data-doc-id="${doc.id}" id="btnEditar"  type="button" > Editar Post </button>
+      <button class="btnCancelar" hidden  data-doc-id="${doc.id}" id="${doc.id}-cancelar"  type="button" > Cancelar Edición </button>
+      <button class="btnActualizar" hidden data-doc-id="${doc.id}" id="${doc.id}-actualizar"  type="button" > Actualizar </button>
+      <button class="btnEliminar "data-doc-id="${doc.id}" id="${doc.id}-eliminar"  type="button" > Eliminar Post </button>
       </section>
   </div>`);
+
+      // FUNCIÓN EDITAR POST
+      const btnsAct = rootDiv.querySelectorAll('.btnActualizar');
+      const textarea = document.getElementById(doc.id);
+      const btnCancelarEdit = document.getElementById(`${doc.id}-cancelar`);
+      btnsAct.forEach((btnActualizar) => {
+        btnActualizar.addEventListener('click', ({ target: { dataset } }) => {
+          btnActualizar.disabled = true;
+          textarea.disabled = true;
+          const newContent = textarea.value;
+          editarPost(dataset.docId, newContent)
+            .then(() => {
+              textarea.disabled = true;
+              btnCancelarEdit.hidden = true;
+              btnActualizar.hidden = true;
+              alert('¡Se actualizó correctamente!');
+            })
+            .catch((error) => {
+              btnActualizar.disabled = false;
+              textarea.disabled = false;
+              alert('¡Hubo un error, el post no se ha podido actualizar!');
+              console.log(error);
+            });
+        });
+      });
+      const btnsEdit = rootDiv.querySelectorAll('.btnEditar');
+      const btnActualizar = document.getElementById(`${doc.id}-actualizar`);
+      btnsEdit.forEach((btnEdit) => {
+        btnEdit.addEventListener('click', () => {
+          textarea.disabled = false;
+          btnCancelarEdit.hidden = false;
+          btnActualizar.hidden = false;
+        });
+      });
+      const originContent = textarea.value;
+      btnCancelarEdit.addEventListener('click', () => {
+        textarea.disabled = true;
+        textarea.value = originContent;
+        btnCancelarEdit.hidden = true;
+        btnActualizar.hidden = true;
+      });
     });
+
+    /* FUNCIÓN ELIMINAR POST--- AQUI COMIENZA */
     const btnsDelete = rootDiv.querySelectorAll('.btnEliminar');
     btnsDelete.forEach((btn) => {
       btn.addEventListener('click', ({ target: { dataset } }) => {
-        console.log(dataset.id);
-        deletePost(dataset.id);
-        /* .then(() => {
+        deletePost(dataset.docId)
+          .then(() => {
 
           })
           .catch((error) => {
             console.log(error);
-          }); */
+          });
       });
     });
   });
