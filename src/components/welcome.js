@@ -9,7 +9,7 @@ export const welcome = (onNavigate) => {
   const logo = document.createElement('img');
 
   divWelcome.className = 'divWelcome';
-  logo.src = './lib/archivo_css/Imagenes/Logo.png';
+  logo.src = 'https://raw.githubusercontent.com/Marlizethm/festifan-DEV001-social-network14/main/src/lib/archivo_css/Imagenes/Logo.png';
   logo.className = 'logo';
   divTitle.className = 'divTitleW';
   title.textContent = 'Welcome to the place where all the dreams come true!';

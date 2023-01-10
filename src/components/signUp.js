@@ -15,7 +15,7 @@ export const signUp = (onNavigate) => {
   const logo = document.createElement('img');
 
   divSignUp.className = 'divSignUp';
-  logo.src = './lib/archivo_css/Imagenes/Logo.png';
+  logo.src = 'https://raw.githubusercontent.com/Marlizethm/festifan-DEV001-social-network14/main/src/lib/archivo_css/Imagenes/Logo.png';
   logo.className = 'logo';
   title.textContent = 'Create your account';
   title.className = 'introSignUp';
@@ -37,7 +37,7 @@ export const signUp = (onNavigate) => {
   o.textContent = 'or';
   o.className = 'introSignUp';
   btnGoogle.className = 'btnGoogle';
-  btnGoogle.innerHTML = '<img class="img-google" src="./lib/archivo_css/Imagenes/SocialGoogle.png" /> Sign Up with Google';
+  btnGoogle.innerHTML = '<img class="img-google" src="https://raw.githubusercontent.com/Marlizethm/festifan-DEV001-social-network14/main/src/lib/archivo_css/Imagenes/SocialGoogle.png" /> Sign Up with Google';
 
   /* Evento para crear cuenta */
   btnSignUp.addEventListener('click', async () => {

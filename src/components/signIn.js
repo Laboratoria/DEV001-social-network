@@ -15,7 +15,7 @@ export const signIn = (onNavigate) => {
   divSignIn.className = 'divSignIn';
   title.textContent = 'Welcome to your account';
   title.className = 'introSignIn';
-  logo.src = './lib/archivo_css/Imagenes/Logo.png';
+  logo.src = 'https://raw.githubusercontent.com/Marlizethm/festifan-DEV001-social-network14/main/src/lib/archivo_css/Imagenes/Logo.png';
   logo.className = 'logo';
   inputEmail.placeholder = 'example@youremail.com';
   inputEmail.type = 'email';
@@ -32,7 +32,7 @@ export const signIn = (onNavigate) => {
   or.textContent = 'or';
   or.className = 'introSignIn';
   btnGoogle.className = 'btnGoogle';
-  btnGoogle.innerHTML = '<img class="img-google" src="./lib/archivo_css/Imagenes/SocialGoogle.png" /> Sign in with Google';
+  btnGoogle.innerHTML = '<img class="img-google" src="https://raw.githubusercontent.com/Marlizethm/festifan-DEV001-social-network14/main/src/lib/archivo_css/Imagenes/SocialGoogle.png" /> Sign in with Google';
 
   btn.addEventListener('click', async () => {
     /*     onNavigate('/'); */
