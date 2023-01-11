@@ -21,6 +21,7 @@ export const login = (email, password, changeHashFn) => {
     // Signed in
     const user = userCredential.user;
     goTo('/wall');
+    console.log(user);
   })
     .catch((error) => {
       const errorCode = error.code;

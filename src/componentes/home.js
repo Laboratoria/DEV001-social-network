@@ -19,11 +19,12 @@ export const logWithGoogle = (changeHashFn) => {
 };
 
 export const Home = (rootDiv, changeHashFn) => {
-  const template = `<div class="containerForm">
+  const template = `  <div class="contieneTodo">
+  <div class="containerForm">
   <div class="loginForm" id="loginForm">
     <img class="logo" src="images/logo2.jpeg">
     <div class="texto1">
-      <p>Ingresa al sitio</p>
+      <p class="parrafo">Ingresa al sitio</p>
     </div>
     <input type="text" class="input" id="Email" placeholder=" Correo Electrónico" required>
     <input type="password" class="input" id="Password" placeholder=" Contraseña" required>
@@ -39,13 +40,13 @@ export const Home = (rootDiv, changeHashFn) => {
     <div class="texto3">
       <p>¿Aún no tienes una cuenta? <a id="a" href='/register' class="linkRegister">Regístrate</a></p>
     </div>
+  </div> 
   </div>
+  <div>
+<img class="imgHome" src="https://images.squarespace-cdn.com/content/v1/5456aa00e4b0750e1090a911/1602014146668-ZW29CNY2X8DN0PCE4FMJ/Hiker.gif?format=1500w"> 
 </div>
-<footer class="footer">
-  <p>Copyright &copy; 2022 <a target="_blank" href="https://github.com/Januha88">Januhary González</a> and <a
-      href="https://github.com/PameSegovia" target="_blank">Pamela Segovia</a> </p>
-</footer>
-</div`;
+
+  </div>`;
   rootDiv.innerHTML = template;
   eventoLogin(changeHashFn);
   logWithGoogle(changeHashFn);

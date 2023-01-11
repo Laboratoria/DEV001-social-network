@@ -3,8 +3,6 @@ import { getFirestore, collection, getDocs } from 'firebase/firestore';
 // Follow this pattern to import other Firebase services
 import { getAuth, signOut } from 'firebase/auth';
 
-// import { } from 'firebase/<service>';
-// TODO: Replace the following with your app's Firebase project configuration
 const firebaseConfig = {
   apiKey: 'AIzaSyDx90UpJPU3woIjM7nmQhCYSDIL6foM1G0',
   authDomain: 'social-network-8a647.firebaseapp.com',
@@ -19,6 +17,7 @@ export const db = getFirestore(app);
 export const auth = getAuth(app);
 export const cerrarS = signOut(auth);
 export const currentUser = () => auth.currentUser;
+
 // Get a list of cities from your database
 async function getCities(db) {
   const citiesCol = collection(db, 'cities', id);
@@ -26,3 +25,4 @@ async function getCities(db) {
   const cityList = citySnapshot.docs.map((doc) => doc.data());
   return cityList;
 }
+

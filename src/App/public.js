@@ -1,8 +1,17 @@
 import {
-  addDoc, collection, deleteDoc, doc, getDoc, getDocs, updateDoc,
+  addDoc,
+  collection,
+  deleteDoc,
+  doc,
+  getDoc,
+  getDocs,
+  updateDoc,
 } from 'firebase/firestore';
 
-import { app, db } from './firebase';
+import {
+  app,
+  db,
+} from './firebase';
 
 export class HiGirlAPI {
   static getPosts() {
