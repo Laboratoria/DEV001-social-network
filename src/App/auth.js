@@ -14,8 +14,8 @@ import {
 import {
   goTo,
 } from './routes';
-
 // exportando función de login
+// const auth = getAuth();
 export const login = (email, password, changeHashFn) => {
   signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
     // Signed in

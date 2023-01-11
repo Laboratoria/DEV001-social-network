@@ -61,7 +61,6 @@ const onClickPublicar = () => {
       });
   });
 };
-
 export const Wall = (rootDiv) => {
   const templateWall = `<div class="contenedorWall">
   <div class="menu">
@@ -94,6 +93,9 @@ export const Wall = (rootDiv) => {
   };
   rootDiv.innerHTML = templateWall;
   volverAlHome();
+  cambiardeP();
+  onClickPublicar();
+  rootDiv.innerHTML = templateWall;
   cambiardeP();
   onClickPublicar();
 };

@@ -19,10 +19,10 @@ export class HiGirlAPI {
   }
 }
 
-export const guardarPost = (ownerId, contenido, datePost) => addDoc(collection(db, 'posts'), {
+export const guardarPost = (ownerId, contenido) => addDoc(collection(db, 'posts'), {
   content: contenido,
+  likes: 0,
   ownerId,
-  fecha: datePost,
 });
 
 export const obtenerPost = () => getDocs(collection(db, 'posts'));
