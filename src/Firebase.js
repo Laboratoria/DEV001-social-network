@@ -2,7 +2,7 @@
  import { initializeApp } from "firebase/app";
  import { getAnalytics } from "firebase/analytics";
  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
- import { onSnapshot, query, getFirestore, collection, addDoc } from "firebase/firestore";
+ import { onSnapshot, query, getFirestore, collection, addDoc, deleteDoc, doc } from "firebase/firestore";
  // TODO: Add SDKs for Firebase products that you want to use
  // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -23,17 +23,23 @@
  const analytics = getAnalytics(app);
  const auth = getAuth(app);
  const provider = new GoogleAuthProvider();
- const db = getFirestore(app);
+ export const db = getFirestore(app);
+
+
 
  export const subscribeCollection = () => {
+     //crear la promesa
      const q = query(collection(db, "Post"));
      const unsubscribe = onSnapshot(q, (querySnapshot) => {
+         const posts = [];
          querySnapshot.forEach((doc) => {
-             console.log(doc.data());
+             posts.push(doc.data());
          });
+         console.log(posts);
      });
+
+
  }
- subscribeCollection();
 
  export const registrarUsuario = (email, contraseña) => { //usamos mail y contraseña porque no están en Firebase
      return createUserWithEmailAndPassword(auth, email, contraseña); //debe contener tal cual el nombre de los parámetros de arriba
@@ -56,12 +62,13 @@
          contenidoPost: postValue,
          nombreUsuario: user.displayName,
          email: user.email,
-         date: new Date(),
+         date: new Date().toLocaleString(),
 
      });
      return docRef;
  }
 
+ export const eliminarPublicacion = id => deleteDoc(doc(db, "Post", id));
 
  //el displayName sólo funciona con Google
 

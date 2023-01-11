@@ -1,11 +1,13 @@
-import { doc } from "firebase/firestore";
-import { publicarPost } from "../Firebase";
+import { collection, doc, onSnapshot } from "firebase/firestore";
+import { db, publicarPost, subscribeCollection, eliminarPublicacion } from "../Firebase";
+import { Home } from "./Home";
 
 export const Wall = (onNavigate) => {
     const HomeDiv = document.createElement('div');
     HomeDiv.className = 'contenedorMuro';
 
     const publicacionesDiv = document.createElement('div');
+    publicacionesDiv.id = 'publicaciones';
     //INPUT POST
     const post = document.createElement('textarea');
     post.className = 'post';
@@ -28,8 +30,65 @@ export const Wall = (onNavigate) => {
     buttonHome.addEventListener('click', () => onNavigate('/'));
     HomeDiv.appendChild(buttonHome);
 
-    //FUNCION POSTEO
+    onSnapshot(collection(db, 'Post'), querySnapshot => {
+        publicacionesDiv.innerHTML = '';
+        console.log('HA HABIDO UN CAMBIO EN LA BASE DE DATOS')
 
+        querySnapshot.forEach(doc => {
+            console.log(doc.id)
+            let contenidoPost = document.createElement("p"); //creo una variable para las fotos de la data
+            let nombreUsuario = document.createElement("p"); //el nombre del pokemon de la data
+            let email = document.createElement("p"); //el número del pokemon extraído de la data
+            let date = document.createElement("p");
+
+            const botonEliminar = document.createElement('button');
+            botonEliminar.className = 'eliminar';
+            botonEliminar.textContent = 'Borrar Post';
+            botonEliminar.setAttribute("data-id", doc.id);
+
+            const botonEditar = document.createElement('button');
+            botonEditar.className = 'editar';
+            botonEditar.textContent = 'Editar';
+            botonEditar.setAttribute("data-id", doc.id);
+
+
+            contenidoPost.innerHTML = `${doc.data().contenidoPost}`
+            nombreUsuario.innerHTML = `${doc.data().nombreUsuario}`
+            email.innerHTML = `${doc.data().email}`
+            date.innerHTML = `${doc.data().date}`
+            publicacionesDiv.appendChild(contenidoPost);
+            publicacionesDiv.appendChild(nombreUsuario);
+            publicacionesDiv.appendChild(email);
+            publicacionesDiv.appendChild(date);
+            publicacionesDiv.appendChild(botonEditar);
+            publicacionesDiv.appendChild(botonEliminar);
+
+
+        })
+
+
+        const botonesEliminar = publicacionesDiv.querySelectorAll('.eliminar');
+        // console.log(botonesEliminar)
+
+        botonesEliminar.forEach(boton => {
+            boton.addEventListener('click', ({ target: { dataset } }) => {
+                eliminarPublicacion(dataset.id)
+            })
+
+        })
+        const botonesEditar = publicacionesDiv.querySelectorAll('.editar');
+        botonesEditar.forEach(boton => {
+            console.log(boton)
+        })
+
+    })
+
+
+
+    HomeDiv.appendChild(publicacionesDiv)
+
+
+    //FUNCION POSTEO
 
     botonPost.addEventListener('click', (e) => {
         e.preventDefault()
@@ -38,22 +97,7 @@ export const Wall = (onNavigate) => {
         publicarPost(posteo).then((exito) => {
             console.log(exito);
 
-            contenido.innerHTML = '' //Se limpian los datos
 
-            mostrar.forEach(doc => {
-
-                    const mostrarPublicacion = doc.data()
-                    contenido += `
-                   <div>
-                   <h3>${mostrarPublicacion.contenidoPost} 
-
-
-                    `
-                }
-
-            )
-
-            publicacionesDiv.innerHTML = contenido;
 
 
         }).catch((error) => {
@@ -61,11 +105,7 @@ export const Wall = (onNavigate) => {
         })
     })
 
-    //         const mostrartodo = (mostrar) => { //Antes de hacer lo que sea hay que limpiar el espacio*****
-    //             tarjeta.innerHTML = '' //Se limpian los datos
 
-
-    // }
     return HomeDiv;
 
 
