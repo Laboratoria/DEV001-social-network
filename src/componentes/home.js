@@ -26,9 +26,9 @@ export const Home = (rootDiv, changeHashFn) => {
     <div class="texto1">
       <p class="parrafo">Ingresa al sitio</p>
     </div>
-    <input type="text" class="input" id="Email" placeholder=" Correo Electrónico" required>
-    <input type="password" class="input" id="Password" placeholder=" Contraseña" required>
-    <button class="btnLogin " id="buttonLogin" type="submit" role="link">Iniciar Sesión</button>
+    <input type="text" class="input" id="Email" placeholder=" Correo ElectrÃ³nico" required>
+    <input type="password" class="input" id="Password" placeholder=" ContraseÃ±a" required>
+    <button class="btnLogin " id="buttonLogin" type="submit" role="link">Iniciar SesiÃ³n</button>
     <div class="texto2">
       <p> ---- o ---- </p>
       </p>
@@ -38,7 +38,7 @@ export const Home = (rootDiv, changeHashFn) => {
       con Google
     </button>
     <div class="texto3">
-      <p>¿Aún no tienes una cuenta? <a id="a" href='/register' class="linkRegister">Regístrate</a></p>
+      <p>Â¿AÃºn no tienes una cuenta? <a id="a" href='/register' class="linkRegister">RegÃ­strate</a></p>
     </div>
   </div> 
   </div>
