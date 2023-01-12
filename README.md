@@ -10,6 +10,8 @@
 Higirl es una red social diseñado para aquellas mujeres a quienes les gusta practicar actividades al aire libre, especificamente (senderismo, trekking, montañismo o Hiking)A través de esta app podrás compartir tips de rutas y senderos, igualmente podrás integrarte a una comunidad en la cual te sentirás completamente segura y acompañada.
 
 ## 2. Interfaz del Proyecto
+![image](https://user-images.githubusercontent.com/113813482/211973101-0261775b-4c55-4b96-a6cc-b13f1120deab.png)
+
 "Historia de usuario 1"
 ![image](https://user-images.githubusercontent.com/113813482/211973312-a9c54ba6-40f8-4696-9a8e-6f7ca1f49be9.png)
 "Historia de usuario 2"
