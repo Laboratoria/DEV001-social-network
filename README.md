@@ -18,6 +18,8 @@ Higirl es una red social diseñado para aquellas mujeres a quienes les gusta pra
 
 <a href="https://ibb.co/2P6gzwR"><img src="https://i.ibb.co/sQPyThc/Captura-de-Pantalla-2023-01-12-a-la-s-20-37-58.png" alt="Captura-de-Pantalla-2023-01-12-a-la-s-20-37-58" border="0"></a>
 
+<a href="https://ibb.co/PTN07gt"><img src="https://i.ibb.co/pWx5tdn/Captura-de-Pantalla-2023-01-12-a-la-s-20-40-51.png" alt="Captura-de-Pantalla-2023-01-12-a-la-s-20-40-51" border="0"></a>
+
 ## 3. Quiénes son los usuarios y los objetivos en relación con el producto
 Nuestra App está dirigida a todas las mujeres que deseen ser parte de una comunidad llena de sororidad para prácticar su deporte favorito de forma segura.
 
