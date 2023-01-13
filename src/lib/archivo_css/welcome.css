@@ -1,0 +1,132 @@
+/*------- WELCOME------*/
+
+.divWelcome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--white);
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6));
+    width: 70vw;
+    padding: 5vh;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px #230704;
+}
+
+.introText {
+    text-align: center;
+    margin: 1em 0;
+    font-size: 2vh;
+}
+
+.btnSignIn {
+    background-color: var(--cape-palliser);
+    color: var(--white);
+    border-style: none;
+    cursor: pointer;
+    opacity: 0.9;
+    border-radius: 3px;
+    margin: 1em 0;
+    letter-spacing: 1px;
+    padding: 1%;
+    font-size: 1em;
+    min-width: 13rem;
+}
+
+.btnSignIn:hover {
+    opacity: 1;
+}
+
+.btnSignUp {
+    background-color: var(--wood-bark);
+    border-style: none;
+    border-radius: 3px;
+    color: var(--white);
+    cursor: pointer;
+    letter-spacing: 1px;
+    opacity: 0.8;
+    padding: 1%;
+    font-size: 1em;
+    min-width: 13rem;
+}
+
+.btnSignUp:hover {
+    opacity: 1;
+}
+/**------- WELCOME Responsive ------*/
+@media only screen and (max-width:300px) {
+    .divWelcome {
+        width: 80%;
+        padding: 15%;
+    }
+    .logo {
+        width: 60%;
+        height: 60%;
+    }
+    .btnSignIn {
+
+        font-size: 1em;
+        padding: 1%;
+        min-width: 10rem;
+    }
+    .btnSignUp {
+        font-size: 1em;
+        padding: 1%;
+        min-width: 10rem;
+    }
+    .introText {
+        text-align: center;
+        margin: 1em 0;
+        font-size: 2vh;
+    }
+}
+@media only screen and (min-width:577px) {
+
+    .divWelcome {
+        width: auto;
+        padding: 8%;
+    }
+    .introText {
+        font-size: 2.5vh;
+    }
+    .btnSignIn {
+        font-size: 1.1em;
+        padding: 1%;
+        min-width: 15rem;
+    }
+    .btnSignUp {
+        font-size: 1.1em;
+        padding: 1%;
+        min-width: 15rem;
+    }
+    .logo {
+        width: 60%;
+        height: 60%;
+    }
+}
+@media only screen and (min-width:1023px) {
+    .divWelcome {
+        width: 30%;
+        padding: 5%;
+    }
+    .logo {
+        width: 50%;
+        height: 50%;
+    }
+    .btnSignIn {
+        padding: 1%;
+        font-size: 1.5em;
+        min-width: 15rem;
+    }
+    .btnSignUp {
+        padding: 1%;
+        font-size: 1.5em;
+        min-width: 15rem;
+
+    }
+
+}
