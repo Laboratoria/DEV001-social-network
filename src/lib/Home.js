@@ -47,11 +47,11 @@ export const Home = (onNavigate) => {
     frase3.textContent = '¿Qué deseas hacer?'
     cuadroDiv.appendChild(frase3);
 
-    //FONDO
-    const fondoHome = document.createElement('img');
-    fondoHome.src = '../Imagenes/Home.jpg';
-    fondoHome.className = 'fondoHome';
-    HomeDiv.appendChild(fondoHome);
+    // //FONDO
+    // const fondoHome = document.createElement('img');
+    // fondoHome.src = '../Imagenes/Home.jpg';
+    // fondoHome.className = 'fondoHome';
+    // HomeDiv.appendChild(fondoHome);
 
     // //FONDO ESCRITORIO
     // const fondoEscritorio = document.createElement('img');

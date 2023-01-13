@@ -1,6 +1,5 @@
 import { collection, doc, onSnapshot } from "firebase/firestore";
 import { db, publicarPost, subscribeCollection, eliminarPublicacion } from "../Firebase";
-import { Home } from "./Home";
 
 export const Wall = (onNavigate) => {
     const HomeDiv = document.createElement('div');
@@ -71,15 +70,15 @@ export const Wall = (onNavigate) => {
         // console.log(botonesEliminar)
 
         botonesEliminar.forEach(boton => {
-            boton.addEventListener('click', ({ target: { dataset } }) => {
-                eliminarPublicacion(dataset.id)
-            })
+                boton.addEventListener('click', ({ target: { dataset } }) => {
+                    eliminarPublicacion(dataset.id)
+                })
 
-        })
-        const botonesEditar = publicacionesDiv.querySelectorAll('.editar');
-        botonesEditar.forEach(boton => {
-            console.log(boton)
-        })
+            })
+            // const botonesEditar = publicacionesDiv.querySelectorAll('.editar');
+            // botonesEditar.forEach(boton => {
+            //     console.log(boton)
+            // })
 
     })
 
@@ -94,15 +93,14 @@ export const Wall = (onNavigate) => {
         e.preventDefault()
         let posteo = document.getElementsByClassName('post')[0].value;
 
+
         publicarPost(posteo).then((exito) => {
-            console.log(exito);
+                console.log(exito);
 
-
-
-
-        }).catch((error) => {
-            console.log(error);
-        })
+            }).catch((error) => {
+                console.log(error);
+            })
+            // post.reset();
     })
 
 

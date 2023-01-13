@@ -2,7 +2,7 @@
  import { initializeApp } from "firebase/app";
  import { getAnalytics } from "firebase/analytics";
  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
- import { onSnapshot, query, getFirestore, collection, addDoc, deleteDoc, doc } from "firebase/firestore";
+ import { onSnapshot, query, getFirestore, collection, addDoc, deleteDoc, doc, orderBy } from "firebase/firestore";
  // TODO: Add SDKs for Firebase products that you want to use
  // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -20,7 +20,6 @@
 
  // Initialize Firebase
  const app = initializeApp(firebaseConfig);
- const analytics = getAnalytics(app);
  const auth = getAuth(app);
  const provider = new GoogleAuthProvider();
  export const db = getFirestore(app);
@@ -29,7 +28,8 @@
 
  export const subscribeCollection = () => {
      //crear la promesa
-     const q = query(collection(db, "Post"));
+     const q = query(collection(db, "Post"), orderBy('date', 'asc'));
+     console.log(orderBy)
      const unsubscribe = onSnapshot(q, (querySnapshot) => {
          const posts = [];
          querySnapshot.forEach((doc) => {
@@ -69,33 +69,3 @@
  }
 
  export const eliminarPublicacion = id => deleteDoc(doc(db, "Post", id));
-
- //el displayName sólo funciona con Google
-
-
- //  export const obtenerUsuario = ('Post', uid) => {
- //     addDoc(collection(db,'Post'), {
- //         contenidoPost: postValue, uid
- //     })
- //  }
-
-
- //  export const obtenerUsuario = (auth, (user) => {
- //      if (user) {
- //          user.email;
- //          // ...
- //      } else {
- //          // User is signed out
- //          // ...
- //      }
- //  });
-
-
-
- //  export const publicarPost = (postValue, idAutor) => {
- //     const docRef = addDoc(collection(db, "Post"), {
- //         contenidoPost: postValue,
- //         idAutor: idAutor,
- //     });
- //     return docRef;
- // }
