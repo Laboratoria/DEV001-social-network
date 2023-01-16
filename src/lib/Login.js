@@ -5,12 +5,7 @@ export const Login = (onNavigate) => {
     const HomeDiv = document.createElement('div');
     HomeDiv.className = 'contenedorLogin';
 
-    //BOTON VOLVER AL INCIO
-    const buttonHome = document.createElement('button');
-    buttonHome.textContent = 'Regresar al inicio';
-    buttonHome.className = 'salida';
-    HomeDiv.appendChild(buttonHome);
-    buttonHome.addEventListener('click', () => onNavigate('/'));
+
 
     //LOGO
     const logoHome = document.createElement('img');
@@ -52,6 +47,12 @@ export const Login = (onNavigate) => {
     buttonInicioSesion.className = 'botoniniciosesion';
     HomeDiv.appendChild(buttonInicioSesion);
 
+    //BOTON VOLVER AL INCIO
+    const buttonHome = document.createElement('button');
+    buttonHome.textContent = 'Regresar al inicio';
+    buttonHome.className = 'salida';
+    HomeDiv.appendChild(buttonHome);
+    buttonHome.addEventListener('click', () => onNavigate('/'));
 
     buttonInicioSesion.addEventListener('click', (e) => {
         e.preventDefault()
@@ -109,11 +110,11 @@ export const Login = (onNavigate) => {
     cuadroDiv.className = 'cuadroTransparente';
     HomeDiv.appendChild(cuadroDiv);
 
-    //FONDO
-    const fondoHome = document.createElement('img');
-    fondoHome.src = '../Imagenes/Login.jpg';
-    fondoHome.className = 'fondoHome';
-    HomeDiv.appendChild(fondoHome);
+    // //FONDO
+    // const fondoHome = document.createElement('img');
+    // fondoHome.src = '../Imagenes/Login.jpg';
+    // fondoHome.className = 'fondoHome';
+    // HomeDiv.appendChild(fondoHome);
 
 
     return HomeDiv;

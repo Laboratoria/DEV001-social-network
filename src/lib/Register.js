@@ -5,13 +5,6 @@ import { registrarUsuario } from "../Firebase";
 export const Register = (onNavigate) => {
     const HomeDiv = document.createElement('div');
     HomeDiv.className = 'contenedorRegister';
-    const buttonHome = document.createElement('button');
-    buttonHome.className = 'salida1';
-
-    buttonHome.textContent = 'Regresar al inicio';
-
-    buttonHome.addEventListener('click', () => onNavigate('/'));
-    HomeDiv.appendChild(buttonHome);
 
     //LOGO
     const logoHome = document.createElement('img');
@@ -53,6 +46,15 @@ export const Register = (onNavigate) => {
     buttonRegistro.textContent = 'Registrarte';
     buttonRegistro.className = 'botonregistro';
     HomeDiv.appendChild(buttonRegistro);
+
+    const buttonHome = document.createElement('button');
+    buttonHome.className = 'salida1';
+
+    buttonHome.textContent = 'Regresar al inicio';
+
+    buttonHome.addEventListener('click', () => onNavigate('/'));
+    HomeDiv.appendChild(buttonHome);
+
 
     buttonRegistro.addEventListener('click', (e) => {
         e.preventDefault()

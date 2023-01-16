@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Los test del Registro Snapshot del registro 1`] = `
+<div
+  class="contenedorRegister"
+>
+  <img
+    class="logoHome"
+    src="../Imagenes/Logo.png"
+  />
+  <p
+    class="frase"
+  >
+    Tu red social especializada en Manga
+  </p>
+  <p
+    class="frase2"
+  >
+    Regístrate
+  </p>
+  <input
+    class="correo"
+    placeholder="Email"
+    type="email"
+  />
+  <input
+    class="password"
+    placeholder="Contraseña"
+    type="password"
+  />
+  <button
+    class="botonregistro"
+  >
+    Registrarte
+  </button>
+  <button
+    class="salida1"
+  >
+    Regresar al inicio
+  </button>
+  <div
+    class="cuadroTransparente2"
+  />
+  <img
+    class="fondoRegister"
+    src="../Imagenes/Register.jpg"
+  />
+</div>
+`;

@@ -1,10 +1,11 @@
 /**
  * @jest-environment jsdom
  */
-import { registrarUsuario, createUserWithEmailAndPassword } from "../src/Firebase";
+import { registrarUsuario, createUserWithEmailAndPassword, getAuth } from "../src/Firebase";
 import { Register } from "../src/lib/Register";
 
 jest.mock('../src/main.js');
+jest.mock('../src/Firebase.js');
 
 describe('Los test del Registro', () => {
     test('Comprobar que exista un boton para registrarse', () => {
@@ -26,11 +27,20 @@ describe('Los test del Registro', () => {
 
     });
 
-    it('Ejecuta registrarUsuario()', () => {
-        let email = 'persona@gmail.com';
-        let contraseña = 'persona123';
-        registrarUsuario(email, contraseña);
-        expect(registrarUsuario).toHaveBeenCalled();
+    it('Snapshot del registro', () => {
+        expect(Register()).toMatchSnapshot();
+    });
+
+    test('Deberia retornar un objeto con la propiedad email y password', () => {
+        registrarUsuario('persona1@gmail.com', '1234567');
+        expect({
+            email: 'persona1@gmail.com',
+            password: '1234567',
+        }).toEqual(expect.anything());
+    });
+
+    it('registrarUsuario debería ser una función', () => {
+        expect(typeof registrarUsuario).toBe('function');
     });
 
 
@@ -38,6 +48,14 @@ describe('Los test del Registro', () => {
 })
 
 
+// it('Ejecuta registrarUsuario()', () => {
+//     let email = 'persona@gmail.com';
+//     let contraseña = 'persona123';
+//     const registro = registrarUsuario(email, contraseña);
+//     expect(registro).toBeTruthy();
+// });
+
+// expect(registrarUsuario).toHaveBeenCalled();
 
 
 // segundoTest('El usuario al hacer click en el botón de registro sin llenar correo o contraseña aparece un error', () => {

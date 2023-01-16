@@ -7,6 +7,12 @@ export const Home = (onNavigate) => {
     cuadroDiv.className = 'cuadroTransparente';
     HomeDiv.appendChild(cuadroDiv);
 
+    //LOGO
+    const logoHome = document.createElement('img');
+    logoHome.src = '../Imagenes/Logo.png';
+    logoHome.className = 'logoHome';
+    cuadroDiv.appendChild(logoHome);
+
     const buttonRegister = document.createElement('button');
     const buttonLogin = document.createElement('button');
 
@@ -23,11 +29,7 @@ export const Home = (onNavigate) => {
     cuadroDiv.appendChild(buttonRegister);
     cuadroDiv.appendChild(buttonLogin);
 
-    //LOGO
-    const logoHome = document.createElement('img');
-    logoHome.src = '../Imagenes/Logo.png';
-    logoHome.className = 'logoHome';
-    cuadroDiv.appendChild(logoHome);
+
 
     //Frase Bajada
     const frase = document.createElement('p');
