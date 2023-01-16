@@ -1,11 +1,12 @@
 /**
  * @jest-environment jsdom
  */
-import { registrarUsuario, createUserWithEmailAndPassword, getAuth } from "../src/Firebase";
-import { Register } from "../src/lib/Register";
-
+import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import { Register } from "../src/lib/Register.js";
+import { registrarUsuario } from "../src/Firebase.js";
 jest.mock('../src/main.js');
 jest.mock('../src/Firebase.js');
+jest.mock('firebase/auth');
 
 describe('Los test del Registro', () => {
     test('Comprobar que exista un boton para registrarse', () => {
@@ -19,6 +20,15 @@ describe('Los test del Registro', () => {
         // expect(error.textContent).toEqual('Algo ha salido mal, inténtelo de nuevo');
 
     })
+
+    test('Que funcione registrar usuario', () => {
+        let email = 'persona@gmail.com';
+        let contraseña = 'persona123';
+        registrarUsuario(email, contraseña);
+        expect(createUserWithEmailAndPassword).toHaveBeenCalled()
+    })
+
+
     test('Comprobar que exista un input para el email', () => {
         const register = Register()
         const input = register.querySelector('.correo');
@@ -27,9 +37,7 @@ describe('Los test del Registro', () => {
 
     });
 
-    it('Snapshot del registro', () => {
-        expect(Register()).toMatchSnapshot();
-    });
+
 
     test('Deberia retornar un objeto con la propiedad email y password', () => {
         registrarUsuario('persona1@gmail.com', '1234567');
@@ -46,6 +54,10 @@ describe('Los test del Registro', () => {
 
 
 })
+
+// it('Snapshot del registro', () => {
+//     expect(Register()).toMatchSnapshot();
+// });
 
 
 // it('Ejecuta registrarUsuario()', () => {

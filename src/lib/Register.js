@@ -6,23 +6,28 @@ export const Register = (onNavigate) => {
     const HomeDiv = document.createElement('div');
     HomeDiv.className = 'contenedorRegister';
 
+    //CUADRO TRANSPARENTE
+    const cuadroDiv = document.createElement('div');
+    cuadroDiv.className = 'cuadroTransparente';
+    HomeDiv.appendChild(cuadroDiv);
+
     //LOGO
     const logoHome = document.createElement('img');
     logoHome.src = '../Imagenes/Logo.png';
     logoHome.className = 'logoHome';
-    HomeDiv.appendChild(logoHome);
+    cuadroDiv.appendChild(logoHome);
 
     //Frase Bajada
     const frase = document.createElement('p');
     frase.className = 'frase';
     frase.textContent = 'Tu red social especializada en Manga'
-    HomeDiv.appendChild(frase);
+    cuadroDiv.appendChild(frase);
 
     //Inicia sesión título
     const frase2 = document.createElement('p');
     frase2.className = 'frase2';
     frase2.textContent = 'Regístrate';
-    HomeDiv.appendChild(frase2);
+    cuadroDiv.appendChild(frase2);
 
 
     //INPUT EMAIL
@@ -30,14 +35,14 @@ export const Register = (onNavigate) => {
     inputEmail.className = 'correo';
     inputEmail.placeholder = 'Email';
     inputEmail.type = 'email';
-    HomeDiv.appendChild(inputEmail);
+    cuadroDiv.appendChild(inputEmail);
 
     //INPUT PASSWORD
     const inputpassword = document.createElement('input');
     inputpassword.className = 'password';
     inputpassword.placeholder = 'Contraseña';
     inputpassword.type = 'password';
-    HomeDiv.appendChild(inputpassword);
+    cuadroDiv.appendChild(inputpassword);
 
 
 
@@ -45,15 +50,15 @@ export const Register = (onNavigate) => {
     const buttonRegistro = document.createElement('button');
     buttonRegistro.textContent = 'Registrarte';
     buttonRegistro.className = 'botonregistro';
-    HomeDiv.appendChild(buttonRegistro);
+    cuadroDiv.appendChild(buttonRegistro);
 
     const buttonHome = document.createElement('button');
-    buttonHome.className = 'salida1';
+    buttonHome.className = 'salida';
 
     buttonHome.textContent = 'Regresar al inicio';
 
     buttonHome.addEventListener('click', () => onNavigate('/'));
-    HomeDiv.appendChild(buttonHome);
+    cuadroDiv.appendChild(buttonHome);
 
 
     buttonRegistro.addEventListener('click', (e) => {
@@ -76,23 +81,20 @@ export const Register = (onNavigate) => {
 
             registerError.textContent = 'Algo ha salido mal, inténtelo de nuevo';
 
-            HomeDiv.appendChild(registerError);
+            cuadroDiv.appendChild(registerError);
 
 
             // ...
         });
     })
 
-    //CUADRO TRANSPARENTE
-    const cuadroDivRegister = document.createElement('div');
-    cuadroDivRegister.className = 'cuadroTransparente2';
-    HomeDiv.appendChild(cuadroDivRegister);
 
-    //FONDO
-    const fondoRegister = document.createElement('img');
-    fondoRegister.src = '../Imagenes/Register.jpg';
-    fondoRegister.className = 'fondoRegister';
-    HomeDiv.appendChild(fondoRegister);
+
+    // //FONDO
+    // const fondoRegister = document.createElement('img');
+    // fondoRegister.src = '../Imagenes/Register.jpg';
+    // fondoRegister.className = 'fondoRegister';
+    // HomeDiv.appendChild(fondoRegister);
 
     return HomeDiv;
 

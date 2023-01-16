@@ -5,25 +5,28 @@ export const Login = (onNavigate) => {
     const HomeDiv = document.createElement('div');
     HomeDiv.className = 'contenedorLogin';
 
-
+    //CUADRO TRANSPARENTE
+    const cuadroDiv = document.createElement('div');
+    cuadroDiv.className = 'cuadroTransparente';
+    HomeDiv.appendChild(cuadroDiv);
 
     //LOGO
     const logoHome = document.createElement('img');
     logoHome.src = '../Imagenes/Logo.png';
     logoHome.className = 'logoHome';
-    HomeDiv.appendChild(logoHome);
+    cuadroDiv.appendChild(logoHome);
 
     //Frase Bajada
     const frase = document.createElement('p');
     frase.className = 'frase';
     frase.textContent = 'Tu red social especializada en Manga'
-    HomeDiv.appendChild(frase);
+    cuadroDiv.appendChild(frase);
 
     //Inicia sesión título
     const frase2 = document.createElement('p');
     frase2.className = 'frase2';
     frase2.textContent = 'Inicia sesión'
-    HomeDiv.appendChild(frase2);
+    cuadroDiv.appendChild(frase2);
 
 
     //INPUT EMAIL
@@ -31,7 +34,7 @@ export const Login = (onNavigate) => {
     inputEmail.className = 'correo';
     inputEmail.placeholder = 'Email';
     inputEmail.type = 'email';
-    HomeDiv.appendChild(inputEmail);
+    cuadroDiv.appendChild(inputEmail);
 
 
     //INPUT PASSWORD
@@ -39,19 +42,19 @@ export const Login = (onNavigate) => {
     inputpassword.className = 'password';
     inputpassword.placeholder = 'Contraseña';
     inputpassword.type = 'password';
-    HomeDiv.appendChild(inputpassword);
+    cuadroDiv.appendChild(inputpassword);
 
     //BOTÓN INICIO SESIÓN
     const buttonInicioSesion = document.createElement('button');
     buttonInicioSesion.textContent = 'Iniciar Sesión';
     buttonInicioSesion.className = 'botoniniciosesion';
-    HomeDiv.appendChild(buttonInicioSesion);
+    cuadroDiv.appendChild(buttonInicioSesion);
 
     //BOTON VOLVER AL INCIO
     const buttonHome = document.createElement('button');
     buttonHome.textContent = 'Regresar al inicio';
     buttonHome.className = 'salida';
-    HomeDiv.appendChild(buttonHome);
+    cuadroDiv.appendChild(buttonHome);
     buttonHome.addEventListener('click', () => onNavigate('/'));
 
     buttonInicioSesion.addEventListener('click', (e) => {
@@ -72,7 +75,7 @@ export const Login = (onNavigate) => {
             const loginError = document.createElement('p');
             loginError.className = 'error';
             loginError.textContent = 'Algo ha salido mal, inténtelo de nuevo';
-            HomeDiv.appendChild(loginError);
+            cuadroDiv.appendChild(loginError);
 
 
             // ...
@@ -86,7 +89,7 @@ export const Login = (onNavigate) => {
     const buttonGoogle = document.createElement('button');
     buttonGoogle.textContent = 'Conéctate con Google';
     buttonGoogle.className = 'botongoogle';
-    HomeDiv.appendChild(buttonGoogle);
+    cuadroDiv.appendChild(buttonGoogle);
 
     buttonGoogle.addEventListener('click', (e) => {
         e.preventDefault()
@@ -105,10 +108,7 @@ export const Login = (onNavigate) => {
         })
     })
 
-    //CUADRO TRANSPARENTE
-    const cuadroDiv = document.createElement('div');
-    cuadroDiv.className = 'cuadroTransparente';
-    HomeDiv.appendChild(cuadroDiv);
+
 
     // //FONDO
     // const fondoHome = document.createElement('img');
