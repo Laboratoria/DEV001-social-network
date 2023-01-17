@@ -60,6 +60,8 @@ export const Login = (onNavigate) => {
     buttonInicioSesion.addEventListener('click', (e) => {
         e.preventDefault()
 
+
+
         let email = document.getElementsByClassName('correo')[0].value;
         let contraseña = document.getElementsByClassName('password')[0].value;
 
@@ -71,10 +73,12 @@ export const Login = (onNavigate) => {
 
             // ...
         }).catch((error) => {
+
             console.log(error);
             const loginError = document.createElement('p');
             loginError.className = 'error';
             loginError.textContent = 'Algo ha salido mal, inténtelo de nuevo';
+            // document.getElementById('loginError').innerHTML = '';
             cuadroDiv.appendChild(loginError);
 
 

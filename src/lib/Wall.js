@@ -20,14 +20,7 @@ export const Wall = (onNavigate) => {
     botonPost.textContent = 'Postear';
     HomeDiv.appendChild(botonPost);
 
-    //BOTÓN CERRAR SESIÓN
-    const buttonHome = document.createElement('button');
-    buttonHome.className = 'salida2';
 
-    buttonHome.textContent = 'Cerrar Sesión';
-
-    buttonHome.addEventListener('click', () => onNavigate('/'));
-    HomeDiv.appendChild(buttonHome);
 
     onSnapshot(collection(db, 'Post'), querySnapshot => {
         publicacionesDiv.innerHTML = '';
@@ -50,6 +43,11 @@ export const Wall = (onNavigate) => {
             botonEditar.textContent = 'Editar';
             botonEditar.setAttribute("data-id", doc.id);
 
+            contenidoPost.className = 'publicaciones';
+            nombreUsuario.className = 'descripcion';
+            email.className = 'descripcion';
+            date.className = 'descripcion';
+
 
             contenidoPost.innerHTML = `${doc.data().contenidoPost}`
             nombreUsuario.innerHTML = `${doc.data().nombreUsuario}`
@@ -59,7 +57,7 @@ export const Wall = (onNavigate) => {
             publicacionesDiv.appendChild(nombreUsuario);
             publicacionesDiv.appendChild(email);
             publicacionesDiv.appendChild(date);
-            publicacionesDiv.appendChild(botonEditar);
+            // publicacionesDiv.appendChild(botonEditar);
             publicacionesDiv.appendChild(botonEliminar);
 
 
@@ -103,6 +101,14 @@ export const Wall = (onNavigate) => {
             // post.reset();
     })
 
+    //BOTÓN CERRAR SESIÓN
+    const buttonHome = document.createElement('button');
+    buttonHome.className = 'salida2';
+
+    buttonHome.textContent = 'Cerrar Sesión';
+
+    buttonHome.addEventListener('click', () => onNavigate('/'));
+    HomeDiv.appendChild(buttonHome);
 
     return HomeDiv;
 

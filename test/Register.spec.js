@@ -1,12 +1,13 @@
 /**
  * @jest-environment jsdom
  */
-import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { Register } from "../src/lib/Register.js";
-import { registrarUsuario } from "../src/Firebase.js";
-jest.mock('../src/main.js');
-jest.mock('../src/Firebase.js');
-jest.mock('firebase/auth');
+import { loginUsuario, registrarUsuario, registroGoogle } from "../src/Firebase.js";
+import { async } from "regenerator-runtime";
+// jest.mock('../src/main.js');
+// jest.mock('../src/Firebase.js');
+// jest.mock('firebase/auth');
 
 describe('Los test del Registro', () => {
     test('Comprobar que exista un boton para registrarse', () => {
@@ -14,19 +15,17 @@ describe('Los test del Registro', () => {
         const boton = register.querySelector('.botonregistro');
         expect(boton).not.toBeNull();
 
-
-        // boton.click()
-        // const error = register.querySelector('.error');
-        // expect(error.textContent).toEqual('Algo ha salido mal, inténtelo de nuevo');
-
     })
 
-    test('Que funcione registrar usuario', () => {
-        let email = 'persona@gmail.com';
-        let contraseña = 'persona123';
-        registrarUsuario(email, contraseña);
+    test('Que funcione registrar usuario', async() => {
+        const email = 'persona@gmail.com';
+        const contraseña = 'persona123';
+        const callback = jest.fn();
+        await registrarUsuario(email, contraseña, callback);
         expect(createUserWithEmailAndPassword).toHaveBeenCalled()
     })
+
+
 
 
     test('Comprobar que exista un input para el email', () => {
@@ -55,10 +54,31 @@ describe('Los test del Registro', () => {
 
 })
 
-// it('Snapshot del registro', () => {
-//     expect(Register()).toMatchSnapshot();
-// });
 
+describe('Los test del Login', () => {
+    test('Que funcione logear usuario', async() => {
+        const email = 'persona@gmail.com';
+        const contraseña = 'persona123';
+        const callback = jest.fn();
+        await loginUsuario(email, contraseña, callback);
+        expect(signInWithEmailAndPassword).toHaveBeenCalled()
+    })
+
+
+    it('Debe validar el usuario registrado desde google', () => {
+        signInWithPopup.mockImplementation(() => Promise.resolve('persona01@gmail.com'));
+        registroGoogle(signInWithPopup);
+
+        expect(signInWithPopup).toBeCalled();
+    });
+
+    // it('Debería poder ingresar con Google', () => {
+    //     const provider = new GoogleAuthProvider();
+    //     registroGoogle(getAuth(), provider).then(() => {
+    //         expect(signInWithPopup).toHaveBeenCalledWith(getAuth(), provider);
+    //     });
+    // });
+})
 
 // it('Ejecuta registrarUsuario()', () => {
 //     let email = 'persona@gmail.com';
