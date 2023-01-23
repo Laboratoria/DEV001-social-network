@@ -79,23 +79,3 @@ describe('Los test del Login', () => {
     //     });
     // });
 })
-
-// it('Ejecuta registrarUsuario()', () => {
-//     let email = 'persona@gmail.com';
-//     let contraseña = 'persona123';
-//     const registro = registrarUsuario(email, contraseña);
-//     expect(registro).toBeTruthy();
-// });
-
-// expect(registrarUsuario).toHaveBeenCalled();
-
-
-// segundoTest('El usuario al hacer click en el botón de registro sin llenar correo o contraseña aparece un error', () => {
-//     const register = Register()
-//     const error = register.querySelector('.error');
-//     const boton = register.querySelector('.botonregistro');
-//     boton.click()
-//     const correo = register.querySelector('.correo');
-//     const contraseña = register.querySelector('.password');
-
-// document.body.innerHTML = '<input class="correo"></input> <input class="password"></input>';
