@@ -1,0 +1,98 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+  }
+  body {
+    background-size: contain;
+    background-position: center;
+    background-blend-mode: screen;
+  }
+#root{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+.menu {
+  width: 1385px;
+  padding-bottom: 5px;
+  background-color: darkseagreen;
+  border-color: darkseagreen;
+}
+.contenedorTodo{
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction:row;
+}
+.postContainer{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  margin-top: 30px;
+    margin-left: 10%;
+}
+.textareaPost{
+    padding: 10px;
+    padding-inline-start: 40px;
+    background-color:beige;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    border: 2px solid #1FD1B5;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14px;
+    outline: inherit;
+    width: 70%;
+    height: 120px;
+    margin-top: 13px;
+}
+.textareaPost:hover  {
+    background-color:rgb(188, 225, 188)
+}
+.volver{
+  margin-right: 5%;
+}
+.btnCerrarS, .volver {
+  background-color: #ef6973;
+  text-decoration: none;
+  width: 10%;
+  height: 35px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border: 1px solid #1fd1b5;
+  font-size: 15px;
+    color:antiquewhite;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.imgPost{
+  width: 50%;
+  height: 500px;
+  margin-right: 70px;
+  background-attachment:local;
+}
+.imagenPost{
+  display: block;
+  width: 80%;
+  height: 500px;
+  border-radius: 10px;
+  margin-top: 20%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.btnEditar, .btnEliminar {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+  background-color:rgba(60, 193, 60, 0.679)
+}
+.btnCancelar, .btnActualizar {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+  background-color:#ef7f87;
+}
+
+@media screen and (max-width: 700px) {
+  
+}

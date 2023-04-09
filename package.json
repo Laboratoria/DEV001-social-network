@@ -14,8 +14,8 @@
     "htmlhint": "htmlhint dist/*.html ",
     "eslint": "eslint --ext .js src/ test/",
     "stylelint": "stylelint --aei src/**/*.css",
-    "pretest": "npm run htmlhint && npm run eslint && npm run stylelint",
-    "test": "jest --coverage",
+    "_pretest": "npm run htmlhint && npm run eslint && npm run stylelint",
+    "test": "jest --coverage --env=jsdom",
     "start": "npm run dev",
     "dev": "vite dev src",
     "build": "vite build",
@@ -37,5 +37,8 @@
   },
   "engines": {
     "node": ">=16.x"
+  },
+  "dependencies": {
+    "firebase": "^9.14.0"
   }
 }
